@@ -1,0 +1,67 @@
+
+# Admin area specific rules
+
+# Restrict access to authorized users
+AuthType Basic
+AuthName "Admin Area"
+AuthUserFile /path/to/.htpasswd
+Require valid-user
+
+# Prevent directory listings
+Options -Indexes
+
+# Handle errors
+ErrorDocument 401 /admin/login.php
+ErrorDocument 403 /admin/login.php
+ErrorDocument 404 /admin/404.php
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Frame-Options "DENY"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "(\.htaccess|\.htpasswd|\.user|\.log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# PHP settings for admin area
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_value error_log /path/to/admin-error.log
+    php_value max_execution_time 120
+    php_value memory_limit 256M
+    php_value post_max_size 64M
+    php_value upload_max_filesize 64M
+</IfModule>
+
+# Rewrite rules for clean URLs
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /admin/
+    
+    # Redirect to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Admin dashboard
+    RewriteRule ^dashboard/?$ index.php?section=dashboard [L,QSA]
+    
+    # Users management
+    RewriteRule ^users/?$ index.php?section=users [L,QSA]
+    RewriteRule ^users/add/?$ index.php?section=users&action=add [L,QSA]
+    RewriteRule ^users/edit/([0-9]+)/?$ index.php?section=users&action=edit&id=$1 [L,QSA]
+    
+    # Content management
+    RewriteRule ^content/?$ index.php?section=content [L,QSA]
+    RewriteRule ^content/add/?$ index.php?section=content&action=add [L,QSA]
+    RewriteRule ^content/edit/([0-9]+)/?$ index.php?section=content&action=edit&id=$1 [L,QSA]
+    
+    # Settings
+    RewriteRule ^settings/?$ index.php?section=settings [L,QSA]
+</IfModule>

@@ -1,0 +1,11 @@
+{
+    "name": "groupe/p_i_m_p",
+    "description": "A Business Directory Based on Trust",
+    "type": "project",
+    "authors": [
+        {
+            "name": "groupe"
+        }
+    ],
+    "require": {}
+}
