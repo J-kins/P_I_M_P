@@ -16,6 +16,7 @@
  * @param int    $timeout  Auto-close timeout in ms (0 for no auto-close)
  * @return string HTML output
  */
+/*
 function toast($type = 'neutral', $title = '', $message = '', $closable = true, $timeout = 0) {
     // Define toast types with their icons and colors
     $types = [
@@ -79,6 +80,7 @@ function toast($type = 'neutral', $title = '', $message = '', $closable = true, 
     <?php endif;
     return ob_get_clean();
 }
+*/
 
 /**
  * Toast group for showing multiple toasts in a container

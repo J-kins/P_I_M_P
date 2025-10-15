@@ -1,0 +1,18 @@
+{
+  "name": "P_I_M_P",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.2",
+  "dependencies": {
+    "eslint": "file:../../../home/shyline/projects/SOURCES/LIBS/eslint-9.28.0.tgz",
+    "pnpm": "file:/home/shyline/projects/SOURCES/LIBS/pnpm-10.18.2.tgz",
+    "typescript": "file:/home/shyline/projects/SOURCES/LIBS/typescript-5.8.3.tgz"
+  }
+}

@@ -25,6 +25,8 @@ function route($route = null) {
         'home' => 'home.php',
         'dashboard' => 'dashboard.php',
         'spreadsheet' => 'spreadsheet.php',
+        'contact' => 'contact.php',
+        'about' => 'about.php',
         // Add more routes as needed
     ];
     
