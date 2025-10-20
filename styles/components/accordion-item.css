@@ -1,0 +1,311 @@
+/* Accordion Item Component Styles */
+/* Provides styling for collapsible accordion items with multiple variants and states */
+
+.accordion-item {
+  @apply relative;
+}
+
+/* Base Container Variants */
+.accordion-item--default {
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.accordion-item--bordered {
+  @apply border border-gray-200 dark:border-gray-700 rounded-lg mb-2;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.accordion-item--filled {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-lg mb-2;
+  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Header Button Styles */
+.accordion-header {
+  @apply w-full flex items-center justify-between text-left font-medium;
+  @apply text-gray-900 dark:text-white transition-colors duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-800;
+}
+
+.accordion-header:not(:disabled):hover {
+  @apply transition-all duration-200;
+}
+
+.accordion-header--default:not(:disabled):hover {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+.accordion-header--bordered:not(:disabled):hover {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-t-lg;
+}
+
+.accordion-header--filled:not(:disabled):hover {
+  @apply bg-gray-100 dark:bg-gray-700 rounded-t-lg;
+}
+
+.accordion-header:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Header Content */
+.accordion-header__content {
+  @apply flex items-center space-x-3 flex-1;
+}
+
+.accordion-header__icon {
+  @apply text-gray-500 dark:text-gray-400 transition-colors duration-200;
+}
+
+.accordion-header__title {
+  @apply flex-1 font-medium;
+}
+
+.accordion-header__badge {
+  @apply ml-auto;
+}
+
+/* Chevron Icon */
+.accordion-chevron {
+  @apply text-gray-500 dark:text-gray-400 transform transition-transform duration-200;
+}
+
+.accordion-chevron--open {
+  @apply rotate-180;
+}
+
+/* Size Variants */
+.accordion-header--sm {
+  @apply px-4 py-3 text-sm;
+}
+
+.accordion-header--sm .accordion-header__icon,
+.accordion-header--sm .accordion-chevron {
+  @apply w-4 h-4;
+}
+
+.accordion-header--md {
+  @apply px-6 py-4 text-base;
+}
+
+.accordion-header--md .accordion-header__icon,
+.accordion-header--md .accordion-chevron {
+  @apply w-5 h-5;
+}
+
+.accordion-header--lg {
+  @apply px-8 py-6 text-lg;
+}
+
+.accordion-header--lg .accordion-header__icon,
+.accordion-header--lg .accordion-chevron {
+  @apply w-6 h-6;
+}
+
+/* Content Styles */
+.accordion-content {
+  @apply overflow-hidden transition-all duration-300 ease-in-out;
+}
+
+.accordion-content--closed {
+  @apply max-h-0 opacity-0;
+}
+
+.accordion-content--open {
+  @apply opacity-100;
+  max-height: 2000px; /* Large enough for most content */
+}
+
+.accordion-content__inner {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.accordion-content__inner--default {
+  @apply bg-white dark:bg-gray-900;
+}
+
+.accordion-content__inner--bordered {
+  @apply bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700;
+}
+
+.accordion-content__inner--filled {
+  @apply bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700;
+}
+
+/* Content Padding Variants */
+.accordion-content__inner--sm {
+  @apply px-4 py-3;
+}
+
+.accordion-content__inner--md {
+  @apply px-6 py-4;
+}
+
+.accordion-content__inner--lg {
+  @apply px-8 py-6;
+}
+
+/* Hover Effects */
+.accordion-item:hover .accordion-header__icon {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.accordion-item:hover .accordion-chevron {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Focus State */
+.accordion-header:focus-visible {
+  @apply ring-2 ring-blue-500 ring-offset-2 rounded-lg;
+}
+
+/* Active/Open State Effects */
+.accordion-item--open .accordion-header {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.accordion-item--open .accordion-header__icon {
+  @apply text-blue-500 dark:text-blue-400;
+}
+
+.accordion-item--open .accordion-chevron {
+  @apply text-blue-500 dark:text-blue-400;
+}
+
+/* Animation for smooth opening/closing */
+@keyframes accordion-slide-down {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 2000px;
+  }
+}
+
+@keyframes accordion-slide-up {
+  from {
+    opacity: 1;
+    max-height: 2000px;
+  }
+  to {
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+.accordion-content--opening {
+  animation: accordion-slide-down 300ms ease-in-out;
+}
+
+.accordion-content--closing {
+  animation: accordion-slide-up 300ms ease-in-out;
+}
+
+/* Nested Accordion Support */
+.accordion-item .accordion-item {
+  @apply ml-4 border-l-2 border-gray-200 dark:border-gray-700;
+}
+
+.accordion-item .accordion-item .accordion-header {
+  @apply pl-4 text-sm;
+}
+
+/* Group Styling */
+.accordion-group {
+  @apply space-y-1;
+}
+
+.accordion-group .accordion-item--bordered {
+  @apply mb-2;
+}
+
+.accordion-group .accordion-item--default:last-child {
+  @apply border-b-0;
+}
+
+/* Loading State */
+.accordion-item--loading .accordion-header {
+  @apply opacity-60 cursor-wait;
+}
+
+.accordion-item--loading .accordion-chevron {
+  @apply animate-spin;
+}
+
+/* Error State */
+.accordion-item--error .accordion-header {
+  @apply bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400;
+  @apply border-red-200 dark:border-red-800;
+}
+
+.accordion-item--error .accordion-header__icon {
+  @apply text-red-500 dark:text-red-400;
+}
+
+/* Compact Variant */
+.accordion-item--compact .accordion-header {
+  @apply px-3 py-2 text-sm;
+}
+
+.accordion-item--compact .accordion-content__inner {
+  @apply px-3 py-2 text-sm;
+}
+
+/* RTL Support */
+[dir="rtl"] .accordion-header__content {
+  @apply space-x-reverse;
+}
+
+[dir="rtl"] .accordion-chevron {
+  @apply rotate-180;
+}
+
+[dir="rtl"] .accordion-chevron--open {
+  @apply rotate-0;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .accordion-header {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .accordion-item--open .accordion-header {
+    @apply bg-blue-100 dark:bg-blue-900;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .accordion-content {
+    @apply transition-none;
+  }
+
+  .accordion-chevron {
+    @apply transition-none;
+  }
+
+  .accordion-content--opening,
+  .accordion-content--closing {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .accordion-item {
+    @apply border border-gray-400 mb-4 break-inside-avoid;
+  }
+
+  .accordion-content {
+    @apply max-h-none opacity-100;
+  }
+
+  .accordion-chevron {
+    @apply hidden;
+  }
+}

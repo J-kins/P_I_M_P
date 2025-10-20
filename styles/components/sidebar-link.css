@@ -1,0 +1,346 @@
+/* Sidebar Link Styles */
+.sidebar-link {
+  @apply flex items-center px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 rounded-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100;
+}
+
+/* Sidebar Link States */
+.sidebar-link--active {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}
+
+.sidebar-link--disabled {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+.sidebar-link--loading {
+  @apply cursor-wait;
+}
+
+/* Sidebar Link with Icon */
+.sidebar-link__icon {
+  @apply w-5 h-5 mr-3 flex-shrink-0;
+}
+
+.sidebar-link--active .sidebar-link__icon {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+/* Sidebar Link Text */
+.sidebar-link__text {
+  @apply flex-1 truncate;
+}
+
+/* Sidebar Link Badge */
+.sidebar-link__badge {
+  @apply ml-auto flex-shrink-0 px-2 py-0.5 text-xs font-medium bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 rounded-full;
+}
+
+.sidebar-link--active .sidebar-link__badge {
+  @apply bg-blue-200 dark:bg-blue-800 text-blue-800 dark:text-blue-200;
+}
+
+/* Sidebar Link Arrow */
+.sidebar-link__arrow {
+  @apply w-4 h-4 ml-auto flex-shrink-0 transition-transform duration-200;
+}
+
+.sidebar-link--expanded .sidebar-link__arrow {
+  @apply rotate-90;
+}
+
+/* Sidebar Link with Submenu */
+.sidebar-link--has-submenu {
+  @apply cursor-pointer;
+}
+
+.sidebar-link__submenu {
+  @apply ml-8 mt-1 space-y-1;
+}
+
+.sidebar-link__submenu-item {
+  @apply flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-400 rounded-lg transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100;
+}
+
+.sidebar-link__submenu-item--active {
+  @apply bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400;
+}
+
+/* Sidebar Link Variants */
+.sidebar-link--compact {
+  @apply px-2 py-1.5 text-xs;
+}
+
+.sidebar-link--comfortable {
+  @apply px-4 py-3 text-base;
+}
+
+/* Sidebar Link Colors */
+.sidebar-link--primary.sidebar-link--active {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}
+
+.sidebar-link--secondary.sidebar-link--active {
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100;
+}
+
+.sidebar-link--success.sidebar-link--active {
+  @apply bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300;
+}
+
+.sidebar-link--warning.sidebar-link--active {
+  @apply bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300;
+}
+
+.sidebar-link--error.sidebar-link--active {
+  @apply bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300;
+}
+
+/* Sidebar Link with Notification Dot */
+.sidebar-link__notification {
+  @apply relative;
+}
+
+.sidebar-link__notification::after {
+  @apply absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full content-[''];
+}
+
+.sidebar-link--active .sidebar-link__notification::after {
+  @apply bg-red-400;
+}
+
+/* Sidebar Link Loading State */
+.sidebar-link__spinner {
+  @apply w-4 h-4 mr-3 animate-spin;
+}
+
+/* Sidebar Link Tooltip */
+.sidebar-link--tooltip {
+  @apply relative;
+}
+
+.sidebar-link__tooltip {
+  @apply absolute left-full top-1/2 -translate-y-1/2 ml-2 px-2 py-1 text-xs text-white bg-gray-900 dark:bg-gray-700 rounded opacity-0 pointer-events-none transition-opacity duration-200 z-10;
+}
+
+.sidebar-link--tooltip:hover .sidebar-link__tooltip {
+  @apply opacity-100;
+}
+
+/* Collapsed Sidebar */
+.sidebar--collapsed .sidebar-link {
+  @apply justify-center px-2;
+}
+
+.sidebar--collapsed .sidebar-link__text,
+.sidebar--collapsed .sidebar-link__badge,
+.sidebar--collapsed .sidebar-link__arrow {
+  @apply hidden;
+}
+
+.sidebar--collapsed .sidebar-link__icon {
+  @apply mr-0;
+}
+
+/* Sidebar Link Focus */
+.sidebar-link:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Sidebar Link Group */
+.sidebar-link-group {
+  @apply space-y-1;
+}
+
+.sidebar-link-group__title {
+  @apply px-3 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider;
+}
+
+.sidebar-link-group__divider {
+  @apply my-3 border-t border-gray-200 dark:border-gray-700;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .sidebar-link {
+    @apply px-4 py-3;
+  }
+
+  .sidebar-link__icon {
+    @apply w-6 h-6;
+  }
+
+  .sidebar-link--compact {
+    @apply px-3 py-2;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .sidebar-link {
+    @apply border border-transparent;
+  }
+
+  .sidebar-link:hover {
+    @apply border-gray-400 dark:border-gray-500;
+  }
+
+  .sidebar-link--active {
+    @apply border-blue-500 dark:border-blue-400;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-link,
+  .sidebar-link__arrow,
+  .sidebar-link__tooltip {
+    @apply transition-none;
+  }
+
+  .sidebar-link__spinner {
+    @apply animate-none;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .sidebar-link__icon {
+  @apply mr-0 ml-3;
+}
+
+[dir="rtl"] .sidebar-link__badge {
+  @apply ml-0 mr-auto;
+}
+
+[dir="rtl"] .sidebar-link__arrow {
+  @apply ml-0 mr-auto;
+}
+
+[dir="rtl"] .sidebar-link--expanded .sidebar-link__arrow {
+  @apply -rotate-90;
+}
+
+[dir="rtl"] .sidebar-link__submenu {
+  @apply ml-0 mr-8;
+}
+
+[dir="rtl"] .sidebar-link__tooltip {
+  @apply left-auto right-full ml-0 mr-2;
+}
+
+[dir="rtl"] .sidebar-link__notification::after {
+  @apply -right-auto -left-1;
+}
+
+[dir="rtl"] .sidebar-link__spinner {
+  @apply mr-0 ml-3;
+}
+
+/* Custom Properties */
+.sidebar-link {
+  --sidebar-link-color: theme("colors.gray.700");
+  --sidebar-link-hover-color: theme("colors.gray.900");
+  --sidebar-link-active-color: theme("colors.blue.700");
+  --sidebar-link-bg: transparent;
+  --sidebar-link-hover-bg: theme("colors.gray.100");
+  --sidebar-link-active-bg: theme("colors.blue.100");
+  --sidebar-link-icon-color: currentColor;
+  --sidebar-link-badge-bg: theme("colors.gray.100");
+  --sidebar-link-badge-color: theme("colors.gray.600");
+}
+
+.dark .sidebar-link {
+  --sidebar-link-color: theme("colors.gray.300");
+  --sidebar-link-hover-color: theme("colors.gray.100");
+  --sidebar-link-active-color: theme("colors.blue.300");
+  --sidebar-link-bg: transparent;
+  --sidebar-link-hover-bg: theme("colors.gray.700");
+  --sidebar-link-active-bg: theme("colors.blue.900" / 0.3);
+  --sidebar-link-icon-color: currentColor;
+  --sidebar-link-badge-bg: theme("colors.gray.600");
+  --sidebar-link-badge-color: theme("colors.gray.300");
+}
+
+/* Sidebar Link Animation */
+@keyframes sidebar-link-highlight {
+  0% {
+    background-color: var(--sidebar-link-active-bg);
+  }
+  50% {
+    background-color: theme("colors.blue.200");
+  }
+  100% {
+    background-color: var(--sidebar-link-active-bg);
+  }
+}
+
+.sidebar-link--highlight {
+  animation: sidebar-link-highlight 0.6s ease-in-out;
+}
+
+/* Sidebar Link with Progress */
+.sidebar-link__progress {
+  @apply absolute bottom-0 left-0 h-0.5 bg-blue-500 transition-all duration-300;
+}
+
+.sidebar-link--progress-0 .sidebar-link__progress {
+  @apply w-0;
+}
+
+.sidebar-link--progress-25 .sidebar-link__progress {
+  @apply w-1/4;
+}
+
+.sidebar-link--progress-50 .sidebar-link__progress {
+  @apply w-1/2;
+}
+
+.sidebar-link--progress-75 .sidebar-link__progress {
+  @apply w-3/4;
+}
+
+.sidebar-link--progress-100 .sidebar-link__progress {
+  @apply w-full;
+}
+
+/* Accessibility */
+.sidebar-link[aria-current="page"] {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}
+
+.sidebar-link[aria-expanded="true"] .sidebar-link__arrow {
+  @apply rotate-90;
+}
+
+.sidebar-link[aria-expanded="false"] .sidebar-link__arrow {
+  @apply rotate-0;
+}
+
+/* JavaScript Enhanced States */
+.sidebar-link[data-state="active"] {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}
+
+.sidebar-link[data-state="loading"] {
+  @apply cursor-wait opacity-75;
+}
+
+.sidebar-link[data-state="disabled"] {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* Sidebar Link with Counter */
+.sidebar-link__counter {
+  @apply ml-auto flex-shrink-0 px-2 py-0.5 text-xs font-medium bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 rounded-full min-w-5 text-center;
+}
+
+.sidebar-link--active .sidebar-link__counter {
+  @apply bg-blue-200 dark:bg-blue-800 text-blue-800 dark:text-blue-200;
+}
+
+.sidebar-link__counter--zero {
+  @apply hidden;
+}
+
+.sidebar-link__counter--highlight {
+  @apply bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400;
+}

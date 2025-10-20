@@ -1,0 +1,296 @@
+/* Tab Item Styles */
+.tab-item {
+  @apply relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+}
+
+/* Tab Item Variants */
+.tab-item--underline {
+  @apply border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300;
+}
+
+.tab-item--underline.tab-item--active {
+  @apply border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400;
+}
+
+.tab-item--pills {
+  @apply rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700;
+}
+
+.tab-item--pills.tab-item--active {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}
+
+.tab-item--buttons {
+  @apply border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 first:rounded-l-lg last:rounded-r-lg -ml-px first:ml-0;
+}
+
+.tab-item--buttons.tab-item--active {
+  @apply bg-blue-600 border-blue-600 text-white z-10;
+}
+
+.tab-item--cards {
+  @apply border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-t-lg border-b-0 -mb-px hover:bg-gray-50 dark:hover:bg-gray-700;
+}
+
+.tab-item--cards.tab-item--active {
+  @apply bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 border-b-white dark:border-b-gray-800 text-gray-900 dark:text-white;
+}
+
+/* Tab Item Sizes */
+.tab-item--xs {
+  @apply px-2 py-1 text-xs;
+}
+
+.tab-item--sm {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.tab-item--md {
+  @apply px-4 py-2 text-sm;
+}
+
+.tab-item--lg {
+  @apply px-6 py-3 text-base;
+}
+
+.tab-item--xl {
+  @apply px-8 py-4 text-lg;
+}
+
+/* Tab Item with Icons */
+.tab-item__icon {
+  @apply w-4 h-4 mr-2;
+}
+
+.tab-item__icon--only {
+  @apply w-4 h-4 mr-0;
+}
+
+.tab-item__icon--right {
+  @apply w-4 h-4 ml-2 mr-0;
+}
+
+/* Tab Item with Badge */
+.tab-item__badge {
+  @apply ml-2 px-1.5 py-0.5 text-xs bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full;
+}
+
+.tab-item--active .tab-item__badge {
+  @apply bg-blue-200 dark:bg-blue-800 text-blue-800 dark:text-blue-200;
+}
+
+/* Tab Item with Close Button */
+.tab-item__close {
+  @apply ml-2 w-4 h-4 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors;
+}
+
+.tab-item--active .tab-item__close {
+  @apply text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300;
+}
+
+/* Disabled State */
+.tab-item--disabled {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* Loading State */
+.tab-item--loading {
+  @apply cursor-wait;
+}
+
+.tab-item__spinner {
+  @apply w-4 h-4 mr-2 animate-spin;
+}
+
+/* Vertical Tabs */
+.tab-item--vertical {
+  @apply w-full justify-start text-left;
+}
+
+.tab-item--vertical.tab-item--underline {
+  @apply border-b-0 border-r-2;
+}
+
+.tab-item--vertical.tab-item--underline.tab-item--active {
+  @apply border-blue-500 dark:border-blue-400;
+}
+
+/* Tab Item States */
+.tab-item:hover:not(.tab-item--active):not(.tab-item--disabled) {
+  @apply transform scale-105;
+}
+
+.tab-item:active:not(.tab-item--disabled) {
+  @apply transform scale-95;
+}
+
+/* Focus Visible */
+.tab-item:focus-visible {
+  @apply ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .tab-item {
+    @apply px-3 py-2 text-sm;
+  }
+
+  .tab-item--lg,
+  .tab-item--xl {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .tab-item__icon {
+    @apply w-3.5 h-3.5;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .tab-item {
+    @apply border-2;
+  }
+
+  .tab-item--active {
+    @apply border-current;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .tab-item {
+    @apply transition-none;
+  }
+
+  .tab-item:hover:not(.tab-item--active):not(.tab-item--disabled) {
+    @apply transform-none;
+  }
+
+  .tab-item:active:not(.tab-item--disabled) {
+    @apply transform-none;
+  }
+
+  .tab-item__spinner {
+    @apply animate-none;
+  }
+}
+
+/* Tab Item in Dark Mode */
+.dark .tab-item--buttons {
+  @apply bg-gray-800 border-gray-600;
+}
+
+.dark .tab-item--buttons.tab-item--active {
+  @apply bg-blue-600 border-blue-600;
+}
+
+.dark .tab-item--cards {
+  @apply bg-gray-800 border-gray-600;
+}
+
+.dark .tab-item--cards.tab-item--active {
+  @apply bg-gray-800 border-gray-600 border-b-gray-800;
+}
+
+/* RTL Support */
+[dir="rtl"] .tab-item__icon {
+  @apply mr-0 ml-2;
+}
+
+[dir="rtl"] .tab-item__icon--right {
+  @apply ml-0 mr-2;
+}
+
+[dir="rtl"] .tab-item__badge {
+  @apply ml-0 mr-2;
+}
+
+[dir="rtl"] .tab-item__close {
+  @apply ml-0 mr-2;
+}
+
+[dir="rtl"] .tab-item--buttons {
+  @apply -mr-px first:mr-0 first:rounded-r-lg last:rounded-l-lg first:rounded-l-none last:rounded-r-none;
+}
+
+[dir="rtl"] .tab-item--vertical.tab-item--underline {
+  @apply border-r-0 border-l-2;
+}
+
+/* Custom Properties */
+.tab-item {
+  --tab-item-color: theme("colors.gray.500");
+  --tab-item-hover-color: theme("colors.gray.700");
+  --tab-item-active-color: theme("colors.blue.600");
+  --tab-item-bg: transparent;
+  --tab-item-hover-bg: theme("colors.gray.100");
+  --tab-item-active-bg: theme("colors.blue.100");
+  --tab-item-border: theme("colors.gray.300");
+  --tab-item-active-border: theme("colors.blue.500");
+}
+
+.dark .tab-item {
+  --tab-item-color: theme("colors.gray.400");
+  --tab-item-hover-color: theme("colors.gray.300");
+  --tab-item-active-color: theme("colors.blue.400");
+  --tab-item-bg: transparent;
+  --tab-item-hover-bg: theme("colors.gray.700");
+  --tab-item-active-bg: theme("colors.blue.900" / 0.3);
+  --tab-item-border: theme("colors.gray.600");
+  --tab-item-active-border: theme("colors.blue.400");
+}
+
+/* Animation Keyframes */
+@keyframes tab-item-highlight {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.tab-item--highlight {
+  animation: tab-item-highlight 0.3s ease-in-out;
+}
+
+/* Accessibility Improvements */
+.tab-item[aria-selected="true"] {
+  @apply font-semibold;
+}
+
+.tab-item[aria-disabled="true"] {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* Tab Item Group Styles */
+.tab-item-group {
+  @apply flex;
+}
+
+.tab-item-group--vertical {
+  @apply flex-col;
+}
+
+.tab-item-group--center {
+  @apply justify-center;
+}
+
+.tab-item-group--end {
+  @apply justify-end;
+}
+
+.tab-item-group--full-width .tab-item {
+  @apply flex-1;
+}
+
+.tab-item-group--scrollable {
+  @apply overflow-x-auto;
+}
+
+.tab-item-group--scrollable .tab-item {
+  @apply flex-shrink-0;
+}

@@ -1,0 +1,415 @@
+/* Grid Item Component Styles */
+/* Provides styling for individual grid items in data grids */
+
+.grid-item-host {
+  @apply relative;
+}
+
+.grid-item {
+  @apply relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply transition-all duration-200 ease-in-out;
+}
+
+/* Variant Styles */
+.grid-item--default {
+  @apply shadow-sm hover:shadow-md;
+}
+
+.grid-item--compact {
+  @apply shadow-none border-0 bg-transparent;
+}
+
+.grid-item--card {
+  @apply shadow-md hover:shadow-lg;
+  @apply border-2 border-gray-200 dark:border-gray-700;
+}
+
+.grid-item--media {
+  @apply shadow-lg overflow-hidden;
+  @apply bg-black dark:bg-gray-900;
+}
+
+/* Size Variants */
+.grid-item--sm {
+  @apply text-sm;
+}
+
+.grid-item--md {
+  @apply text-base;
+}
+
+.grid-item--lg {
+  @apply text-lg;
+}
+
+/* Interactive States */
+.grid-item--clickable {
+  @apply cursor-pointer;
+}
+
+.grid-item--clickable:hover {
+  @apply transform scale-105;
+}
+
+.grid-item--clickable:active {
+  @apply transform scale-95;
+}
+
+.grid-item--selectable {
+  @apply relative;
+}
+
+.grid-item--selected {
+  @apply ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800;
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+.grid-item--disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.grid-item--disabled:hover {
+  transform: none !important;
+}
+
+.grid-item--loading {
+  @apply opacity-60;
+}
+
+/* Image Container */
+.grid-item__image-container {
+  @apply relative aspect-video overflow-hidden;
+}
+
+.grid-item--compact .grid-item__image-container {
+  @apply aspect-square;
+}
+
+.grid-item--media .grid-item__image-container {
+  @apply aspect-video;
+}
+
+/* Image */
+.grid-item__image {
+  @apply w-full h-full object-cover transition-transform duration-200;
+}
+
+.grid-item--clickable:hover .grid-item__image {
+  @apply scale-110;
+}
+
+/* Overlay */
+.grid-item__overlay {
+  @apply absolute inset-0 bg-black bg-opacity-0 transition-all duration-200;
+  @apply flex items-center justify-center;
+}
+
+.grid-item:hover .grid-item__overlay {
+  @apply bg-opacity-50;
+}
+
+.grid-item__overlay-content {
+  @apply opacity-0 transform scale-75 transition-all duration-200;
+}
+
+.grid-item:hover .grid-item__overlay-content {
+  @apply opacity-100 transform scale-100;
+}
+
+/* Content */
+.grid-item__content {
+  @apply p-4 space-y-2;
+}
+
+.grid-item__content--compact {
+  @apply p-2 space-y-1;
+}
+
+/* Title */
+.grid-item__title {
+  @apply font-medium text-gray-900 dark:text-white;
+  @apply truncate leading-tight;
+}
+
+.grid-item--sm .grid-item__title {
+  @apply text-sm;
+}
+
+.grid-item--md .grid-item__title {
+  @apply text-base;
+}
+
+.grid-item--lg .grid-item__title {
+  @apply text-lg;
+}
+
+/* Description */
+.grid-item__description {
+  @apply text-gray-600 dark:text-gray-400 text-sm;
+  @apply line-clamp-2 leading-relaxed;
+}
+
+.grid-item--compact .grid-item__description {
+  @apply text-xs line-clamp-1;
+}
+
+/* Metadata */
+.grid-item__metadata {
+  @apply space-y-1;
+}
+
+.grid-item__metadata-item {
+  @apply text-xs text-gray-500 dark:text-gray-500;
+  @apply block truncate;
+}
+
+/* Custom Content */
+.grid-item__custom-content {
+  @apply mt-2;
+}
+
+/* Actions */
+.grid-item__actions {
+  @apply absolute top-2 right-2 opacity-0 transition-opacity duration-200;
+  @apply space-x-1;
+}
+
+.grid-item:hover .grid-item__actions {
+  @apply opacity-100;
+}
+
+/* Selection Indicator */
+.grid-item__selection-indicator {
+  @apply absolute top-2 left-2 opacity-0 transition-opacity duration-200;
+}
+
+.grid-item--selectable:hover .grid-item__selection-indicator,
+.grid-item__selection-indicator--selected {
+  @apply opacity-100;
+}
+
+.grid-item__checkbox {
+  @apply w-4 h-4 text-blue-600 bg-white border-gray-300 rounded;
+  @apply focus:ring-blue-500 dark:focus:ring-blue-600;
+  @apply dark:ring-offset-gray-800 focus:ring-2;
+  @apply dark:bg-gray-700 dark:border-gray-600;
+}
+
+/* Loading State */
+.grid-item__loading {
+  @apply absolute inset-0 bg-white bg-opacity-75 dark:bg-gray-800 dark:bg-opacity-75;
+  @apply flex items-center justify-center;
+}
+
+.grid-item__spinner {
+  @apply w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin;
+}
+
+/* Skeleton Loading */
+.grid-item--skeleton {
+  @apply animate-pulse;
+}
+
+.grid-item--skeleton .grid-item__image {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.grid-item--skeleton .grid-item__title {
+  @apply bg-gray-200 dark:bg-gray-700 text-transparent rounded;
+}
+
+.grid-item--skeleton .grid-item__description {
+  @apply bg-gray-200 dark:bg-gray-700 text-transparent rounded;
+}
+
+/* Drag and Drop States */
+.grid-item--dragging {
+  @apply opacity-50 transform rotate-3 scale-95;
+}
+
+.grid-item--drop-target {
+  @apply ring-2 ring-blue-400 ring-dashed bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* Error States */
+.grid-item--error {
+  @apply border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20;
+}
+
+.grid-item--error .grid-item__title {
+  @apply text-red-700 dark:text-red-400;
+}
+
+/* Grid Layout Responsive */
+.grid-item-host--sm {
+  @apply min-h-24;
+}
+
+.grid-item-host--md {
+  @apply min-h-32;
+}
+
+.grid-item-host--lg {
+  @apply min-h-40;
+}
+
+/* Focus States */
+.grid-item:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800;
+}
+
+.grid-item__checkbox:focus-visible {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .grid-item__content {
+    @apply p-3;
+  }
+
+  .grid-item__title {
+    @apply text-sm;
+  }
+
+  .grid-item__description {
+    @apply text-xs;
+  }
+
+  .grid-item__actions {
+    @apply opacity-100;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .grid-item {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .grid-item--selected {
+    @apply bg-yellow-100 dark:bg-yellow-900 ring-yellow-500;
+  }
+
+  .grid-item__title {
+    @apply font-bold;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .grid-item,
+  .grid-item__image,
+  .grid-item__overlay,
+  .grid-item__overlay-content,
+  .grid-item__actions,
+  .grid-item__selection-indicator {
+    @apply transition-none;
+  }
+
+  .grid-item--clickable:hover,
+  .grid-item--clickable:active {
+    transform: none !important;
+  }
+
+  .grid-item--clickable:hover .grid-item__image {
+    @apply scale-100;
+  }
+
+  .grid-item--skeleton {
+    @apply animate-none;
+  }
+
+  .grid-item__spinner {
+    @apply animate-none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .grid-item {
+    @apply border border-gray-400 break-inside-avoid mb-4;
+  }
+
+  .grid-item__overlay,
+  .grid-item__actions,
+  .grid-item__selection-indicator {
+    @apply hidden;
+  }
+
+  .grid-item__image {
+    @apply scale-100;
+  }
+
+  .grid-item__title {
+    @apply text-black font-bold;
+  }
+
+  .grid-item__description {
+    @apply text-gray-700;
+  }
+}
+
+/* Custom Properties for Theme Integration */
+.grid-item {
+  --grid-item-bg: theme(colors.white);
+  --grid-item-border: theme(colors.gray.200);
+  --grid-item-shadow: theme(boxShadow.sm);
+  --grid-item-shadow-hover: theme(boxShadow.md);
+  --grid-item-border-radius: theme(borderRadius.lg);
+  --grid-item-transition: theme(transitionDuration.200);
+}
+
+@media (prefers-color-scheme: dark) {
+  .grid-item {
+    --grid-item-bg: theme(colors.gray.800);
+    --grid-item-border: theme(colors.gray.700);
+  }
+}
+
+/* Grid Item Groups */
+.grid-item-group {
+  @apply grid gap-4;
+}
+
+.grid-item-group--cols-1 {
+  @apply grid-cols-1;
+}
+
+.grid-item-group--cols-2 {
+  @apply grid-cols-1 sm:grid-cols-2;
+}
+
+.grid-item-group--cols-3 {
+  @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+}
+
+.grid-item-group--cols-4 {
+  @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+.grid-item-group--cols-5 {
+  @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
+}
+
+/* Auto-fit responsive grid */
+.grid-item-group--auto-fit {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-item-group--auto-fill {
+  @apply grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* Masonry-like layout support */
+.grid-item-group--masonry {
+  @apply columns-1 sm:columns-2 lg:columns-3 xl:columns-4;
+  @apply gap-4;
+}
+
+.grid-item-group--masonry .grid-item-host {
+  @apply break-inside-avoid mb-4;
+}

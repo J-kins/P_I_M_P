@@ -1,0 +1,463 @@
+/* File Preview Component Styles */
+.file-preview {
+  @apply transition-all duration-200;
+}
+
+/* File Preview Sizes */
+.file-preview-sm {
+  @apply text-xs;
+}
+
+.file-preview-md {
+  @apply text-sm;
+}
+
+.file-preview-lg {
+  @apply text-base;
+}
+
+/* File Preview Card Variant */
+.file-preview-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply shadow-sm hover:shadow-md;
+  @apply p-4 relative;
+}
+
+.file-preview-card-header {
+  @apply relative mb-3;
+}
+
+/* File Preview List Variant */
+.file-preview-list {
+  @apply flex items-center gap-3 p-3;
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+}
+
+/* File Preview Grid Variant */
+.file-preview-grid {
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply shadow-sm hover:shadow-md;
+  @apply relative overflow-hidden;
+}
+
+.file-preview-grid-content {
+  @apply p-3;
+}
+
+/* File Preview Minimal Variant */
+.file-preview-minimal {
+  @apply inline-flex items-center gap-2 px-2 py-1;
+  @apply bg-gray-100 dark:bg-gray-800 rounded-md;
+  @apply text-sm;
+}
+
+.file-preview-minimal-icon {
+  @apply w-4 h-4 flex-shrink-0;
+}
+
+.file-preview-minimal-name {
+  @apply truncate max-w-32;
+}
+
+.file-preview-minimal-remove {
+  @apply p-0.5 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-700;
+  @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-200;
+  @apply transition-colors duration-200;
+}
+
+/* File Preview Icon Container */
+.file-preview-icon-container {
+  @apply flex items-center justify-center;
+  @apply w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg;
+  @apply relative;
+}
+
+.file-preview-card .file-preview-icon-container {
+  @apply w-full h-24 mb-3;
+}
+
+.file-preview-grid .file-preview-icon-container {
+  @apply w-full h-20 mb-2;
+}
+
+.file-preview-list .file-preview-icon-container {
+  @apply w-10 h-10 flex-shrink-0;
+}
+
+/* File Preview Type Icons */
+.file-preview-type-icon {
+  @apply w-6 h-6;
+}
+
+.file-preview-card .file-preview-type-icon {
+  @apply w-8 h-8;
+}
+
+.file-preview-grid .file-preview-type-icon {
+  @apply w-6 h-6;
+}
+
+.file-preview-list .file-preview-type-icon {
+  @apply w-5 h-5;
+}
+
+/* File Type Icon Colors */
+.file-preview-icon-image {
+  @apply text-green-500;
+}
+
+.file-preview-icon-video {
+  @apply text-purple-500;
+}
+
+.file-preview-icon-audio {
+  @apply text-yellow-500;
+}
+
+.file-preview-icon-pdf {
+  @apply text-red-500;
+}
+
+.file-preview-icon-doc {
+  @apply text-blue-500;
+}
+
+.file-preview-icon-excel {
+  @apply text-green-600;
+}
+
+.file-preview-icon-archive {
+  @apply text-orange-500;
+}
+
+.file-preview-icon-default {
+  @apply text-gray-400;
+}
+
+/* File Preview Extension Badge */
+.file-preview-extension {
+  @apply absolute -bottom-1 -right-1;
+  @apply bg-gray-600 text-white text-xs font-medium;
+  @apply px-1 py-0.5 rounded text-center;
+  @apply min-w-[1.5rem] leading-none;
+}
+
+/* File Preview Image */
+.file-preview-image-container {
+  @apply relative overflow-hidden rounded-lg cursor-pointer;
+}
+
+.file-preview-image {
+  @apply w-full h-full object-cover;
+}
+
+.file-preview-card .file-preview-image {
+  @apply h-24;
+}
+
+.file-preview-grid .file-preview-image {
+  @apply h-20;
+}
+
+.file-preview-image-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-50;
+  @apply flex items-center justify-center;
+  @apply opacity-0 hover:opacity-100 transition-opacity duration-200;
+}
+
+.file-preview-preview-icon {
+  @apply w-6 h-6 text-white;
+}
+
+/* File Preview Info */
+.file-preview-info {
+  @apply flex-1 min-w-0;
+}
+
+.file-preview-name {
+  @apply font-medium text-gray-900 dark:text-gray-100;
+  @apply truncate mb-1;
+}
+
+.file-preview-meta {
+  @apply flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400;
+}
+
+.file-preview-size {
+  @apply font-mono;
+}
+
+.file-preview-type {
+  @apply font-medium uppercase;
+  @apply bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded;
+}
+
+/* File Preview Actions */
+.file-preview-actions {
+  @apply flex items-center gap-1;
+}
+
+.file-preview-card .file-preview-actions {
+  @apply absolute top-2 right-2;
+}
+
+.file-preview-grid .file-preview-actions {
+  @apply absolute top-2 right-2;
+}
+
+.file-preview-list .file-preview-actions {
+  @apply ml-auto flex-shrink-0;
+}
+
+.file-preview-action {
+  @apply p-1.5 rounded-md transition-colors duration-200;
+  @apply text-gray-400 hover:text-gray-600;
+  @apply hover:bg-white hover:bg-opacity-80;
+  @apply dark:hover:text-gray-200 dark:hover:bg-gray-800;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.file-preview-action-icon {
+  @apply w-4 h-4;
+}
+
+.file-preview-download {
+  @apply hover:text-blue-600 dark:hover:text-blue-400;
+}
+
+.file-preview-view {
+  @apply hover:text-green-600 dark:hover:text-green-400;
+}
+
+.file-preview-remove {
+  @apply hover:text-red-600 dark:hover:text-red-400;
+}
+
+/* File Preview Sizes */
+.file-preview-sm .file-preview-name {
+  @apply text-xs;
+}
+
+.file-preview-sm .file-preview-meta {
+  @apply text-xs;
+}
+
+.file-preview-sm .file-preview-icon-container {
+  @apply w-8 h-8;
+}
+
+.file-preview-sm .file-preview-type-icon {
+  @apply w-4 h-4;
+}
+
+.file-preview-lg .file-preview-name {
+  @apply text-base;
+}
+
+.file-preview-lg .file-preview-meta {
+  @apply text-sm;
+}
+
+.file-preview-lg .file-preview-icon-container {
+  @apply w-16 h-16;
+}
+
+.file-preview-lg .file-preview-type-icon {
+  @apply w-8 h-8;
+}
+
+/* File Preview States */
+.file-preview-loading {
+  @apply animate-pulse;
+}
+
+.file-preview-error {
+  @apply border-red-300 dark:border-red-600;
+  @apply bg-red-50 dark:bg-red-900/20;
+}
+
+.file-preview-success {
+  @apply border-green-300 dark:border-green-600;
+  @apply bg-green-50 dark:bg-green-900/20;
+}
+
+/* File Preview Hover Effects */
+.file-preview-card:hover {
+  @apply transform -translate-y-1;
+}
+
+.file-preview-grid:hover {
+  @apply transform scale-105;
+}
+
+/* File Preview Progress */
+.file-preview-progress {
+  @apply absolute bottom-0 left-0 right-0;
+  @apply h-1 bg-gray-200 dark:bg-gray-700;
+}
+
+.file-preview-progress-bar {
+  @apply h-full bg-blue-500 transition-all duration-300;
+}
+
+/* File Preview Badge */
+.file-preview-badge {
+  @apply absolute -top-2 -right-2;
+  @apply bg-blue-500 text-white text-xs font-medium;
+  @apply px-2 py-1 rounded-full;
+}
+
+/* File Preview Dragging */
+.file-preview-dragging {
+  @apply opacity-50 transform rotate-3;
+}
+
+/* File Preview Group */
+.file-preview-group {
+  @apply space-y-2;
+}
+
+.file-preview-group-grid {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3;
+}
+
+.file-preview-group-list {
+  @apply space-y-1;
+}
+
+/* File Preview Animations */
+.file-preview-fade-in {
+  @apply opacity-0 animate-fade-in;
+}
+
+.file-preview-slide-in {
+  @apply transform translate-x-4 opacity-0;
+  animation: slide-in-left 0.3s ease-out forwards;
+}
+
+@keyframes slide-in-left {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.file-preview-scale-in {
+  @apply transform scale-0 opacity-0;
+  animation: scale-in 0.2s ease-out forwards;
+}
+
+@keyframes scale-in {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* File Preview Responsive */
+@media (max-width: 640px) {
+  .file-preview-responsive .file-preview-actions {
+    @apply gap-0.5;
+  }
+
+  .file-preview-responsive .file-preview-action {
+    @apply p-1;
+  }
+
+  .file-preview-responsive .file-preview-action-icon {
+    @apply w-3.5 h-3.5;
+  }
+
+  .file-preview-group-grid {
+    @apply grid-cols-2;
+  }
+}
+
+/* File Preview Accessibility */
+.file-preview[tabindex="0"]:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* File Preview High Contrast */
+@media (prefers-contrast: high) {
+  .file-preview {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+}
+
+/* File Preview Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .file-preview {
+    @apply transition-none;
+  }
+
+  .file-preview-card:hover,
+  .file-preview-grid:hover {
+    @apply transform-none;
+  }
+}
+
+/* File Preview Print Styles */
+@media print {
+  .file-preview-actions {
+    @apply hidden;
+  }
+
+  .file-preview {
+    @apply bg-white border border-gray-300;
+  }
+}
+
+/* File Preview Dark Mode Adjustments */
+.dark .file-preview-minimal {
+  @apply bg-gray-700;
+}
+
+.dark .file-preview-extension {
+  @apply bg-gray-500;
+}
+
+/* File Preview Custom Themes */
+.file-preview-theme-modern {
+  @apply rounded-xl shadow-lg border-0;
+  @apply bg-gradient-to-br from-white to-gray-50;
+  @apply dark:from-gray-800 dark:to-gray-900;
+}
+
+.file-preview-theme-compact {
+  @apply p-2 rounded-md;
+}
+
+.file-preview-theme-bordered {
+  @apply border-2 border-dashed border-gray-300 dark:border-gray-600;
+}
+
+/* File Preview Selection */
+.file-preview-selectable {
+  @apply cursor-pointer;
+}
+
+.file-preview-selected {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* File Preview Thumbnail */
+.file-preview-thumbnail {
+  @apply w-20 h-20 rounded-lg overflow-hidden;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.file-preview-thumbnail-sm {
+  @apply w-12 h-12;
+}
+
+.file-preview-thumbnail-lg {
+  @apply w-28 h-28;
+}

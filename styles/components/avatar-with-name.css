@@ -1,0 +1,376 @@
+/* Avatar With Name Component Styles */
+.avatar-with-name {
+  @apply flex items-center gap-3;
+}
+
+/* Avatar With Name Variants */
+.avatar-with-name-horizontal {
+  @apply flex-row;
+}
+
+.avatar-with-name-vertical {
+  @apply flex-col items-center text-center;
+}
+
+.avatar-with-name-stacked {
+  @apply flex-col items-start;
+}
+
+/* Avatar With Name Sizes */
+.avatar-with-name-sm {
+  @apply gap-2;
+}
+
+.avatar-with-name-sm .avatar-with-name-avatar {
+  @apply w-8 h-8;
+}
+
+.avatar-with-name-sm .avatar-with-name-content {
+  @apply text-sm;
+}
+
+.avatar-with-name-md {
+  @apply gap-3;
+}
+
+.avatar-with-name-md .avatar-with-name-avatar {
+  @apply w-10 h-10;
+}
+
+.avatar-with-name-lg {
+  @apply gap-4;
+}
+
+.avatar-with-name-lg .avatar-with-name-avatar {
+  @apply w-12 h-12;
+}
+
+.avatar-with-name-lg .avatar-with-name-content {
+  @apply text-base;
+}
+
+.avatar-with-name-xl {
+  @apply gap-4;
+}
+
+.avatar-with-name-xl .avatar-with-name-avatar {
+  @apply w-16 h-16;
+}
+
+.avatar-with-name-xl .avatar-with-name-content {
+  @apply text-lg;
+}
+
+/* Avatar Component */
+.avatar-with-name-avatar {
+  @apply relative flex-shrink-0 rounded-full overflow-hidden;
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.avatar-with-name-avatar-image {
+  @apply w-full h-full object-cover;
+}
+
+.avatar-with-name-avatar-fallback {
+  @apply w-full h-full flex items-center justify-center;
+  @apply bg-gradient-to-br from-blue-500 to-purple-600;
+  @apply text-white font-medium;
+}
+
+/* Avatar Status */
+.avatar-with-name-status {
+  @apply absolute -bottom-1 -right-1;
+  @apply w-3 h-3 rounded-full border-2 border-white dark:border-gray-900;
+}
+
+.avatar-with-name-status-online {
+  @apply bg-green-500;
+}
+
+.avatar-with-name-status-offline {
+  @apply bg-gray-400;
+}
+
+.avatar-with-name-status-away {
+  @apply bg-yellow-500;
+}
+
+.avatar-with-name-status-busy {
+  @apply bg-red-500;
+}
+
+/* Content Area */
+.avatar-with-name-content {
+  @apply flex-1 min-w-0;
+}
+
+.avatar-with-name-name {
+  @apply font-medium text-gray-900 dark:text-gray-100;
+  @apply truncate leading-tight;
+}
+
+.avatar-with-name-subtitle {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  @apply truncate mt-0.5 leading-tight;
+}
+
+.avatar-with-name-description {
+  @apply text-xs text-gray-400 dark:text-gray-500;
+  @apply truncate mt-1;
+}
+
+/* Interactive States */
+.avatar-with-name-clickable {
+  @apply cursor-pointer transition-all duration-200;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+  @apply rounded-lg p-2 -m-2;
+}
+
+.avatar-with-name-clickable:hover .avatar-with-name-avatar {
+  @apply transform scale-105;
+}
+
+.avatar-with-name-clickable:active {
+  @apply transform scale-95;
+}
+
+/* Avatar With Name Badge */
+.avatar-with-name-badge {
+  @apply relative;
+}
+
+.avatar-with-name-badge::after {
+  @apply absolute -top-1 -right-1;
+  @apply w-3 h-3 bg-red-500 text-white;
+  @apply rounded-full text-xs font-bold;
+  @apply flex items-center justify-center;
+  content: attr(data-badge);
+}
+
+/* Avatar With Name Actions */
+.avatar-with-name-actions {
+  @apply flex items-center gap-1 ml-auto;
+}
+
+.avatar-with-name-action {
+  @apply p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-200;
+  @apply transition-colors duration-200;
+}
+
+/* Avatar With Name Verified */
+.avatar-with-name-verified .avatar-with-name-name::after {
+  @apply inline-block ml-1 w-4 h-4;
+  @apply text-blue-500;
+  content: "✓";
+}
+
+/* Avatar With Name Online Status Text */
+.avatar-with-name-online-text {
+  @apply text-green-600 dark:text-green-400 text-xs;
+}
+
+.avatar-with-name-offline-text {
+  @apply text-gray-400 dark:text-gray-500 text-xs;
+}
+
+/* Avatar With Name Time */
+.avatar-with-name-time {
+  @apply text-xs text-gray-400 dark:text-gray-500;
+  @apply ml-auto flex-shrink-0;
+}
+
+/* Avatar With Name Loading */
+.avatar-with-name-loading .avatar-with-name-avatar {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700;
+}
+
+.avatar-with-name-loading .avatar-with-name-name {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-4 w-24;
+}
+
+.avatar-with-name-loading .avatar-with-name-subtitle {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-3 w-16 mt-1;
+}
+
+/* Avatar With Name Compact */
+.avatar-with-name-compact {
+  @apply gap-2;
+}
+
+.avatar-with-name-compact .avatar-with-name-avatar {
+  @apply w-6 h-6;
+}
+
+.avatar-with-name-compact .avatar-with-name-content {
+  @apply text-xs;
+}
+
+.avatar-with-name-compact .avatar-with-name-subtitle {
+  @apply hidden;
+}
+
+/* Avatar With Name Expanded */
+.avatar-with-name-expanded .avatar-with-name-content {
+  @apply space-y-1;
+}
+
+/* Avatar With Name Card */
+.avatar-with-name-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply shadow-sm hover:shadow-md transition-shadow duration-200;
+}
+
+/* Avatar With Name List Item */
+.avatar-with-name-list-item {
+  @apply py-3 px-4 hover:bg-gray-50 dark:hover:bg-gray-800;
+  @apply border-b border-gray-100 dark:border-gray-700 last:border-b-0;
+  @apply cursor-pointer transition-colors duration-200;
+}
+
+/* Avatar With Name Group */
+.avatar-with-name-group {
+  @apply space-y-2;
+}
+
+/* Avatar With Name Mention */
+.avatar-with-name-mention {
+  @apply inline-flex items-center gap-1 px-2 py-1;
+  @apply bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300;
+  @apply rounded-full text-sm;
+}
+
+.avatar-with-name-mention .avatar-with-name-avatar {
+  @apply w-5 h-5;
+}
+
+/* Avatar With Name Social */
+.avatar-with-name-social .avatar-with-name-actions {
+  @apply gap-2;
+}
+
+.avatar-with-name-follow-btn {
+  @apply px-3 py-1 bg-blue-600 text-white text-xs;
+  @apply rounded-full hover:bg-blue-700;
+  @apply transition-colors duration-200;
+}
+
+.avatar-with-name-following-btn {
+  @apply px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+  @apply text-xs rounded-full hover:bg-gray-300 dark:hover:bg-gray-600;
+  @apply transition-colors duration-200;
+}
+
+/* Avatar With Name Notification */
+.avatar-with-name-notification {
+  @apply relative;
+}
+
+.avatar-with-name-notification-dot {
+  @apply absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full;
+}
+
+/* Avatar With Name Responsive */
+@media (max-width: 640px) {
+  .avatar-with-name-responsive.avatar-with-name-lg {
+    @apply gap-3;
+  }
+
+  .avatar-with-name-responsive.avatar-with-name-lg .avatar-with-name-avatar {
+    @apply w-10 h-10;
+  }
+
+  .avatar-with-name-responsive .avatar-with-name-actions {
+    @apply hidden;
+  }
+}
+
+/* Avatar With Name Dark Mode */
+.dark .avatar-with-name-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .avatar-with-name-clickable:hover {
+  @apply bg-gray-800;
+}
+
+/* Avatar With Name Animation */
+.avatar-with-name-animate-in {
+  animation: avatar-slide-in 0.3s ease-out;
+}
+
+@keyframes avatar-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Avatar With Name Hover Effects */
+.avatar-with-name-hover-scale:hover .avatar-with-name-avatar {
+  @apply transform scale-110;
+  transition: transform 0.2s ease-out;
+}
+
+.avatar-with-name-hover-glow:hover .avatar-with-name-avatar {
+  @apply ring-2 ring-blue-400 ring-opacity-50;
+}
+
+/* Avatar With Name Accessibility */
+.avatar-with-name[role="button"]:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2 rounded-lg;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Avatar With Name Print */
+@media print {
+  .avatar-with-name-actions {
+    @apply hidden;
+  }
+
+  .avatar-with-name {
+    @apply text-black;
+  }
+}
+
+/* Avatar With Name Custom Status */
+.avatar-with-name-custom-status {
+  @apply flex items-center gap-1 mt-1;
+}
+
+.avatar-with-name-status-icon {
+  @apply w-3 h-3;
+}
+
+.avatar-with-name-status-text {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+/* Avatar With Name Message Preview */
+.avatar-with-name-message-preview {
+  @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+  @apply line-clamp-2;
+}
+
+/* Avatar With Name Connection Status */
+.avatar-with-name-connection {
+  @apply inline-flex items-center gap-1 text-xs;
+  @apply px-2 py-0.5 rounded-full;
+}
+
+.avatar-with-name-connection-friend {
+  @apply bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300;
+}
+
+.avatar-with-name-connection-follower {
+  @apply bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300;
+}
+
+.avatar-with-name-connection-mutual {
+  @apply bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300;
+}

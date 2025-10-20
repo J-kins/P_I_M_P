@@ -1,0 +1,429 @@
+/* Profile Card Component Styles */
+.profile-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply overflow-hidden transition-all duration-300;
+  @apply hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Profile Card Variants */
+.profile-card-compact {
+  @apply max-w-xs;
+}
+
+.profile-card-standard {
+  @apply max-w-sm;
+}
+
+.profile-card-expanded {
+  @apply max-w-md;
+}
+
+.profile-card-minimal {
+  @apply shadow-sm hover:shadow-md;
+  @apply transform-none hover:transform-none;
+}
+
+/* Profile Card Header */
+.profile-card-header {
+  @apply relative h-24 bg-gradient-to-r from-blue-500 to-purple-600;
+  @apply flex items-end p-4;
+}
+
+.profile-card-cover {
+  @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.profile-card-cover-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-20;
+}
+
+/* Profile Card Avatar */
+.profile-card-avatar-container {
+  @apply relative -mb-8 z-10;
+}
+
+.profile-card-avatar {
+  @apply w-16 h-16 rounded-full border-4 border-white dark:border-gray-800;
+  @apply bg-white dark:bg-gray-800 overflow-hidden;
+}
+
+.profile-card-avatar-large {
+  @apply w-20 h-20;
+}
+
+.profile-card-avatar-image {
+  @apply w-full h-full object-cover;
+}
+
+.profile-card-avatar-fallback {
+  @apply w-full h-full bg-gradient-to-br from-blue-500 to-purple-600;
+  @apply flex items-center justify-center text-white font-bold text-xl;
+}
+
+.profile-card-avatar-status {
+  @apply absolute -bottom-1 -right-1 w-4 h-4;
+  @apply bg-green-500 rounded-full border-2 border-white dark:border-gray-800;
+}
+
+.profile-card-avatar-badge {
+  @apply absolute -top-1 -right-1 w-5 h-5;
+  @apply bg-blue-500 text-white text-xs;
+  @apply rounded-full flex items-center justify-center;
+  @apply border-2 border-white dark:border-gray-800;
+}
+
+/* Profile Card Content */
+.profile-card-content {
+  @apply p-4 pt-10 space-y-3;
+}
+
+.profile-card-name {
+  @apply text-lg font-bold text-gray-900 dark:text-gray-100;
+  @apply truncate;
+}
+
+.profile-card-username {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  @apply truncate;
+}
+
+.profile-card-bio {
+  @apply text-sm text-gray-600 dark:text-gray-300;
+  @apply line-clamp-3 leading-relaxed;
+}
+
+.profile-card-location {
+  @apply flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400;
+}
+
+.profile-card-location-icon {
+  @apply w-4 h-4;
+}
+
+.profile-card-website {
+  @apply text-sm text-blue-600 dark:text-blue-400;
+  @apply hover:underline truncate;
+}
+
+/* Profile Card Stats */
+.profile-card-stats {
+  @apply flex items-center gap-4 py-3;
+  @apply border-t border-gray-100 dark:border-gray-700;
+}
+
+.profile-card-stat {
+  @apply flex flex-col items-center flex-1;
+}
+
+.profile-card-stat-value {
+  @apply font-bold text-gray-900 dark:text-gray-100;
+}
+
+.profile-card-stat-label {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+  @apply uppercase tracking-wide;
+}
+
+.profile-card-stat-clickable {
+  @apply cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700;
+  @apply rounded-lg p-2 -m-2 transition-colors duration-200;
+}
+
+/* Profile Card Actions */
+.profile-card-actions {
+  @apply flex gap-2 p-4 pt-0;
+}
+
+.profile-card-action {
+  @apply flex-1 px-4 py-2 text-sm font-medium;
+  @apply rounded-lg transition-colors duration-200;
+  @apply text-center cursor-pointer;
+}
+
+.profile-card-follow {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.profile-card-following {
+  @apply bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+  @apply hover:bg-gray-300 dark:hover:bg-gray-600;
+}
+
+.profile-card-message {
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-600;
+}
+
+.profile-card-more {
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-600;
+  @apply px-2 flex items-center justify-center;
+}
+
+/* Profile Card Badges */
+.profile-card-badges {
+  @apply flex items-center gap-1 mt-2;
+}
+
+.profile-card-badge {
+  @apply inline-flex items-center gap-1 px-2 py-1;
+  @apply text-xs font-medium rounded-full;
+}
+
+.profile-card-badge-verified {
+  @apply bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300;
+}
+
+.profile-card-badge-premium {
+  @apply bg-yellow-100 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300;
+}
+
+.profile-card-badge-pro {
+  @apply bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300;
+}
+
+.profile-card-badge-moderator {
+  @apply bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300;
+}
+
+/* Profile Card Social Links */
+.profile-card-social {
+  @apply flex items-center gap-2 mt-3;
+}
+
+.profile-card-social-link {
+  @apply w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700;
+  @apply flex items-center justify-center text-gray-600 dark:text-gray-300;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-600;
+  @apply transition-colors duration-200;
+}
+
+.profile-card-social-twitter {
+  @apply hover:bg-sky-100 hover:text-sky-600;
+  @apply dark:hover:bg-sky-900/20 dark:hover:text-sky-400;
+}
+
+.profile-card-social-github {
+  @apply hover:bg-gray-900 hover:text-white;
+}
+
+.profile-card-social-linkedin {
+  @apply hover:bg-blue-700 hover:text-white;
+}
+
+/* Profile Card Connection Status */
+.profile-card-connection {
+  @apply flex items-center gap-2 text-sm;
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.profile-card-connection-icon {
+  @apply w-4 h-4;
+}
+
+.profile-card-mutual-friends {
+  @apply text-blue-600 dark:text-blue-400 hover:underline cursor-pointer;
+}
+
+/* Profile Card Hover Effects */
+.profile-card-interactive:hover {
+  @apply ring-2 ring-blue-500 ring-opacity-20;
+}
+
+.profile-card-interactive:hover .profile-card-avatar {
+  @apply transform scale-105;
+}
+
+/* Profile Card Loading */
+.profile-card-loading {
+  @apply animate-pulse;
+}
+
+.profile-card-loading .profile-card-header {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.profile-card-loading .profile-card-avatar {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.profile-card-loading .profile-card-name {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-6 w-32;
+}
+
+.profile-card-loading .profile-card-username {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-4 w-24 mt-2;
+}
+
+.profile-card-loading .profile-card-bio {
+  @apply space-y-2;
+}
+
+.profile-card-loading .profile-card-bio::before,
+.profile-card-loading .profile-card-bio::after {
+  @apply block bg-gray-200 dark:bg-gray-700 rounded h-4;
+  content: "";
+}
+
+.profile-card-loading .profile-card-bio::after {
+  @apply w-3/4;
+}
+
+/* Profile Card Error State */
+.profile-card-error {
+  @apply border-red-200 dark:border-red-800;
+}
+
+.profile-card-error .profile-card-header {
+  @apply bg-red-100 dark:bg-red-900/20;
+}
+
+.profile-card-error-message {
+  @apply text-red-600 dark:text-red-400 text-sm text-center p-4;
+}
+
+/* Profile Card Sizes */
+.profile-card-sm {
+  @apply max-w-xs;
+}
+
+.profile-card-sm .profile-card-header {
+  @apply h-16;
+}
+
+.profile-card-sm .profile-card-avatar {
+  @apply w-12 h-12;
+}
+
+.profile-card-sm .profile-card-content {
+  @apply p-3 pt-8;
+}
+
+.profile-card-lg .profile-card-header {
+  @apply h-32;
+}
+
+.profile-card-lg .profile-card-avatar {
+  @apply w-24 h-24;
+}
+
+/* Profile Card Animation */
+.profile-card-enter {
+  @apply opacity-0 transform scale-95;
+}
+
+.profile-card-enter-active {
+  @apply opacity-100 transform scale-100;
+  transition: all 300ms ease-out;
+}
+
+.profile-card-exit {
+  @apply opacity-100 transform scale-100;
+}
+
+.profile-card-exit-active {
+  @apply opacity-0 transform scale-95;
+  transition: all 200ms ease-in;
+}
+
+/* Profile Card Responsive */
+@media (max-width: 640px) {
+  .profile-card-responsive {
+    @apply mx-4;
+  }
+
+  .profile-card-responsive .profile-card-stats {
+    @apply gap-2;
+  }
+
+  .profile-card-responsive .profile-card-actions {
+    @apply flex-col gap-2;
+  }
+
+  .profile-card-responsive .profile-card-action {
+    @apply flex-none;
+  }
+}
+
+/* Profile Card Dark Mode */
+.dark .profile-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .profile-card-stats {
+  @apply border-gray-700;
+}
+
+/* Profile Card Print */
+@media print {
+  .profile-card {
+    @apply bg-white text-black shadow-none border border-gray-400;
+  }
+
+  .profile-card-actions {
+    @apply hidden;
+  }
+}
+
+/* Profile Card Accessibility */
+.profile-card[tabindex="0"]:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Profile Card High Contrast */
+@media (prefers-contrast: high) {
+  .profile-card {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+}
+
+/* Profile Card Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .profile-card {
+    @apply transition-none;
+  }
+
+  .profile-card:hover {
+    @apply transform-none;
+  }
+
+  .profile-card-interactive:hover .profile-card-avatar {
+    @apply transform-none;
+  }
+}
+
+/* Profile Card Custom Themes */
+.profile-card-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  @apply text-white;
+}
+
+.profile-card-gradient .profile-card-name,
+.profile-card-gradient .profile-card-bio {
+  @apply text-white;
+}
+
+.profile-card-glass {
+  @apply bg-white/20 backdrop-blur-lg border-white/30;
+  @apply text-white;
+}
+
+/* Profile Card Business */
+.profile-card-business .profile-card-header {
+  @apply bg-gradient-to-r from-gray-700 to-gray-900;
+}
+
+.profile-card-business .profile-card-follow {
+  @apply bg-gray-700 hover:bg-gray-800;
+}
+
+/* Profile Card Influencer */
+.profile-card-influencer .profile-card-header {
+  @apply bg-gradient-to-r from-pink-500 to-rose-500;
+}
+
+.profile-card-influencer .profile-card-follow {
+  @apply bg-pink-600 hover:bg-pink-700;
+}

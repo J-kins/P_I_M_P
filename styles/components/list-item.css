@@ -1,0 +1,429 @@
+/* List Item Component Styles */
+.list-item {
+  @apply flex items-center px-4 py-3;
+  @apply text-gray-900 dark:text-gray-100;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+  @apply transition-colors duration-200;
+  @apply border-b border-gray-100 dark:border-gray-800;
+}
+
+.list-item:last-child {
+  @apply border-b-0;
+}
+
+/* List Item Sizes */
+.list-item-xs {
+  @apply px-2 py-1 text-xs;
+}
+
+.list-item-sm {
+  @apply px-3 py-2 text-sm;
+}
+
+.list-item-md {
+  @apply px-4 py-3 text-base;
+}
+
+.list-item-lg {
+  @apply px-6 py-4 text-lg;
+}
+
+.list-item-xl {
+  @apply px-8 py-6 text-xl;
+}
+
+/* List Item Variants */
+.list-item-simple {
+  @apply flex items-center gap-3;
+}
+
+.list-item-detailed {
+  @apply flex items-start gap-4;
+}
+
+.list-item-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply shadow-sm hover:shadow-md;
+  @apply mb-2;
+}
+
+.list-item-inline {
+  @apply inline-flex items-center px-3 py-1;
+  @apply border-0 hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply rounded-md;
+}
+
+/* List Item States */
+.list-item-active {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+  @apply text-blue-700 dark:text-blue-300;
+  @apply border-blue-200 dark:border-blue-800;
+}
+
+.list-item-selected {
+  @apply bg-blue-100 dark:bg-blue-900/30;
+  @apply text-blue-800 dark:text-blue-200;
+}
+
+.list-item-disabled {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+.list-item-loading {
+  @apply animate-pulse;
+}
+
+.list-item-error {
+  @apply bg-red-50 dark:bg-red-900/20;
+  @apply text-red-700 dark:text-red-300;
+  @apply border-red-200 dark:border-red-800;
+}
+
+/* List Item Interactive */
+.list-item-clickable {
+  @apply cursor-pointer;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-900;
+}
+
+.list-item-clickable:active {
+  @apply bg-gray-200 dark:bg-gray-600;
+}
+
+/* List Item Content Layout */
+.list-item-content {
+  @apply flex-1 min-w-0;
+}
+
+.list-item-primary {
+  @apply font-medium text-gray-900 dark:text-gray-100;
+  @apply truncate;
+}
+
+.list-item-secondary {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  @apply mt-1 truncate;
+}
+
+.list-item-meta {
+  @apply text-xs text-gray-400 dark:text-gray-500;
+  @apply mt-1;
+}
+
+/* List Item with Avatar */
+.list-item-avatar {
+  @apply flex items-center gap-3;
+}
+
+.list-item-avatar-image {
+  @apply w-10 h-10 rounded-full flex-shrink-0;
+}
+
+.list-item-avatar-sm .list-item-avatar-image {
+  @apply w-8 h-8;
+}
+
+.list-item-avatar-lg .list-item-avatar-image {
+  @apply w-12 h-12;
+}
+
+/* List Item with Icon */
+.list-item-icon {
+  @apply flex items-center gap-3;
+}
+
+.list-item-icon-element {
+  @apply w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0;
+}
+
+.list-item-icon-sm .list-item-icon-element {
+  @apply w-4 h-4;
+}
+
+.list-item-icon-lg .list-item-icon-element {
+  @apply w-6 h-6;
+}
+
+/* List Item with Badge */
+.list-item-badge {
+  @apply flex items-center justify-between;
+}
+
+.list-item-badge-element {
+  @apply inline-flex items-center px-2 py-1;
+  @apply text-xs font-medium rounded-full;
+  @apply bg-gray-100 text-gray-800;
+  @apply dark:bg-gray-700 dark:text-gray-200;
+}
+
+/* List Item with Checkbox */
+.list-item-checkbox {
+  @apply flex items-center gap-3;
+}
+
+.list-item-checkbox-input {
+  @apply w-4 h-4 text-blue-600 border-gray-300 rounded;
+  @apply focus:ring-blue-500 focus:ring-2;
+  @apply dark:border-gray-600 dark:bg-gray-700;
+}
+
+/* List Item with Radio */
+.list-item-radio {
+  @apply flex items-center gap-3;
+}
+
+.list-item-radio-input {
+  @apply w-4 h-4 text-blue-600 border-gray-300;
+  @apply focus:ring-blue-500 focus:ring-2;
+  @apply dark:border-gray-600 dark:bg-gray-700;
+}
+
+/* List Item with Switch */
+.list-item-switch {
+  @apply flex items-center justify-between;
+}
+
+/* List Item Actions */
+.list-item-actions {
+  @apply flex items-center gap-2 ml-auto;
+}
+
+.list-item-action {
+  @apply p-1 rounded-md text-gray-400;
+  @apply hover:text-gray-600 hover:bg-gray-100;
+  @apply dark:hover:text-gray-200 dark:hover:bg-gray-700;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* List Item Drag Handle */
+.list-item-draggable {
+  @apply relative;
+}
+
+.list-item-drag-handle {
+  @apply absolute left-1 top-1/2 transform -translate-y-1/2;
+  @apply w-4 h-4 text-gray-400 cursor-move;
+}
+
+.list-item-draggable .list-item-content {
+  @apply ml-6;
+}
+
+/* List Item Dividers */
+.list-item-divider {
+  @apply border-t border-gray-200 dark:border-gray-700;
+  @apply py-2 px-4 text-xs font-medium text-gray-500 dark:text-gray-400;
+  @apply bg-gray-50 dark:bg-gray-800/50;
+  @apply uppercase tracking-wide;
+}
+
+/* List Item Group Header */
+.list-item-header {
+  @apply px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400;
+  @apply bg-gray-50 dark:bg-gray-800/50;
+  @apply uppercase tracking-wide;
+  @apply sticky top-0 z-10;
+}
+
+/* List Item Nested */
+.list-item-nested {
+  @apply ml-6 pl-4 border-l-2 border-gray-200 dark:border-gray-700;
+}
+
+.list-item-nested-level-2 {
+  @apply ml-12;
+}
+
+.list-item-nested-level-3 {
+  @apply ml-18;
+}
+
+/* List Item Expandable */
+.list-item-expandable {
+  @apply cursor-pointer;
+}
+
+.list-item-expand-icon {
+  @apply w-4 h-4 text-gray-400 transform transition-transform duration-200;
+  @apply ml-auto;
+}
+
+.list-item-expanded .list-item-expand-icon {
+  @apply rotate-90;
+}
+
+/* List Item Timeline */
+.list-item-timeline {
+  @apply relative pl-8;
+}
+
+.list-item-timeline::before {
+  @apply absolute left-3 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700;
+  content: "";
+}
+
+.list-item-timeline-dot {
+  @apply absolute left-2 top-4 w-2 h-2 bg-blue-500 rounded-full;
+  @apply border-2 border-white dark:border-gray-900;
+}
+
+/* List Item Notification */
+.list-item-notification {
+  @apply relative;
+}
+
+.list-item-notification-dot {
+  @apply absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full;
+}
+
+/* List Item Menu */
+.list-item-menu {
+  @apply py-1;
+}
+
+.list-item-menu .list-item {
+  @apply px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply border-0;
+}
+
+/* List Item Animations */
+.list-item-fade-in {
+  @apply opacity-0 animate-fade-in;
+}
+
+.list-item-slide-in {
+  @apply transform translate-x-4 opacity-0;
+  animation: slide-in-left 0.3s ease-out forwards;
+}
+
+@keyframes slide-in-left {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.list-item-scale-in {
+  @apply transform scale-95 opacity-0;
+  animation: scale-in 0.2s ease-out forwards;
+}
+
+@keyframes scale-in {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* List Item Hover Effects */
+.list-item-hover-shadow:hover {
+  @apply shadow-md;
+}
+
+.list-item-hover-scale:hover {
+  @apply transform scale-105;
+}
+
+.list-item-hover-border:hover {
+  @apply border-blue-200 dark:border-blue-700;
+}
+
+/* List Item Striped */
+.list-item-striped:nth-child(even) {
+  @apply bg-gray-50 dark:bg-gray-800/50;
+}
+
+/* List Item Responsive */
+@media (max-width: 640px) {
+  .list-item-responsive {
+    @apply px-3 py-2 text-sm;
+  }
+
+  .list-item-responsive .list-item-actions {
+    @apply gap-1;
+  }
+
+  .list-item-responsive .list-item-avatar-image {
+    @apply w-8 h-8;
+  }
+}
+
+/* List Item Accessibility */
+.list-item[role="listitem"] {
+  @apply focus:outline-none;
+}
+
+.list-item[tabindex="0"]:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* List Item High Contrast */
+@media (prefers-contrast: high) {
+  .list-item {
+    @apply border border-gray-400;
+  }
+
+  .list-item-active {
+    @apply border-2 border-blue-600;
+  }
+}
+
+/* List Item Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .list-item {
+    @apply transition-none;
+  }
+
+  .list-item-expand-icon {
+    @apply transition-none;
+  }
+}
+
+/* List Item Print Styles */
+@media print {
+  .list-item {
+    @apply bg-transparent border-b border-gray-300;
+  }
+
+  .list-item-actions {
+    @apply hidden;
+  }
+}
+
+/* List Item Dark Mode Adjustments */
+.dark .list-item {
+  @apply border-gray-800;
+}
+
+.dark .list-item-divider {
+  @apply border-gray-700 bg-gray-800;
+}
+
+/* List Item Custom Spacing */
+.list-item-compact {
+  @apply py-1 px-2;
+}
+
+.list-item-spacious {
+  @apply py-6 px-8;
+}
+
+/* List Item with Image */
+.list-item-image {
+  @apply flex items-center gap-4;
+}
+
+.list-item-image-element {
+  @apply w-16 h-16 object-cover rounded-lg flex-shrink-0;
+}
+
+.list-item-image-sm .list-item-image-element {
+  @apply w-12 h-12;
+}
+
+.list-item-image-lg .list-item-image-element {
+  @apply w-20 h-20;
+}

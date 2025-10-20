@@ -1,0 +1,193 @@
+/* Input Component Styles */
+.input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg;
+  @apply bg-white text-gray-900 placeholder-gray-500;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  @apply disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed;
+  @apply dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-400;
+  @apply dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  @apply dark:disabled:bg-gray-700 dark:disabled:text-gray-400;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+/* Input Sizes */
+.input-sm {
+  @apply px-2.5 py-1.5 text-sm;
+}
+
+.input-md {
+  @apply px-3 py-2 text-sm;
+}
+
+.input-lg {
+  @apply px-4 py-3 text-base;
+}
+
+.input-xl {
+  @apply px-5 py-4 text-lg;
+}
+
+/* Input Variants */
+.input-filled {
+  @apply bg-gray-50 border-transparent focus:bg-white focus:border-blue-500;
+  @apply dark:bg-gray-700 dark:focus:bg-gray-800;
+}
+
+.input-underlined {
+  @apply border-0 border-b-2 border-gray-300 rounded-none px-0;
+  @apply focus:border-blue-500 focus:ring-0;
+  @apply dark:border-gray-600;
+}
+
+.input-ghost {
+  @apply border-transparent bg-transparent;
+  @apply hover:border-gray-300 focus:border-blue-500;
+  @apply dark:hover:border-gray-600;
+}
+
+/* Input States */
+.input-error {
+  @apply border-red-300 focus:border-red-500 focus:ring-red-500;
+  @apply dark:border-red-600;
+}
+
+.input-success {
+  @apply border-green-300 focus:border-green-500 focus:ring-green-500;
+  @apply dark:border-green-600;
+}
+
+.input-warning {
+  @apply border-yellow-300 focus:border-yellow-500 focus:ring-yellow-500;
+  @apply dark:border-yellow-600;
+}
+
+/* Input with Icons */
+.input-with-icon {
+  @apply relative;
+}
+
+.input-with-icon .input {
+  @apply pl-10;
+}
+
+.input-with-icon .input-icon {
+  @apply absolute left-3 top-1/2 transform -translate-y-1/2;
+  @apply text-gray-400 dark:text-gray-500;
+}
+
+.input-with-right-icon .input {
+  @apply pr-10;
+}
+
+.input-with-right-icon .input-icon {
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2;
+}
+
+/* Search Input */
+.input-search {
+  @apply pl-10 pr-4 bg-gray-100 border-gray-200;
+  @apply dark:bg-gray-800 dark:border-gray-700;
+}
+
+.input-search::placeholder {
+  @apply text-gray-400 dark:text-gray-500;
+}
+
+/* Input Groups */
+.input-group {
+  @apply flex;
+}
+
+.input-group .input {
+  @apply rounded-none;
+}
+
+.input-group .input:first-child {
+  @apply rounded-l-lg;
+}
+
+.input-group .input:last-child {
+  @apply rounded-r-lg;
+}
+
+.input-group .input:not(:last-child) {
+  @apply border-r-0;
+}
+
+/* Input Addon */
+.input-addon {
+  @apply flex items-center px-3 text-sm;
+  @apply bg-gray-50 border border-gray-300 text-gray-500;
+  @apply dark:bg-gray-700 dark:border-gray-600 dark:text-gray-400;
+}
+
+.input-addon:first-child {
+  @apply rounded-l-lg border-r-0;
+}
+
+.input-addon:last-child {
+  @apply rounded-r-lg border-l-0;
+}
+
+/* Textarea Styles */
+.textarea {
+  @apply input resize-none;
+  min-height: 80px;
+}
+
+.textarea-auto {
+  resize: vertical;
+}
+
+/* File Input */
+.input-file {
+  @apply relative cursor-pointer;
+}
+
+.input-file input[type="file"] {
+  @apply absolute inset-0 w-full h-full opacity-0 cursor-pointer;
+}
+
+.input-file-label {
+  @apply input cursor-pointer text-center;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+}
+
+/* Range Input */
+.input-range {
+  @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
+  @apply dark:bg-gray-700;
+}
+
+.input-range::-webkit-slider-thumb {
+  @apply appearance-none w-5 h-5 bg-blue-600 rounded-full cursor-pointer;
+  @apply hover:bg-blue-700 focus:bg-blue-700;
+}
+
+.input-range::-moz-range-thumb {
+  @apply w-5 h-5 bg-blue-600 rounded-full cursor-pointer border-0;
+  @apply hover:bg-blue-700 focus:bg-blue-700;
+}
+
+/* Floating Labels */
+.input-floating {
+  @apply relative;
+}
+
+.input-floating .input {
+  @apply pt-6 pb-2;
+}
+
+.input-floating .input-label {
+  @apply absolute left-3 top-3 text-gray-500 text-sm;
+  @apply transition-all duration-200 pointer-events-none;
+  @apply dark:text-gray-400;
+}
+
+.input-floating .input:focus ~ .input-label,
+.input-floating .input:not(:placeholder-shown) ~ .input-label {
+  @apply -translate-y-2 scale-75 text-blue-600;
+  @apply dark:text-blue-400;
+}

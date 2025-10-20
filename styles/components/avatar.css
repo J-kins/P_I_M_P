@@ -1,0 +1,165 @@
+/* Avatar Component Styles */
+.avatar {
+  @apply relative inline-flex items-center justify-center overflow-hidden;
+  @apply bg-gray-100 text-gray-600 font-medium select-none;
+  @apply dark:bg-gray-800 dark:text-gray-300;
+}
+
+/* Avatar Sizes */
+.avatar-xs {
+  @apply w-6 h-6 text-xs rounded-full;
+}
+
+.avatar-sm {
+  @apply w-8 h-8 text-sm rounded-full;
+}
+
+.avatar-md {
+  @apply w-10 h-10 text-base rounded-lg;
+}
+
+.avatar-lg {
+  @apply w-12 h-12 text-lg rounded-xl;
+}
+
+.avatar-xl {
+  @apply w-16 h-16 text-xl rounded-2xl;
+}
+
+.avatar-2xl {
+  @apply w-20 h-20 text-2xl rounded-3xl;
+}
+
+/* Avatar Shapes */
+.avatar-square {
+  @apply rounded-lg;
+}
+
+.avatar-rounded {
+  @apply rounded-xl;
+}
+
+.avatar-circle {
+  @apply rounded-full;
+}
+
+/* Avatar Image */
+.avatar-image {
+  @apply w-full h-full object-cover;
+}
+
+/* Avatar Status Indicators */
+.avatar-status {
+  @apply absolute -bottom-0 -right-0 border-2 border-white rounded-full;
+  @apply dark:border-gray-900;
+}
+
+.avatar-status-online {
+  @apply bg-green-400;
+}
+
+.avatar-status-offline {
+  @apply bg-gray-400;
+}
+
+.avatar-status-away {
+  @apply bg-yellow-400;
+}
+
+.avatar-status-busy {
+  @apply bg-red-400;
+}
+
+/* Avatar Status Sizes */
+.avatar-xs .avatar-status {
+  @apply w-2 h-2;
+}
+
+.avatar-sm .avatar-status {
+  @apply w-2.5 h-2.5;
+}
+
+.avatar-md .avatar-status {
+  @apply w-3 h-3;
+}
+
+.avatar-lg .avatar-status {
+  @apply w-3.5 h-3.5;
+}
+
+.avatar-xl .avatar-status {
+  @apply w-4 h-4;
+}
+
+.avatar-2xl .avatar-status {
+  @apply w-5 h-5;
+}
+
+/* Avatar Badge */
+.avatar-badge {
+  @apply absolute -top-1 -right-1 inline-flex items-center justify-center;
+  @apply min-w-[1.25rem] h-5 px-1 text-xs font-medium;
+  @apply bg-red-500 text-white rounded-full border-2 border-white;
+  @apply dark:border-gray-900;
+}
+
+/* Avatar Group */
+.avatar-group {
+  @apply flex items-center;
+}
+
+.avatar-group .avatar {
+  @apply border-2 border-white dark:border-gray-900;
+}
+
+.avatar-group .avatar:not(:first-child) {
+  @apply -ml-2;
+}
+
+.avatar-group .avatar:hover {
+  @apply z-10 transform scale-110;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Avatar Gradient Backgrounds */
+.avatar-gradient-1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  @apply text-white;
+}
+
+.avatar-gradient-2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  @apply text-white;
+}
+
+.avatar-gradient-3 {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  @apply text-white;
+}
+
+.avatar-gradient-4 {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  @apply text-gray-900;
+}
+
+.avatar-gradient-5 {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  @apply text-gray-900;
+}
+
+/* Avatar Loading State */
+.avatar-loading {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700;
+}
+
+/* Avatar Hover Effects */
+.avatar-hover:hover {
+  @apply transform scale-105 shadow-lg;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Avatar Ring */
+.avatar-ring {
+  @apply ring-2 ring-blue-500 ring-offset-2 ring-offset-white;
+  @apply dark:ring-offset-gray-900;
+}

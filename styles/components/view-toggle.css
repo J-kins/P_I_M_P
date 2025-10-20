@@ -1,0 +1,366 @@
+/* View Toggle Component Styles */
+/* Provides styling for switching between grid and table view modes */
+
+.view-toggle-host {
+  @apply relative;
+}
+
+.view-toggle {
+  @apply relative inline-flex;
+}
+
+/* Variant Styles */
+.view-toggle--default {
+  @apply bg-gray-100 dark:bg-gray-700 rounded-lg p-1;
+}
+
+.view-toggle--compact {
+  @apply bg-gray-100 dark:bg-gray-700 rounded-md p-0.5;
+}
+
+.view-toggle--pill {
+  @apply bg-gray-100 dark:bg-gray-700 rounded-full p-1;
+}
+
+.view-toggle--minimal {
+  @apply bg-transparent p-0 space-x-1;
+}
+
+/* Size Variants */
+.view-toggle--sm {
+  @apply text-sm;
+}
+
+.view-toggle--md {
+  @apply text-base;
+}
+
+.view-toggle--lg {
+  @apply text-lg;
+}
+
+/* Button Base */
+.view-toggle__button {
+  @apply relative flex items-center justify-center;
+  @apply font-medium rounded-md transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-800;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Button Variant Styles */
+.view-toggle__button--default {
+  @apply px-3 py-2 text-gray-600 dark:text-gray-400;
+  @apply hover:text-gray-900 dark:hover:text-white;
+  @apply hover:bg-white/50 dark:hover:bg-gray-600;
+}
+
+.view-toggle__button--compact {
+  @apply px-2 py-1.5 text-gray-600 dark:text-gray-400;
+  @apply hover:text-gray-900 dark:hover:text-white;
+  @apply hover:bg-white/50 dark:hover:bg-gray-600;
+}
+
+.view-toggle__button--pill {
+  @apply px-4 py-2 text-gray-600 dark:text-gray-400;
+  @apply hover:text-gray-900 dark:hover:text-white;
+  @apply hover:bg-white/50 dark:hover:bg-gray-600;
+  @apply rounded-full;
+}
+
+.view-toggle__button--minimal {
+  @apply px-3 py-2 text-gray-600 dark:text-gray-400;
+  @apply hover:text-gray-900 dark:hover:text-white;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply border border-transparent hover:border-gray-300 dark:hover:border-gray-600;
+}
+
+/* Button Size Variants */
+.view-toggle__button--sm {
+  @apply px-2 py-1 text-sm;
+}
+
+.view-toggle__button--md {
+  @apply px-3 py-2 text-base;
+}
+
+.view-toggle__button--lg {
+  @apply px-4 py-3 text-lg;
+}
+
+/* Active State */
+.view-toggle__button--active {
+  @apply text-blue-600 dark:text-blue-400 bg-white dark:bg-gray-800;
+  @apply shadow-sm border border-gray-200 dark:border-gray-600;
+}
+
+.view-toggle--minimal .view-toggle__button--active {
+  @apply bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-700;
+}
+
+/* Disabled State */
+.view-toggle__button--disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.view-toggle__button--disabled:hover {
+  @apply text-gray-600 dark:text-gray-400 bg-transparent;
+}
+
+/* Icons */
+.view-toggle__icon {
+  @apply flex-shrink-0;
+}
+
+.view-toggle--sm .view-toggle__icon {
+  @apply w-4 h-4;
+}
+
+.view-toggle--md .view-toggle__icon {
+  @apply w-5 h-5;
+}
+
+.view-toggle--lg .view-toggle__icon {
+  @apply w-6 h-6;
+}
+
+/* Labels */
+.view-toggle__label {
+  @apply font-medium;
+}
+
+.view-toggle--icons-only .view-toggle__label {
+  @apply sr-only;
+}
+
+.view-toggle__icon + .view-toggle__label {
+  @apply ml-2;
+}
+
+.view-toggle--sm .view-toggle__icon + .view-toggle__label {
+  @apply ml-1;
+}
+
+/* Badge (for disabled indicator) */
+.view-toggle__badge {
+  @apply absolute -top-1 -right-1 flex-shrink-0;
+}
+
+.view-toggle__badge-icon {
+  @apply w-3 h-3 text-red-500;
+}
+
+/* Indicator */
+.view-toggle__indicator {
+  @apply absolute top-1 bottom-1 bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-600 rounded-md;
+  @apply shadow-sm transition-transform duration-200;
+  @apply pointer-events-none;
+}
+
+.view-toggle--with-indicator .view-toggle__button--active {
+  @apply bg-transparent border-transparent shadow-none;
+}
+
+/* Mode Label */
+.view-toggle__mode-label {
+  @apply mt-2 text-sm text-gray-500 dark:text-gray-400 text-center;
+}
+
+/* Additional Controls */
+.view-toggle__controls {
+  @apply mt-3 flex items-center justify-center space-x-2;
+}
+
+/* Hover Effects */
+.view-toggle__button:not(.view-toggle__button--active):not(.view-toggle__button--disabled):hover {
+  @apply transform scale-105;
+}
+
+.view-toggle__button:not(.view-toggle__button--disabled):active {
+  @apply transform scale-95;
+}
+
+/* Focus States */
+.view-toggle__button:focus-visible {
+  @apply ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-700;
+}
+
+/* Keyboard Navigation */
+.view-toggle:focus-within .view-toggle__button:not(:focus) {
+  @apply opacity-75;
+}
+
+/* Group States */
+.view-toggle--disabled {
+  @apply opacity-60 pointer-events-none;
+}
+
+/* Animation for mode changes */
+@keyframes mode-change {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.view-toggle__button--active {
+  animation: mode-change 200ms ease-out;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .view-toggle--md {
+    @apply text-sm;
+  }
+
+  .view-toggle--lg {
+    @apply text-base;
+  }
+
+  .view-toggle__button {
+    @apply min-w-12;
+  }
+
+  .view-toggle__label {
+    @apply hidden;
+  }
+
+  .view-toggle__icon {
+    @apply w-5 h-5;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .view-toggle {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .view-toggle__button {
+    @apply border border-gray-900 dark:border-white;
+  }
+
+  .view-toggle__button--active {
+    @apply bg-yellow-100 dark:bg-yellow-900 text-black dark:text-white;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .view-toggle__button,
+  .view-toggle__indicator {
+    @apply transition-none;
+  }
+
+  .view-toggle__button:hover,
+  .view-toggle__button:active {
+    transform: none !important;
+  }
+
+  .view-toggle__button--active {
+    animation: none !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .view-toggle {
+    @apply hidden;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .view-toggle__icon + .view-toggle__label {
+  @apply ml-0 mr-2;
+}
+
+[dir="rtl"] .view-toggle__badge {
+  @apply -top-1 -left-1 -right-auto;
+}
+
+/* Custom Properties for Theme Integration */
+.view-toggle {
+  --toggle-bg: theme(colors.gray.100);
+  --toggle-button-text: theme(colors.gray.600);
+  --toggle-button-hover: theme(colors.gray.900);
+  --toggle-button-active-bg: theme(colors.white);
+  --toggle-button-active-text: theme(colors.blue.600);
+  --toggle-border: theme(colors.gray.200);
+  --toggle-shadow: theme(boxShadow.sm);
+}
+
+@media (prefers-color-scheme: dark) {
+  .view-toggle {
+    --toggle-bg: theme(colors.gray.700);
+    --toggle-button-text: theme(colors.gray.400);
+    --toggle-button-hover: theme(colors.white);
+    --toggle-button-active-bg: theme(colors.gray.800);
+    --toggle-button-active-text: theme(colors.blue.400);
+    --toggle-border: theme(colors.gray.600);
+  }
+}
+
+/* Accessibility Enhancements */
+.view-toggle[role="radiogroup"] {
+  @apply focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2;
+}
+
+.view-toggle__button[aria-pressed="true"] {
+  @apply bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}
+
+/* Tooltip Integration */
+.view-toggle__button[title]:hover::after {
+  content: attr(title);
+  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2;
+  @apply bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-50;
+}
+
+/* Loading State */
+.view-toggle--loading {
+  @apply opacity-60 pointer-events-none;
+}
+
+.view-toggle--loading .view-toggle__button::after {
+  content: "";
+  @apply absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse rounded-md;
+}
+
+/* Custom Options Support */
+.view-toggle__custom-option {
+  @apply flex items-center justify-center px-3 py-2;
+  @apply text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white;
+  @apply transition-colors duration-200;
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 768px) {
+  .view-toggle--responsive .view-toggle__label {
+    @apply block;
+  }
+}
+
+/* Group Indicator */
+.view-toggle__group-indicator {
+  @apply absolute inset-x-0 bottom-0 h-0.5 bg-blue-500 rounded-full;
+  @apply transform scale-x-0 transition-transform duration-200;
+}
+
+.view-toggle__button--active .view-toggle__group-indicator {
+  @apply scale-x-100;
+}
+
+/* Performance Optimizations */
+.view-toggle--optimized {
+  contain: layout style paint;
+}
+
+.view-toggle--optimized .view-toggle__button {
+  will-change: transform, background-color;
+}

@@ -1,0 +1,278 @@
+/* Dark Theme for Socialite UI Components */
+
+:root.dark {
+  /* Primary Colors */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-primary-light: #60a5fa;
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-900: #1e3a8a;
+
+  /* Background Colors */
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #334155;
+  --color-bg-card: #1e293b;
+  --color-bg-elevated: #334155;
+  --color-bg-overlay: rgba(15, 23, 42, 0.8);
+  --color-bg-input: #334155;
+  --color-bg-hover: #475569;
+
+  /* Text Colors */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-tertiary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-text-placeholder: #64748b;
+  --color-text-disabled: #475569;
+  --color-text-inverse: #0f172a;
+
+  /* Border Colors */
+  --color-border-primary: #475569;
+  --color-border-secondary: #334155;
+  --color-border-light: #64748b;
+  --color-border-focus: #3b82f6;
+  --color-border-error: #ef4444;
+  --color-border-success: #10b981;
+  --color-border-warning: #f59e0b;
+
+  /* Status Colors */
+  --color-success: #10b981;
+  --color-success-bg: rgba(16, 185, 129, 0.1);
+  --color-success-border: rgba(16, 185, 129, 0.2);
+
+  --color-error: #ef4444;
+  --color-error-bg: rgba(239, 68, 68, 0.1);
+  --color-error-border: rgba(239, 68, 68, 0.2);
+
+  --color-warning: #f59e0b;
+  --color-warning-bg: rgba(245, 158, 11, 0.1);
+  --color-warning-border: rgba(245, 158, 11, 0.2);
+
+  --color-info: #06b6d4;
+  --color-info-bg: rgba(6, 182, 212, 0.1);
+  --color-info-border: rgba(6, 182, 212, 0.2);
+
+  /* Social Media Colors (Dark Theme Adapted) */
+  --color-facebook: #1877f2;
+  --color-twitter: #1da1f2;
+  --color-instagram: #e4405f;
+  --color-linkedin: #0077b5;
+  --color-youtube: #ff0000;
+  --color-tiktok: #000000;
+  --color-snapchat: #fffc00;
+  --color-pinterest: #bd081c;
+
+  /* Component Specific Colors */
+  --color-avatar-bg: #475569;
+  --color-avatar-text: #f8fafc;
+  --color-badge-bg: #3b82f6;
+  --color-badge-text: #ffffff;
+  --color-notification-dot: #ef4444;
+
+  /* Header */
+  --color-header-bg: rgba(30, 41, 59, 0.95);
+  --color-header-border: #475569;
+  --color-header-text: #f8fafc;
+
+  /* Sidebar */
+  --color-sidebar-bg: #1e293b;
+  --color-sidebar-border: #475569;
+  --color-sidebar-text: #cbd5e1;
+  --color-sidebar-text-active: #f8fafc;
+  --color-sidebar-hover: #334155;
+
+  /* Post/Card */
+  --color-post-bg: #1e293b;
+  --color-post-border: #334155;
+  --color-post-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Button */
+  --color-button-primary-bg: #3b82f6;
+  --color-button-primary-hover: #2563eb;
+  --color-button-primary-text: #ffffff;
+  --color-button-secondary-bg: #64748b;
+  --color-button-secondary-hover: #475569;
+  --color-button-secondary-text: #ffffff;
+  --color-button-ghost-hover: #334155;
+
+  /* Input */
+  --color-input-bg: #334155;
+  --color-input-border: #475569;
+  --color-input-border-focus: #3b82f6;
+  --color-input-text: #f8fafc;
+  --color-input-placeholder: #64748b;
+
+  /* Modal */
+  --color-modal-bg: #1e293b;
+  --color-modal-overlay: rgba(0, 0, 0, 0.6);
+  --color-modal-border: #334155;
+
+  /* Dropdown */
+  --color-dropdown-bg: #334155;
+  --color-dropdown-border: #475569;
+  --color-dropdown-hover: #475569;
+  --color-dropdown-shadow: rgba(0, 0, 0, 0.4);
+
+  /* Tooltip */
+  --color-tooltip-bg: #0f172a;
+  --color-tooltip-text: #f8fafc;
+  --color-tooltip-border: #334155;
+
+  /* Online Status */
+  --color-online: #10b981;
+  --color-away: #f59e0b;
+  --color-busy: #ef4444;
+  --color-offline: #64748b;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-medium: 250ms ease-in-out;
+  --transition-slow: 400ms ease-in-out;
+
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+}
+
+/* Dark theme component overrides */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* Dark theme scrollbar */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-border-primary);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* Dark theme selection */
+.dark ::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* Dark theme focus rings */
+.dark *:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Dark theme form elements */
+.dark input[type="checkbox"]:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.dark input[type="radio"]:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Dark theme code blocks */
+.dark pre,
+.dark code {
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-secondary);
+}
+
+/* Dark theme tables */
+.dark table {
+  border-color: var(--color-border-secondary);
+}
+
+.dark th,
+.dark td {
+  border-color: var(--color-border-secondary);
+}
+
+.dark th {
+  background-color: var(--color-bg-secondary);
+}
+
+.dark tr:nth-child(even) {
+  background-color: rgba(51, 65, 85, 0.3);
+}
+
+/* Dark theme HR */
+.dark hr {
+  border-color: var(--color-border-secondary);
+}
+
+/* Dark theme image placeholders */
+.dark .image-placeholder {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-tertiary);
+}
+
+/* Dark theme loading states */
+.dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-secondary) 25%,
+    var(--color-bg-tertiary) 50%,
+    var(--color-bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Dark theme specific animations */
+.dark .fade-in-dark {
+  animation: fadeInDark 0.3s ease-out forwards;
+}
+
+@keyframes fadeInDark {
+  from {
+    opacity: 0;
+    background-color: var(--color-bg-primary);
+  }
+  to {
+    opacity: 1;
+    background-color: var(--color-bg-secondary);
+  }
+}

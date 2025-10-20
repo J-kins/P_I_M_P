@@ -1,0 +1,643 @@
+/* Post Feed Page Styles */
+
+.post-feed-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.feed-header {
+  @apply mb-8;
+}
+
+.feed-title-section {
+  @apply flex items-center justify-between mb-4;
+}
+
+.feed-title {
+  @apply text-3xl font-bold text-gray-900 dark:text-white;
+}
+
+.create-post-button {
+  @apply flex items-center space-x-2;
+}
+
+.feed-filters {
+  @apply flex space-x-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1;
+}
+
+.filter-button {
+  @apply flex-1 px-4 py-2 text-sm font-medium rounded-md transition-colors;
+}
+
+.filter-button.active {
+  @apply bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm;
+}
+
+.filter-button.inactive {
+  @apply text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white;
+}
+
+.quick-create {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6;
+}
+
+.quick-create-header {
+  @apply flex items-center space-x-4;
+}
+
+.quick-create-avatar {
+  @apply flex-shrink-0;
+}
+
+.quick-create-input {
+  @apply flex-1 text-left px-4 py-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors cursor-pointer;
+}
+
+.quick-create-actions {
+  @apply flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-gray-700;
+}
+
+.quick-actions {
+  @apply flex space-x-4;
+}
+
+.quick-action {
+  @apply flex items-center space-x-2 px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors cursor-pointer;
+}
+
+.quick-action-icon {
+  @apply w-5 h-5;
+}
+
+.quick-action-icon.photo {
+  @apply text-green-500;
+}
+
+.quick-action-icon.feeling {
+  @apply text-blue-500;
+}
+
+.quick-action-icon.location {
+  @apply text-red-500;
+}
+
+.quick-action-text {
+  @apply text-sm;
+}
+
+.post-feed {
+  @apply space-y-6;
+}
+
+.loading-posts {
+  @apply space-y-6;
+}
+
+.loading-post {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6;
+}
+
+.loading-skeleton {
+  @apply animate-pulse;
+}
+
+.skeleton-header {
+  @apply flex items-center space-x-4 mb-4;
+}
+
+.skeleton-avatar {
+  @apply w-12 h-12 bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.skeleton-user-info {
+  @apply space-y-2;
+}
+
+.skeleton-name {
+  @apply h-4 bg-gray-300 dark:bg-gray-600 rounded w-32;
+}
+
+.skeleton-meta {
+  @apply h-3 bg-gray-300 dark:bg-gray-600 rounded w-24;
+}
+
+.skeleton-content {
+  @apply space-y-2 mb-4;
+}
+
+.skeleton-text {
+  @apply h-4 bg-gray-300 dark:bg-gray-600 rounded;
+}
+
+.skeleton-text.short {
+  @apply w-5/6;
+}
+
+.skeleton-text.shorter {
+  @apply w-4/6;
+}
+
+.skeleton-media {
+  @apply h-48 bg-gray-300 dark:bg-gray-600 rounded-lg mb-4;
+}
+
+.skeleton-actions {
+  @apply flex space-x-4;
+}
+
+.skeleton-button {
+  @apply h-8 bg-gray-300 dark:bg-gray-600 rounded w-16;
+}
+
+.empty-feed {
+  @apply text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700;
+}
+
+.empty-icon {
+  @apply w-16 h-16 text-gray-400 mx-auto mb-4;
+}
+
+.empty-title {
+  @apply text-lg font-medium text-gray-900 dark:text-white mb-2;
+}
+
+.empty-description {
+  @apply text-gray-600 dark:text-gray-400 mb-4;
+}
+
+.post-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700;
+}
+
+.post-header {
+  @apply flex items-center justify-between p-6 pb-4;
+}
+
+.post-user-info {
+  @apply flex items-center space-x-3;
+}
+
+.post-avatar {
+  @apply flex-shrink-0;
+}
+
+.post-user-details {
+  @apply min-w-0;
+}
+
+.post-user-name {
+  @apply flex items-center space-x-2;
+}
+
+.post-username {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+
+.post-badges {
+  @apply flex items-center space-x-2;
+}
+
+.verified-badge {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+}
+
+.sponsored-badge {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+}
+
+.pinned-badge {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
+}
+
+.post-meta {
+  @apply flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400;
+}
+
+.meta-handle {
+  @apply hover:text-primary-600 dark:hover:text-primary-400 cursor-pointer;
+}
+
+.meta-separator {
+  @apply text-gray-400;
+}
+
+.meta-time {
+  @apply hover:text-gray-700 dark:hover:text-gray-300 cursor-pointer;
+}
+
+.meta-location {
+  @apply flex items-center space-x-1 hover:text-primary-600 dark:hover:text-primary-400 cursor-pointer;
+}
+
+.location-icon {
+  @apply w-3 h-3;
+}
+
+.post-actions-header {
+  @apply flex items-center space-x-2;
+}
+
+.follow-button {
+  @apply px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.more-button {
+  @apply w-8 h-8 p-0 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.post-content {
+  @apply px-6 pb-4;
+}
+
+.post-text {
+  @apply text-gray-900 dark:text-white whitespace-pre-wrap leading-relaxed;
+}
+
+.post-tags {
+  @apply flex flex-wrap gap-1 mt-3;
+}
+
+.post-tag {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.hashtag {
+  @apply bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200;
+}
+
+.mention {
+  @apply bg-secondary-100 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-200;
+}
+
+.post-media {
+  @apply pb-4;
+}
+
+.media-grid {
+  @apply px-6;
+}
+
+.media-grid.single {
+  @apply grid grid-cols-1;
+}
+
+.media-grid.double {
+  @apply grid grid-cols-2 gap-2;
+}
+
+.media-grid.multiple {
+  @apply grid grid-cols-2 gap-2;
+}
+
+.media-item {
+  @apply relative overflow-hidden rounded-lg;
+}
+
+.media-item.span-two {
+  @apply row-span-2;
+}
+
+.media-image {
+  @apply w-full h-64 object-cover cursor-pointer hover:opacity-95 transition-opacity;
+}
+
+.media-video-container {
+  @apply relative;
+}
+
+.media-video {
+  @apply w-full h-64 object-cover rounded-lg cursor-pointer;
+}
+
+.video-play-overlay {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+.video-play-button {
+  @apply bg-black/50 rounded-full p-3;
+}
+
+.play-icon {
+  @apply w-8 h-8 text-white;
+}
+
+.media-count-overlay {
+  @apply absolute inset-0 bg-black/50 rounded-lg flex items-center justify-center;
+}
+
+.media-count-text {
+  @apply text-white text-xl font-semibold;
+}
+
+.post-stats {
+  @apply px-6 py-3 border-t border-gray-200 dark:border-gray-700;
+}
+
+.stats-info {
+  @apply flex items-center justify-between text-sm text-gray-500 dark:text-gray-400;
+}
+
+.stats-left {
+  @apply flex items-center space-x-4;
+}
+
+.stat-item {
+  @apply hover:text-primary-600 dark:hover:text-primary-400 cursor-pointer transition-colors;
+}
+
+.post-interactions {
+  @apply px-6 py-3 border-t border-gray-200 dark:border-gray-700;
+}
+
+.interaction-buttons {
+  @apply flex items-center justify-between;
+}
+
+.main-actions {
+  @apply flex space-x-1;
+}
+
+.action-button {
+  @apply flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200;
+}
+
+.action-button.liked {
+  @apply bg-primary-50 text-primary-700 dark:bg-primary-900 dark:text-primary-200;
+}
+
+.action-button.neutral {
+  @apply text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700;
+}
+
+.action-icon {
+  @apply w-4 h-4;
+}
+
+.action-text {
+  @apply text-sm;
+}
+
+.bookmark-button {
+  @apply p-2 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.bookmark-button.bookmarked {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.bookmark-icon {
+  @apply w-4 h-4;
+}
+
+.load-more-section {
+  @apply text-center py-8;
+}
+
+.load-more-button {
+  @apply min-w-[120px] px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.load-more-loading {
+  @apply flex items-center space-x-2;
+}
+
+.load-more-spinner {
+  @apply w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin;
+}
+
+.load-more-text {
+  @apply text-sm;
+}
+
+.create-modal {
+  @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50;
+}
+
+.modal-container {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto;
+}
+
+.modal-header {
+  @apply flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700;
+}
+
+.modal-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-white;
+}
+
+.modal-close {
+  @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors;
+}
+
+.modal-body {
+  @apply p-6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .post-feed-page {
+    @apply px-2;
+  }
+
+  .feed-title-section {
+    @apply flex-col space-y-4 items-start;
+  }
+
+  .feed-filters {
+    @apply w-full;
+  }
+
+  .quick-create-header {
+    @apply flex-col space-y-3 items-stretch;
+  }
+
+  .quick-create-input {
+    @apply text-center;
+  }
+
+  .quick-actions {
+    @apply flex-wrap gap-2;
+  }
+
+  .post-header {
+    @apply flex-col space-y-3 items-start;
+  }
+
+  .post-user-info {
+    @apply w-full;
+  }
+
+  .post-actions-header {
+    @apply w-full justify-between;
+  }
+
+  .media-grid.double,
+  .media-grid.multiple {
+    @apply grid-cols-1;
+  }
+
+  .media-image,
+  .media-video {
+    @apply h-48;
+  }
+
+  .interaction-buttons {
+    @apply flex-col space-y-3 items-stretch;
+  }
+
+  .main-actions {
+    @apply flex-wrap gap-2;
+  }
+
+  .action-button {
+    @apply flex-1 justify-center;
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Hover effects */
+.post-card:hover {
+  @apply shadow-lg;
+}
+
+.media-item:hover .media-image,
+.media-item:hover .media-video {
+  @apply transform scale-105;
+}
+
+.action-button:hover {
+  @apply transform scale-105;
+}
+
+/* Loading states */
+.skeleton-pulse {
+  animation: skeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Accessibility improvements */
+.post-feed-page *:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* Staggered animations for feed items */
+.post-card:nth-child(1) {
+  animation-delay: 0ms;
+}
+.post-card:nth-child(2) {
+  animation-delay: 100ms;
+}
+.post-card:nth-child(3) {
+  animation-delay: 200ms;
+}
+.post-card:nth-child(4) {
+  animation-delay: 300ms;
+}
+.post-card:nth-child(5) {
+  animation-delay: 400ms;
+}
+
+/* Special post types */
+.post-card.sponsored {
+  @apply border-yellow-200 dark:border-yellow-800;
+}
+
+.post-card.pinned {
+  @apply border-blue-200 dark:border-blue-800;
+}
+
+.post-card.promoted {
+  @apply border-purple-200 dark:border-purple-800;
+}
+
+/* Interaction states */
+.liked .action-icon {
+  @apply text-red-500;
+}
+
+.shared .action-icon {
+  @apply text-blue-500;
+}
+
+.commented .action-icon {
+  @apply text-green-500;
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .post-card {
+    @apply shadow-lg shadow-black/20;
+  }
+
+  .media-image,
+  .media-video {
+    @apply border border-gray-700;
+  }
+}

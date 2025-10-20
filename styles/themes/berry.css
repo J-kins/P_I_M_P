@@ -1,0 +1,143 @@
+
+/* 
+ * Berry theme for PHP UI Template System
+ * Inspired by rich berry tones with elegant contrast
+ */
+
+[data-theme="berry"] {
+  /* Core color palette with grades */
+  --primary-100: #f9f0f5;
+  --primary-200: #f0d9e8;
+  --primary-300: #e0b0d0;
+  --primary-400: #c07ea8;
+  --primary-500: #9e4c7f;  /* Brand berry */
+  --primary-600: #7e365f;
+  --primary-700: #5f2947;
+  --primary-800: #48182f;
+  --primary-900: #2e0f1d;
+  
+  /* Background colors */
+  --background-light-100: #ffffff;
+  --background-light-200: #fcf9fb;
+  --background-light-300: #f9f0f5;
+  --background-dark-100: #48182f;
+  --background-dark-200: #2e0f1d;
+  --background-dark-300: #1a0812;
+  
+  /* Accent colors - Moonstone accents */
+  --accent-light-100: #f5f1ef;
+  --accent-light-200: #e8e1dd;
+  --accent-light-300: #d4cbc4;
+  --accent-light-400: #b7aaa0;
+  --accent-dark-200: #8c7c6f;
+  --accent-dark-400: #6e5e51;
+  --accent-dark-600: #4a3f36;
+  
+  /* Functional colors */
+  --text-primary: #2e0f1d;
+  --text-secondary: #5f2947;
+  --text-muted: #9e4c7f;
+  --text-light: #fcf9fb;
+  --border-color: rgba(158, 76, 127, 0.15);
+  
+  /* Component-specific */
+  --button-hover: var(--primary-600);
+  --card-shadow: 0 2px 12px rgba(158, 76, 127, 0.1);
+  
+  /* SVG Noise Background */
+  --noise-svg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+}
+
+/* Component-specific theme overrides */
+
+/* Header styling with gradient and texture */
+.header {
+  background: linear-gradient(to right, var(--primary-800), var(--primary-700));
+  background-image: var(--noise-svg), linear-gradient(to right, var(--primary-800), var(--primary-700));
+  border-bottom: none;
+  color: var(--text-light);
+}
+
+.header h1 {
+  color: var(--text-light);
+}
+
+.header-nav a {
+  color: var(--primary-200);
+}
+
+.header-nav a:hover {
+  color: var(--text-light);
+}
+
+.header-nav a.active {
+  color: var(--text-light);
+  border-bottom: 2px solid var(--primary-200);
+  padding-bottom: 3px;
+}
+
+/* Button styling with gradient */
+.button {
+  background: linear-gradient(to right, var(--primary-600), var(--primary-500));
+  color: var(--text-light);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: linear-gradient(to right, var(--primary-700), var(--primary-600));
+  box-shadow: 0 3px 8px rgba(158, 76, 127, 0.25);
+}
+
+/* Card styling with subtle texture */
+.card {
+  background-color: var(--background-light-100);
+  background-image: var(--noise-svg);
+  border-radius: 8px;
+  border-top: 4px solid var(--primary-500);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+}
+
+/* Form element styling */
+input[type="text"], 
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  border: 1px solid var(--accent-light-300);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-400);
+  box-shadow: 0 0 0 2px rgba(158, 76, 127, 0.15);
+  outline: none;
+}
+
+/* Badge styling */
+.badge {
+  background-color: var(--primary-500);
+  background-image: var(--noise-svg);
+  color: var(--text-light);
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-outline {
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid var(--primary-500);
+  color: var(--primary-600);
+}
