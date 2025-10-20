@@ -432,3 +432,158 @@ function newsletterFooter(array $params = []): string {
     <?php return ob_get_clean();
 }
 ?>
+
+<?php
+/**
+ * BBB Footer Component
+ */
+function bbb_footer(array $params = []): string {
+    $logo = $params['logo'] ?? '';
+    $logoAlt = $params['logoAlt'] ?? 'Better Business Bureau';
+    $links = $params['links'] ?? [];
+    $social = $params['social'] ?? [];
+    $contact = $params['contact'] ?? [];
+    
+    ob_start(); ?>
+<footer class="bbb-footer">
+    <div class="bbb-container">
+        <div class="bbb-footer-main">
+            <div class="bbb-footer-brand">
+                <img src="<?= asset_url($logo) ?>" alt="<?= sanitize_output($logoAlt) ?>" class="bbb-footer-logo">
+                <p class="bbb-footer-description">
+                    Better Business Bureau helps consumers find businesses and charities they can trust.
+                </p>
+            </div>
+            
+            <div class="bbb-footer-links">
+                <?php foreach ($links as $column): ?>
+                <div class="bbb-footer-column">
+                    <h4 class="bbb-footer-title"><?= sanitize_output($column['title']) ?></h4>
+                    <ul class="bbb-footer-list">
+                        <?php foreach ($column['links'] as $link): ?>
+                        <li><a href="<?= url($link['url']) ?>" class="bbb-footer-link"><?= sanitize_output($link['label']) ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            
+            <div class="bbb-footer-contact">
+                <h4 class="bbb-footer-title">Contact Us</h4>
+                <?php foreach ($contact as $item): ?>
+                <div class="bbb-contact-item">
+                    <strong><?= sanitize_output($item['label']) ?>:</strong>
+                    <span><?= sanitize_output($item['value']) ?></span>
+                </div>
+                <?php endforeach; ?>
+                
+                <div class="bbb-social-links">
+                    <?php foreach ($social as $platform): ?>
+                    <a href="<?= url($platform['url']) ?>" class="bbb-social-link" aria-label="<?= sanitize_output($platform['name']) ?>">
+                        <?= $platform['icon'] ?? '🔗' ?>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bbb-footer-bottom">
+            <p>&copy; <?= date('Y') ?> Better Business Bureau. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+.bbb-footer {
+    background-color: var(--bbb-gray-dark);
+    color: var(--bbb-white);
+    padding: var(--bbb-spacing-xl) 0 var(--bbb-spacing-md);
+}
+
+.bbb-footer-main {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    gap: var(--bbb-spacing-xl);
+    margin-bottom: var(--bbb-spacing-xl);
+}
+
+.bbb-footer-logo {
+    height: 40px;
+    margin-bottom: var(--bbb-spacing-md);
+}
+
+.bbb-footer-description {
+    color: var(--bbb-gray);
+    line-height: 1.6;
+}
+
+.bbb-footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--bbb-spacing-lg);
+}
+
+.bbb-footer-title {
+    color: var(--bbb-white);
+    margin-bottom: var(--bbb-spacing-md);
+    font-size: var(--bbb-font-size-lg);
+}
+
+.bbb-footer-list {
+    list-style: none;
+}
+
+.bbb-footer-list li {
+    margin-bottom: var(--bbb-spacing-sm);
+}
+
+.bbb-footer-link {
+    color: var(--bbb-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.bbb-footer-link:hover {
+    color: var(--bbb-orange);
+}
+
+.bbb-contact-item {
+    margin-bottom: var(--bbb-spacing-sm);
+}
+
+.bbb-social-links {
+    display: flex;
+    gap: var(--bbb-spacing-md);
+    margin-top: var(--bbb-spacing-md);
+}
+
+.bbb-social-link {
+    color: var(--bbb-gray);
+    font-size: 1.25rem;
+    transition: color 0.2s;
+}
+
+.bbb-social-link:hover {
+    color: var(--bbb-orange);
+}
+
+.bbb-footer-bottom {
+    border-top: 1px solid var(--bbb-gray);
+    padding-top: var(--bbb-spacing-md);
+    text-align: center;
+    color: var(--bbb-gray);
+}
+
+@media (max-width: 768px) {
+    .bbb-footer-main {
+        grid-template-columns: 1fr;
+    }
+    
+    .bbb-footer-links {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<?php return ob_get_clean();
+}
+?>

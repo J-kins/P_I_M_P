@@ -1,234 +1,267 @@
 <?php
 /**
- * P.I.M.P Business Profile Page
- * Displays detailed business information, reviews, and ratings
+ * Updated Business Profile Page with D3.js Visualizations
  */
 
-require_once __DIR__ . '/../../../components/organisms/Navigation.php';
-require_once __DIR__ . '/../../../components/organisms/Footer.php';
-require_once __DIR__ . '/../../../components/molecules/Breadcrumb.php';
-require_once __DIR__ . '/../../../components/atoms/Button.php';
-require_once __DIR__ . '/../../../components/molecules/Tabs.php';
-
-// Sample business data
-$business = [
-    'name' => 'ABC Construction Co.',
-    'rating' => 4.5,
-    'reviewCount' => 127,
-    'category' => 'Construction Services',
-    'address' => '123 Main St, City, ST 12345',
-    'phone' => '(555) 123-4567',
-    'email' => 'info@abcconstruction.com',
-    'website' => 'www.abcconstruction.com',
-    'accredited' => true,
-    'accreditedSince' => '2015',
-    'image' => '/placeholder.svg?height=120&width=120',
-    'description' => 'ABC Construction Co. has been serving the community for over 20 years. We specialize in residential and commercial construction, renovations, and remodeling projects.',
-    'hours' => [
-        'Monday' => '8:00 AM - 6:00 PM',
-        'Tuesday' => '8:00 AM - 6:00 PM',
-        'Wednesday' => '8:00 AM - 6:00 PM',
-        'Thursday' => '8:00 AM - 6:00 PM',
-        'Friday' => '8:00 AM - 6:00 PM',
-        'Saturday' => '9:00 AM - 3:00 PM',
-        'Sunday' => 'Closed',
-    ]
+// Add these to your existing business data
+$business['ratingDistribution'] = [
+    5 => 85,
+    4 => 25,
+    3 => 10,
+    2 => 5,
+    1 => 2
 ];
 
-$reviews = [
-    [
-        'author' => 'John D.',
-        'rating' => 5,
-        'date' => '2024-01-15',
-        'title' => 'Excellent service!',
-        'content' => 'ABC Construction did an amazing job on our home renovation. Professional, on-time, and within budget.'
-    ],
-    [
-        'author' => 'Sarah M.',
-        'rating' => 4,
-        'date' => '2024-01-10',
-        'title' => 'Great experience',
-        'content' => 'Very satisfied with the quality of work. Would recommend to others.'
-    ],
+$business['complaintHistory'] = [
+    'Jan' => 3, 'Feb' => 2, 'Mar' => 4, 'Apr' => 1,
+    'May' => 2, 'Jun' => 3, 'Jul' => 1, 'Aug' => 2,
+    'Sep' => 0, 'Oct' => 1, 'Nov' => 2, 'Dec' => 1
 ];
 
+$business['trustScore'] = 87;
+$business['responseData'] = [
+    'averageResponse' => '2.5 hours',
+    'responseRate' => 95,
+    'totalComplaints' => 42,
+    'resolvedComplaints' => 40
+];
+
+// Add to your existing HTML after the business description section
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($business['name']); ?> - P.I.M.P</title>
-    <link rel="stylesheet" href="/assets/styles/main.css">
-    <link rel="stylesheet" href="/assets/styles/components.css">
-    <link rel="stylesheet" href="/assets/styles/atoms.css">
-    <link rel="stylesheet" href="/assets/styles/molecules.css">
-    <link rel="stylesheet" href="/assets/styles/organisms.css">
-</head>
-<body>
-    <?php echo Navigation([
-        'logo' => 'P.I.M.P',
-        'items' => [
-            ['label' => 'Find a Business', 'url' => '/search'],
-            ['label' => 'File a Complaint', 'url' => '/complaint'],
-            ['label' => 'Leave a Review', 'url' => '/review'],
-            ['label' => 'Get Accredited', 'url' => '/accreditation'],
-            ['label' => 'About', 'url' => '/about'],
-        ],
-        'variant' => 'horizontal'
-    ]); ?>
-
-    <div class="business-profile">
-        <div class="container">
-            <?php echo Breadcrumb([
-                'items' => [
-                    ['label' => 'Home', 'url' => '/'],
-                    ['label' => 'Search', 'url' => '/search'],
-                    ['label' => $business['name'], 'url' => '#']
-                ]
-            ]); ?>
-
-             Business Header 
-            <div class="business-profile__header">
-                <div class="business-profile__image">
-                    <img src="<?php echo htmlspecialchars($business['image']); ?>" alt="<?php echo htmlspecialchars($business['name']); ?>" />
-                </div>
-                
-                <div class="business-profile__info">
-                    <h1><?php echo htmlspecialchars($business['name']); ?></h1>
-                    
-                    <?php if ($business['accredited']): ?>
-                        <div class="business-profile__accredited">
-                            <span class="badge badge--success">✓ Accredited Business</span>
-                            <span class="business-profile__accredited-since">Since <?php echo htmlspecialchars($business['accreditedSince']); ?></span>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <div class="business-profile__rating">
-                        <div class="stars">
-                            <?php for ($i = 1; $i <= 5; $i++): ?>
-                                <span class="star <?php echo $i <= $business['rating'] ? 'star--filled' : ''; ?>">★</span>
-                            <?php endfor; ?>
-                        </div>
-                        <span class="rating-value"><?php echo number_format($business['rating'], 1); ?></span>
-                        <span class="review-count">(<?php echo number_format($business['reviewCount']); ?> reviews)</span>
-                    </div>
-                    
-                    <p class="business-profile__category"><?php echo htmlspecialchars($business['category']); ?></p>
-                </div>
-                
-                <div class="business-profile__actions">
-                    <?php echo Button([
-                        'text' => 'Leave a Review',
-                        'url' => '/review?business=' . urlencode($business['name']),
-                        'variant' => 'primary',
-                        'size' => 'lg'
-                    ]); ?>
-                    <?php echo Button([
-                        'text' => 'File a Complaint',
-                        'url' => '/complaint?business=' . urlencode($business['name']),
-                        'variant' => 'secondary',
-                        'size' => 'lg'
-                    ]); ?>
-                </div>
-            </div>
-
-             Business Content 
-            <div class="business-profile__content">
-                 Sidebar 
-                <aside class="business-profile__sidebar">
-                    <div class="business-profile__contact">
-                        <h3>Contact Information</h3>
-                        <p><strong>Address:</strong><br><?php echo nl2br(htmlspecialchars($business['address'])); ?></p>
-                        <p><strong>Phone:</strong><br><?php echo htmlspecialchars($business['phone']); ?></p>
-                        <?php if ($business['email']): ?>
-                            <p><strong>Email:</strong><br><?php echo htmlspecialchars($business['email']); ?></p>
-                        <?php endif; ?>
-                        <?php if ($business['website']): ?>
-                            <p><strong>Website:</strong><br><a href="http://<?php echo htmlspecialchars($business['website']); ?>" target="_blank"><?php echo htmlspecialchars($business['website']); ?></a></p>
-                        <?php endif; ?>
-                    </div>
-                    
-                    <div class="business-profile__hours">
-                        <h3>Business Hours</h3>
-                        <?php foreach ($business['hours'] as $day => $hours): ?>
-                            <div class="hours-row">
-                                <span class="day"><?php echo $day; ?></span>
-                                <span class="hours"><?php echo $hours; ?></span>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </aside>
-
-                 Main Content 
-                <div class="business-profile__main">
-                    <section class="business-profile__about">
-                        <h2>About This Business</h2>
-                        <p><?php echo nl2br(htmlspecialchars($business['description'])); ?></p>
-                    </section>
-
-                    <section class="business-profile__reviews">
-                        <h2>Customer Reviews</h2>
-                        
-                        <?php foreach ($reviews as $review): ?>
-                            <div class="review-card">
-                                <div class="review-card__header">
-                                    <div class="review-card__author"><?php echo htmlspecialchars($review['author']); ?></div>
-                                    <div class="review-card__date"><?php echo date('M d, Y', strtotime($review['date'])); ?></div>
-                                </div>
-                                
-                                <div class="review-card__rating">
-                                    <?php for ($i = 1; $i <= 5; $i++): ?>
-                                        <span class="star <?php echo $i <= $review['rating'] ? 'star--filled' : ''; ?>">★</span>
-                                    <?php endfor; ?>
-                                </div>
-                                
-                                <h3 class="review-card__title"><?php echo htmlspecialchars($review['title']); ?></h3>
-                                <p class="review-card__content"><?php echo nl2br(htmlspecialchars($review['content'])); ?></p>
-                            </div>
-                        <?php endforeach; ?>
-                        
-                        <div class="business-profile__review-cta">
-                            <?php echo Button([
-                                'text' => 'Write a Review',
-                                'url' => '/review?business=' . urlencode($business['name']),
-                                'variant' => 'primary'
-                            ]); ?>
-                        </div>
-                    </section>
-                </div>
-            </div>
+<!-- Add this section after the "About This Business" section -->
+<section class="business-profile__analytics">
+    <h2>Business Analytics</h2>
+    
+    <div class="analytics-grid">
+        <div class="analytics-card">
+            <?= rating_distribution_chart($business['ratingDistribution']) ?>
+        </div>
+        
+        <div class="analytics-card">
+            <?= complaint_timeline_chart($business['complaintHistory']) ?>
+        </div>
+        
+        <div class="analytics-card">
+            <?= bbb_trust_meter($business['trustScore'], 'A+') ?>
+        </div>
+        
+        <div class="analytics-card">
+            <?= bbb_response_time_indicator($business['responseData']) ?>
+        </div>
+        
+        <div class="analytics-card">
+            <?= bbb_sentiment_analysis() ?>
+        </div>
+        
+        <div class="analytics-card">
+            <?= bbb_verification_badge() ?>
+        </div>
+        
+        <div class="analytics-card">
+            <?= bbb_accreditation_timeline() ?>
         </div>
     </div>
+</section>
 
-    <?php echo Footer([
-        'variant' => 'multi-column',
-        'logo' => 'P.I.M.P',
-        'sections' => [
-            [
-                'title' => 'For Consumers',
-                'links' => [
-                    ['text' => 'Find a Business', 'url' => '/search'],
-                    ['text' => 'File a Complaint', 'url' => '/complaint'],
-                    ['text' => 'Leave a Review', 'url' => '/review'],
-                ]
-            ],
-            [
-                'title' => 'For Businesses',
-                'links' => [
-                    ['text' => 'Get Accredited', 'url' => '/accreditation'],
-                    ['text' => 'List Your Business', 'url' => '/list-business'],
-                ]
-            ],
-            [
-                'title' => 'About P.I.M.P',
-                'links' => [
-                    ['text' => 'About Us', 'url' => '/about'],
-                    ['text' => 'Contact', 'url' => '/contact'],
-                ]
-            ]
-        ],
-        'copyright' => '© 2025 P.I.M.P. All rights reserved.'
-    ]); ?>
-</body>
-</html>
+<!-- Add D3.js library -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<style>
+.business-profile__analytics {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.analytics-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Chart specific styles */
+.rating-distribution-chart .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.rating-distribution-chart .stars {
+    width: 60px;
+    color: #ffc107;
+}
+
+.rating-distribution-chart .bar-container {
+    flex: 1;
+    height: 8px;
+    background: #e9ecef;
+    margin: 0 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rating-distribution-chart .bar {
+    height: 100%;
+    background: #28a745;
+    transition: width 0.3s ease;
+}
+
+/* Trust meter styles */
+.bbb-trust-meter .trust-meter-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bbb-trust-meter .trust-meter-info {
+    position: absolute;
+    text-align: center;
+}
+
+.bbb-trust-meter .trust-score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.bbb-trust-meter .trust-rating {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.bbb-trust-meter .trust-label {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+/* Response indicator styles */
+.bbb-response-indicator .response-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.bbb-response-indicator .response-stat {
+    text-align: center;
+}
+
+.bbb-response-indicator .stat-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.bbb-response-indicator .stat-label {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.bbb-response-indicator .meter-bar {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.bbb-response-indicator .meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #dc3545, #ffc107, #28a745);
+    transition: width 0.3s ease;
+}
+
+.bbb-response-indicator .meter-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* Verification badge styles */
+.bbb-verification-badge {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.bbb-verification-badge .verification-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.bbb-verification-badge .verification-icon {
+    color: #28a745;
+    margin-right: 0.5rem;
+}
+
+.bbb-verification-badge .verification-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.bbb-verification-badge .verified {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Timeline styles */
+.bbb-accreditation-timeline .timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.bbb-accreditation-timeline .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.bbb-accreditation-timeline .timeline-marker {
+    position: absolute;
+    left: -2rem;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #6c757d;
+    border: 2px solid white;
+}
+
+.bbb-accreditation-timeline .timeline-item.current .timeline-marker {
+    background: #28a745;
+}
+
+.bbb-accreditation-timeline .timeline-year {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.bbb-accreditation-timeline .timeline-event {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.25rem;
+}
+
+.bbb-accreditation-timeline .timeline-description {
+    font-size: 0.875rem;
+    color: #666;
+}
+</style>

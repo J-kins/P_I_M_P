@@ -1,0 +1,103 @@
+/* star-rating.css */
+.star-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: Arial, sans-serif;
+}
+
+.star-rating-container {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.star-rating-interactive .star:hover {
+    transform: scale(1.2);
+}
+
+.star-svg {
+    width: 24px;
+    height: 24px;
+    transition: all 0.2s ease;
+}
+
+/* Sizes */
+.star-rating-sm .star-svg {
+    width: 16px;
+    height: 16px;
+}
+
+.star-rating-md .star-svg {
+    width: 24px;
+    height: 24px;
+}
+
+.star-rating-lg .star-svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* Interactive states */
+.star-rating-interactive .star:hover .star-svg path {
+    fill: #ffc107 !important;
+}
+
+.star-rating.loading .star-svg {
+    opacity: 0.6;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.6; }
+}
+
+/* Feedback text */
+.star-rating-feedback,
+.star-rating-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.star-rating-feedback .current-rating {
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.star-rating-text .rating-value {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Messages */
+.rating-message {
+    position: absolute;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-size: 12px;
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+.rating-message-success {
+    border-left: 3px solid #28a745;
+    color: #155724;
+}
+
+.rating-message-error {
+    border-left: 3px solid #dc3545;
+    color: #721c24;
+}
+
+/* Half star styling */
+.star-half .star-svg path {
+    fill: url(#half-gradient);
+}

@@ -500,3 +500,104 @@
     max-width: calc(100% - 2rem);
   }
 }
+
+
+/* Icon Styles */
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.star {
+    fill: none;
+    stroke: currentColor;
+}
+
+.star--filled {
+    fill: #ffc107;
+    stroke: #ffc107;
+}
+
+.star--empty {
+    fill: none;
+    stroke: #e0e0e0;
+}
+
+/* Search Box Icons */
+.search-box__field {
+    position: relative;
+}
+
+.search-icon,
+.location-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.search-box__input {
+    padding-left: 40px;
+}
+
+/* Business Card Icons */
+.business-card__details .detail-icon {
+    margin-right: 8px;
+    color: #6c757d;
+}
+
+.accredited-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #28a745;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-icon {
+    color: white;
+}
+
+/* Pagination Icons */
+.pagination-icon {
+    vertical-align: middle;
+}
+
+.pagination__link--prev .pagination-icon {
+    margin-right: 4px;
+}
+
+.pagination__link--next .pagination-icon {
+    margin-left: 4px;
+}
+
+/* Filter Icons */
+.filter-icon,
+.group-icon,
+.sort-icon,
+.count-icon {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* No Results Icon */
+.no-results-icon {
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+/* Action Button Icons */
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.button-icon {
+    vertical-align: middle;
+}

@@ -65,3 +65,83 @@ function Sidebar($props = []) {
     return ob_get_clean();
 }
 ?>
+
+<?php
+
+/**
+ * Admin Sidebar Navigation
+ */
+function admin_sidebar(array $params = []): string {
+    $menuItems = $params['menuItems'] ?? [];
+    $activeItem = $params['activeItem'] ?? '';
+    
+    ob_start(); ?>
+<aside class="admin-sidebar" id="adminSidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16 2C8.28 2 2 8.28 2 16s6.28 14 14 14 14-6.28 14-14S23.72 2 16 2zm0 26C9.38 28 4 22.62 4 16S9.38 4 16 4s12 5.38 12 12-5.38 12-12 12z"/>
+                <path d="M21 12H11c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h10c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H12v-4h8v4z"/>
+            </svg>
+            <span class="logo-text">BBB Admin</span>
+        </div>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <ul class="sidebar-menu">
+            <?php foreach ($menuItems as $item): ?>
+            <li class="sidebar-item <?= ($item['id'] === $activeItem) ? 'active' : '' ?>">
+                <a href="<?= url($item['url']) ?>" class="sidebar-link">
+                    <span class="sidebar-icon">
+                        <?php if (strpos($item['icon'], 'fas') === 0): ?>
+                            <i class="<?= $item['icon'] ?>"></i>
+                        <?php else: ?>
+                            <i class="lnr <?= $item['icon'] ?>"></i>
+                        <?php endif; ?>
+                    </span>
+                    <span class="sidebar-label"><?= sanitize_output($item['label']) ?></span>
+                    <?php if (!empty($item['badge'])): ?>
+                    <span class="sidebar-badge"><?= $item['badge'] ?></span>
+                    <?php endif; ?>
+                    <?php if (!empty($item['children'])): ?>
+                    <span class="sidebar-arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <?php endif; ?>
+                </a>
+                
+                <?php if (!empty($item['children'])): ?>
+                <ul class="sidebar-submenu">
+                    <?php foreach ($item['children'] as $child): ?>
+                    <li class="sidebar-subitem">
+                        <a href="<?= url($child['url']) ?>" class="sidebar-sublink">
+                            <?= sanitize_output($child['label']) ?>
+                            <?php if (!empty($child['badge'])): ?>
+                            <span class="sidebar-badge"><?= $child['badge'] ?></span>
+                            <?php endif; ?>
+                        </a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php endif; ?>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </nav>
+    
+    <div class="sidebar-footer">
+        <div class="sidebar-theme-toggle">
+            <i class="fas fa-moon"></i>
+            <span>Dark Mode</span>
+            <div class="theme-switch">
+                <input type="checkbox" id="themeSwitch" class="theme-checkbox">
+                <label for="themeSwitch" class="theme-label"></label>
+            </div>
+        </div>
+    </div>
+</aside>
+<?php return ob_get_clean();
+}
+
+
+?>
