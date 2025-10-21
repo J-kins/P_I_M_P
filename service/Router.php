@@ -47,6 +47,9 @@ class Router
             return;
         }
 
+        // Ensure Config is initialized
+        Config::init();
+        
         self::loadDefaultRoutes();
         self::$initialized = true;
     }
@@ -214,7 +217,7 @@ class Router
         }
         
         // Route not found
-        return self::handleNotFound();
+        return self::handleError(404);
     }
 
     /**
@@ -243,24 +246,36 @@ class Router
      */
     private static function handleRoute($handler, array $params = [])
     {
-        if (is_string($handler)) {
-            // View file
-            if (strpos($handler, '.php') !== false) {
-                return self::renderView($handler, $params);
+        try {
+            if (is_string($handler)) {
+                // View file
+                if (strpos($handler, '.php') !== false) {
+                    return self::renderView($handler, $params);
+                }
+                
+                // Controller method
+                if (strpos($handler, '@') !== false) {
+                    return self::callController($handler, $params);
+                }
             }
             
-            // Controller method
-            if (strpos($handler, '@') !== false) {
-                return self::callController($handler, $params);
+            // Callable handler
+            if (is_callable($handler)) {
+                return call_user_func_array($handler, $params);
             }
+            
+            throw new \InvalidArgumentException("Invalid route handler: " . print_r($handler, true));
+        } catch (\Exception $e) {
+            // Log the error
+            error_log("Route Handler Error: " . $e->getMessage());
+            
+            // Return appropriate error page
+            if ($e instanceof \RuntimeException && strpos($e->getMessage(), 'View file not found') !== false) {
+                return self::handleError(404);
+            }
+            
+            return self::handleError(500, $e->getMessage());
         }
-        
-        // Callable handler
-        if (is_callable($handler)) {
-            return call_user_func_array($handler, $params);
-        }
-        
-        throw new \InvalidArgumentException("Invalid route handler: " . print_r($handler, true));
     }
 
     /**
@@ -280,7 +295,8 @@ class Router
         }
         
         if (!file_exists($viewPath)) {
-            throw new \RuntimeException("View file not found: {$viewPath}");
+            // Instead of throwing exception, return 404 error page
+            return self::handleError(404);
         }
         
         // Extract parameters for the view
@@ -294,7 +310,8 @@ class Router
             return ob_get_clean();
         } catch (\Exception $e) {
             ob_end_clean();
-            throw $e;
+            error_log("View Rendering Error: " . $e->getMessage());
+            return self::handleError(500, "Error rendering view");
         }
     }
 
@@ -311,31 +328,361 @@ class Router
         $controllerClass = self::$controllerNamespace . $controller;
         
         if (!class_exists($controllerClass)) {
-            throw new \RuntimeException("Controller not found: {$controllerClass}");
+            error_log("Controller not found: {$controllerClass}");
+            return self::handleError(500, "Controller not found");
         }
         
         $controllerInstance = new $controllerClass();
         
         if (!method_exists($controllerInstance, $method)) {
-            throw new \RuntimeException("Method not found: {$controllerClass}@{$method}");
+            error_log("Method not found: {$controllerClass}@{$method}");
+            return self::handleError(500, "Method not found");
         }
         
-        return call_user_func_array([$controllerInstance, $method], $params);
+        try {
+            return call_user_func_array([$controllerInstance, $method], $params);
+        } catch (\Exception $e) {
+            error_log("Controller Method Error: " . $e->getMessage());
+            return self::handleError(500, "Error executing controller method");
+        }
     }
 
     /**
-     * Handle 404 Not Found
+     * Handle HTTP errors with appropriate error pages
+     * 
+     * @param int $errorCode HTTP error code
+     * @param string|null $customMessage Custom error message
+     * @return string Error page HTML
+     */
+    private static function handleError(int $errorCode, ?string $customMessage = null): string
+    {
+        http_response_code($errorCode);
+        
+        $errorMessages = [
+            // Client errors (4xx)
+            400 => [
+                'title' => 'Bad Request',
+                'message' => 'The server cannot understand your request due to incorrect syntax.',
+                'icon' => 'fa-exclamation-circle'
+            ],
+            401 => [
+                'title' => 'Unauthorized',
+                'message' => 'You need to authenticate to access this resource.',
+                'icon' => 'fa-lock'
+            ],
+            403 => [
+                'title' => 'Forbidden',
+                'message' => 'You do not have permission to access this resource.',
+                'icon' => 'fa-ban'
+            ],
+            404 => [
+                'title' => 'Page Not Found',
+                'message' => 'The page you are looking for does not exist or has been moved.',
+                'icon' => 'fa-exclamation-triangle'
+            ],
+            429 => [
+                'title' => 'Too Many Requests',
+                'message' => 'You have sent too many requests. Please try again later.',
+                'icon' => 'fa-hourglass-half'
+            ],
+            
+            // Server errors (5xx)
+            500 => [
+                'title' => 'Internal Server Error',
+                'message' => 'Something went wrong on our end. Please try again later.',
+                'icon' => 'fa-server'
+            ],
+            502 => [
+                'title' => 'Bad Gateway',
+                'message' => 'The server received an invalid response. Please try again later.',
+                'icon' => 'fa-network-wired'
+            ],
+            503 => [
+                'title' => 'Service Unavailable',
+                'message' => 'The server is temporarily unavailable. Please try again later.',
+                'icon' => 'fa-tools'
+            ],
+            504 => [
+                'title' => 'Gateway Timeout',
+                'message' => 'The server did not receive a timely response. Please try again.',
+                'icon' => 'fa-clock'
+            ],
+            505 => [
+                'title' => 'HTTP Version Not Supported',
+                'message' => 'The HTTP version used in the request is not supported.',
+                'icon' => 'fa-code'
+            ]
+        ];
+        
+        $errorInfo = $errorMessages[$errorCode] ?? [
+            'title' => 'Error',
+            'message' => 'An unexpected error occurred.',
+            'icon' => 'fa-exclamation-triangle'
+        ];
+        
+        if ($customMessage && Config::isDevelopment()) {
+            $errorInfo['message'] = $customMessage;
+        }
+        
+        return self::renderErrorPage(
+            $errorCode,
+            $errorInfo['title'],
+            $errorInfo['message'],
+            $errorInfo['icon']
+        );
+    }
+
+    /**
+     * Render error page HTML
+     * 
+     * @param int $errorCode HTTP error code
+     * @param string $title Error title
+     * @param string $message Error message
+     * @param string $icon Font Awesome icon class
+     * @return string Error page HTML
+     */
+    private static function renderErrorPage(int $errorCode, string $title, string $message, string $icon): string
+    {
+        $isServerError = $errorCode >= 500;
+        $iconColor = $isServerError ? '#ff6b6b' : '#ffa726';
+        
+        ob_start();
+        ?>
+<!DOCTYPE html>
+<html lang="en" data-theme="purple1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $errorCode ?> - <?= htmlspecialchars($title) ?> | P.I.M.P</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="<?= Config::styleUrl('theme.css') ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .error-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .error-header h1 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .error-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .error-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .error-icon {
+            font-size: 5rem;
+            color: <?= $iconColor ?>;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .error-message {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .button-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .button-outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .button-outline:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .error-help {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        .error-help p {
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+        
+        .error-help a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .error-help a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .error-content {
+                padding: 2rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+            }
+            
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="error-header">
+        <h1>P.I.M.P Business Repository</h1>
+    </header>
+    
+    <main class="error-main">
+        <div class="error-content">
+            <div class="error-icon">
+                <i class="fas <?= $icon ?>"></i>
+            </div>
+            <div class="error-code"><?= $errorCode ?></div>
+            <h2 class="error-title"><?= htmlspecialchars($title) ?></h2>
+            <p class="error-message"><?= htmlspecialchars($message) ?></p>
+            
+            <div class="error-actions">
+                <a href="<?= Config::url('/') ?>" class="button button-primary">
+                    <i class="fas fa-home"></i>
+                    Return to Homepage
+                </a>
+                <?php if ($errorCode === 404): ?>
+                <a href="<?= Config::url('/businesses') ?>" class="button button-outline">
+                    <i class="fas fa-search"></i>
+                    Browse Businesses
+                </a>
+                <?php elseif ($isServerError): ?>
+                <a href="javascript:location.reload()" class="button button-outline">
+                    <i class="fas fa-redo"></i>
+                    Try Again
+                </a>
+                <?php endif; ?>
+            </div>
+            
+            <div class="error-help">
+                <p>
+                    <?php if ($errorCode === 404): ?>
+                        Looking for something specific? <a href="<?= Config::url('/contact') ?>">Contact us</a> for help.
+                    <?php else: ?>
+                        If this problem persists, please <a href="<?= Config::url('/contact') ?>">contact support</a>.
+                    <?php endif; ?>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+        <?php
+        return ob_get_clean();
+    }
+
+    /**
+     * Handle 404 Not Found (legacy method for backward compatibility)
      * 
      * @return string
      */
     private static function handleNotFound(): string
     {
-        http_response_code(404);
-        return self::renderView('Error.php', [
-            'errorCode' => 404,
-            'errorMessage' => 'Page Not Found',
-            'errorDescription' => 'The page you are looking for does not exist or has been moved.'
-        ]);
+        return self::handleError(404);
     }
 
     /**

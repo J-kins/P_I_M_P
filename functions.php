@@ -1,69 +1,46 @@
 <?php
-/**
- * AJAX endpoint for handling star ratings
- */
-function handle_star_rating_ajax() {
-    // Check if it's an AJAX request
-    if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || 
-        strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
-        http_response_code(403);
-        exit('Forbidden');
-    }
-    
-    // Validate input
-    $itemId = filter_input(INPUT_POST, 'item_id', FILTER_VALIDATE_INT);
-    $rating = filter_input(INPUT_POST, 'rating', FILTER_VALIDATE_FLOAT);
-    
-    if (!$itemId || !$rating || $rating < 0 || $rating > 5) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Invalid rating data'
-        ]);
-        exit;
-    }
-    
-    // Here you would save to your database
-    // Example implementation:
-    try {
-        // Save rating to database
-        $success = save_rating_to_database($itemId, $rating);
-        
-        if ($success) {
-            // Get updated average rating
-            $averageRating = get_average_rating($itemId);
-            
-            echo json_encode([
-                'success' => true,
-                'message' => 'Rating saved successfully',
-                'average_rating' => $averageRating,
-                'new_rating' => $rating
-            ]);
-        } else {
-            echo json_encode([
-                'success' => false,
-                'message' => 'Failed to save rating'
-            ]);
-        }
-    } catch (Exception $e) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Error: ' . $e->getMessage()
-        ]);
-    }
-    
-    exit;
-}
+// Example usage in admin/index.php
+require_once 'vendor/autoload.php';
 
-// Example database functions (implement according to your DB structure)
-function save_rating_to_database($itemId, $rating) {
-    // Your database implementation here
-    // This is just a placeholder
-    return true;
-}
+use PIMP\Service\Database\MySQLDatabase;
+use PIMP\Service\Database\MongoDBDatabase;
+use PIMP\Service\Database\RedisDatabase;
+use PIMP\Service\Database\SQLiteDatabase;
 
-function get_average_rating($itemId) {
-    // Your database implementation here
-    // This is just a placeholder
-    return 4.5;
-}
-?>
+// Get configurations from your Config class
+$mysqlConfig = [
+    'host' => 'localhost',
+    'port' => 3306,
+    'username' => 'pimp_user',
+    'password' => 'pimp_pass',
+    'database' => 'pimp_db'
+];
+
+$mysql = new MySQLDatabase($mysqlConfig);
+
+// Execute inline query
+$result = $mysql->query("SELECT * FROM users WHERE id = ?", [1]);
+
+// Execute from file
+$result = $mysql->executeMigration('001_init.sql');
+
+// Execute all migrations
+$results = $mysql->migrateAll();
+
+// Execute all seeds
+$results = $mysql->seedAll();
+
+// Create backup
+$backupPath = $mysql->backup();
+
+// MongoDB example
+$mongo = new MongoDBDatabase($mongoConfig);
+$result = $mongo->executeFile('MongoDB/migrations/001_init.json');
+
+// Redis example
+$redis = new RedisDatabase($redisConfig);
+$result = $redis->executeFile('Redis/seeds/001_cache_data.json');
+
+// SQLite example
+$sqlite = new SQLiteDatabase($sqliteConfig);
+$result = $sqlite->executeMigration('001_init.sql');
