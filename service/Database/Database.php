@@ -321,27 +321,67 @@ abstract class Database
         $sql = preg_replace('/--.*$/m', '', $sql);
         $sql = preg_replace('/\/\*.*?\*\//s', '', $sql);
         
-        // Split by semicolon, but ignore semicolons in quotes
+        // Remove BOM if present
+        $sql = preg_replace('/^\xEF\xBB\xBF/', '', $sql);
+        
+        // Split by semicolon, but ignore semicolons in quotes and comments
         $queries = [];
         $current = '';
         $inString = false;
         $stringChar = '';
+        $inComment = false;
+        $commentType = ''; // '--', '/*', or '#'
         
         for ($i = 0; $i < strlen($sql); $i++) {
             $char = $sql[$i];
+            $nextChar = $i < strlen($sql) - 1 ? $sql[$i + 1] : '';
             
-            if (($char === "'" || $char === '"') && ($i === 0 || $sql[$i - 1] !== '\\')) {
-                if (!$inString) {
-                    $inString = true;
-                    $stringChar = $char;
-                } elseif ($char === $stringChar) {
+            // Handle comments
+            if (!$inString && !$inComment) {
+                if ($char === '-' && $nextChar === '-') {
+                    $inComment = true;
+                    $commentType = '--';
+                    $i++; // Skip next dash
+                    continue;
+                } elseif ($char === '#' && !$inString) {
+                    $inComment = true;
+                    $commentType = '#';
+                    continue;
+                } elseif ($char === '/' && $nextChar === '*') {
+                    $inComment = true;
+                    $commentType = '/*';
+                    $i++; // Skip next star
+                    continue;
+                }
+            }
+            
+            // Handle comment endings
+            if ($inComment) {
+                if ($commentType === '--' && $char === "\n") {
+                    $inComment = false;
+                } elseif ($commentType === '#' && $char === "\n") {
+                    $inComment = false;
+                } elseif ($commentType === '/*' && $char === '*' && $nextChar === '/') {
+                    $inComment = false;
+                    $i++; // Skip next slash
+                }
+                continue;
+            }
+            
+            // Handle strings
+            if (($char === "'" || $char === '"') && !$inString) {
+                $inString = true;
+                $stringChar = $char;
+            } elseif ($char === $stringChar && $inString) {
+                // Check if it's escaped
+                if ($i > 0 && $sql[$i - 1] !== '\\') {
                     $inString = false;
                 }
             }
             
             $current .= $char;
             
-            if ($char === ';' && !$inString) {
+            if ($char === ';' && !$inString && !$inComment) {
                 $query = trim($current);
                 if (!empty($query)) {
                     $queries[] = $query;
@@ -356,7 +396,9 @@ abstract class Database
             $queries[] = $lastQuery;
         }
         
-        return array_filter($queries);
+        return array_filter($queries, function($query) {
+            return !empty(trim($query));
+        });
     }
 
     /**

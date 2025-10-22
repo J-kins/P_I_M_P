@@ -1,0 +1,15 @@
+name: Validate
+
+on: [push]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Validate dependencies
+        uses: php-actions/composer@master
+        with:
+          command: validate

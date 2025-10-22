@@ -25,7 +25,9 @@ RUN apk update && apk add --no-cache \
     redis \
     autoconf \
     g++ \
-    make
+    make \
+    bison \
+    re2c
 
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
@@ -57,7 +59,7 @@ RUN pecl install mongodb && \
 RUN pecl install redis && \
     docker-php-ext-enable redis
 
-# Clean up build dependencies
+# Clean up build dependencies (keep bison and re2c if needed for future builds)
 RUN apk del autoconf g++ make
 
 # Install Composer
