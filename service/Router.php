@@ -81,7 +81,7 @@ class Router
                 '/review/:id' => 'ReviewDetail.php',
                 
                 // Categories
-                '/categories' => 'Categories.php',
+                '/categories' => 'BusinessCategories.php',
                 '/category/:slug' => 'CategoryDetail.php',
                 
                 // User routes

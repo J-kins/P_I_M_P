@@ -212,6 +212,7 @@ echo Components::call('Headers', 'documentHead', [[
         'userActions' => [
             ['url' => '/login', 'label' => 'Log In'],
             ['url' => '/register', 'label' => 'Register', 'separator' => true],
+            ['url' => '/for-business', 'label' => 'For Business'],
         ],
         'searchPlaceholder' => 'Search for businesses, services, or categories...',
         'phoneNumber' => '1-800-PIMP-HELP',

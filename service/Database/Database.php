@@ -4,7 +4,7 @@
  * Core Database Service with File Query Support
  */
 
-namespace PIMP\Service\Database;
+namespace PIMP\Services\Database;
 
 use PIMP\Core\Config;
 use PDO;

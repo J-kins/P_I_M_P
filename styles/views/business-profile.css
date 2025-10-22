@@ -1,0 +1,626 @@
+/* 
+ * P.I.M.P - Business Profile Styles
+ */
+
+/* Business Header Section */
+.business-header-section {
+    padding: 2rem 0;
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    color: white;
+}
+
+.business-header {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 3rem;
+    align-items: start;
+}
+
+.business-main-info {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.business-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.business-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.business-details {
+    flex: 1;
+}
+
+.business-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.business-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.stars {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.stars i {
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.rating-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.reviews-count {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.business-meta {
+    margin-bottom: 1.5rem;
+}
+
+.accredited-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.business-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.business-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.category-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Business Actions */
+.business-actions {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.business-contact-quick {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+
+.contact-item i {
+    color: var(--primary-500);
+    width: 20px;
+}
+
+.contact-item a {
+    color: var(--primary-500);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Business Navigation */
+.business-nav {
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.business-nav-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 2rem;
+}
+
+.nav-link {
+    display: block;
+    padding: 1rem 0;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-500);
+    border-bottom-color: var(--primary-500);
+}
+
+/* Business Content */
+.business-content {
+    padding: 3rem 0;
+    background-color: var(--background-light-100);
+}
+
+.content-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.content-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-500);
+}
+
+.overview-content {
+    line-height: 1.7;
+}
+
+.business-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.overview-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.detail-group h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.services-list,
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.service-tag,
+.payment-method {
+    background: var(--background-light-200);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+
+.licenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.license-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.license-item i {
+    color: var(--primary-500);
+}
+
+/* Reviews Section */
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reviews-summary {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.overall-rating {
+    text-align: center;
+}
+
+.rating-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.overall-rating .stars {
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+.overall-rating .stars i {
+    font-size: 1.5rem;
+}
+
+.reviews-count {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.review-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.reviewer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-100);
+    color: var(--primary-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.review-date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.review-rating {
+    margin-bottom: 1rem;
+}
+
+.review-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.review-content {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.business-response {
+    background: var(--background-light-200);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-500);
+}
+
+.response-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.response-header strong {
+    color: var(--text-primary);
+}
+
+.response-date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.response-content {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Sidebar Sections */
+.sidebar-section {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.sidebar-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-item i {
+    color: var(--primary-500);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.contact-item div {
+    flex: 1;
+}
+
+.contact-item strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.contact-item p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.business-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.hours-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hours-item:last-child {
+    border-bottom: none;
+}
+
+.day {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.hours {
+    color: var(--text-secondary);
+}
+
+.accreditation-info {
+    text-align: center;
+}
+
+.accreditation-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--primary-100);
+    color: var(--primary-700);
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.accreditation-badge i {
+    font-size: 1.5rem;
+}
+
+.accreditation-info p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.accreditation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item strong {
+    color: var(--text-primary);
+}
+
+.detail-item span {
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .business-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .content-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .business-main-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .business-image {
+        align-self: center;
+    }
+
+    .business-rating {
+        justify-content: center;
+    }
+
+    .business-stats {
+        justify-content: center;
+    }
+
+    .business-categories {
+        justify-content: center;
+    }
+
+    .reviews-header {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .reviews-summary {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .business-nav-list {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .review-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .business-name {
+        font-size: 2rem;
+    }
+
+    .business-header-section {
+        padding: 1.5rem 0;
+    }
+
+    .business-content {
+        padding: 2rem 0;
+    }
+
+    .content-section,
+    .sidebar-section {
+        padding: 1.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}

@@ -204,6 +204,18 @@
 @import url('views/general-settings-page.css');
 @import url('views/upgrade-page.css');
 @import url('views/components-page.css');
+@import url('views/homepage.css');
+@import url('views/business-directory.css');
+@import url('views/business-search.css');
+@import url('views/business-categories.css');
+@import url('views/business-profile.css');
+@import url('views/business-reviews.css');
+@import url('views/dashboard.css');
+@import url('views/user-profile.css');
+@import url('views/auth.css');
+@import url('views/for-business.css');
+@import url('views/business-dashboard.css');
+@import url('views/claim-business.css');
 
 /* Admin views */
 @import url('views/admin-dashboard.css');

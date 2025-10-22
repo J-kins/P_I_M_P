@@ -3,7 +3,7 @@
  * P.I.M.P - Redis Database Service with File Query Support
  */
 
-namespace PIMP\Service\Database;
+namespace PIMP\Services\Database;
 
 use Redis;
 use RedisException;

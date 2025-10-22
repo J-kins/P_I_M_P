@@ -3,7 +3,7 @@
  * P.I.M.P - SQLite Database Service with File Query Support
  */
 
-namespace PIMP\Service\Database;
+namespace PIMP\Services\Database;
 
 use PDO;
 use PDOException;

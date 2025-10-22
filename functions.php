@@ -2,17 +2,17 @@
 // Example usage in admin/index.php
 require_once 'vendor/autoload.php';
 
-use PIMP\Service\Database\MySQLDatabase;
-use PIMP\Service\Database\MongoDBDatabase;
-use PIMP\Service\Database\RedisDatabase;
-use PIMP\Service\Database\SQLiteDatabase;
+use PIMP\Services\Database\MySQLDatabase;
+use PIMP\Services\Database\MongoDBDatabase;
+use PIMP\Services\Database\RedisDatabase;
+use PIMP\Services\Database\SQLiteDatabase;
 
 // Get configurations from your Config class
 $mysqlConfig = [
     'host' => 'localhost',
     'port' => 3306,
-    'username' => 'pimp_user',
-    'password' => 'pimp_pass',
+    'username' => 'root',
+    'password' => 'root',
     'database' => 'pimp_db'
 ];
 

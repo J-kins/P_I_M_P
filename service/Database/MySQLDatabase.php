@@ -3,7 +3,7 @@
  * P.I.M.P - MySQL Database Service with File Query Support
  */
 
-namespace PIMP\Service\Database;
+namespace PIMP\Services\Database;
 
 use PDO;
 use PDOException;
@@ -41,7 +41,7 @@ class MySQLDatabase extends Database
         $this->validateConfig($this->config);
 
         $this->connection = $this->connectWithRetry(function () {
-            $dsn = $this->createDsn($this->config);
+            $dsn = 'mysql:dbname=pimp_db;host=127.0.0.1';
             
             $options = array_merge([
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -82,7 +82,7 @@ class MySQLDatabase extends Database
         return true;
     }
 
-    /**
+    /**g
      * Check if connected to MySQL
      * 
      * @return bool
@@ -143,12 +143,31 @@ class MySQLDatabase extends Database
             
             try {
                 $statement = $connection->query($query);
+                
+                // Check if query execution failed
+                if ($statement === false) {
+                    $errorInfo = $connection->errorInfo();
+                    throw new PDOException(
+                        "Query execution failed: " . ($errorInfo[2] ?? 'Unknown error')
+                    );
+                }
+                
+                $affectedRows = $statement->rowCount();
+                
+                // For SELECT queries, fetch results
+                if (stripos(trim($query), 'SELECT') === 0) {
+                    $resultData = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } else {
+                    $resultData = null;
+                }
+                
                 $results[] = [
                     'query' => $query,
                     'success' => true,
-                    'affected_rows' => $statement->rowCount(),
-                    'result' => $statement->fetchAll(PDO::FETCH_ASSOC)
+                    'affected_rows' => $affectedRows,
+                    'result' => $resultData
                 ];
+                
             } catch (PDOException $e) {
                 $results[] = [
                     'query' => $query,
