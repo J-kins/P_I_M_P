@@ -1,0 +1,121 @@
+/* Landing Page Styles */
+
+.landing-page {
+  @apply min-h-screen bg-white dark:bg-gray-900;
+}
+
+.hero-section {
+  @apply relative bg-gradient-to-r from-blue-600 to-purple-700 text-white;
+}
+
+.hero-container {
+  @apply max-w-7xl mx-auto px-4 py-24 text-center;
+}
+
+.hero-title {
+  @apply text-5xl md:text-6xl font-bold mb-6;
+}
+
+.hero-subtitle {
+  @apply text-xl md:text-2xl mb-8 text-blue-100;
+}
+
+.hero-cta {
+  @apply flex flex-col sm:flex-row gap-4 justify-center;
+}
+
+.features-section {
+  @apply py-20 bg-gray-50 dark:bg-gray-800;
+}
+
+.features-container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+.features-header {
+  @apply text-center mb-16;
+}
+
+.features-title {
+  @apply text-3xl font-bold text-gray-900 dark:text-white mb-4;
+}
+
+.features-subtitle {
+  @apply text-lg text-gray-600 dark:text-gray-400;
+}
+
+.features-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+.feature-card {
+  @apply text-center p-6;
+}
+
+.feature-icon {
+  @apply w-12 h-12 mx-auto mb-4 text-primary-600;
+}
+
+.feature-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-white mb-2;
+}
+
+.feature-description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.testimonials-section {
+  @apply py-20;
+}
+
+.testimonials-container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+.testimonials-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.testimonial-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6;
+}
+
+.cta-section {
+  @apply py-20 bg-primary-600 text-white;
+}
+
+.cta-container {
+  @apply max-w-4xl mx-auto px-4 text-center;
+}
+
+.cta-title {
+  @apply text-3xl font-bold mb-4;
+}
+
+.cta-description {
+  @apply text-xl mb-8 text-primary-100;
+}
+
+.footer-section {
+  @apply bg-gray-900 text-white py-12;
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+.footer-grid {
+  @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+}
+
+.footer-column h3 {
+  @apply font-semibold mb-4;
+}
+
+.footer-link {
+  @apply text-gray-400 hover:text-white transition-colors;
+}
+
+.footer-bottom {
+  @apply border-t border-gray-800 mt-8 pt-8 text-center text-gray-400;
+}

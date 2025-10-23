@@ -1,0 +1,44 @@
+/* Feed Page Styles */
+
+.feed-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.feed-layout {
+  @apply max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6;
+}
+
+.feed-main {
+  @apply lg:col-span-2 space-y-6;
+}
+
+.feed-sidebar {
+  @apply space-y-6;
+}
+
+.create-post-widget {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4;
+}
+
+.stories-widget {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4;
+}
+
+.friends-widget {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4;
+}
+
+.trending-widget {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .feed-layout {
+    @apply grid-cols-1;
+  }
+
+  .feed-sidebar {
+    @apply order-first;
+  }
+}

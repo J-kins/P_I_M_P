@@ -1,0 +1,240 @@
+/* Toggle Theme Switch Styles */
+.toggle-theme-switch {
+  @apply relative inline-flex items-center p-1 bg-gray-200 dark:bg-gray-700 rounded-full transition-colors duration-300;
+}
+
+.toggle-theme-switch--active {
+  @apply bg-blue-100 dark:bg-blue-900/30;
+}
+
+/* Switch Track */
+.toggle-theme-switch__track {
+  @apply relative w-12 h-6 bg-gray-300 dark:bg-gray-600 rounded-full transition-colors duration-300;
+}
+
+.toggle-theme-switch--active .toggle-theme-switch__track {
+  @apply bg-blue-500 dark:bg-blue-600;
+}
+
+/* Switch Thumb */
+.toggle-theme-switch__thumb {
+  @apply absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-transform duration-300 flex items-center justify-center;
+}
+
+.toggle-theme-switch--active .toggle-theme-switch__thumb {
+  @apply transform translate-x-6;
+}
+
+/* Icons */
+.toggle-theme-switch__icon {
+  @apply w-3 h-3 transition-opacity duration-300;
+}
+
+.toggle-theme-switch__icon--sun {
+  @apply text-yellow-500 opacity-100;
+}
+
+.toggle-theme-switch__icon--moon {
+  @apply text-blue-500 opacity-0 absolute;
+}
+
+.toggle-theme-switch--active .toggle-theme-switch__icon--sun {
+  @apply opacity-0;
+}
+
+.toggle-theme-switch--active .toggle-theme-switch__icon--moon {
+  @apply opacity-100;
+}
+
+/* Variants */
+.toggle-theme-switch--small {
+  @apply p-0.5;
+}
+
+.toggle-theme-switch--small .toggle-theme-switch__track {
+  @apply w-8 h-4;
+}
+
+.toggle-theme-switch--small .toggle-theme-switch__thumb {
+  @apply w-3 h-3 top-0.5 left-0.5;
+}
+
+.toggle-theme-switch--small.toggle-theme-switch--active .toggle-theme-switch__thumb {
+  @apply translate-x-4;
+}
+
+.toggle-theme-switch--small .toggle-theme-switch__icon {
+  @apply w-2 h-2;
+}
+
+.toggle-theme-switch--large {
+  @apply p-1.5;
+}
+
+.toggle-theme-switch--large .toggle-theme-switch__track {
+  @apply w-16 h-8;
+}
+
+.toggle-theme-switch--large .toggle-theme-switch__thumb {
+  @apply w-7 h-7 top-0.5 left-0.5;
+}
+
+.toggle-theme-switch--large.toggle-theme-switch--active .toggle-theme-switch__thumb {
+  @apply translate-x-8;
+}
+
+.toggle-theme-switch--large .toggle-theme-switch__icon {
+  @apply w-4 h-4;
+}
+
+/* With Labels */
+.toggle-theme-switch--with-labels {
+  @apply flex items-center space-x-3;
+}
+
+.toggle-theme-switch__label {
+  @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.toggle-theme-switch__label--active {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+/* Disabled State */
+.toggle-theme-switch--disabled {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* Focus State */
+.toggle-theme-switch:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Loading State */
+.toggle-theme-switch--loading .toggle-theme-switch__thumb {
+  @apply animate-pulse;
+}
+
+/* Hover Effects */
+.toggle-theme-switch:hover:not(.toggle-theme-switch--disabled) .toggle-theme-switch__track {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+.toggle-theme-switch--active:hover:not(.toggle-theme-switch--disabled) .toggle-theme-switch__track {
+  @apply bg-blue-600 dark:bg-blue-500;
+}
+
+/* Animation Variants */
+.toggle-theme-switch--bounce .toggle-theme-switch__thumb {
+  @apply transition-transform duration-500 ease-bounce;
+}
+
+.toggle-theme-switch--elastic .toggle-theme-switch__thumb {
+  @apply transition-transform duration-700 ease-elastic;
+}
+
+/* Color Variants */
+.toggle-theme-switch--green.toggle-theme-switch--active .toggle-theme-switch__track {
+  @apply bg-green-500 dark:bg-green-600;
+}
+
+.toggle-theme-switch--green:hover.toggle-theme-switch--active .toggle-theme-switch__track {
+  @apply bg-green-600 dark:bg-green-500;
+}
+
+.toggle-theme-switch--purple.toggle-theme-switch--active .toggle-theme-switch__track {
+  @apply bg-purple-500 dark:bg-purple-600;
+}
+
+.toggle-theme-switch--purple:hover.toggle-theme-switch--active .toggle-theme-switch__track {
+  @apply bg-purple-600 dark:bg-purple-500;
+}
+
+/* Auto Theme Detection */
+.toggle-theme-switch--auto .toggle-theme-switch__thumb {
+  @apply bg-gradient-to-r from-yellow-400 to-blue-500;
+}
+
+/* Accessibility */
+.toggle-theme-switch[role="switch"][aria-checked="true"] .toggle-theme-switch__thumb {
+  @apply translate-x-6;
+}
+
+.toggle-theme-switch[role="switch"][aria-disabled="true"] {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .toggle-theme-switch__track {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .toggle-theme-switch__thumb {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .toggle-theme-switch__track,
+  .toggle-theme-switch__thumb,
+  .toggle-theme-switch__icon {
+    @apply transition-none;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .toggle-theme-switch__thumb {
+  @apply left-auto right-0.5;
+}
+
+[dir="rtl"] .toggle-theme-switch--active .toggle-theme-switch__thumb {
+  @apply translate-x-0 -translate-x-6;
+}
+
+[dir="rtl"] .toggle-theme-switch--with-labels {
+  @apply space-x-reverse;
+}
+
+/* Custom Properties */
+.toggle-theme-switch {
+  --thumb-size: 1.25rem;
+  --track-width: 3rem;
+  --track-height: 1.5rem;
+  --track-padding: 0.125rem;
+  --transition-duration: 300ms;
+}
+
+.toggle-theme-switch--small {
+  --thumb-size: 0.75rem;
+  --track-width: 2rem;
+  --track-height: 1rem;
+}
+
+.toggle-theme-switch--large {
+  --thumb-size: 1.75rem;
+  --track-width: 4rem;
+  --track-height: 2rem;
+}
+
+/* System Preference Integration */
+@media (prefers-color-scheme: dark) {
+  .toggle-theme-switch--system .toggle-theme-switch__thumb {
+    @apply transform translate-x-6;
+  }
+
+  .toggle-theme-switch--system .toggle-theme-switch__track {
+    @apply bg-blue-500 dark:bg-blue-600;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .toggle-theme-switch--system .toggle-theme-switch__thumb {
+    @apply transform translate-x-0;
+  }
+
+  .toggle-theme-switch--system .toggle-theme-switch__track {
+    @apply bg-gray-300 dark:bg-gray-600;
+  }
+}

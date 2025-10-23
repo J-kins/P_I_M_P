@@ -1,0 +1,60 @@
+name: PHP CI Pipeline
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql, dom, filter, gd, json, mysqli
+        coverage: xdebug
+        
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+      
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+          
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+      
+    - name: Build and test with Docker
+      run: |
+        docker-compose build
+        docker-compose up -d
+        docker ps
+        sleep 10  # Give containers time to fully start
+        
+    - name: Run test suite
+      run: composer test
+      
+    - name: PHP Lint
+      run: |
+        find . -type f -name '*.php' -not -path "./vendor/*" -exec php -l {} \;
+        
+    - name: Check PHP Code Style
+      run: |
+        composer require --dev friendsofphp/php-cs-fixer
+        ./vendor/bin/php-cs-fixer fix --dry-run --diff
+
+    - name: Security check
+      run: |
+        composer require --dev sensiolabs/security-checker
+        ./vendor/bin/security-checker security:check

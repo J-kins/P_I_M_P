@@ -1,0 +1,374 @@
+/* Close Button Component Styles */
+.close-button {
+  @apply inline-flex items-center justify-center;
+  @apply rounded-full transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-200;
+}
+
+/* Close Button Sizes */
+.close-button-xs {
+  @apply w-4 h-4 p-0;
+}
+
+.close-button-sm {
+  @apply w-6 h-6 p-1;
+}
+
+.close-button-md {
+  @apply w-8 h-8 p-1.5;
+}
+
+.close-button-lg {
+  @apply w-10 h-10 p-2;
+}
+
+.close-button-xl {
+  @apply w-12 h-12 p-2.5;
+}
+
+/* Close Button Icon Sizes */
+.close-button-xs .close-icon {
+  @apply w-3 h-3;
+}
+
+.close-button-sm .close-icon {
+  @apply w-4 h-4;
+}
+
+.close-button-md .close-icon {
+  @apply w-5 h-5;
+}
+
+.close-button-lg .close-icon {
+  @apply w-6 h-6;
+}
+
+.close-button-xl .close-icon {
+  @apply w-7 h-7;
+}
+
+/* Close Button Variants */
+.close-button-default {
+  @apply text-gray-400 hover:text-gray-600;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply focus:ring-gray-500;
+}
+
+.close-button-primary {
+  @apply text-blue-400 hover:text-blue-600;
+  @apply hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply focus:ring-blue-500;
+}
+
+.close-button-secondary {
+  @apply text-gray-400 hover:text-gray-600;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+  @apply focus:ring-gray-500;
+}
+
+.close-button-success {
+  @apply text-green-400 hover:text-green-600;
+  @apply hover:bg-green-50 dark:hover:bg-green-900/20;
+  @apply focus:ring-green-500;
+}
+
+.close-button-warning {
+  @apply text-yellow-400 hover:text-yellow-600;
+  @apply hover:bg-yellow-50 dark:hover:bg-yellow-900/20;
+  @apply focus:ring-yellow-500;
+}
+
+.close-button-danger {
+  @apply text-red-400 hover:text-red-600;
+  @apply hover:bg-red-50 dark:hover:bg-red-900/20;
+  @apply focus:ring-red-500;
+}
+
+.close-button-info {
+  @apply text-blue-400 hover:text-blue-600;
+  @apply hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply focus:ring-blue-500;
+}
+
+/* Close Button Solid Variants */
+.close-button-solid {
+  @apply text-white;
+}
+
+.close-button-solid-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white;
+  @apply focus:ring-blue-500;
+}
+
+.close-button-solid-secondary {
+  @apply bg-gray-600 hover:bg-gray-700 text-white;
+  @apply focus:ring-gray-500;
+}
+
+.close-button-solid-success {
+  @apply bg-green-600 hover:bg-green-700 text-white;
+  @apply focus:ring-green-500;
+}
+
+.close-button-solid-warning {
+  @apply bg-yellow-500 hover:bg-yellow-600 text-white;
+  @apply focus:ring-yellow-500;
+}
+
+.close-button-solid-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white;
+  @apply focus:ring-red-500;
+}
+
+/* Close Button Positions */
+.close-button-absolute {
+  @apply absolute;
+}
+
+.close-button-top-right {
+  @apply top-2 right-2;
+}
+
+.close-button-top-left {
+  @apply top-2 left-2;
+}
+
+.close-button-bottom-right {
+  @apply bottom-2 right-2;
+}
+
+.close-button-bottom-left {
+  @apply bottom-2 left-2;
+}
+
+/* Close Button with Backdrop */
+.close-button-backdrop {
+  @apply bg-white bg-opacity-80 backdrop-blur-sm;
+  @apply dark:bg-gray-900 dark:bg-opacity-80;
+}
+
+/* Close Button States */
+.close-button-disabled {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+.close-button-loading {
+  @apply opacity-75 cursor-wait;
+}
+
+.close-button-active {
+  @apply bg-gray-200 dark:bg-gray-700;
+  @apply text-gray-700 dark:text-gray-200;
+}
+
+/* Close Button Icon Styles */
+.close-icon {
+  @apply w-5 h-5 stroke-current;
+}
+
+.close-icon-x {
+  /* Custom X icon path */
+}
+
+.close-icon-cross {
+  /* Custom cross icon path */
+}
+
+.close-icon-times {
+  /* Custom times icon path */
+}
+
+/* Close Button Animations */
+.close-button-fade {
+  @apply opacity-0 transition-opacity duration-200;
+}
+
+.close-button-fade-in {
+  @apply opacity-100;
+}
+
+.close-button-scale {
+  @apply transform scale-0 transition-transform duration-200;
+}
+
+.close-button-scale-in {
+  @apply scale-100;
+}
+
+.close-button-rotate {
+  @apply transition-transform duration-200;
+}
+
+.close-button-rotate:hover {
+  @apply transform rotate-90;
+}
+
+.close-button-bounce:hover {
+  @apply transform scale-110;
+  transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Close Button Ripple Effect */
+.close-button-ripple {
+  @apply relative overflow-hidden;
+}
+
+.close-button-ripple::before {
+  @apply absolute inset-0 bg-current opacity-0 rounded-full;
+  @apply transform scale-0 transition-all duration-300;
+  content: "";
+}
+
+.close-button-ripple:active::before {
+  @apply opacity-20 transform scale-150;
+  transition:
+    opacity 0s,
+    transform 0.3s;
+}
+
+/* Close Button Focus States */
+.close-button-focus-ring:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+.close-button-focus-visible:focus-visible {
+  @apply outline-2 outline-offset-2 outline-blue-500;
+}
+
+/* Close Button in Modal */
+.close-button-modal {
+  @apply absolute top-4 right-4 z-10;
+  @apply text-gray-400 hover:text-gray-600;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+
+/* Close Button in Toast/Alert */
+.close-button-toast {
+  @apply text-gray-400 hover:text-gray-600;
+  @apply hover:bg-white hover:bg-opacity-20;
+  @apply rounded-full p-1;
+}
+
+/* Close Button in Tag/Badge */
+.close-button-tag {
+  @apply ml-1 text-current opacity-70 hover:opacity-100;
+  @apply w-4 h-4 p-0;
+}
+
+/* Close Button in Tab */
+.close-button-tab {
+  @apply ml-2 text-gray-400 hover:text-gray-600;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply rounded-sm p-0.5;
+}
+
+/* Close Button Accessibility */
+.close-button[aria-label="Close"] {
+  @apply focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.close-button-sr-only {
+  @apply sr-only;
+}
+
+/* Close Button Keyboard Navigation */
+.close-button:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Close Button High Contrast */
+@media (prefers-contrast: high) {
+  .close-button {
+    @apply border border-current;
+  }
+}
+
+/* Close Button Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .close-button {
+    @apply transition-none;
+  }
+
+  .close-button-rotate:hover {
+    @apply transform-none;
+  }
+
+  .close-button-bounce:hover {
+    @apply transform-none;
+  }
+}
+
+/* Close Button Dark Mode Adjustments */
+.dark .close-button {
+  @apply text-gray-400 hover:text-gray-200;
+}
+
+.dark .close-button-backdrop {
+  @apply bg-gray-900 bg-opacity-80;
+}
+
+/* Close Button Print Styles */
+@media print {
+  .close-button {
+    @apply hidden;
+  }
+}
+
+/* Close Button Mobile Optimizations */
+@media (max-width: 640px) {
+  .close-button-mobile-lg {
+    @apply w-10 h-10 p-2;
+  }
+
+  .close-button-mobile-touch {
+    @apply min-w-[44px] min-h-[44px];
+  }
+}
+
+/* Close Button Group */
+.close-button-group {
+  @apply flex gap-1;
+}
+
+/* Close Button with Tooltip */
+.close-button-tooltip {
+  @apply relative;
+}
+
+.close-button-tooltip::after {
+  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2;
+  @apply px-2 py-1 text-xs text-white bg-gray-900 rounded whitespace-nowrap;
+  @apply opacity-0 invisible transition-all duration-200;
+  @apply dark:bg-gray-700;
+  content: attr(data-tooltip);
+}
+
+.close-button-tooltip:hover::after {
+  @apply opacity-100 visible;
+}
+
+/* Close Button Confirmation */
+.close-button-confirm {
+  @apply relative;
+}
+
+.close-button-confirm:hover {
+  @apply bg-red-100 text-red-600;
+  @apply dark:bg-red-900/20 dark:text-red-400;
+}
+
+/* Close Button with Counter */
+.close-button-counter {
+  @apply relative;
+}
+
+.close-button-counter::before {
+  @apply absolute -top-1 -right-1 w-4 h-4;
+  @apply bg-red-500 text-white text-xs;
+  @apply rounded-full flex items-center justify-center;
+  content: attr(data-count);
+}

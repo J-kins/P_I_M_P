@@ -1,0 +1,494 @@
+/* Friends Page Styles */
+.friends-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.friends-page__header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4;
+}
+
+.friends-page__title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-2;
+}
+
+.friends-page__description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.friends-page__actions {
+  @apply flex items-center gap-4 mt-4;
+}
+
+.friends-page__search {
+  @apply flex-1 max-w-md;
+}
+
+.friends-page__filters {
+  @apply flex items-center gap-2;
+}
+
+.friends-page__filter-button {
+  @apply px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.friends-page__filter-button--active {
+  @apply bg-rose-50 dark:bg-rose-900/20 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-600;
+}
+
+.friends-page__find-friends-button {
+  @apply px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-lg transition-colors flex items-center gap-2;
+}
+
+.friends-page__content {
+  @apply container mx-auto px-6 py-8;
+}
+
+.friends-page__tabs {
+  @apply flex space-x-8 border-b border-gray-200 dark:border-gray-700 mb-8;
+}
+
+.friends-page__tab {
+  @apply pb-4 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 font-medium text-sm transition-colors cursor-pointer;
+}
+
+.friends-page__tab--active {
+  @apply text-rose-600 dark:text-rose-400 border-rose-600 dark:border-rose-400;
+}
+
+.friends-page__layout {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-8;
+}
+
+.friends-page__main {
+  @apply lg:col-span-3;
+}
+
+.friends-page__sidebar {
+  @apply lg:col-span-1 space-y-6;
+}
+
+/* Friend Suggestions */
+.friends-page__suggestions {
+  @apply mb-8;
+}
+
+.friends-page__suggestions-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.friends-page__suggestions-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.friends-page__suggestion-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 text-center hover:shadow-md transition-shadow;
+}
+
+.friends-page__suggestion-avatar {
+  @apply w-16 h-16 rounded-full mx-auto mb-3 object-cover;
+}
+
+.friends-page__suggestion-name {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-1;
+}
+
+.friends-page__suggestion-mutual {
+  @apply text-xs text-gray-500 dark:text-gray-400 mb-3;
+}
+
+.friends-page__suggestion-location {
+  @apply text-xs text-gray-500 dark:text-gray-400 mb-3 flex items-center justify-center gap-1;
+}
+
+.friends-page__suggestion-actions {
+  @apply flex gap-2;
+}
+
+.friends-page__add-friend-button {
+  @apply flex-1 px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.friends-page__remove-suggestion-button {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium rounded-lg transition-colors;
+}
+
+/* Friends Grid */
+.friends-page__grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+}
+
+.friends-page__friend-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow;
+}
+
+.friends-page__friend-cover {
+  @apply w-full h-20 bg-gradient-to-r from-rose-400 to-pink-400 relative;
+}
+
+.friends-page__friend-avatar {
+  @apply w-16 h-16 rounded-full border-4 border-white dark:border-gray-800 absolute -bottom-8 left-1/2 transform -translate-x-1/2 object-cover;
+}
+
+.friends-page__friend-content {
+  @apply pt-10 p-4 text-center;
+}
+
+.friends-page__friend-name {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-1;
+}
+
+.friends-page__friend-status {
+  @apply text-xs text-gray-500 dark:text-gray-400 mb-2;
+}
+
+.friends-page__friend-mutual {
+  @apply text-xs text-gray-500 dark:text-gray-400 mb-3;
+}
+
+.friends-page__friend-stats {
+  @apply flex justify-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-3;
+}
+
+.friends-page__friend-stat {
+  @apply text-center;
+}
+
+.friends-page__friend-stat-value {
+  @apply font-semibold text-gray-900 dark:text-white block;
+}
+
+.friends-page__friend-actions {
+  @apply flex gap-2;
+}
+
+.friends-page__message-button {
+  @apply flex-1 px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.friends-page__unfriend-button {
+  @apply px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors;
+}
+
+.friends-page__profile-button {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium rounded-lg transition-colors;
+}
+
+/* Friend Requests */
+.friends-page__requests {
+  @apply mb-8;
+}
+
+.friends-page__requests-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.friends-page__requests-list {
+  @apply space-y-3;
+}
+
+.friends-page__request-item {
+  @apply bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 flex items-center gap-4;
+}
+
+.friends-page__request-avatar {
+  @apply w-12 h-12 rounded-full object-cover;
+}
+
+.friends-page__request-info {
+  @apply flex-1;
+}
+
+.friends-page__request-name {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-1;
+}
+
+.friends-page__request-mutual {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.friends-page__request-time {
+  @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+}
+
+.friends-page__request-actions {
+  @apply flex gap-2;
+}
+
+.friends-page__accept-button {
+  @apply px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.friends-page__decline-button {
+  @apply px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium rounded-lg transition-colors;
+}
+
+/* Sidebar Widgets */
+.friends-page__widget {
+  @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4;
+}
+
+.friends-page__widget-title {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-3;
+}
+
+/* Online Friends Widget */
+.friends-page__online-friends {
+  @apply space-y-3;
+}
+
+.friends-page__online-friend {
+  @apply flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer;
+}
+
+.friends-page__online-avatar {
+  @apply w-8 h-8 rounded-full object-cover relative;
+}
+
+.friends-page__online-status {
+  @apply absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-800;
+}
+
+.friends-page__online-name {
+  @apply text-sm text-gray-900 dark:text-white;
+}
+
+/* Friend Groups Widget */
+.friends-page__groups {
+  @apply space-y-2;
+}
+
+.friends-page__group-item {
+  @apply flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer;
+}
+
+.friends-page__group-name {
+  @apply text-sm text-gray-900 dark:text-white;
+}
+
+.friends-page__group-count {
+  @apply text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full;
+}
+
+/* Statistics Widget */
+.friends-page__stats {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.friends-page__stat {
+  @apply text-center;
+}
+
+.friends-page__stat-value {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.friends-page__stat-label {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+/* Activity Widget */
+.friends-page__activity {
+  @apply space-y-3;
+}
+
+.friends-page__activity-item {
+  @apply flex items-start gap-3;
+}
+
+.friends-page__activity-avatar {
+  @apply w-6 h-6 rounded-full object-cover;
+}
+
+.friends-page__activity-content {
+  @apply flex-1;
+}
+
+.friends-page__activity-text {
+  @apply text-xs text-gray-600 dark:text-gray-400;
+}
+
+.friends-page__activity-time {
+  @apply text-xs text-gray-500 dark:text-gray-500 mt-1;
+}
+
+/* Empty States */
+.friends-page__empty {
+  @apply text-center py-12;
+}
+
+.friends-page__empty-icon {
+  @apply w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4;
+}
+
+.friends-page__empty-title {
+  @apply text-lg font-medium text-gray-900 dark:text-white mb-2;
+}
+
+.friends-page__empty-description {
+  @apply text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto;
+}
+
+.friends-page__empty-action {
+  @apply px-6 py-3 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-lg transition-colors;
+}
+
+/* Loading States */
+.friends-page__skeleton-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.friends-page__skeleton-cover {
+  @apply w-full h-20 bg-gray-200 dark:bg-gray-700 animate-pulse;
+}
+
+.friends-page__skeleton-content {
+  @apply pt-10 p-4 space-y-3;
+}
+
+.friends-page__skeleton-avatar {
+  @apply w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-3 animate-pulse;
+}
+
+.friends-page__skeleton-name {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded mx-auto w-2/3 mb-2 animate-pulse;
+}
+
+.friends-page__skeleton-status {
+  @apply h-3 bg-gray-200 dark:bg-gray-700 rounded mx-auto w-1/2 mb-3 animate-pulse;
+}
+
+.friends-page__skeleton-stats {
+  @apply flex justify-center gap-4 mb-3;
+}
+
+.friends-page__skeleton-stat {
+  @apply h-3 w-12 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.friends-page__skeleton-actions {
+  @apply flex gap-2;
+}
+
+.friends-page__skeleton-button {
+  @apply flex-1 h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .friends-page__layout {
+    @apply grid-cols-1;
+  }
+
+  .friends-page__sidebar {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+}
+
+@media (max-width: 768px) {
+  .friends-page__content {
+    @apply px-4 py-6;
+  }
+
+  .friends-page__header {
+    @apply px-4;
+  }
+
+  .friends-page__grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+
+  .friends-page__suggestions-grid {
+    @apply grid-cols-1;
+  }
+
+  .friends-page__actions {
+    @apply flex-col items-stretch gap-3;
+  }
+
+  .friends-page__filters {
+    @apply flex-wrap;
+  }
+
+  .friends-page__tabs {
+    @apply space-x-4 overflow-x-auto;
+  }
+
+  .friends-page__tab {
+    @apply whitespace-nowrap;
+  }
+
+  .friends-page__request-item {
+    @apply flex-col items-start gap-3;
+  }
+
+  .friends-page__request-actions {
+    @apply w-full;
+  }
+
+  .friends-page__sidebar {
+    @apply grid-cols-1;
+  }
+}
+
+/* Dark Mode Specific Adjustments */
+.dark .friends-page__friend-card:hover,
+.dark .friends-page__suggestion-card:hover {
+  @apply shadow-lg shadow-gray-900/25;
+}
+
+/* Focus States */
+.friends-page__add-friend-button:focus,
+.friends-page__message-button:focus,
+.friends-page__find-friends-button:focus {
+  @apply outline-none ring-2 ring-rose-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.friends-page__filter-button:focus {
+  @apply outline-none ring-2 ring-gray-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.friends-page__online-friend:focus,
+.friends-page__group-item:focus {
+  @apply outline-none ring-2 ring-rose-500 ring-offset-2 dark:ring-offset-gray-800;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .friends-page__friend-card,
+  .friends-page__suggestion-card,
+  .friends-page__request-item,
+  .friends-page__widget {
+    @apply border-2;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .friends-page__friend-card,
+  .friends-page__suggestion-card,
+  .friends-page__online-friend,
+  .friends-page__group-item,
+  .friends-page__skeleton-cover,
+  .friends-page__skeleton-avatar,
+  .friends-page__skeleton-name,
+  .friends-page__skeleton-button {
+    @apply transition-none animate-none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .friends-page__sidebar,
+  .friends-page__actions,
+  .friends-page__tabs {
+    @apply hidden;
+  }
+
+  .friends-page__layout {
+    @apply grid-cols-1;
+  }
+
+  .friends-page__friend-card {
+    @apply break-inside-avoid;
+  }
+}

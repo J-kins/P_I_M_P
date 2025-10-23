@@ -1,0 +1,382 @@
+/* Comment Input Component Styles */
+.comment-input {
+  @apply w-full;
+}
+
+.comment-input-container {
+  @apply flex gap-3;
+}
+
+/* Comment Input Variants */
+.comment-input-default {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.comment-input-compact {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-3;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.comment-input-inline {
+  @apply bg-transparent p-2;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+/* Comment Input Sizes */
+.comment-input-sm .comment-input-container {
+  @apply gap-2;
+}
+
+.comment-input-md .comment-input-container {
+  @apply gap-3;
+}
+
+.comment-input-lg .comment-input-container {
+  @apply gap-4;
+}
+
+/* Comment Input States */
+.comment-input-focused {
+  @apply ring-2 ring-blue-500 ring-opacity-20;
+  @apply border-blue-500 dark:border-blue-400;
+}
+
+.comment-input-disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.comment-input-loading {
+  @apply pointer-events-none;
+}
+
+/* Comment Input Avatar */
+.comment-input-avatar {
+  @apply flex-shrink-0;
+}
+
+/* Comment Input Content */
+.comment-input-content {
+  @apply flex-1 min-w-0;
+}
+
+.comment-input-field-container {
+  @apply space-y-3;
+}
+
+/* Comment Input Textarea */
+.comment-input-textarea {
+  @apply w-full border-none outline-none resize-none;
+  @apply bg-transparent text-gray-900 dark:text-gray-100;
+  @apply placeholder-gray-500 dark:placeholder-gray-400;
+  @apply text-sm leading-relaxed;
+  @apply min-h-[2.5rem] max-h-[7.5rem];
+  @apply transition-all duration-200;
+}
+
+.comment-input-textarea:focus {
+  @apply outline-none;
+}
+
+.comment-input-textarea::placeholder {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+/* Comment Input Actions */
+.comment-input-actions {
+  @apply flex items-center justify-between;
+  @apply pt-3 border-t border-gray-100 dark:border-gray-700;
+}
+
+.comment-input-meta {
+  @apply flex items-center gap-2;
+}
+
+.comment-input-buttons {
+  @apply flex items-center gap-2;
+}
+
+/* Comment Input Counter */
+.comment-input-counter {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+  @apply font-mono;
+}
+
+.comment-input-counter-warning {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.comment-input-counter-error {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Comment Input Buttons */
+.comment-input-cancel {
+  @apply text-gray-600 dark:text-gray-400;
+  @apply hover:text-gray-800 dark:hover:text-gray-200;
+}
+
+.comment-input-submit {
+  @apply min-w-[4rem];
+}
+
+/* Comment Input Animation */
+.comment-input-actions-enter {
+  @apply opacity-0 transform translate-y-2;
+}
+
+.comment-input-actions-enter-active {
+  @apply opacity-100 transform translate-y-0;
+  transition: all 200ms ease-out;
+}
+
+.comment-input-actions-exit {
+  @apply opacity-100 transform translate-y-0;
+}
+
+.comment-input-actions-exit-active {
+  @apply opacity-0 transform translate-y-2;
+  transition: all 150ms ease-in;
+}
+
+/* Comment Input Formatting Tools */
+.comment-input-toolbar {
+  @apply flex items-center gap-1 py-2;
+  @apply border-t border-gray-100 dark:border-gray-700;
+}
+
+.comment-input-tool {
+  @apply p-1.5 rounded-md text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply transition-colors duration-200;
+}
+
+.comment-input-tool-active {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* Comment Input Mentions */
+.comment-input-mentions {
+  @apply absolute top-full left-0 right-0 mt-1;
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply max-h-48 overflow-y-auto z-50;
+}
+
+.comment-input-mention-item {
+  @apply flex items-center gap-3 px-3 py-2;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+  @apply cursor-pointer transition-colors duration-200;
+}
+
+.comment-input-mention-avatar {
+  @apply w-6 h-6 rounded-full;
+}
+
+.comment-input-mention-name {
+  @apply font-medium text-gray-900 dark:text-gray-100;
+}
+
+.comment-input-mention-username {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+/* Comment Input Emoji Picker */
+.comment-input-emoji-button {
+  @apply p-1.5 rounded-md text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply transition-colors duration-200;
+}
+
+.comment-input-emoji-picker {
+  @apply absolute top-full right-0 mt-1;
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply p-3 z-50;
+}
+
+/* Comment Input File Attachment */
+.comment-input-attachment {
+  @apply flex items-center gap-2 p-2;
+  @apply bg-gray-50 dark:bg-gray-800 rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.comment-input-attachment-icon {
+  @apply w-4 h-4 text-gray-500 dark:text-gray-400;
+}
+
+.comment-input-attachment-name {
+  @apply text-sm text-gray-700 dark:text-gray-300;
+  @apply truncate flex-1;
+}
+
+.comment-input-attachment-remove {
+  @apply w-4 h-4 text-red-500 dark:text-red-400;
+  @apply hover:text-red-700 dark:hover:text-red-300;
+  @apply cursor-pointer;
+}
+
+/* Comment Input Error State */
+.comment-input-error {
+  @apply border-red-500 dark:border-red-400;
+  @apply ring-2 ring-red-500 ring-opacity-20;
+}
+
+.comment-input-error-message {
+  @apply text-sm text-red-600 dark:text-red-400;
+  @apply mt-2;
+}
+
+/* Comment Input Success State */
+.comment-input-success {
+  @apply border-green-500 dark:border-green-400;
+  @apply ring-2 ring-green-500 ring-opacity-20;
+}
+
+/* Comment Input Loading Overlay */
+.comment-input-loading-overlay {
+  @apply absolute inset-0 bg-white dark:bg-gray-800 bg-opacity-75;
+  @apply flex items-center justify-center;
+  @apply rounded-lg;
+}
+
+.comment-input-spinner {
+  @apply w-5 h-5 animate-spin border-2 border-blue-600 border-t-transparent rounded-full;
+}
+
+/* Comment Input Responsive */
+@media (max-width: 640px) {
+  .comment-input-responsive .comment-input-container {
+    @apply gap-2;
+  }
+
+  .comment-input-responsive .comment-input-actions {
+    @apply flex-col gap-2 items-stretch;
+  }
+
+  .comment-input-responsive .comment-input-buttons {
+    @apply flex-col gap-2;
+  }
+
+  .comment-input-responsive .comment-input-submit,
+  .comment-input-responsive .comment-input-cancel {
+    @apply w-full justify-center;
+  }
+}
+
+/* Comment Input Dark Mode */
+.dark .comment-input-default {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .comment-input-compact {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .comment-input-actions {
+  @apply border-gray-700;
+}
+
+/* Comment Input Print */
+@media print {
+  .comment-input {
+    @apply hidden;
+  }
+}
+
+/* Comment Input Accessibility */
+.comment-input-textarea:focus {
+  @apply outline-none;
+}
+
+.comment-input[role="textbox"]:focus-within {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Comment Input High Contrast */
+@media (prefers-contrast: high) {
+  .comment-input {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+
+  .comment-input-textarea {
+    @apply bg-white dark:bg-gray-900;
+  }
+}
+
+/* Comment Input Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .comment-input-textarea,
+  .comment-input-actions {
+    @apply transition-none;
+  }
+}
+
+/* Comment Input Custom Themes */
+.comment-input-theme-minimal {
+  @apply bg-transparent border-0;
+}
+
+.comment-input-theme-card {
+  @apply shadow-md rounded-xl;
+}
+
+.comment-input-theme-floating {
+  @apply fixed bottom-4 left-4 right-4 z-50;
+  @apply max-w-md mx-auto;
+}
+
+/* Comment Input Reply Mode */
+.comment-input-reply {
+  @apply ml-6 mt-2;
+  @apply border-l-2 border-blue-500;
+  @apply pl-4;
+}
+
+.comment-input-reply-to {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+  @apply mb-2;
+}
+
+.comment-input-reply-author {
+  @apply font-medium text-blue-600 dark:text-blue-400;
+}
+
+/* Comment Input Threading */
+.comment-input-thread {
+  @apply relative;
+}
+
+.comment-input-thread::before {
+  @apply absolute left-6 top-0 bottom-0 w-0.5;
+  @apply bg-gray-200 dark:bg-gray-700;
+  content: "";
+}
+
+/* Comment Input Character Limit Warning */
+.comment-input-limit-warning .comment-input-textarea {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.comment-input-limit-exceeded .comment-input-textarea {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Comment Input Auto-resize */
+.comment-input-auto-resize .comment-input-textarea {
+  @apply transition-all duration-200;
+}
+
+/* Comment Input Placeholder Animation */
+.comment-input-placeholder-animate .comment-input-textarea::placeholder {
+  @apply transition-opacity duration-200;
+}
+
+.comment-input-placeholder-animate .comment-input-textarea:focus::placeholder {
+  @apply opacity-50;
+}

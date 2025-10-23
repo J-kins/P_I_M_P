@@ -1,0 +1,52 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="candlestickChartTitle candlestickChartDesc">
+    <title id="candlestickChartTitle">Candlestick Chart</title>
+    <desc id="candlestickChartDesc">A data-agnostic candlestick chart template for OHLC time-series visualization.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #eee); stroke-width: 1; }
+            .y-label, .x-label { font-family: var(--font-family, Arial); font-size: 12px; fill: var(--label-color, #333); text-anchor: end; }
+            .title { font-family: var(--font-family, Arial); font-size: 20px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+            .candlestick-body { stroke: var(--candle-border, #333); stroke-width: 1; }
+            .bullish { fill: var(--bullish-color, #4caf50); }
+            .bearish { fill: var(--bearish-color, #f44336); }
+            .wick { stroke: var(--wick-color, #333); stroke-width: 2; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+    </g>
+    <!-- Grid Lines & Y Labels -->
+    <g class="y-grid-labels">
+        <!-- for each tick in {yTicks} -->
+        <line class="grid-line" x1="100" y1="{tick.y}" x2="700" y2="{tick.y}"/>
+        <text class="y-label" x="90" y="{tick.y+5}">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- X Labels -->
+    <g class="x-labels">
+        <!-- for each tick in {xTicks} -->
+        <text class="x-label" x="{tick.x}" y="520">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Candlesticks -->
+    <g class="candlesticks">
+        <!-- for each candle in {candles} -->
+        <!-- Wick -->
+        <line class="wick" x1="{candle.x}" y1="{candle.yHigh}" x2="{candle.x}" y2="{candle.yLow}" data-high="{candle.high}" data-low="{candle.low}"/>
+        <!-- Body -->
+        <rect class="candlestick-body {candle.close > candle.open ? 'bullish' : 'bearish'}" x="{candle.x - candleWidth/2}" y="{Math.min(candle.yOpen, candle.yClose)}" width="{candleWidth}" height="{Math.abs(candle.yOpen - candle.yClose)}"
+            data-open="{candle.open}" data-close="{candle.close}" data-time="{candle.time}" data-volume="{candle.volume}"/>
+        <!-- Optional: Tooltip group for JS -->
+        <!-- <g class="tooltip" style="display:none;"> ... </g> -->
+        <!-- end for -->
+    </g>
+</svg>

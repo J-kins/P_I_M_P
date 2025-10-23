@@ -1,0 +1,480 @@
+/* Progress Bar Component Styles */
+/* Provides styling for progress indicators and loading states */
+
+.progress-bar {
+  @apply relative;
+}
+
+/* Size Variants */
+.progress-bar--xs {
+  @apply space-y-1;
+}
+
+.progress-bar--xs .progress-bar__track {
+  @apply h-1;
+}
+
+.progress-bar--xs .progress-bar__text {
+  @apply text-xs;
+}
+
+.progress-bar--sm {
+  @apply space-y-1;
+}
+
+.progress-bar--sm .progress-bar__track {
+  @apply h-2;
+}
+
+.progress-bar--sm .progress-bar__text {
+  @apply text-sm;
+}
+
+.progress-bar--md {
+  @apply space-y-2;
+}
+
+.progress-bar--md .progress-bar__track {
+  @apply h-3;
+}
+
+.progress-bar--md .progress-bar__text {
+  @apply text-sm;
+}
+
+.progress-bar--lg {
+  @apply space-y-2;
+}
+
+.progress-bar--lg .progress-bar__track {
+  @apply h-4;
+}
+
+.progress-bar--lg .progress-bar__text {
+  @apply text-base;
+}
+
+.progress-bar--xl {
+  @apply space-y-3;
+}
+
+.progress-bar--xl .progress-bar__track {
+  @apply h-6;
+}
+
+.progress-bar--xl .progress-bar__text {
+  @apply text-lg;
+}
+
+/* Label and Percentage Container */
+.progress-bar__header {
+  @apply flex items-center justify-between;
+}
+
+.progress-bar__label {
+  @apply font-medium text-gray-700 dark:text-gray-300;
+}
+
+.progress-bar__percentage {
+  @apply font-medium;
+}
+
+/* Track (Background) */
+.progress-bar__track {
+  @apply relative rounded-full overflow-hidden;
+}
+
+.progress-bar__track--default {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.progress-bar__track--animated {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Fill (Progress) */
+.progress-bar__fill {
+  @apply rounded-full transition-all duration-300 ease-out;
+}
+
+.progress-bar__fill--default {
+  @apply bg-blue-500;
+}
+
+.progress-bar__fill--success {
+  @apply bg-green-500;
+}
+
+.progress-bar__fill--warning {
+  @apply bg-yellow-500;
+}
+
+.progress-bar__fill--error {
+  @apply bg-red-500;
+}
+
+.progress-bar__fill--info {
+  @apply bg-cyan-500;
+}
+
+/* Variant Text Colors */
+.progress-bar__percentage--default {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.progress-bar__percentage--success {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.progress-bar__percentage--warning {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.progress-bar__percentage--error {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.progress-bar__percentage--info {
+  @apply text-cyan-600 dark:text-cyan-400;
+}
+
+/* Striped Pattern */
+.progress-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* Animated Stripes */
+.progress-animated {
+  animation: progress-stripes 1s linear infinite;
+}
+
+@keyframes progress-stripes {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Indeterminate Progress */
+.progress-indeterminate {
+  animation: progress-indeterminate 2s ease-in-out infinite;
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Shine Effect */
+.progress-shine {
+  animation: progress-shine 2s ease-in-out infinite;
+}
+
+@keyframes progress-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Pulse Effect for Indeterminate */
+.progress-bar--indeterminate .progress-bar__track {
+  animation: progress-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes progress-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Status Icons */
+.progress-bar__status-icon {
+  @apply flex items-center justify-center mt-2;
+}
+
+.progress-bar__status-icon--success {
+  @apply text-green-500;
+}
+
+.progress-bar__status-icon--error {
+  @apply text-red-500;
+}
+
+.progress-bar__status-icon--warning {
+  @apply text-yellow-500;
+}
+
+/* Circular Progress Variant */
+.progress-bar--circular {
+  @apply relative inline-flex items-center justify-center;
+}
+
+.progress-bar__circle {
+  @apply transform -rotate-90;
+}
+
+.progress-bar__circle-track {
+  @apply stroke-gray-200 dark:stroke-gray-700;
+}
+
+.progress-bar__circle-fill {
+  @apply stroke-blue-500 transition-all duration-300 ease-out;
+  stroke-linecap: round;
+  stroke-dasharray: 283; /* 2π × 45 (radius) */
+  stroke-dashoffset: 283;
+}
+
+.progress-bar__circle-text {
+  @apply absolute inset-0 flex items-center justify-center;
+  @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+/* Multi-step Progress */
+.progress-bar--steps {
+  @apply flex items-center space-x-2;
+}
+
+.progress-bar__step {
+  @apply flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden;
+}
+
+.progress-bar__step--active {
+  @apply bg-blue-500;
+}
+
+.progress-bar__step--completed {
+  @apply bg-green-500;
+}
+
+.progress-bar__step-separator {
+  @apply w-2 h-2 bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.progress-bar__step-separator--active {
+  @apply bg-blue-500;
+}
+
+.progress-bar__step-separator--completed {
+  @apply bg-green-500;
+}
+
+/* Gradient Progress */
+.progress-bar__fill--gradient-blue {
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.progress-bar__fill--gradient-green {
+  background: linear-gradient(90deg, #10b981, #047857);
+}
+
+.progress-bar__fill--gradient-red {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.progress-bar__fill--gradient-purple {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+}
+
+/* Loading States */
+.progress-bar--loading .progress-bar__fill {
+  @apply animate-pulse;
+}
+
+/* Stacked Progress Bars */
+.progress-bar--stacked {
+  @apply space-y-1;
+}
+
+.progress-bar--stacked .progress-bar__track {
+  @apply mb-1;
+}
+
+.progress-bar--stacked .progress-bar__label {
+  @apply text-xs;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .progress-bar__header {
+    @apply flex-col items-start space-y-1;
+  }
+
+  .progress-bar--xl {
+    @apply space-y-2;
+  }
+
+  .progress-bar--xl .progress-bar__track {
+    @apply h-4;
+  }
+
+  .progress-bar--xl .progress-bar__text {
+    @apply text-base;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .progress-bar__track {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .progress-bar__fill {
+    @apply border border-current;
+  }
+
+  .progress-bar__label,
+  .progress-bar__percentage {
+    @apply text-black dark:text-white font-bold;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar__fill,
+  .progress-bar__track--animated {
+    @apply transition-none;
+  }
+
+  .progress-animated,
+  .progress-indeterminate,
+  .progress-shine,
+  .progress-bar--indeterminate .progress-bar__track,
+  .progress-bar--loading .progress-bar__fill {
+    animation: none !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .progress-bar {
+    @apply border border-gray-400 p-2 mb-4 break-inside-avoid;
+  }
+
+  .progress-bar__track {
+    @apply bg-gray-300 border border-gray-500;
+  }
+
+  .progress-bar__fill {
+    @apply bg-gray-600;
+  }
+
+  .progress-bar__label,
+  .progress-bar__percentage {
+    @apply text-black;
+  }
+
+  .progress-bar::after {
+    content: "Progress: " attr(aria-valuenow) "/" attr(aria-valuemax);
+    @apply block text-xs text-gray-600 mt-1;
+  }
+}
+
+/* Focus States for Accessibility */
+.progress-bar[tabindex]:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 rounded;
+}
+
+/* Custom Properties for Theme Integration */
+.progress-bar {
+  --progress-bg: theme(colors.gray.200);
+  --progress-fill: theme(colors.blue.500);
+  --progress-text: theme(colors.gray.700);
+  --progress-border-radius: theme(borderRadius.full);
+  --progress-transition: theme(transitionDuration.300);
+}
+
+@media (prefers-color-scheme: dark) {
+  .progress-bar {
+    --progress-bg: theme(colors.gray.700);
+    --progress-text: theme(colors.gray.300);
+  }
+}
+
+/* Success State Animation */
+.progress-bar--success-complete {
+  animation: progress-success 0.6s ease-in-out;
+}
+
+@keyframes progress-success {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Error State Animation */
+.progress-bar--error-shake {
+  animation: progress-error 0.5s ease-in-out;
+}
+
+@keyframes progress-error {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Smooth progress transitions */
+.progress-bar__fill--smooth {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mini progress variant */
+.progress-bar--mini .progress-bar__track {
+  @apply h-1;
+}
+
+.progress-bar--mini .progress-bar__label,
+.progress-bar--mini .progress-bar__percentage {
+  @apply text-xs;
+}
+
+/* Thick progress variant */
+.progress-bar--thick .progress-bar__track {
+  @apply h-8;
+}
+
+.progress-bar--thick .progress-bar__label {
+  @apply absolute inset-0 flex items-center justify-center text-white font-medium;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}

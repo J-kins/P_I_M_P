@@ -1,0 +1,300 @@
+/* Image Component Styles */
+.image {
+  @apply block;
+}
+
+/* Image Aspect Ratios */
+.image-square {
+  @apply aspect-square;
+}
+
+.image-video {
+  @apply aspect-video;
+}
+
+.image-portrait {
+  aspect-ratio: 3/4;
+}
+
+.image-landscape {
+  aspect-ratio: 4/3;
+}
+
+.image-wide {
+  aspect-ratio: 16/9;
+}
+
+.image-banner {
+  aspect-ratio: 21/9;
+}
+
+/* Image Object Fit */
+.image-cover {
+  @apply object-cover;
+}
+
+.image-contain {
+  @apply object-contain;
+}
+
+.image-fill {
+  @apply object-fill;
+}
+
+.image-scale-down {
+  @apply object-scale-down;
+}
+
+/* Image Border Radius */
+.image-rounded-none {
+  @apply rounded-none;
+}
+
+.image-rounded-sm {
+  @apply rounded-sm;
+}
+
+.image-rounded {
+  @apply rounded;
+}
+
+.image-rounded-md {
+  @apply rounded-md;
+}
+
+.image-rounded-lg {
+  @apply rounded-lg;
+}
+
+.image-rounded-xl {
+  @apply rounded-xl;
+}
+
+.image-rounded-2xl {
+  @apply rounded-2xl;
+}
+
+.image-rounded-3xl {
+  @apply rounded-3xl;
+}
+
+.image-rounded-full {
+  @apply rounded-full;
+}
+
+/* Image Sizes */
+.image-xs {
+  @apply w-4 h-4;
+}
+
+.image-sm {
+  @apply w-8 h-8;
+}
+
+.image-md {
+  @apply w-12 h-12;
+}
+
+.image-lg {
+  @apply w-16 h-16;
+}
+
+.image-xl {
+  @apply w-20 h-20;
+}
+
+.image-2xl {
+  @apply w-24 h-24;
+}
+
+.image-3xl {
+  @apply w-32 h-32;
+}
+
+/* Image Container */
+.image-container {
+  @apply relative overflow-hidden;
+}
+
+/* Image Overlay */
+.image-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-0 transition-all duration-300;
+  @apply flex items-center justify-center text-white;
+}
+
+.image-overlay:hover {
+  @apply bg-opacity-40;
+}
+
+/* Image Loading State */
+.image-loading {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700;
+}
+
+.image-skeleton {
+  @apply bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200;
+  @apply dark:from-gray-700 dark:via-gray-600 dark:to-gray-700;
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Image Error State */
+.image-error {
+  @apply bg-gray-100 dark:bg-gray-800;
+  @apply flex items-center justify-center text-gray-400;
+  @apply border border-dashed border-gray-300 dark:border-gray-600;
+}
+
+/* Image Hover Effects */
+.image-hover-zoom:hover {
+  @apply transform scale-105;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-hover-blur:hover {
+  @apply filter blur-sm;
+  transition: filter 0.3s ease-in-out;
+}
+
+.image-hover-grayscale:hover {
+  @apply filter grayscale;
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Image Filters */
+.image-filter-grayscale {
+  @apply filter grayscale;
+}
+
+.image-filter-sepia {
+  @apply filter sepia;
+}
+
+.image-filter-blur {
+  @apply filter blur-sm;
+}
+
+.image-filter-brightness {
+  @apply filter brightness-110;
+}
+
+.image-filter-contrast {
+  @apply filter contrast-125;
+}
+
+/* Image Lazy Loading */
+.image-lazy {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-lazy.loaded {
+  opacity: 1;
+}
+
+/* Image Gallery */
+.image-gallery {
+  @apply grid gap-2;
+}
+
+.image-gallery-1 {
+  @apply grid-cols-1;
+}
+
+.image-gallery-2 {
+  @apply grid-cols-2;
+}
+
+.image-gallery-3 {
+  @apply grid-cols-3;
+}
+
+.image-gallery-4 {
+  @apply grid-cols-4;
+}
+
+/* Image Zoom Effect */
+.image-zoom {
+  @apply cursor-zoom-in overflow-hidden;
+}
+
+.image-zoom img {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.image-zoom:hover img {
+  @apply transform scale-110;
+}
+
+/* Image Caption */
+.image-caption {
+  @apply absolute bottom-0 left-0 right-0;
+  @apply bg-gradient-to-t from-black to-transparent;
+  @apply text-white p-4 text-sm;
+}
+
+/* Profile Image */
+.image-profile {
+  @apply rounded-full border-4 border-white shadow-lg;
+  @apply dark:border-gray-800;
+}
+
+/* Cover Image */
+.image-cover-photo {
+  @apply w-full h-48 md:h-64 lg:h-80 object-cover;
+  @apply rounded-t-lg;
+}
+
+/* Thumbnail Image */
+.image-thumbnail {
+  @apply w-16 h-16 object-cover rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+/* Image with Badge */
+.image-badge {
+  @apply relative;
+}
+
+.image-badge::after {
+  @apply absolute -top-2 -right-2;
+  @apply w-6 h-6 bg-blue-500 rounded-full;
+  @apply flex items-center justify-center text-white text-xs;
+  content: attr(data-badge);
+}
+
+/* Responsive Images */
+.image-responsive {
+  @apply w-full h-auto;
+}
+
+/* Image Shadow */
+.image-shadow {
+  @apply shadow-lg;
+}
+
+.image-shadow-xl {
+  @apply shadow-xl;
+}
+
+.image-shadow-2xl {
+  @apply shadow-2xl;
+}
+
+/* Image Border */
+.image-border {
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.image-border-thick {
+  @apply border-4 border-gray-200 dark:border-gray-700;
+}

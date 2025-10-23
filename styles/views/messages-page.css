@@ -1,0 +1,72 @@
+/* Messages Page Styles */
+
+.messages-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.messages-layout {
+  @apply flex h-screen overflow-hidden;
+}
+
+.messages-sidebar {
+  @apply w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col;
+}
+
+.messages-main {
+  @apply flex-1 flex flex-col;
+}
+
+.messages-header {
+  @apply p-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+.messages-search {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md;
+}
+
+.conversations-list {
+  @apply flex-1 overflow-y-auto;
+}
+
+.conversation-item {
+  @apply p-4 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer;
+}
+
+.conversation-item.active {
+  @apply bg-primary-50 dark:bg-primary-900 border-primary-200 dark:border-primary-700;
+}
+
+.chat-header {
+  @apply p-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800;
+}
+
+.chat-messages {
+  @apply flex-1 overflow-y-auto p-4 space-y-4;
+}
+
+.chat-input-area {
+  @apply p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800;
+}
+
+.message-bubble {
+  @apply max-w-xs lg:max-w-md px-4 py-2 rounded-lg;
+}
+
+.message-bubble.sent {
+  @apply bg-primary-500 text-white ml-auto;
+}
+
+.message-bubble.received {
+  @apply bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .messages-sidebar {
+    @apply absolute inset-y-0 left-0 z-50 w-full transform -translate-x-full transition-transform;
+  }
+
+  .messages-sidebar.open {
+    @apply translate-x-0;
+  }
+}

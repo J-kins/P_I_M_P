@@ -1,0 +1,461 @@
+/* Post Image Component Styles */
+.post-image-container {
+  @apply relative;
+}
+
+.post-image-wrapper {
+  @apply relative overflow-hidden bg-gray-100 dark:bg-gray-800;
+}
+
+.post-image-element {
+  @apply w-full h-full transition-all duration-300;
+}
+
+/* Post Image Variants */
+.post-image-single .post-image-wrapper {
+  @apply rounded-lg;
+}
+
+.post-image-gallery .post-image-wrapper {
+  @apply rounded-md;
+}
+
+.post-image-cover .post-image-wrapper {
+  @apply rounded-none;
+}
+
+.post-image-thumbnail .post-image-wrapper {
+  @apply rounded-lg shadow-sm;
+}
+
+/* Post Image Aspect Ratios */
+.post-image-square .post-image-wrapper {
+  @apply aspect-square;
+}
+
+.post-image-video .post-image-wrapper {
+  @apply aspect-video;
+}
+
+.post-image-portrait .post-image-wrapper {
+  aspect-ratio: 3/4;
+}
+
+.post-image-landscape .post-image-wrapper {
+  aspect-ratio: 4/3;
+}
+
+.post-image-auto .post-image-wrapper {
+  @apply h-auto;
+}
+
+/* Post Image Fit */
+.post-image-cover .post-image-element {
+  @apply object-cover;
+}
+
+.post-image-contain .post-image-element {
+  @apply object-contain;
+}
+
+.post-image-fill .post-image-element {
+  @apply object-fill;
+}
+
+/* Post Image States */
+.post-image-loading .post-image-element {
+  @apply opacity-0;
+}
+
+.post-image-error .post-image-element {
+  @apply hidden;
+}
+
+.post-image-blur .post-image-element {
+  @apply filter blur-sm;
+}
+
+.post-image-clickable .post-image-element {
+  @apply cursor-pointer;
+}
+
+.post-image-clickable:hover .post-image-element {
+  @apply transform scale-105;
+}
+
+/* Post Image Placeholder */
+.post-image-placeholder {
+  @apply absolute inset-0 flex items-center justify-center;
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.post-image-placeholder-img {
+  @apply w-full h-full object-cover opacity-50;
+}
+
+.post-image-placeholder-icon {
+  @apply flex items-center justify-center;
+}
+
+/* Post Image Error State */
+.post-image-error-state {
+  @apply absolute inset-0 flex flex-col items-center justify-center;
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400;
+}
+
+/* Post Image Overlay */
+.post-image-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-0;
+  @apply flex items-center justify-center;
+  @apply transition-all duration-300;
+  @apply opacity-0 hover:opacity-100;
+}
+
+.post-image-container:hover .post-image-overlay {
+  @apply bg-opacity-30 opacity-100;
+}
+
+/* Post Image Actions */
+.post-image-actions {
+  @apply absolute top-2 right-2 flex gap-1;
+}
+
+.post-image-action {
+  @apply p-2 bg-black bg-opacity-50 text-white rounded-full;
+  @apply hover:bg-opacity-70 transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  @apply focus:ring-offset-black;
+}
+
+.post-image-zoom:hover {
+  @apply bg-blue-500 bg-opacity-90;
+}
+
+.post-image-fullscreen:hover {
+  @apply bg-green-500 bg-opacity-90;
+}
+
+/* Post Image Caption */
+.post-image-caption {
+  @apply mt-2 text-sm text-gray-600 dark:text-gray-400;
+  @apply leading-relaxed;
+}
+
+/* Post Image Loading Animation */
+.post-image-loading .post-image-placeholder {
+  @apply animate-pulse;
+}
+
+.post-image-loading .post-image-placeholder-icon {
+  animation: loading-fade 1.5s ease-in-out infinite;
+}
+
+@keyframes loading-fade {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Post Image Sizes */
+.post-image-xs .post-image-wrapper {
+  @apply w-16 h-16;
+}
+
+.post-image-sm .post-image-wrapper {
+  @apply w-24 h-24;
+}
+
+.post-image-md .post-image-wrapper {
+  @apply w-32 h-32;
+}
+
+.post-image-lg .post-image-wrapper {
+  @apply w-48 h-48;
+}
+
+.post-image-xl .post-image-wrapper {
+  @apply w-64 h-64;
+}
+
+.post-image-full .post-image-wrapper {
+  @apply w-full;
+}
+
+/* Post Image Hover Effects */
+.post-image-hover-scale:hover .post-image-element {
+  @apply transform scale-110;
+}
+
+.post-image-hover-zoom:hover .post-image-element {
+  @apply transform scale-105;
+}
+
+.post-image-hover-brightness:hover .post-image-element {
+  @apply filter brightness-110;
+}
+
+.post-image-hover-blur:hover .post-image-element {
+  @apply filter blur-sm;
+}
+
+/* Post Image Filters */
+.post-image-filter-grayscale .post-image-element {
+  @apply filter grayscale;
+}
+
+.post-image-filter-sepia .post-image-element {
+  @apply filter sepia;
+}
+
+.post-image-filter-vintage .post-image-element {
+  @apply filter sepia brightness-110 contrast-125;
+}
+
+.post-image-filter-modern .post-image-element {
+  @apply filter contrast-125 saturate-125;
+}
+
+/* Post Image Borders */
+.post-image-border .post-image-wrapper {
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.post-image-border-thick .post-image-wrapper {
+  @apply border-4 border-white dark:border-gray-800 shadow-lg;
+}
+
+/* Post Image Shadow */
+.post-image-shadow .post-image-wrapper {
+  @apply shadow-md;
+}
+
+.post-image-shadow-lg .post-image-wrapper {
+  @apply shadow-lg;
+}
+
+.post-image-shadow-xl .post-image-wrapper {
+  @apply shadow-xl;
+}
+
+/* Post Image Gallery Grid */
+.post-image-gallery-grid {
+  @apply grid gap-1;
+}
+
+.post-image-gallery-grid-2 {
+  @apply grid-cols-2;
+}
+
+.post-image-gallery-grid-3 {
+  @apply grid-cols-3;
+}
+
+.post-image-gallery-grid-4 {
+  @apply grid-cols-4;
+}
+
+/* Post Image Responsive */
+@media (max-width: 640px) {
+  .post-image-responsive .post-image-actions {
+    @apply bottom-2 right-2 top-auto;
+  }
+
+  .post-image-responsive .post-image-action {
+    @apply p-1.5;
+  }
+
+  .post-image-gallery-grid-responsive {
+    @apply grid-cols-2;
+  }
+}
+
+@media (min-width: 641px) {
+  .post-image-gallery-grid-responsive {
+    @apply grid-cols-3;
+  }
+}
+
+@media (min-width: 769px) {
+  .post-image-gallery-grid-responsive {
+    @apply grid-cols-4;
+  }
+}
+
+/* Post Image Accessibility */
+.post-image-element[tabindex="0"]:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Post Image High Contrast */
+@media (prefers-contrast: high) {
+  .post-image-wrapper {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+
+  .post-image-overlay {
+    @apply bg-black;
+  }
+}
+
+/* Post Image Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .post-image-element,
+  .post-image-overlay {
+    @apply transition-none;
+  }
+
+  .post-image-clickable:hover .post-image-element,
+  .post-image-hover-scale:hover .post-image-element,
+  .post-image-hover-zoom:hover .post-image-element {
+    @apply transform-none;
+  }
+}
+
+/* Post Image Print Styles */
+@media print {
+  .post-image-overlay,
+  .post-image-actions {
+    @apply hidden;
+  }
+
+  .post-image-element {
+    @apply filter-none;
+  }
+}
+
+/* Post Image Dark Mode Adjustments */
+.dark .post-image-placeholder {
+  @apply bg-gray-800;
+}
+
+.dark .post-image-error-state {
+  @apply bg-gray-800 text-gray-400;
+}
+
+/* Post Image Custom Themes */
+.post-image-theme-polaroid {
+  @apply bg-white p-3 shadow-lg transform rotate-1;
+}
+
+.post-image-theme-vintage {
+  @apply filter sepia-50 contrast-125 brightness-110;
+  @apply border-4 border-yellow-100;
+}
+
+.post-image-theme-modern {
+  @apply rounded-2xl shadow-2xl;
+}
+
+/* Post Image Animation Effects */
+.post-image-animate-in {
+  animation: image-slide-in 0.5s ease-out;
+}
+
+@keyframes image-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-image-animate-fade {
+  animation: image-fade-in 0.8s ease-out;
+}
+
+@keyframes image-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Post Image Lazy Loading */
+.post-image-lazy {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.post-image-lazy.loaded {
+  opacity: 1;
+}
+
+/* Post Image with Badge */
+.post-image-badge {
+  @apply relative;
+}
+
+.post-image-badge::after {
+  @apply absolute -top-2 -right-2;
+  @apply bg-red-500 text-white text-xs font-bold;
+  @apply w-6 h-6 rounded-full flex items-center justify-center;
+  content: attr(data-badge);
+}
+
+/* Post Image Multiple Selection */
+.post-image-selectable {
+  @apply cursor-pointer;
+}
+
+.post-image-selected .post-image-wrapper {
+  @apply ring-4 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Post Image Watermark */
+.post-image-watermark {
+  @apply relative;
+}
+
+.post-image-watermark::after {
+  @apply absolute bottom-2 right-2;
+  @apply text-white text-xs font-medium;
+  @apply bg-black bg-opacity-50 px-2 py-1 rounded;
+  content: attr(data-watermark);
+}
+
+/* Post Image Progress */
+.post-image-progress {
+  @apply relative;
+}
+
+.post-image-progress-bar {
+  @apply absolute bottom-0 left-0 right-0;
+  @apply h-1 bg-blue-500;
+  @apply transition-all duration-300;
+  width: var(--progress, 0%);
+}
+
+/* Post Image Masonry */
+.post-image-masonry {
+  @apply break-inside-avoid mb-4;
+}
+
+/* Post Image Grid Layout */
+.post-image-grid-item {
+  @apply relative;
+}
+
+.post-image-grid-item:hover {
+  @apply z-10;
+}
+
+/* Post Image Full Screen */
+.post-image-fullscreen {
+  @apply fixed inset-0 z-50 bg-black bg-opacity-90;
+  @apply flex items-center justify-center;
+}
+
+.post-image-fullscreen .post-image-element {
+  @apply max-w-full max-h-full object-contain;
+}

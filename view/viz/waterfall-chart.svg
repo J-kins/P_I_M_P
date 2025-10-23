@@ -1,0 +1,48 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="waterfallChartTitle waterfallChartDesc">
+    <title id="waterfallChartTitle">Waterfall Chart</title>
+    <desc id="waterfallChartDesc">A data-agnostic waterfall chart template for cumulative value visualization.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #eee); stroke-width: 1; }
+            .bar-increase { fill: var(--increase-color, #4caf50); }
+            .bar-decrease { fill: var(--decrease-color, #f44336); }
+            .bar-total { fill: var(--total-color, #2196f3); }
+            .connector { stroke: var(--connector-color, #888); stroke-width: 2; }
+            .bar-label, .cumulative-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; text-anchor: middle; }
+            .title { font-family: var(--font-family, Arial); font-size: 20px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+    </g>
+    <!-- Grid Lines & Y Labels -->
+    <g class="y-grid-labels">
+        <!-- for each tick in {yTicks} -->
+        <line class="grid-line" x1="100" y1="{tick.y}" x2="700" y2="{tick.y}"/>
+        <text class="bar-label" x="90" y="{tick.y+5}">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Waterfall Bars -->
+    <g class="waterfall-bars">
+        <!-- for each step in {steps} -->
+        <rect x="{step.x}" y="{step.y}" width="{barWidth}" height="{step.height}" class="{step.type === 'increase' ? 'bar-increase' : step.type === 'decrease' ? 'bar-decrease' : 'bar-total'}" data-step="{step.label}" data-value="{step.value}" data-cumulative="{step.cumulative}"/>
+        <text class="bar-label" x="{step.x+barWidth/2}" y="{step.y-10}">{step.label}</text>
+        <text class="cumulative-label" x="{step.x+barWidth/2}" y="{step.y+step.height+20}">{step.cumulative}</text>
+        <!-- end for -->
+    </g>
+    <!-- Connector Lines -->
+    <g class="connectors">
+        <!-- for each connector in {connectors} -->
+        <line class="connector" x1="{connector.x1}" y1="{connector.y1}" x2="{connector.x2}" y2="{connector.y2}"/>
+        <!-- end for -->
+    </g>
+</svg>

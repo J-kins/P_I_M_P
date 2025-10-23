@@ -1,0 +1,464 @@
+/* Transform Origin Utilities */
+
+/* Basic Origins */
+.origin-center {
+  transform-origin: center;
+}
+
+.origin-top {
+  transform-origin: top;
+}
+
+.origin-top-right {
+  transform-origin: top right;
+}
+
+.origin-right {
+  transform-origin: right;
+}
+
+.origin-bottom-right {
+  transform-origin: bottom right;
+}
+
+.origin-bottom {
+  transform-origin: bottom;
+}
+
+.origin-bottom-left {
+  transform-origin: bottom left;
+}
+
+.origin-left {
+  transform-origin: left;
+}
+
+.origin-top-left {
+  transform-origin: top left;
+}
+
+/* Percentage Based Origins */
+.origin-25 {
+  transform-origin: 25% 25%;
+}
+
+.origin-50 {
+  transform-origin: 50% 50%;
+}
+
+.origin-75 {
+  transform-origin: 75% 75%;
+}
+
+/* Custom Percentage Origins */
+.origin-0-0 {
+  transform-origin: 0% 0%;
+}
+
+.origin-0-50 {
+  transform-origin: 0% 50%;
+}
+
+.origin-0-100 {
+  transform-origin: 0% 100%;
+}
+
+.origin-50-0 {
+  transform-origin: 50% 0%;
+}
+
+.origin-50-100 {
+  transform-origin: 50% 100%;
+}
+
+.origin-100-0 {
+  transform-origin: 100% 0%;
+}
+
+.origin-100-50 {
+  transform-origin: 100% 50%;
+}
+
+.origin-100-100 {
+  transform-origin: 100% 100%;
+}
+
+/* 3D Origins (with Z axis) */
+.origin-center-front {
+  transform-origin: center center 0;
+}
+
+.origin-center-back {
+  transform-origin: center center 100%;
+}
+
+.origin-top-front {
+  transform-origin: top center 0;
+}
+
+.origin-top-back {
+  transform-origin: top center 100%;
+}
+
+.origin-bottom-front {
+  transform-origin: bottom center 0;
+}
+
+.origin-bottom-back {
+  transform-origin: bottom center 100%;
+}
+
+/* Animation Specific Origins */
+.origin-scale-center {
+  transform-origin: center;
+}
+
+.origin-scale-top {
+  transform-origin: top;
+}
+
+.origin-scale-bottom {
+  transform-origin: bottom;
+}
+
+.origin-scale-left {
+  transform-origin: left;
+}
+
+.origin-scale-right {
+  transform-origin: right;
+}
+
+/* Rotation Specific Origins */
+.origin-rotate-center {
+  transform-origin: center;
+}
+
+.origin-rotate-top-left {
+  transform-origin: top left;
+}
+
+.origin-rotate-top-right {
+  transform-origin: top right;
+}
+
+.origin-rotate-bottom-left {
+  transform-origin: bottom left;
+}
+
+.origin-rotate-bottom-right {
+  transform-origin: bottom right;
+}
+
+/* Flip Animation Origins */
+.origin-flip-horizontal {
+  transform-origin: center;
+}
+
+.origin-flip-vertical {
+  transform-origin: center;
+}
+
+.origin-flip-diagonal {
+  transform-origin: center;
+}
+
+/* Card Flip Origins */
+.origin-card-front {
+  transform-origin: center right;
+}
+
+.origin-card-back {
+  transform-origin: center left;
+}
+
+/* Door Animation Origins */
+.origin-door-left {
+  transform-origin: left center;
+}
+
+.origin-door-right {
+  transform-origin: right center;
+}
+
+.origin-door-top {
+  transform-origin: center top;
+}
+
+.origin-door-bottom {
+  transform-origin: center bottom;
+}
+
+/* Swing Animation Origins */
+.origin-swing-top {
+  transform-origin: top center;
+}
+
+.origin-swing-bottom {
+  transform-origin: bottom center;
+}
+
+.origin-swing-left {
+  transform-origin: left center;
+}
+
+.origin-swing-right {
+  transform-origin: right center;
+}
+
+/* Modal Animation Origins */
+.origin-modal-center {
+  transform-origin: center;
+}
+
+.origin-modal-top {
+  transform-origin: center top;
+}
+
+.origin-modal-bottom {
+  transform-origin: center bottom;
+}
+
+/* Dropdown Animation Origins */
+.origin-dropdown-top {
+  transform-origin: top;
+}
+
+.origin-dropdown-bottom {
+  transform-origin: bottom;
+}
+
+.origin-dropdown-left {
+  transform-origin: left;
+}
+
+.origin-dropdown-right {
+  transform-origin: right;
+}
+
+.origin-dropdown-top-left {
+  transform-origin: top left;
+}
+
+.origin-dropdown-top-right {
+  transform-origin: top right;
+}
+
+.origin-dropdown-bottom-left {
+  transform-origin: bottom left;
+}
+
+.origin-dropdown-bottom-right {
+  transform-origin: bottom right;
+}
+
+/* Tooltip Animation Origins */
+.origin-tooltip-top {
+  transform-origin: bottom center;
+}
+
+.origin-tooltip-bottom {
+  transform-origin: top center;
+}
+
+.origin-tooltip-left {
+  transform-origin: right center;
+}
+
+.origin-tooltip-right {
+  transform-origin: left center;
+}
+
+/* Loading Animation Origins */
+.origin-loading-center {
+  transform-origin: center;
+}
+
+.origin-loading-spin {
+  transform-origin: center;
+}
+
+/* Hover Effect Origins */
+.origin-hover-scale {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.origin-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.origin-hover-rotate {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.origin-hover-rotate:hover {
+  transform: rotate(5deg);
+}
+
+/* Button Effect Origins */
+.origin-button-press {
+  transform-origin: center;
+  transition: transform 0.1s ease;
+}
+
+.origin-button-press:active {
+  transform: scale(0.95);
+}
+
+/* Image Effect Origins */
+.origin-image-zoom {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.origin-image-zoom:hover {
+  transform: scale(1.1);
+}
+
+/* Icon Effect Origins */
+.origin-icon-bounce {
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+.origin-icon-bounce:hover {
+  transform: scale(1.2);
+}
+
+/* Text Effect Origins */
+.origin-text-scale {
+  transform-origin: left bottom;
+  transition: transform 0.2s ease;
+}
+
+.origin-text-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Origins */
+@media (max-width: 768px) {
+  .origin-mobile-center {
+    transform-origin: center;
+  }
+
+  .origin-mobile-top {
+    transform-origin: top;
+  }
+
+  .origin-mobile-bottom {
+    transform-origin: bottom;
+  }
+}
+
+@media (min-width: 769px) {
+  .origin-desktop-center {
+    transform-origin: center;
+  }
+
+  .origin-desktop-top-left {
+    transform-origin: top left;
+  }
+
+  .origin-desktop-top-right {
+    transform-origin: top right;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .origin-left {
+  transform-origin: right;
+}
+
+[dir="rtl"] .origin-right {
+  transform-origin: left;
+}
+
+[dir="rtl"] .origin-top-left {
+  transform-origin: top right;
+}
+
+[dir="rtl"] .origin-top-right {
+  transform-origin: top left;
+}
+
+[dir="rtl"] .origin-bottom-left {
+  transform-origin: bottom right;
+}
+
+[dir="rtl"] .origin-bottom-right {
+  transform-origin: bottom left;
+}
+
+/* Animation Classes with Origins */
+.animate-scale-from-center {
+  transform-origin: center;
+  animation: scaleFromCenter 0.3s ease-out;
+}
+
+.animate-scale-from-top {
+  transform-origin: top;
+  animation: scaleFromTop 0.3s ease-out;
+}
+
+.animate-scale-from-bottom {
+  transform-origin: bottom;
+  animation: scaleFromBottom 0.3s ease-out;
+}
+
+@keyframes scaleFromCenter {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleFromTop {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes scaleFromBottom {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Utility Combinations */
+.origin-scale-hover {
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.origin-scale-hover:hover {
+  transform: scale(1.05);
+}
+
+.origin-rotate-hover {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.origin-rotate-hover:hover {
+  transform: rotate(180deg);
+}
+
+.origin-flip-hover {
+  transform-origin: center;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.origin-flip-hover:hover {
+  transform: rotateY(180deg);
+}

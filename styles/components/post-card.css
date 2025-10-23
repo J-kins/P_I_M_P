@@ -1,0 +1,469 @@
+/* Post Card Component Styles */
+.post-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply transition-all duration-200;
+}
+
+.post-card-container {
+  @apply p-4 space-y-3;
+}
+
+/* Post Card Variants */
+.post-card-default {
+  @apply shadow-sm hover:shadow-md;
+}
+
+.post-card-compact {
+  @apply shadow-none border-0 border-b border-gray-100 dark:border-gray-700;
+  @apply rounded-none;
+}
+
+.post-card-compact .post-card-container {
+  @apply p-3 space-y-2;
+}
+
+.post-card-detailed {
+  @apply shadow-md hover:shadow-lg;
+  @apply ring-1 ring-gray-200 dark:ring-gray-700;
+}
+
+/* Post Card Sizes */
+.post-card-sm .post-card-container {
+  @apply p-3 space-y-2;
+}
+
+.post-card-md .post-card-container {
+  @apply p-4 space-y-3;
+}
+
+.post-card-lg .post-card-container {
+  @apply p-6 space-y-4;
+}
+
+/* Post Card Interactive */
+.post-card-clickable {
+  @apply cursor-pointer;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-750;
+}
+
+.post-card-clickable:hover {
+  @apply transform -translate-y-1;
+}
+
+/* Post Card Header */
+.post-card-header {
+  @apply flex items-start justify-between;
+}
+
+.post-card-author {
+  @apply flex items-center gap-2 flex-1;
+}
+
+.post-card-author-info {
+  @apply flex-1 cursor-pointer;
+  @apply hover:opacity-80 transition-opacity duration-200;
+}
+
+.post-card-verified-badge {
+  @apply bg-blue-100 dark:bg-blue-900/20;
+  @apply text-blue-700 dark:text-blue-300;
+  @apply px-1.5 py-0.5 text-xs;
+}
+
+.post-card-badge {
+  @apply px-2 py-0.5 text-xs;
+}
+
+.post-card-badge-premium {
+  @apply bg-yellow-100 dark:bg-yellow-900/20;
+  @apply text-yellow-700 dark:text-yellow-300;
+}
+
+.post-card-badge-moderator {
+  @apply bg-green-100 dark:bg-green-900/20;
+  @apply text-green-700 dark:text-green-300;
+}
+
+.post-card-badge-pro {
+  @apply bg-purple-100 dark:bg-purple-900/20;
+  @apply text-purple-700 dark:text-purple-300;
+}
+
+/* Post Card Content */
+.post-card-content {
+  @apply text-gray-900 dark:text-gray-100;
+  @apply leading-relaxed;
+}
+
+/* Post Card Media */
+.post-card-media {
+  @apply -mx-4 mt-3;
+}
+
+.post-card-media-single {
+  @apply relative;
+}
+
+.post-card-media-item {
+  @apply w-full rounded-none;
+}
+
+.post-card-media-grid {
+  @apply grid gap-1;
+}
+
+.post-card-media-grid-1 {
+  @apply grid-cols-1;
+}
+
+.post-card-media-grid-2 {
+  @apply grid-cols-2;
+}
+
+.post-card-media-grid-3 {
+  @apply grid-cols-3;
+}
+
+.post-card-media-grid-4 {
+  @apply grid-cols-2;
+}
+
+.post-card-media-grid-item {
+  @apply relative aspect-square overflow-hidden;
+}
+
+.post-card-media-grid-item .post-card-media-item {
+  @apply w-full h-full object-cover;
+}
+
+.post-card-media-more {
+  @apply absolute inset-0 bg-black bg-opacity-50;
+  @apply flex items-center justify-center;
+  @apply text-white font-bold text-lg;
+}
+
+/* Post Card Actions */
+.post-card-actions {
+  @apply flex items-center justify-between;
+  @apply pt-3 border-t border-gray-100 dark:border-gray-700;
+}
+
+.post-card-action-group {
+  @apply flex items-center gap-1;
+}
+
+.post-card-secondary-actions {
+  @apply flex items-center gap-1;
+}
+
+.post-card-bookmark {
+  @apply p-2 rounded-full text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply transition-all duration-200;
+}
+
+.post-card-bookmark-active {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-700 dark:hover:text-blue-300;
+}
+
+/* Post Card Loading */
+.post-card-loading {
+  @apply animate-pulse;
+}
+
+.post-card-loading .post-card-author-info {
+  @apply space-y-2;
+}
+
+.post-card-loading .post-card-author-info > div:first-child {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-4 w-24;
+}
+
+.post-card-loading .post-card-author-info > div:last-child {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-3 w-16;
+}
+
+.post-card-loading .post-card-content {
+  @apply space-y-2;
+}
+
+.post-card-loading .post-card-content::before,
+.post-card-loading .post-card-content::after {
+  @apply block bg-gray-200 dark:bg-gray-700 rounded h-4;
+  content: "";
+}
+
+.post-card-loading .post-card-content::after {
+  @apply w-3/4;
+}
+
+.post-card-loading .post-card-media {
+  @apply bg-gray-200 dark:bg-gray-700 rounded-lg h-48;
+}
+
+/* Post Card Error */
+.post-card-error {
+  @apply border-red-200 dark:border-red-800;
+  @apply bg-red-50 dark:bg-red-900/20;
+}
+
+.post-card-error-message {
+  @apply text-red-600 dark:text-red-400 text-sm;
+  @apply p-3 text-center;
+}
+
+/* Post Card Pinned */
+.post-card-pinned {
+  @apply ring-2 ring-blue-500 ring-opacity-20;
+  @apply border-blue-200 dark:border-blue-800;
+}
+
+.post-card-pinned::before {
+  @apply absolute top-0 left-0 w-full h-1;
+  @apply bg-blue-500;
+  content: "";
+}
+
+/* Post Card Promoted */
+.post-card-promoted {
+  @apply bg-gradient-to-r from-purple-50 to-pink-50;
+  @apply dark:from-purple-900/10 dark:to-pink-900/10;
+  @apply border-purple-200 dark:border-purple-800;
+}
+
+.post-card-promoted::after {
+  @apply absolute top-2 right-2;
+  @apply text-xs text-purple-600 dark:text-purple-400;
+  @apply bg-purple-100 dark:bg-purple-900/30;
+  @apply px-2 py-1 rounded-full;
+  content: "Promoted";
+}
+
+/* Post Card Thread */
+.post-card-thread {
+  @apply relative;
+}
+
+.post-card-thread::before {
+  @apply absolute left-6 top-16 bottom-0 w-0.5;
+  @apply bg-gray-200 dark:bg-gray-700;
+  content: "";
+}
+
+.post-card-thread:last-child::before {
+  @apply hidden;
+}
+
+/* Post Card Quoted */
+.post-card-quoted {
+  @apply border-l-4 border-blue-500;
+  @apply bg-blue-50 dark:bg-blue-900/10;
+}
+
+/* Post Card Repost */
+.post-card-repost {
+  @apply relative;
+}
+
+.post-card-repost-header {
+  @apply flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400;
+  @apply mb-3 pb-2 border-b border-gray-100 dark:border-gray-700;
+}
+
+.post-card-repost-icon {
+  @apply w-4 h-4;
+}
+
+/* Post Card Animation */
+.post-card-enter {
+  @apply opacity-0 transform scale-95;
+}
+
+.post-card-enter-active {
+  @apply opacity-100 transform scale-100;
+  transition: all 300ms ease-out;
+}
+
+.post-card-exit {
+  @apply opacity-100 transform scale-100;
+}
+
+.post-card-exit-active {
+  @apply opacity-0 transform scale-95;
+  transition: all 200ms ease-in;
+}
+
+/* Post Card Responsive */
+@media (max-width: 640px) {
+  .post-card-responsive .post-card-container {
+    @apply p-3 space-y-2;
+  }
+
+  .post-card-responsive .post-card-media {
+    @apply -mx-3;
+  }
+
+  .post-card-responsive .post-card-actions {
+    @apply flex-col gap-2 items-stretch;
+  }
+
+  .post-card-responsive .post-card-action-group {
+    @apply justify-between;
+  }
+
+  .post-card-responsive .post-card-secondary-actions {
+    @apply justify-center;
+  }
+}
+
+/* Post Card Dark Mode */
+.dark .post-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .post-card-clickable:hover {
+  @apply bg-gray-750;
+}
+
+.dark .post-card-actions {
+  @apply border-gray-700;
+}
+
+/* Post Card Print */
+@media print {
+  .post-card {
+    @apply bg-white text-black shadow-none border border-gray-400;
+  }
+
+  .post-card-actions {
+    @apply hidden;
+  }
+
+  .post-card-media-more {
+    @apply hidden;
+  }
+}
+
+/* Post Card Accessibility */
+.post-card[tabindex="0"]:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Post Card High Contrast */
+@media (prefers-contrast: high) {
+  .post-card {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+
+  .post-card-actions {
+    @apply border-t-2 border-gray-400;
+  }
+}
+
+/* Post Card Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .post-card {
+    @apply transition-none;
+  }
+
+  .post-card-clickable:hover {
+    @apply transform-none;
+  }
+}
+
+/* Post Card States */
+.post-card-archived {
+  @apply opacity-60;
+}
+
+.post-card-blocked {
+  @apply opacity-40 pointer-events-none;
+}
+
+.post-card-pending {
+  @apply border-yellow-200 dark:border-yellow-800;
+  @apply bg-yellow-50 dark:bg-yellow-900/20;
+}
+
+.post-card-deleted {
+  @apply opacity-30;
+  @apply bg-red-50 dark:bg-red-900/20;
+  @apply border-red-200 dark:border-red-800;
+}
+
+/* Post Card Engagement */
+.post-card-high-engagement {
+  @apply ring-2 ring-green-500 ring-opacity-20;
+  @apply border-green-200 dark:border-green-800;
+}
+
+.post-card-trending {
+  @apply relative overflow-hidden;
+}
+
+.post-card-trending::before {
+  @apply absolute top-0 right-0;
+  @apply w-0 h-0 border-l-8 border-b-8;
+  @apply border-l-transparent border-b-orange-500;
+  content: "";
+}
+
+/* Post Card Custom Themes */
+.post-card-theme-minimal {
+  @apply shadow-none border-0 bg-transparent;
+}
+
+.post-card-theme-card {
+  @apply shadow-lg rounded-xl;
+}
+
+.post-card-theme-bubble {
+  @apply rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50;
+  @apply dark:from-blue-900/20 dark:to-purple-900/20;
+}
+
+/* Post Card Interaction States */
+.post-card:hover .post-card-actions {
+  @apply opacity-100;
+}
+
+.post-card-actions {
+  @apply opacity-90 transition-opacity duration-200;
+}
+
+/* Post Card Media Overlay */
+.post-card-media-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-0;
+  @apply hover:bg-opacity-10 transition-all duration-200;
+  @apply flex items-center justify-center;
+}
+
+.post-card-media-play-button {
+  @apply w-12 h-12 bg-white bg-opacity-80;
+  @apply rounded-full flex items-center justify-center;
+  @apply text-gray-800 hover:bg-opacity-100;
+  @apply transform scale-0 hover:scale-100;
+  @apply transition-transform duration-200;
+}
+
+/* Post Card Mention Highlighting */
+.post-card-content .mention {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:underline cursor-pointer;
+}
+
+.post-card-content .hashtag {
+  @apply text-purple-600 dark:text-purple-400;
+  @apply hover:underline cursor-pointer;
+}
+
+/* Post Card Read More */
+.post-card-read-more {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-800 dark:hover:text-blue-300;
+  @apply cursor-pointer font-medium;
+}

@@ -1,0 +1,392 @@
+/* Notification Item Component Styles */
+.notification-item {
+  @apply flex gap-3 p-3 rounded-lg;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+  @apply transition-colors duration-200;
+  @apply cursor-pointer relative;
+}
+
+/* Notification Item States */
+.notification-item-unread {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+  @apply border-l-4 border-blue-500;
+}
+
+.notification-item-read {
+  @apply bg-transparent;
+}
+
+.notification-item-archived {
+  @apply opacity-60;
+}
+
+/* Notification Item Types */
+.notification-item-like {
+  @apply border-l-red-500;
+}
+
+.notification-item-comment {
+  @apply border-l-blue-500;
+}
+
+.notification-item-follow {
+  @apply border-l-green-500;
+}
+
+.notification-item-mention {
+  @apply border-l-purple-500;
+}
+
+.notification-item-message {
+  @apply border-l-yellow-500;
+}
+
+.notification-item-system {
+  @apply border-l-gray-500;
+}
+
+/* Notification Item Avatar */
+.notification-item-avatar {
+  @apply w-10 h-10 rounded-full flex-shrink-0;
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.notification-item-avatar-image {
+  @apply w-full h-full object-cover rounded-full;
+}
+
+.notification-item-avatar-fallback {
+  @apply w-full h-full flex items-center justify-center;
+  @apply text-gray-500 dark:text-gray-400 text-sm font-medium;
+}
+
+/* Notification Item Icon */
+.notification-item-icon {
+  @apply absolute -bottom-1 -right-1 w-5 h-5;
+  @apply bg-white dark:bg-gray-800 rounded-full;
+  @apply border-2 border-white dark:border-gray-800;
+  @apply flex items-center justify-center;
+}
+
+.notification-item-icon-like {
+  @apply text-red-500;
+}
+
+.notification-item-icon-comment {
+  @apply text-blue-500;
+}
+
+.notification-item-icon-follow {
+  @apply text-green-500;
+}
+
+.notification-item-icon-mention {
+  @apply text-purple-500;
+}
+
+.notification-item-icon-message {
+  @apply text-yellow-500;
+}
+
+/* Notification Item Content */
+.notification-item-content {
+  @apply flex-1 min-w-0;
+}
+
+.notification-item-text {
+  @apply text-sm text-gray-900 dark:text-gray-100;
+  @apply leading-relaxed;
+}
+
+.notification-item-username {
+  @apply font-semibold text-gray-900 dark:text-gray-100;
+}
+
+.notification-item-action {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.notification-item-time {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+  @apply mt-1;
+}
+
+/* Notification Item Media */
+.notification-item-media {
+  @apply ml-auto flex-shrink-0;
+}
+
+.notification-item-thumbnail {
+  @apply w-12 h-12 rounded-lg object-cover;
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.notification-item-video-thumbnail {
+  @apply relative;
+}
+
+.notification-item-video-thumbnail::after {
+  @apply absolute inset-0 flex items-center justify-center;
+  @apply bg-black bg-opacity-30 rounded-lg;
+  @apply text-white text-xs;
+  content: "▶";
+}
+
+/* Notification Item Actions */
+.notification-item-actions {
+  @apply flex items-center gap-2 mt-2;
+}
+
+.notification-item-action-btn {
+  @apply px-3 py-1 text-xs font-medium rounded-md;
+  @apply transition-colors duration-200;
+}
+
+.notification-item-accept {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.notification-item-decline {
+  @apply bg-gray-200 dark:bg-gray-700;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply hover:bg-gray-300 dark:hover:bg-gray-600;
+}
+
+.notification-item-follow-back {
+  @apply bg-green-600 text-white hover:bg-green-700;
+}
+
+/* Notification Item Status Indicator */
+.notification-item-status {
+  @apply absolute top-3 right-3 w-2 h-2;
+  @apply bg-blue-500 rounded-full;
+}
+
+.notification-item-read .notification-item-status {
+  @apply hidden;
+}
+
+/* Notification Item Group */
+.notification-item-group {
+  @apply border-l-4 border-gray-300 dark:border-gray-600;
+}
+
+.notification-item-group-header {
+  @apply font-medium text-sm text-gray-700 dark:text-gray-300;
+  @apply mb-2;
+}
+
+.notification-item-group-count {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+  @apply bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full;
+  @apply ml-2;
+}
+
+/* Notification Item Expandable */
+.notification-item-expandable {
+  @apply cursor-pointer;
+}
+
+.notification-item-expand-icon {
+  @apply ml-auto w-4 h-4 text-gray-400;
+  @apply transform transition-transform duration-200;
+}
+
+.notification-item-expanded .notification-item-expand-icon {
+  @apply rotate-180;
+}
+
+.notification-item-details {
+  @apply mt-2 text-xs text-gray-600 dark:text-gray-400;
+  @apply pl-4 border-l-2 border-gray-200 dark:border-gray-700;
+}
+
+/* Notification Item Priority */
+.notification-item-high-priority {
+  @apply ring-2 ring-red-500 ring-opacity-50;
+  @apply bg-red-50 dark:bg-red-900/20;
+}
+
+.notification-item-medium-priority {
+  @apply ring-2 ring-yellow-500 ring-opacity-50;
+  @apply bg-yellow-50 dark:bg-yellow-900/20;
+}
+
+.notification-item-low-priority {
+  @apply opacity-75;
+}
+
+/* Notification Item Interactive */
+.notification-item-interactive:hover {
+  @apply transform scale-[1.02];
+  @apply shadow-md;
+}
+
+.notification-item-interactive:active {
+  @apply transform scale-[0.98];
+}
+
+/* Notification Item Swipe Actions */
+.notification-item-swipe {
+  @apply relative overflow-hidden;
+}
+
+.notification-item-swipe-actions {
+  @apply absolute inset-y-0 right-0 flex items-center;
+  @apply bg-red-500 text-white px-4;
+  @apply transform translate-x-full transition-transform duration-200;
+}
+
+.notification-item-swiped .notification-item-swipe-actions {
+  @apply transform translate-x-0;
+}
+
+/* Notification Item Loading */
+.notification-item-loading {
+  @apply animate-pulse;
+}
+
+.notification-item-loading .notification-item-avatar {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.notification-item-loading .notification-item-text {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-4 w-full;
+}
+
+.notification-item-loading .notification-item-time {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-3 w-16 mt-2;
+}
+
+/* Notification Item Animation */
+.notification-item-enter {
+  @apply opacity-0 transform translate-x-4;
+}
+
+.notification-item-enter-active {
+  @apply opacity-100 transform translate-x-0;
+  transition: all 300ms ease-out;
+}
+
+.notification-item-exit {
+  @apply opacity-100 transform translate-x-0;
+}
+
+.notification-item-exit-active {
+  @apply opacity-0 transform -translate-x-4;
+  transition: all 200ms ease-in;
+}
+
+/* Notification Item Mention Highlight */
+.notification-item-mention-text {
+  @apply bg-blue-100 dark:bg-blue-900/30;
+  @apply text-blue-800 dark:text-blue-200;
+  @apply px-1 rounded;
+}
+
+/* Notification Item Rich Content */
+.notification-item-rich .notification-item-content {
+  @apply space-y-2;
+}
+
+.notification-item-preview {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-3;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply text-xs;
+}
+
+.notification-item-preview-title {
+  @apply font-medium text-gray-900 dark:text-gray-100;
+}
+
+.notification-item-preview-description {
+  @apply text-gray-600 dark:text-gray-400 mt-1;
+}
+
+/* Notification Item Multiple Users */
+.notification-item-multiple-avatars {
+  @apply flex -space-x-2;
+}
+
+.notification-item-multiple-avatars .notification-item-avatar {
+  @apply border-2 border-white dark:border-gray-900;
+  @apply w-8 h-8;
+}
+
+.notification-item-more-count {
+  @apply w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700;
+  @apply flex items-center justify-center;
+  @apply text-xs font-medium text-gray-600 dark:text-gray-300;
+  @apply border-2 border-white dark:border-gray-900;
+}
+
+/* Notification Item Responsive */
+@media (max-width: 640px) {
+  .notification-item {
+    @apply p-2 gap-2;
+  }
+
+  .notification-item-avatar {
+    @apply w-8 h-8;
+  }
+
+  .notification-item-thumbnail {
+    @apply w-10 h-10;
+  }
+
+  .notification-item-actions {
+    @apply flex-col gap-1;
+  }
+
+  .notification-item-action-btn {
+    @apply w-full text-center;
+  }
+}
+
+/* Notification Item Dark Mode */
+.dark .notification-item-unread {
+  @apply bg-blue-900/20;
+}
+
+.dark .notification-item-preview {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Notification Item Print */
+@media print {
+  .notification-item {
+    @apply bg-transparent text-black;
+  }
+
+  .notification-item-actions {
+    @apply hidden;
+  }
+}
+
+/* Notification Item Accessibility */
+.notification-item[role="listitem"]:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Notification Item High Contrast */
+@media (prefers-contrast: high) {
+  .notification-item {
+    @apply border border-gray-400;
+  }
+
+  .notification-item-unread {
+    @apply border-2 border-blue-600;
+  }
+}
+
+/* Notification Item Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .notification-item {
+    @apply transition-none;
+  }
+
+  .notification-item-interactive:hover {
+    @apply transform-none;
+  }
+}

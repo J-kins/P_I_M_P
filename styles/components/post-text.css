@@ -1,0 +1,378 @@
+/* Post Text Component Styles */
+.post-text {
+  @apply text-gray-900 dark:text-gray-100;
+  @apply leading-relaxed;
+}
+
+/* Post Text Variants */
+.post-text-normal {
+  @apply text-base font-normal;
+}
+
+.post-text-caption {
+  @apply text-sm font-normal text-gray-600 dark:text-gray-400;
+}
+
+.post-text-headline {
+  @apply text-lg font-semibold;
+}
+
+.post-text-quote {
+  @apply text-base font-normal italic;
+  @apply border-l-4 border-gray-300 dark:border-gray-600;
+  @apply pl-4 text-gray-700 dark:text-gray-300;
+}
+
+/* Post Text Sizes */
+.post-text-sm {
+  @apply text-sm;
+}
+
+.post-text-md {
+  @apply text-base;
+}
+
+.post-text-lg {
+  @apply text-lg;
+}
+
+/* Post Text Content */
+.post-text-content {
+  @apply whitespace-pre-wrap break-words;
+}
+
+/* Post Text Truncation */
+.post-text-truncate .post-text-content {
+  @apply line-clamp-3;
+}
+
+.post-text-lines-1 .post-text-content {
+  @apply line-clamp-1;
+}
+
+.post-text-lines-2 .post-text-content {
+  @apply line-clamp-2;
+}
+
+.post-text-lines-3 .post-text-content {
+  @apply line-clamp-3;
+}
+
+.post-text-lines-4 .post-text-content {
+  @apply line-clamp-4;
+}
+
+.post-text-lines-5 .post-text-content {
+  @apply line-clamp-5;
+}
+
+.post-text-lines-6 .post-text-content {
+  @apply line-clamp-6;
+}
+
+/* Post Text Links */
+.post-text-link {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-800 dark:hover:text-blue-300;
+  @apply underline decoration-1 underline-offset-2;
+  @apply hover:decoration-2;
+  @apply transition-colors duration-200;
+  @apply cursor-pointer;
+}
+
+.post-text-link:hover {
+  @apply no-underline;
+}
+
+/* Post Text Mentions */
+.post-text-mention {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-800 dark:hover:text-blue-300;
+  @apply font-medium cursor-pointer;
+  @apply hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply px-1 py-0.5 -mx-1 -my-0.5 rounded;
+  @apply transition-all duration-200;
+}
+
+/* Post Text Hashtags */
+.post-text-hashtag {
+  @apply text-purple-600 dark:text-purple-400;
+  @apply hover:text-purple-800 dark:hover:text-purple-300;
+  @apply font-medium cursor-pointer;
+  @apply hover:bg-purple-50 dark:hover:bg-purple-900/20;
+  @apply px-1 py-0.5 -mx-1 -my-0.5 rounded;
+  @apply transition-all duration-200;
+}
+
+/* Post Text Expand Button */
+.post-text-expand {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-800 dark:hover:text-blue-300;
+  @apply font-medium text-sm mt-2;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-900;
+  @apply transition-colors duration-200;
+  @apply cursor-pointer;
+}
+
+/* Post Text with Emojis */
+.post-text-emoji {
+  @apply text-lg leading-normal;
+}
+
+.post-text-emoji-large {
+  @apply text-2xl leading-relaxed;
+}
+
+/* Post Text Formatting */
+.post-text strong {
+  @apply font-semibold text-gray-900 dark:text-gray-100;
+}
+
+.post-text em {
+  @apply italic;
+}
+
+.post-text code {
+  @apply font-mono text-sm bg-gray-100 dark:bg-gray-800;
+  @apply px-1.5 py-0.5 rounded text-gray-800 dark:text-gray-200;
+}
+
+.post-text pre {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-3 mt-2;
+  @apply font-mono text-sm overflow-x-auto;
+  @apply text-gray-800 dark:text-gray-200;
+}
+
+.post-text blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-600;
+  @apply pl-4 py-2 my-2 italic;
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Post Text Lists */
+.post-text ul {
+  @apply list-disc list-inside space-y-1 my-2;
+}
+
+.post-text ol {
+  @apply list-decimal list-inside space-y-1 my-2;
+}
+
+.post-text li {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Post Text Animations */
+.post-text-fade-in {
+  @apply opacity-0 animate-fade-in;
+}
+
+.post-text-slide-in {
+  @apply transform translate-y-2 opacity-0;
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+@keyframes slide-up {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Post Text with Background */
+.post-text-highlighted {
+  @apply bg-yellow-100 dark:bg-yellow-900/20;
+  @apply border border-yellow-200 dark:border-yellow-800;
+  @apply p-3 rounded-lg;
+}
+
+.post-text-card {
+  @apply bg-white dark:bg-gray-800;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply rounded-lg p-4 shadow-sm;
+}
+
+/* Post Text States */
+.post-text-loading {
+  @apply animate-pulse;
+}
+
+.post-text-loading .post-text-content {
+  @apply bg-gray-200 dark:bg-gray-700 rounded h-4 w-3/4;
+}
+
+.post-text-error {
+  @apply text-red-600 dark:text-red-400;
+  @apply bg-red-50 dark:bg-red-900/20;
+  @apply border border-red-200 dark:border-red-800;
+  @apply p-3 rounded-lg;
+}
+
+/* Post Text Selection */
+.post-text-selectable {
+  @apply select-text;
+}
+
+.post-text-no-select {
+  @apply select-none;
+}
+
+/* Post Text Responsive */
+@media (max-width: 640px) {
+  .post-text-responsive .post-text-content {
+    @apply text-sm;
+  }
+
+  .post-text-responsive.post-text-headline {
+    @apply text-base;
+  }
+
+  .post-text-responsive .post-text-expand {
+    @apply text-xs;
+  }
+}
+
+/* Post Text Accessibility */
+.post-text[tabindex="0"]:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Post Text High Contrast */
+@media (prefers-contrast: high) {
+  .post-text-link {
+    @apply underline decoration-2;
+  }
+
+  .post-text-mention,
+  .post-text-hashtag {
+    @apply font-bold;
+  }
+}
+
+/* Post Text Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .post-text-link,
+  .post-text-mention,
+  .post-text-hashtag,
+  .post-text-expand {
+    @apply transition-none;
+  }
+}
+
+/* Post Text Print Styles */
+@media print {
+  .post-text {
+    @apply text-black;
+  }
+
+  .post-text-link {
+    @apply text-black underline;
+  }
+
+  .post-text-expand {
+    @apply hidden;
+  }
+}
+
+/* Post Text Dark Mode Adjustments */
+.dark .post-text code {
+  @apply bg-gray-700 text-gray-100;
+}
+
+.dark .post-text pre {
+  @apply bg-gray-700 text-gray-100;
+}
+
+/* Post Text Language Support */
+.post-text[lang="ar"],
+.post-text[lang="he"] {
+  @apply text-right;
+}
+
+.post-text[lang="ja"],
+.post-text[lang="ko"],
+.post-text[lang="zh"] {
+  @apply break-all;
+}
+
+/* Post Text with Line Numbers */
+.post-text-with-lines {
+  @apply relative;
+}
+
+.post-text-line-numbers {
+  @apply absolute left-0 top-0 bottom-0;
+  @apply text-gray-400 dark:text-gray-500;
+  @apply text-xs font-mono leading-relaxed;
+  @apply select-none pointer-events-none;
+  @apply w-8 text-right pr-2;
+}
+
+.post-text-with-lines .post-text-content {
+  @apply pl-10;
+}
+
+/* Post Text Themes */
+.post-text-theme-minimal {
+  @apply text-gray-600 dark:text-gray-400;
+  @apply font-light;
+}
+
+.post-text-theme-bold {
+  @apply font-medium text-gray-900 dark:text-gray-100;
+}
+
+.post-text-theme-elegant {
+  @apply font-serif text-gray-800 dark:text-gray-200;
+  @apply leading-loose;
+}
+
+/* Post Text Spacing */
+.post-text-compact {
+  @apply leading-snug;
+}
+
+.post-text-loose {
+  @apply leading-loose;
+}
+
+/* Post Text with Gradients */
+.post-text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Post Text Custom Styling */
+.post-text-custom {
+  /* Custom styles can be added here */
+}
+
+/* Post Text with Icons */
+.post-text-with-icon {
+  @apply flex items-start gap-2;
+}
+
+.post-text-icon {
+  @apply w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 mt-0.5;
+}
+
+/* Post Text Spoiler */
+.post-text-spoiler {
+  @apply bg-gray-800 text-gray-800 rounded px-1;
+  @apply hover:bg-transparent hover:text-gray-900;
+  @apply dark:bg-gray-200 dark:text-gray-200;
+  @apply dark:hover:bg-transparent dark:hover:text-gray-100;
+  @apply transition-all duration-200 cursor-pointer;
+}
+
+/* Post Text Tags */
+.post-text-tag {
+  @apply inline-block bg-gray-100 dark:bg-gray-800;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply px-2 py-1 rounded-full text-xs font-medium;
+  @apply mr-1 mb-1;
+}

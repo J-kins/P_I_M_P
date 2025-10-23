@@ -1,0 +1,498 @@
+/* Table View Panel Component Styles */
+/* Provides comprehensive styling for table view panels with toolbars and controls */
+
+.table-view-panel-host {
+  @apply relative w-full;
+}
+
+.table-view-panel {
+  @apply relative w-full space-y-4;
+}
+
+/* Variant Styles */
+.table-view-panel--default {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.table-view-panel--compact {
+  @apply bg-white dark:bg-gray-800 rounded-md space-y-2;
+}
+
+.table-view-panel--bordered {
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border-2 border-gray-200 dark:border-gray-700;
+}
+
+.table-view-panel--striped {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm;
+}
+
+/* Loading State */
+.table-view-panel--loading {
+  @apply opacity-60 pointer-events-none;
+}
+
+/* Selection State */
+.table-view-panel--has-selection {
+  @apply ring-2 ring-blue-200 dark:ring-blue-800;
+}
+
+/* Filtered State */
+.table-view-panel--filtered .table-view-panel__toolbar {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* Toolbar */
+.table-view-panel__toolbar {
+  @apply flex items-center justify-between p-4;
+  @apply bg-gray-50 dark:bg-gray-900 rounded-t-lg;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.table-view-panel__toolbar-left {
+  @apply flex items-center space-x-4 flex-1;
+}
+
+.table-view-panel__toolbar-right {
+  @apply flex items-center space-x-3;
+}
+
+/* Search */
+.table-view-panel__search {
+  @apply relative max-w-md flex-1;
+}
+
+.table-view-panel__search-container {
+  @apply relative flex items-center;
+}
+
+.table-view-panel__search-icon {
+  @apply absolute left-3 w-5 h-5 text-gray-400 dark:text-gray-500;
+}
+
+.table-view-panel__search-input {
+  @apply w-full pl-10 pr-10 py-2 border border-gray-300 dark:border-gray-600;
+  @apply rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+  @apply placeholder-gray-500 dark:placeholder-gray-400;
+  @apply focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  @apply dark:focus:ring-blue-400 dark:focus:border-blue-400;
+}
+
+.table-view-panel__search-clear {
+  @apply absolute right-3 w-5 h-5 text-gray-400 hover:text-gray-600;
+  @apply dark:text-gray-500 dark:hover:text-gray-300;
+  @apply transition-colors duration-150;
+}
+
+/* Filters */
+.table-view-panel__filters {
+  @apply flex items-center space-x-3;
+}
+
+.table-view-panel__filter {
+  @apply flex flex-col space-y-1;
+}
+
+.table-view-panel__filter-label {
+  @apply text-xs font-medium text-gray-700 dark:text-gray-300;
+}
+
+.table-view-panel__filter-select,
+.table-view-panel__filter-input {
+  @apply px-3 py-1.5 border border-gray-300 dark:border-gray-600;
+  @apply rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+  @apply text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  @apply dark:focus:ring-blue-400 dark:focus:border-blue-400;
+}
+
+/* Column Toggle */
+.table-view-panel__column-toggle {
+  @apply relative;
+}
+
+.table-view-panel__column-toggle-button {
+  @apply flex items-center space-x-2 px-3 py-2;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+  @apply text-sm hover:bg-gray-50 dark:hover:bg-gray-700;
+  @apply focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.table-view-panel__column-toggle-button svg {
+  @apply w-4 h-4;
+}
+
+.table-view-panel__column-selector {
+  @apply absolute top-full right-0 mt-1 w-64 z-50;
+  @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700;
+  @apply rounded-lg shadow-lg max-h-64 overflow-y-auto;
+}
+
+.table-view-panel__column-option {
+  @apply px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-700;
+}
+
+.table-view-panel__column-label {
+  @apply flex items-center space-x-2 text-sm cursor-pointer;
+}
+
+.table-view-panel__column-label input {
+  @apply w-4 h-4 text-blue-600 bg-white border-gray-300 rounded;
+  @apply focus:ring-blue-500 dark:focus:ring-blue-600;
+}
+
+/* Export */
+.table-view-panel__export {
+  @apply relative;
+}
+
+.table-view-panel__export-button {
+  @apply flex items-center space-x-2 px-3 py-2;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+  @apply text-sm hover:bg-gray-50 dark:hover:bg-gray-700;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.table-view-panel__export-button svg {
+  @apply w-4 h-4;
+}
+
+/* Additional Controls */
+.table-view-panel__additional-controls {
+  @apply flex items-center space-x-2;
+}
+
+/* Results Info */
+.table-view-panel__results-info {
+  @apply flex items-center justify-between px-4 py-2;
+  @apply text-sm text-gray-600 dark:text-gray-400;
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+.table-view-panel__results-count {
+  @apply font-medium;
+}
+
+.table-view-panel__filter-indicator {
+  @apply flex items-center space-x-2;
+}
+
+.table-view-panel__clear-filters {
+  @apply text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300;
+  @apply font-medium transition-colors duration-150;
+}
+
+/* Bulk Actions */
+.table-view-panel__bulk-actions {
+  @apply fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50;
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.table-view-panel__bulk-actions-container {
+  @apply flex items-center space-x-4 px-6 py-3;
+  @apply bg-blue-600 text-white rounded-lg shadow-lg;
+}
+
+.table-view-panel__bulk-actions-count {
+  @apply font-medium;
+}
+
+.table-view-panel__bulk-actions-buttons {
+  @apply flex items-center space-x-2;
+}
+
+.table-view-panel__bulk-actions-close {
+  @apply p-1 hover:bg-blue-700 rounded transition-colors duration-150;
+}
+
+.table-view-panel__bulk-actions-close svg {
+  @apply w-4 h-4;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .table-view-panel__toolbar {
+    @apply flex-col space-y-3 items-stretch;
+  }
+
+  .table-view-panel__toolbar-left {
+    @apply flex-col space-y-3 space-x-0;
+  }
+
+  .table-view-panel__toolbar-right {
+    @apply justify-center flex-wrap gap-2;
+  }
+
+  .table-view-panel__search {
+    @apply max-w-none;
+  }
+
+  .table-view-panel__filters {
+    @apply flex-wrap gap-3;
+  }
+
+  .table-view-panel__filter {
+    @apply min-w-32;
+  }
+
+  .table-view-panel__column-selector {
+    @apply left-0 right-0 w-auto;
+  }
+
+  .table-view-panel__bulk-actions {
+    @apply left-4 right-4 transform-none;
+  }
+
+  .table-view-panel__bulk-actions-container {
+    @apply px-4 py-2;
+  }
+}
+
+@media (max-width: 640px) {
+  .table-view-panel__toolbar {
+    @apply p-3;
+  }
+
+  .table-view-panel__toolbar-right {
+    @apply grid grid-cols-2 gap-2 w-full;
+  }
+
+  .table-view-panel__results-info {
+    @apply px-3 py-2 flex-col items-start space-y-1;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .table-view-panel {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .table-view-panel__toolbar {
+    @apply bg-gray-200 dark:bg-gray-700 border-b-2;
+  }
+
+  .table-view-panel__search-input,
+  .table-view-panel__filter-select,
+  .table-view-panel__filter-input,
+  .table-view-panel__column-toggle-button,
+  .table-view-panel__export-button {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .table-view-panel__column-selector {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .table-view-panel__bulk-actions-container {
+    @apply border-2 border-white;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .table-view-panel__bulk-actions {
+    @apply transition-none;
+  }
+
+  .table-view-panel__search-clear {
+    @apply transition-none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .table-view-panel__toolbar,
+  .table-view-panel__bulk-actions {
+    @apply hidden;
+  }
+
+  .table-view-panel {
+    @apply border border-gray-400 break-inside-avoid;
+  }
+
+  .table-view-panel__column-selector {
+    @apply hidden;
+  }
+}
+
+/* Focus States */
+.table-view-panel:focus-within {
+  @apply ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800;
+}
+
+/* Animation States */
+.table-view-panel__bulk-actions--entering {
+  animation: bulk-actions-slide-up 300ms ease-out;
+}
+
+.table-view-panel__bulk-actions--leaving {
+  animation: bulk-actions-slide-down 300ms ease-in;
+}
+
+@keyframes bulk-actions-slide-up {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes bulk-actions-slide-down {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+  }
+}
+
+/* Column Selector Animation */
+.table-view-panel__column-selector {
+  animation: dropdown-slide-down 200ms ease-out;
+}
+
+@keyframes dropdown-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading State Animations */
+.table-view-panel--loading::before {
+  content: "";
+  @apply absolute inset-0 bg-white/50 dark:bg-gray-800/50 z-10;
+}
+
+.table-view-panel--loading::after {
+  content: "";
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20;
+  @apply w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin;
+}
+
+/* Performance Optimizations */
+.table-view-panel--optimized {
+  contain: layout style paint;
+}
+
+.table-view-panel--optimized .table-view-panel__column-selector {
+  contain: layout style paint;
+}
+
+/* Custom Properties for Theme Integration */
+.table-view-panel {
+  --panel-bg: theme(colors.white);
+  --panel-border: theme(colors.gray.200);
+  --panel-toolbar-bg: theme(colors.gray.50);
+  --panel-text: theme(colors.gray.900);
+  --panel-shadow: theme(boxShadow.sm);
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-view-panel {
+    --panel-bg: theme(colors.gray.800);
+    --panel-border: theme(colors.gray.700);
+    --panel-toolbar-bg: theme(colors.gray.900);
+    --panel-text: theme(colors.white);
+  }
+}
+
+/* Accessibility Enhancements */
+.table-view-panel[role="region"] {
+  @apply focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+}
+
+.table-view-panel[aria-busy="true"] {
+  @apply pointer-events-none;
+}
+
+/* RTL Support */
+[dir="rtl"] .table-view-panel__search-icon {
+  @apply left-auto right-3;
+}
+
+[dir="rtl"] .table-view-panel__search-input {
+  @apply pl-10 pr-10;
+}
+
+[dir="rtl"] .table-view-panel__search-clear {
+  @apply right-auto left-3;
+}
+
+[dir="rtl"] .table-view-panel__toolbar-left {
+  @apply space-x-reverse;
+}
+
+[dir="rtl"] .table-view-panel__toolbar-right {
+  @apply space-x-reverse;
+}
+
+[dir="rtl"] .table-view-panel__filters {
+  @apply space-x-reverse;
+}
+
+[dir="rtl"] .table-view-panel__bulk-actions-container {
+  @apply space-x-reverse;
+}
+
+[dir="rtl"] .table-view-panel__column-selector {
+  @apply right-auto left-0;
+}
+
+/* Toolbar Dense Mode */
+.table-view-panel__toolbar--dense {
+  @apply py-2;
+}
+
+.table-view-panel__toolbar--dense .table-view-panel__search-input,
+.table-view-panel__toolbar--dense .table-view-panel__filter-select,
+.table-view-panel__toolbar--dense .table-view-panel__filter-input,
+.table-view-panel__toolbar--dense .table-view-panel__column-toggle-button,
+.table-view-panel__toolbar--dense .table-view-panel__export-button {
+  @apply py-1 text-xs;
+}
+
+/* Table Statistics */
+.table-view-panel__stats {
+  @apply flex items-center space-x-4 text-xs text-gray-500 dark:text-gray-400;
+}
+
+.table-view-panel__stat {
+  @apply flex items-center space-x-1;
+}
+
+.table-view-panel__stat-icon {
+  @apply w-3 h-3;
+}
+
+/* Quick Actions */
+.table-view-panel__quick-actions {
+  @apply flex items-center space-x-1 border border-gray-300 dark:border-gray-600 rounded-md;
+}
+
+.table-view-panel__quick-action {
+  @apply px-2 py-1 text-xs hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply first:rounded-l-md last:rounded-r-md;
+}
+
+.table-view-panel__quick-action--active {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}
+
+/* Advanced Filter Indicator */
+.table-view-panel__advanced-filter-indicator {
+  @apply absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full;
+}

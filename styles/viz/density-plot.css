@@ -1,0 +1,19 @@
+/* Density Plot Styles for D3.js integration */
+#density-plot-svg .density-curve {
+  stroke-width: 3;
+  fill: none;
+}
+#density-plot-svg .density-area {
+  opacity: 0.4;
+}
+#density-plot-svg .group-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #333;
+  font-weight: bold;
+  text-anchor: middle;
+}
+#density-plot-svg .title {
+  font-size: 20px;
+  font-weight: bold;
+}

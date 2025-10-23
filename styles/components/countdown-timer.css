@@ -1,0 +1,456 @@
+/* Countdown Timer Component Styles */
+.countdown-timer {
+  @apply flex items-center justify-center gap-2;
+  @apply font-mono text-lg font-bold;
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Countdown Timer Sizes */
+.countdown-timer-xs {
+  @apply text-xs gap-1;
+}
+
+.countdown-timer-sm {
+  @apply text-sm gap-1;
+}
+
+.countdown-timer-md {
+  @apply text-lg gap-2;
+}
+
+.countdown-timer-lg {
+  @apply text-xl gap-2;
+}
+
+.countdown-timer-xl {
+  @apply text-2xl gap-3;
+}
+
+.countdown-timer-2xl {
+  @apply text-3xl gap-4;
+}
+
+/* Countdown Timer Units */
+.countdown-unit {
+  @apply flex flex-col items-center;
+}
+
+.countdown-value {
+  @apply font-bold tabular-nums;
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+.countdown-label {
+  @apply text-xs font-normal text-gray-500 dark:text-gray-400;
+  @apply mt-1 uppercase tracking-wide;
+}
+
+/* Countdown Timer Variants */
+.countdown-timer-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply shadow-sm;
+}
+
+.countdown-timer-inline {
+  @apply inline-flex;
+}
+
+.countdown-timer-block {
+  @apply flex;
+}
+
+.countdown-timer-stacked .countdown-unit {
+  @apply flex-col;
+}
+
+.countdown-timer-horizontal .countdown-unit {
+  @apply flex-row gap-1;
+}
+
+/* Countdown Timer Colors */
+.countdown-timer-primary {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.countdown-timer-secondary {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.countdown-timer-success {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.countdown-timer-warning {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.countdown-timer-danger {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.countdown-timer-info {
+  @apply text-blue-500 dark:text-blue-400;
+}
+
+/* Countdown Timer Separators */
+.countdown-separator {
+  @apply text-gray-400 dark:text-gray-500;
+  @apply font-bold flex items-center;
+}
+
+.countdown-separator-dots::before {
+  content: ":";
+}
+
+.countdown-separator-pipe::before {
+  content: "|";
+}
+
+.countdown-separator-dash::before {
+  content: "-";
+}
+
+.countdown-separator-space::before {
+  content: " ";
+}
+
+/* Countdown Timer with Background */
+.countdown-timer-bg {
+  @apply bg-gray-100 dark:bg-gray-800;
+  @apply rounded-lg p-3;
+}
+
+.countdown-timer-bg-primary {
+  @apply bg-blue-100 dark:bg-blue-900/20;
+  @apply text-blue-800 dark:text-blue-200;
+}
+
+.countdown-timer-bg-secondary {
+  @apply bg-gray-100 dark:bg-gray-800;
+  @apply text-gray-800 dark:text-gray-200;
+}
+
+.countdown-timer-bg-success {
+  @apply bg-green-100 dark:bg-green-900/20;
+  @apply text-green-800 dark:text-green-200;
+}
+
+.countdown-timer-bg-warning {
+  @apply bg-yellow-100 dark:bg-yellow-900/20;
+  @apply text-yellow-800 dark:text-yellow-200;
+}
+
+.countdown-timer-bg-danger {
+  @apply bg-red-100 dark:bg-red-900/20;
+  @apply text-red-800 dark:text-red-200;
+}
+
+/* Countdown Timer States */
+.countdown-timer-paused {
+  @apply opacity-75;
+}
+
+.countdown-timer-expired {
+  @apply text-red-600 dark:text-red-400;
+  @apply animate-pulse;
+}
+
+.countdown-timer-almost-expired {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.countdown-timer-loading {
+  @apply animate-pulse text-gray-400 dark:text-gray-500;
+}
+
+/* Countdown Timer Animations */
+.countdown-timer-flip .countdown-value {
+  @apply transition-all duration-300;
+}
+
+.countdown-timer-pulse {
+  @apply animate-pulse;
+}
+
+.countdown-timer-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.countdown-timer-shake {
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+.countdown-timer-bounce {
+  @apply animate-bounce;
+}
+
+/* Countdown Timer Box Variants */
+.countdown-box {
+  @apply flex flex-col items-center justify-center;
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply shadow-sm p-3 min-w-[3rem];
+}
+
+.countdown-box-value {
+  @apply text-2xl font-bold tabular-nums;
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+.countdown-box-label {
+  @apply text-xs font-medium text-gray-500 dark:text-gray-400;
+  @apply mt-1 uppercase tracking-wide;
+}
+
+/* Countdown Timer Circle Variant */
+.countdown-circle {
+  @apply relative w-16 h-16 flex items-center justify-center;
+}
+
+.countdown-circle-bg {
+  @apply absolute inset-0 rounded-full;
+  @apply border-4 border-gray-200 dark:border-gray-700;
+}
+
+.countdown-circle-progress {
+  @apply absolute inset-0 rounded-full;
+  @apply border-4 border-blue-600 dark:border-blue-400;
+  @apply border-t-transparent border-r-transparent;
+  @apply transform -rotate-90 transition-transform duration-1000;
+}
+
+.countdown-circle-text {
+  @apply relative z-10 text-sm font-bold;
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Countdown Timer Progress Bar */
+.countdown-progress {
+  @apply w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden;
+}
+
+.countdown-progress-bar {
+  @apply h-full bg-blue-600 dark:bg-blue-500 rounded-full;
+  @apply transition-all duration-1000 ease-linear;
+}
+
+.countdown-progress-text {
+  @apply text-center text-sm font-medium mt-2;
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Countdown Timer with Icons */
+.countdown-timer-with-icons .countdown-unit {
+  @apply gap-1;
+}
+
+.countdown-icon {
+  @apply w-4 h-4 text-gray-400 dark:text-gray-500;
+}
+
+/* Countdown Timer Digital Display */
+.countdown-digital {
+  @apply bg-black text-green-400 font-mono;
+  @apply px-4 py-2 rounded border border-gray-600;
+  @apply text-2xl tracking-wider;
+}
+
+.countdown-digital-retro {
+  @apply bg-gray-900 text-red-400;
+  @apply border-2 border-red-600 rounded-lg;
+  @apply font-mono text-xl tracking-widest;
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Countdown Timer Neon Effect */
+.countdown-neon {
+  @apply text-blue-400;
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
+}
+
+/* Countdown Timer Gradient */
+.countdown-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Countdown Timer Responsive */
+@media (max-width: 640px) {
+  .countdown-timer-responsive {
+    @apply text-base gap-1;
+  }
+
+  .countdown-timer-responsive .countdown-box {
+    @apply p-2 min-w-[2.5rem];
+  }
+
+  .countdown-timer-responsive .countdown-box-value {
+    @apply text-lg;
+  }
+
+  .countdown-timer-responsive .countdown-box-label {
+    @apply text-xs;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .countdown-timer-responsive {
+    @apply text-lg gap-2;
+  }
+}
+
+@media (min-width: 769px) {
+  .countdown-timer-responsive {
+    @apply text-xl gap-3;
+  }
+}
+
+/* Countdown Timer Accessibility */
+.countdown-timer[aria-live="polite"] {
+  @apply sr-only;
+}
+
+.countdown-timer-accessible {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Countdown Timer High Contrast */
+@media (prefers-contrast: high) {
+  .countdown-timer {
+    @apply border border-current;
+  }
+
+  .countdown-box {
+    @apply border-2 border-current;
+  }
+}
+
+/* Countdown Timer Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .countdown-timer-flip .countdown-value,
+  .countdown-timer-pulse,
+  .countdown-timer-blink,
+  .countdown-timer-shake,
+  .countdown-timer-bounce,
+  .countdown-circle-progress,
+  .countdown-progress-bar {
+    @apply transition-none animate-none;
+  }
+}
+
+/* Countdown Timer Print Styles */
+@media print {
+  .countdown-timer {
+    @apply text-black font-bold;
+  }
+
+  .countdown-digital,
+  .countdown-neon,
+  .countdown-gradient {
+    @apply text-black bg-transparent;
+    text-shadow: none;
+  }
+}
+
+/* Countdown Timer Custom Themes */
+.countdown-timer-event {
+  @apply bg-gradient-to-r from-purple-500 to-pink-500;
+  @apply text-white p-4 rounded-lg;
+}
+
+.countdown-timer-sale {
+  @apply bg-gradient-to-r from-red-500 to-orange-500;
+  @apply text-white p-4 rounded-lg;
+}
+
+.countdown-timer-launch {
+  @apply bg-gradient-to-r from-blue-500 to-green-500;
+  @apply text-white p-4 rounded-lg;
+}
+
+/* Countdown Timer with Particles Effect */
+.countdown-timer-particles {
+  @apply relative overflow-hidden;
+}
+
+.countdown-timer-particles::before {
+  @apply absolute inset-0 pointer-events-none;
+  content: "";
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: particles 10s linear infinite;
+}
+
+@keyframes particles {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Countdown Timer Glow Effect */
+.countdown-timer-glow {
+  @apply drop-shadow-lg;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Countdown Timer Flip Animation */
+.countdown-flip {
+  @apply relative w-12 h-16 perspective-1000;
+}
+
+.countdown-flip-card {
+  @apply absolute inset-0 bg-gray-800 text-white;
+  @apply flex items-center justify-center font-bold text-xl;
+  @apply rounded border-2 border-gray-600;
+  transform-style: preserve-3d;
+}
+
+.countdown-flip-animate {
+  animation: flip 0.6s ease-in-out;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}

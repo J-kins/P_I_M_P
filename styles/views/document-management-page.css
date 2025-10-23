@@ -1,0 +1,528 @@
+/* Document Management Page Styles */
+
+.document-management-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.document-header {
+  @apply flex items-center justify-between mb-8;
+}
+
+.header-info h1 {
+  @apply text-3xl font-bold text-gray-900 dark:text-white mb-2;
+}
+
+.header-info p {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.upload-button {
+  @apply flex items-center space-x-2;
+}
+
+.stats-overview {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4 mb-8;
+}
+
+.stat-widget {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4 text-center;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-gray-900 dark:text-white;
+}
+
+.stat-value.active {
+  @apply text-gray-900 dark:text-white;
+}
+
+.stat-value.archived {
+  @apply text-orange-600;
+}
+
+.stat-value.size {
+  @apply text-green-600;
+}
+
+.stat-value.categories {
+  @apply text-purple-600;
+}
+
+.stat-description {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+.search-filters {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 mb-6;
+}
+
+.filters-layout {
+  @apply flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0 lg:space-x-4;
+}
+
+.search-container {
+  @apply flex-1 max-w-md relative;
+}
+
+.search-icon {
+  @apply absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400;
+}
+
+.search-input {
+  @apply w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white;
+}
+
+.filter-group {
+  @apply flex items-center space-x-4;
+}
+
+.category-filter {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm dark:bg-gray-700 dark:text-white;
+}
+
+.status-filter {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm dark:bg-gray-700 dark:text-white;
+}
+
+.sort-filter {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm dark:bg-gray-700 dark:text-white;
+}
+
+.view-toggle-group {
+  @apply flex rounded-md shadow-sm;
+}
+
+.view-button {
+  @apply px-3 py-2 border text-sm;
+}
+
+.view-button.active {
+  @apply bg-primary-50 border-primary-500 text-primary-700 dark:bg-primary-900 dark:text-primary-200;
+}
+
+.view-button.inactive {
+  @apply bg-white border-gray-300 text-gray-700 hover:bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300;
+}
+
+.view-button.grid {
+  @apply rounded-l-md;
+}
+
+.view-button.list {
+  @apply rounded-r-md border-t border-r border-b;
+}
+
+.bulk-actions-bar {
+  @apply mt-4 pt-4 border-t border-gray-200 dark:border-gray-700;
+}
+
+.bulk-actions-content {
+  @apply flex items-center justify-between;
+}
+
+.bulk-selection-info {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+.bulk-action-buttons {
+  @apply flex space-x-2;
+}
+
+.documents-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.document-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border-2 transition-all hover:shadow-md;
+}
+
+.document-card.selected {
+  @apply border-primary-500 ring-2 ring-primary-500/20;
+}
+
+.document-card.unselected {
+  @apply border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600;
+}
+
+.document-content {
+  @apply p-6;
+}
+
+.document-header-section {
+  @apply flex items-start justify-between mb-4;
+}
+
+.document-icon-container {
+  @apply flex-shrink-0;
+}
+
+.document-icon {
+  @apply w-8 h-8;
+}
+
+.document-icon.pdf {
+  @apply text-red-500;
+}
+
+.document-icon.word {
+  @apply text-blue-500;
+}
+
+.document-icon.text {
+  @apply text-gray-500;
+}
+
+.document-icon.generic {
+  @apply text-gray-400;
+}
+
+.document-controls {
+  @apply flex items-center space-x-2;
+}
+
+.document-checkbox {
+  @apply h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded;
+}
+
+.document-status-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.status-badge.active {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+}
+
+.status-badge.archived {
+  @apply bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200;
+}
+
+.document-title {
+  @apply text-sm font-medium text-gray-900 dark:text-white mb-2 line-clamp-2;
+}
+
+.document-meta {
+  @apply space-y-2 text-xs text-gray-500 dark:text-gray-400 mb-4;
+}
+
+.meta-item {
+  @apply flex justify-between;
+}
+
+.meta-label {
+  @apply font-medium;
+}
+
+.meta-value {
+  @apply text-right;
+}
+
+.document-tags {
+  @apply flex flex-wrap gap-1 mb-4;
+}
+
+.document-tag {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
+}
+
+.document-actions {
+  @apply flex space-x-2;
+}
+
+.action-button {
+  @apply flex-1 text-center;
+}
+
+.icon-button {
+  @apply p-2 border border-gray-300 dark:border-gray-600 rounded text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700;
+}
+
+.documents-table {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.table-container {
+  @apply overflow-x-auto;
+}
+
+.table {
+  @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.table-head {
+  @apply bg-gray-50 dark:bg-gray-700;
+}
+
+.table-header-row {
+  @apply;
+}
+
+.table-header-cell {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider;
+}
+
+.table-body {
+  @apply bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.table-row {
+  @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+}
+
+.table-cell {
+  @apply px-6 py-4 whitespace-nowrap;
+}
+
+.table-document-info {
+  @apply flex items-center;
+}
+
+.table-document-icon {
+  @apply flex-shrink-0 mr-3;
+}
+
+.table-document-details {
+  @apply min-w-0;
+}
+
+.table-document-name {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.table-document-description {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.table-category-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
+}
+
+.table-size {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.table-date {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.table-status {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.table-actions {
+  @apply flex space-x-2;
+}
+
+.table-action-button {
+  @apply px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700;
+}
+
+.empty-documents {
+  @apply text-center py-12 bg-white dark:bg-gray-800 rounded-lg;
+}
+
+.empty-icon {
+  @apply w-16 h-16 text-gray-400 mx-auto mb-4;
+}
+
+.empty-title {
+  @apply text-lg font-medium text-gray-900 dark:text-white mb-2;
+}
+
+.empty-description {
+  @apply text-gray-600 dark:text-gray-400 mb-4;
+}
+
+.upload-modal {
+  @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50;
+}
+
+.modal-dialog {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full mx-4;
+}
+
+.modal-header {
+  @apply flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700;
+}
+
+.modal-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-white;
+}
+
+.modal-close-button {
+  @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-300;
+}
+
+.modal-body {
+  @apply p-6;
+}
+
+/* Category specific colors */
+.category-general {
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
+}
+
+.category-contracts {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+}
+
+.category-reports {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+}
+
+.category-presentations {
+  @apply bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200;
+}
+
+.category-invoices {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+}
+
+.category-legal {
+  @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .document-management-page {
+    @apply px-2;
+  }
+
+  .document-header {
+    @apply flex-col space-y-4 items-start;
+  }
+
+  .stats-overview {
+    @apply grid-cols-2;
+  }
+
+  .filters-layout {
+    @apply flex-col space-y-4;
+  }
+
+  .filter-group {
+    @apply flex-wrap gap-2;
+  }
+
+  .documents-grid {
+    @apply grid-cols-1;
+  }
+
+  .table-cell {
+    @apply px-3 py-2;
+  }
+
+  .table-actions {
+    @apply flex-col space-x-0 space-y-1;
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Loading states */
+.skeleton-document {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-600 rounded-lg h-48;
+}
+
+.skeleton-text {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-600 rounded h-4;
+}
+
+.skeleton-table-row {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-600 rounded h-12;
+}
+
+/* Accessibility improvements */
+.document-management-page *:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* Hover effects */
+.document-card:hover {
+  @apply transform -translate-y-1;
+}
+
+.table-row:hover {
+  @apply bg-gray-50 dark:bg-gray-700;
+}
+
+/* File type specific styling */
+.file-type-pdf {
+  @apply text-red-500;
+}
+
+.file-type-doc {
+  @apply text-blue-500;
+}
+
+.file-type-txt {
+  @apply text-gray-500;
+}
+
+.file-type-xlsx {
+  @apply text-green-500;
+}
+
+.file-type-ppt {
+  @apply text-orange-500;
+}
+
+/* Drag and drop styling */
+.drop-zone {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.drop-zone.drag-over {
+  @apply border-primary-500 bg-primary-50 dark:bg-primary-900/20;
+}
+
+.drop-indicator {
+  @apply absolute inset-0 border-2 border-dashed border-primary-500 bg-primary-50/50 dark:bg-primary-900/20 rounded-lg flex items-center justify-center;
+}
+
+.drop-text {
+  @apply text-primary-600 dark:text-primary-400 font-medium;
+}

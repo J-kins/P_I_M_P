@@ -1,0 +1,27 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="maOverlayTitle maOverlayDesc">
+    <title id="maOverlayTitle">Moving Average Overlay</title>
+    <desc id="maOverlayDesc">SVG overlay template for multiple moving average lines on financial charts.</desc>
+    <defs>
+        <style type="text/css">
+            .ma-50 { stroke: var(--ma-50-color, #2196f3); stroke-width: 2.5; fill: none; }
+            .ma-200 { stroke: var(--ma-200-color, #ff9800); stroke-width: 2.5; fill: none; }
+            .ma-20 { stroke: var(--ma-20-color, #4caf50); stroke-width: 2.5; fill: none; }
+            .ma-ema { stroke-dasharray: 6 3; }
+            .ma-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; }
+            .legend { cursor: pointer; }
+        </style>
+    </defs>
+    <!-- Moving Average Lines -->
+    <g class="moving-averages">
+        <!-- for each MA in {movingAverages} -->
+        <path class="ma-{ma.period} {ma.type === 'EMA' ? 'ma-ema' : ''}" d="{ma.path}" data-type="{ma.type}" data-period="{ma.period}" data-label="{ma.label}"/>
+        <!-- end for -->
+    </g>
+    <!-- Interactive Legend -->
+    <g class="legend">
+        <!-- for each MA in {movingAverages} -->
+        <rect x="{legend.x}" y="{legend.y}" width="18" height="18" fill="{legend.color}" stroke="#333"/>
+        <text class="ma-label" x="{legend.x+25}" y="{legend.y+14}">{ma.label}</text>
+        <!-- end for -->
+    </g>
+</svg>

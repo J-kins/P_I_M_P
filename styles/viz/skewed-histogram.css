@@ -1,0 +1,23 @@
+/* Skewed Histogram Styles for D3.js integration */
+#skewed-histogram-svg .bar {
+  fill: #ff9800;
+  transition: fill 0.2s;
+}
+#skewed-histogram-svg .bar:hover {
+  fill: #f44336;
+}
+#skewed-histogram-svg .bar-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #333;
+}
+#skewed-histogram-svg .normal-overlay {
+  stroke: #2196f3;
+  stroke-width: 3;
+  fill: none;
+  opacity: 0.4;
+}
+#skewed-histogram-svg .title {
+  font-size: 20px;
+  font-weight: bold;
+}

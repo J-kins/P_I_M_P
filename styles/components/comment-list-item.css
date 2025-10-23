@@ -1,0 +1,402 @@
+/* Comment List Item Component Styles */
+/* Provides styling for individual comment display with actions and metadata */
+
+.comment-list-item {
+  @apply relative transition-all duration-200 group;
+}
+
+/* Variant Styles */
+.comment-list-item--default {
+  @apply bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700;
+  @apply shadow-sm hover:shadow-md;
+}
+
+.comment-list-item--compact {
+  @apply bg-gray-50 dark:bg-gray-800/50 rounded-md;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+
+.comment-list-item--highlighted {
+  @apply bg-blue-50 dark:bg-blue-900/20 rounded-lg;
+  @apply border border-blue-200 dark:border-blue-800;
+  @apply shadow-md;
+}
+
+.comment-list-item--minimal {
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-md;
+}
+
+/* Padding Variants */
+.comment-list-item__content--default {
+  @apply p-4;
+}
+
+.comment-list-item__content--compact {
+  @apply p-3;
+}
+
+.comment-list-item__content--highlighted {
+  @apply p-4;
+}
+
+.comment-list-item__content--minimal {
+  @apply p-2;
+}
+
+/* State Modifiers */
+.comment-list-item--pinned {
+  @apply ring-1 ring-yellow-300 dark:ring-yellow-600;
+  @apply bg-yellow-50/50 dark:bg-yellow-900/10;
+}
+
+.comment-list-item--reported {
+  @apply opacity-60 relative;
+}
+
+.comment-list-item--reported::after {
+  content: "";
+  @apply absolute inset-0 bg-red-500/10 rounded-lg pointer-events-none;
+}
+
+.comment-list-item--highlighted {
+  @apply ring-2 ring-blue-400 ring-opacity-50;
+}
+
+/* Pinned Badge */
+.comment-list-item__pinned-badge {
+  @apply flex items-center space-x-1 mb-2 text-xs font-medium;
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.comment-list-item__pinned-icon {
+  @apply w-3 h-3 text-yellow-500;
+}
+
+/* Header Section */
+.comment-list-item__header {
+  @apply flex items-center space-x-2 mb-1;
+}
+
+.comment-list-item__author-name {
+  @apply font-medium text-gray-900 dark:text-white;
+  @apply hover:text-blue-600 dark:hover:text-blue-400;
+  @apply transition-colors duration-150 cursor-pointer;
+}
+
+.comment-list-item__verified-icon {
+  @apply w-4 h-4 text-blue-500;
+}
+
+.comment-list-item__role-badge {
+  @apply text-xs px-2 py-1 rounded-full font-medium;
+}
+
+.comment-list-item__role-badge--admin {
+  @apply bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400;
+}
+
+.comment-list-item__role-badge--moderator {
+  @apply bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400;
+}
+
+.comment-list-item__username {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.comment-list-item__timestamp {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.comment-list-item__edited {
+  @apply text-xs text-gray-400 dark:text-gray-500 italic;
+}
+
+/* Menu Button */
+.comment-list-item__menu-button {
+  @apply ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-150;
+}
+
+.comment-list-item__menu {
+  @apply absolute top-full right-0 mt-1 w-32 z-10;
+  @apply bg-white dark:bg-gray-700 rounded-lg shadow-lg;
+  @apply border border-gray-200 dark:border-gray-600;
+}
+
+.comment-list-item__menu-item {
+  @apply w-full text-left px-3 py-2 text-sm;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-600;
+  @apply transition-colors duration-150;
+}
+
+.comment-list-item__menu-item:first-child {
+  @apply rounded-t-lg;
+}
+
+.comment-list-item__menu-item:last-child {
+  @apply rounded-b-lg;
+}
+
+.comment-list-item__menu-item--destructive {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Content Section */
+.comment-list-item__content-text {
+  @apply text-gray-800 dark:text-gray-200 text-sm leading-relaxed mb-2;
+  @apply whitespace-pre-wrap;
+}
+
+.comment-list-item__expand-button {
+  @apply text-blue-600 dark:text-blue-400 hover:underline;
+  @apply text-sm mt-1 font-medium transition-colors duration-150;
+}
+
+/* Actions Section */
+.comment-list-item__actions {
+  @apply flex items-center space-x-4 text-sm;
+}
+
+.comment-list-item__action-button {
+  @apply flex items-center space-x-1 transition-colors duration-150;
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.comment-list-item__action-button:hover {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Like Button */
+.comment-list-item__like-button {
+  @apply flex items-center space-x-1 transition-all duration-150;
+}
+
+.comment-list-item__like-button--active {
+  @apply text-red-500 hover:text-red-600;
+}
+
+.comment-list-item__like-button--inactive {
+  @apply text-gray-500 dark:text-gray-400 hover:text-red-500;
+}
+
+.comment-list-item__like-button--active .comment-list-item__like-icon {
+  @apply animate-pulse;
+}
+
+/* Reply Button */
+.comment-list-item__reply-button {
+  @apply text-gray-500 dark:text-gray-400 hover:text-blue-500;
+}
+
+/* Show Replies Button */
+.comment-list-item__show-replies-button {
+  @apply text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300;
+  @apply font-medium transition-colors duration-150;
+}
+
+/* Indentation for Nested Comments */
+.comment-list-item--level-1 {
+  @apply ml-6;
+}
+
+.comment-list-item--level-2 {
+  @apply ml-12;
+}
+
+.comment-list-item--level-3 {
+  @apply ml-18;
+}
+
+.comment-list-item--level-4 {
+  @apply ml-24;
+}
+
+/* Thread Line for Nested Comments */
+.comment-list-item--nested::before {
+  content: "";
+  @apply absolute left-0 top-0 bottom-0 w-0.5;
+  @apply bg-gray-200 dark:bg-gray-700;
+  margin-left: -1rem;
+}
+
+.comment-list-item--nested:last-child::before {
+  @apply bg-gradient-to-b from-gray-200 to-transparent;
+  @apply dark:from-gray-700 dark:to-transparent;
+  height: 50%;
+}
+
+/* Avatar Styles */
+.comment-list-item__avatar {
+  @apply flex-shrink-0 cursor-pointer transition-transform duration-150;
+}
+
+.comment-list-item__avatar:hover {
+  @apply scale-105;
+}
+
+/* Animations */
+@keyframes comment-highlight {
+  0% {
+    background-color: theme(colors.blue.100);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.comment-list-item--just-added {
+  animation: comment-highlight 2s ease-out;
+}
+
+@keyframes comment-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comment-list-item--entering {
+  animation: comment-slide-in 300ms ease-out;
+}
+
+/* Loading State */
+.comment-list-item--loading {
+  @apply opacity-60 cursor-wait;
+}
+
+.comment-list-item__skeleton {
+  @apply animate-pulse;
+}
+
+.comment-list-item__skeleton-avatar {
+  @apply w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full;
+}
+
+.comment-list-item__skeleton-name {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded w-24 mb-1;
+}
+
+.comment-list-item__skeleton-content {
+  @apply h-3 bg-gray-200 dark:bg-gray-700 rounded w-full mb-1;
+}
+
+.comment-list-item__skeleton-actions {
+  @apply h-3 bg-gray-200 dark:bg-gray-700 rounded w-32;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .comment-list-item__content--default,
+  .comment-list-item__content--highlighted {
+    @apply p-3;
+  }
+
+  .comment-list-item__content--compact {
+    @apply p-2;
+  }
+
+  .comment-list-item__actions {
+    @apply space-x-3;
+  }
+
+  .comment-list-item__menu-button {
+    @apply opacity-100;
+  }
+
+  /* Reduce indentation on mobile */
+  .comment-list-item--level-1 {
+    @apply ml-4;
+  }
+
+  .comment-list-item--level-2 {
+    @apply ml-8;
+  }
+
+  .comment-list-item--level-3,
+  .comment-list-item--level-4 {
+    @apply ml-8;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .comment-list-item {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .comment-list-item--highlighted {
+    @apply bg-yellow-100 dark:bg-yellow-900 border-yellow-500;
+  }
+
+  .comment-list-item--pinned {
+    @apply bg-yellow-200 dark:bg-yellow-800;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .comment-list-item,
+  .comment-list-item__avatar,
+  .comment-list-item__action-button,
+  .comment-list-item__like-button {
+    @apply transition-none;
+  }
+
+  .comment-list-item__like-button--active .comment-list-item__like-icon {
+    @apply animate-none;
+  }
+
+  .comment-list-item--entering,
+  .comment-list-item--just-added {
+    animation: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.comment-list-item__author-name:focus-visible,
+.comment-list-item__action-button:focus-visible,
+.comment-list-item__expand-button:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 rounded;
+}
+
+/* Print Styles */
+@media print {
+  .comment-list-item {
+    @apply border border-gray-400 mb-4 break-inside-avoid;
+  }
+
+  .comment-list-item__menu-button,
+  .comment-list-item__actions {
+    @apply hidden;
+  }
+
+  .comment-list-item__content-text {
+    @apply text-black;
+  }
+}
+
+/* Dark Mode Specific Enhancements */
+@media (prefers-color-scheme: dark) {
+  .comment-list-item--default {
+    @apply border-gray-700;
+  }
+
+  .comment-list-item--highlighted {
+    @apply bg-blue-900/30 border-blue-700;
+  }
+
+  .comment-list-item--pinned {
+    @apply ring-yellow-500 bg-yellow-900/20;
+  }
+}
+
+/* Custom Properties for Theme Integration */
+.comment-list-item {
+  --comment-border-radius: theme(borderRadius.lg);
+  --comment-shadow: theme(boxShadow.sm);
+  --comment-shadow-hover: theme(boxShadow.md);
+  --comment-transition: theme(transitionDuration.200);
+}
