@@ -210,12 +210,18 @@
 @import url('views/business-categories.css');
 @import url('views/business-profile.css');
 @import url('views/business-reviews.css');
+@import url('views/BusinessReviews.css');
 @import url('views/dashboard.css');
 @import url('views/user-profile.css');
 @import url('views/auth.css');
 @import url('views/for-business.css');
 @import url('views/business-dashboard.css');
 @import url('views/claim-business.css');
+@import url('views/BusinessAccreditation.css');
+@import url('views/BusinessSettings.css');
+@import url('views/BusinessAnalytics.css');
+@import url('views/BusinessRegister.css');
+@import url('views/BusinessEmailVerification.css');
 
 /* Admin views */
 @import url('views/admin-dashboard.css');

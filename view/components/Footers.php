@@ -596,7 +596,7 @@ class Footers
         <?php endif; ?>
         
         <?php if ($includeMainJs): ?>
-        <script src="<?= self::assetUrl('js/main.js') ?>"></script>
+        <script src="<?= self::url('/static/js/headers.js') ?>"></script>
         <?php endif; ?>
         
         </body>

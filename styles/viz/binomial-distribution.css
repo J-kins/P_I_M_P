@@ -1,0 +1,16 @@
+/* Binomial Distribution Styles for D3.js integration */
+#binomial-distribution-svg .bar {
+  transition: fill 0.2s;
+}
+#binomial-distribution-svg .bar:hover {
+  fill: #1976d2;
+}
+#binomial-distribution-svg .bar-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #333;
+}
+#binomial-distribution-svg .title {
+  font-size: 20px;
+  font-weight: bold;
+}

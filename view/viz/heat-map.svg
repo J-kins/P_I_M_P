@@ -1,0 +1,60 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="heatMapTitle heatMapDesc">
+    <title id="heatMapTitle">Heat Map</title>
+    <desc id="heatMapDesc">A data-agnostic heat map template for matrix visualization.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #eee); stroke-width: 1; }
+            .x-label, .y-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; }
+            .cell-label { font-family: var(--font-family, Arial); font-size: 12px; fill: var(--cell-label-color, #fff); text-anchor: middle; }
+            .legend-label { font-family: var(--font-family, Arial); font-size: 12px; fill: var(--label-color, #333); }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+    </g>
+    <!-- Y Labels -->
+    <g class="y-labels">
+        <!-- for each row in {yCategories} -->
+        <text class="y-label" x="90" y="{row.y+cellHeight/2}">{row.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- X Labels -->
+    <g class="x-labels">
+        <!-- for each col in {xCategories} -->
+        <text class="x-label" x="{col.x+cellWidth/2}" y="520">{col.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Heatmap Cells -->
+    <g class="heatmap-cells">
+        <!-- for each cell in {matrix} -->
+        <rect x="{cell.x}" y="{cell.y}" width="{cellWidth}" height="{cellHeight}" fill="{cell.color}" data-x="{cell.xCategory}" data-y="{cell.yCategory}" data-value="{cell.value}"/>
+        <!-- Optional: show value in cell -->
+        <text class="cell-label" x="{cell.x+cellWidth/2}" y="{cell.y+cellHeight/2+4}">{cell.value}</text>
+        <!-- end for -->
+    </g>
+    <!-- Color Scale Legend -->
+    <g class="legend">
+        <!-- Gradient Bar -->
+        <defs>
+            <linearGradient id="heatmapGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#2196f3"/>
+                <stop offset="50%" stop-color="#ffeb3b"/>
+                <stop offset="100%" stop-color="#f44336"/>
+            </linearGradient>
+        </defs>
+        <rect x="100" y="550" width="600" height="20" fill="url(#heatmapGradient)"/>
+        <!-- Value Ticks -->
+        <text class="legend-label" x="100" y="545">{minValue}</text>
+        <text class="legend-label" x="700" y="545">{maxValue}</text>
+        <text class="legend-label" x="400" y="545">{midValue}</text>
+    </g>
+</svg>

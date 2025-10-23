@@ -6,6 +6,7 @@ use PIMP\Services\Database\MySQLDatabase;
 use PIMP\Services\Database\MongoDBDatabase;
 use PIMP\Services\Database\RedisDatabase;
 use PIMP\Services\Database\SQLiteDatabase;
+use PIMP\Core\Config;
 
 // Get configurations from your Config class
 $mysqlConfig = [
@@ -22,7 +23,7 @@ $mysql = new MySQLDatabase($mysqlConfig);
 $result = $mysql->query("SELECT * FROM users WHERE id = ?", [1]);
 
 // Execute from file
-$result = $mysql->executeMigration('001_init.sql');
+$result = $mysql->executeFile('seeds/001_init.sql');
 
 // Execute all migrations
 $results = $mysql->migrateAll();
@@ -31,16 +32,16 @@ $results = $mysql->migrateAll();
 $results = $mysql->seedAll();
 
 // Create backup
-$backupPath = $mysql->backup();
+// $backupPath = $mysql->backup();
 
 // MongoDB example
-$mongo = new MongoDBDatabase($mongoConfig);
-$result = $mongo->executeFile('MongoDB/migrations/001_init.json');
+// $mongo = new MongoDBDatabase($mongoConfig);
+// $result = $mongo->executeFile('MongoDB/migrations/001_init.json');
 
 // Redis example
-$redis = new RedisDatabase($redisConfig);
-$result = $redis->executeFile('Redis/seeds/001_cache_data.json');
+// $redis = new RedisDatabase($redisConfig);
+// $result = $redis->executeFile('Redis/seeds/001_cache_data.json');
 
 // SQLite example
-$sqlite = new SQLiteDatabase($sqliteConfig);
-$result = $sqlite->executeMigration('001_init.sql');
+// $sqlite = new SQLiteDatabase($sqliteConfig);
+// $result = $sqlite->executeMigration('001_init.sql');

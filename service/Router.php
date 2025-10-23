@@ -68,6 +68,8 @@ class Router
                 '/dashboard' => 'Dashboard.php',
                 '/businesses' => 'BusinessDirectory.php',
                 '/businesses/search' => 'BusinessSearch.php',
+                '/business/login' => 'BusinessLogin.php',
+                '/business/register' => 'BusinessRegister.php',
                 '/businesses/categories' => 'BusinessCategories.php',
                 '/businesses/featured' => 'FeaturedBusinesses.php',
                 '/business/:id' => 'BusinessProfile.php',

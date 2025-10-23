@@ -1,0 +1,662 @@
+/* ==========================================================================
+   Geospatial SVG Map Theme System (Google Maps Style)
+   ========================================================================== */
+
+:root {
+  /* Theme Configuration - Light (Default Google Maps) */
+  --theme-name: 'light';
+  
+  /* Base Colors */
+  --background-color: #f9f9f9;
+  --surface-color: #ffffff;
+  --primary-color: #1a73e8;
+  --secondary-color: #34a853;
+  --accent-color: #ea4335;
+  --warning-color: #fbbc04;
+  --error-color: #d93025;
+  
+  /* Text Colors */
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-tertiary: #80868b;
+  --text-inverse: #ffffff;
+  
+  /* Border & Divider Colors */
+  --border-color: #dadce0;
+  --divider-color: #e8eaed;
+  
+  /* Map-Specific Colors */
+  --basemap-land: #f1f3f4;
+  --basemap-water: #d3e3f3;
+  --basemap-road: #ffffff;
+  --basemap-road-stroke: #ffffff;
+  --basemap-highway: #fece6a;
+  --basemap-park: #e6f4ea;
+  --basemap-building: #f8f9fa;
+  
+  /* Data Visualization Colors */
+  --vector-point-color: #ea4335;
+  --vector-line-color: #1a73e8;
+  --vector-polygon-color: #34a853;
+  --raster-low: #c6e7ff;
+  --raster-mid: #66b3ff;
+  --raster-high: #0066cc;
+  --choropleth-low: #e8f0fe;
+  --choropleth-mid: #8ab4f8;
+  --choropleth-high: #1a73e8;
+  --heatmap-low: #4285f4;
+  --heatmap-mid: #fbbc04;
+  --heatmap-high: #ea4335;
+  --proportional-symbol: #1a73e8;
+  --dot-density: #34a853;
+  
+  /* Interactive Elements */
+  --buffer-zone-color: #1a73e8;
+  --network-path-color: #d93025;
+  --overlay-color: #34a853;
+  --geofence-color: #fbbc04;
+  --realtime-marker-color: #ea4335;
+  
+  /* Grid & Reference */
+  --coord-grid-color: #e8eaed;
+  --projection-ref-color: #80868b;
+  
+  /* Shadows & Effects */
+  --shadow-light: 0 1px 2px rgba(60,64,67,0.3);
+  --shadow-medium: 0 2px 6px rgba(60,64,67,0.15);
+  --shadow-heavy: 0 4px 12px rgba(60,64,67,0.3);
+  
+  /* Animation */
+  --transition-fast: 0.15s ease-out;
+  --transition-medium: 0.25s ease-out;
+  --transition-slow: 0.35s ease-out;
+}
+
+/* ==========================================================================
+   Theme: Dark (Google Maps Dark Mode)
+   ========================================================================== */
+
+[data-theme="dark"] {
+  --theme-name: 'dark';
+  
+  --background-color: #202124;
+  --surface-color: #303134;
+  --primary-color: #8ab4f8;
+  --secondary-color: #81c995;
+  --accent-color: #f28b82;
+  --warning-color: #fdd663;
+  --error-color: #f28b82;
+  
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --text-tertiary: #5f6368;
+  --text-inverse: #202124;
+  
+  --border-color: #3c4043;
+  --divider-color: #3c4043;
+  
+  --basemap-land: #2d2e30;
+  --basemap-water: #1a3561;
+  --basemap-road: #3c4043;
+  --basemap-road-stroke: #202124;
+  --basemap-highway: #5c4016;
+  --basemap-park: #1e3a2b;
+  --basemap-building: #2d2e30;
+  
+  --coord-grid-color: #3c4043;
+  --projection-ref-color: #5f6368;
+}
+
+/* ==========================================================================
+   Theme: Retro (Vintage Map Style)
+   ========================================================================== */
+
+[data-theme="retro"] {
+  --theme-name: 'retro';
+  
+  --background-color: #f5e8c8;
+  --surface-color: #f8f1dc;
+  --primary-color: #8b4513;
+  --secondary-color: #556b2f;
+  --accent-color: #8b0000;
+  --warning-color: #daa520;
+  --error-color: #8b0000;
+  
+  --text-primary: #2f1b0a;
+  --text-secondary: #5d4037;
+  --text-tertiary: #8d6e63;
+  --text-inverse: #f8f1dc;
+  
+  --border-color: #bcaaa4;
+  --divider-color: #d7ccc8;
+  
+  --basemap-land: #efebe9;
+  --basemap-water: #bbdefb;
+  --basemap-road: #ffebee;
+  --basemap-road-stroke: #f5e8c8;
+  --basemap-highway: #ffcc80;
+  --basemap-park: #e8f5e8;
+  --basemap-building: #f5f5f5;
+  
+  --vector-point-color: #8b0000;
+  --vector-line-color: #8b4513;
+  --vector-polygon-color: #556b2f;
+}
+
+/* ==========================================================================
+   Theme: Retro Dark (Vintage Dark Mode)
+   ========================================================================== */
+
+[data-theme="retro-dark"] {
+  --theme-name: 'retro-dark';
+  
+  --background-color: #1a1208;
+  --surface-color: #2d1f0f;
+  --primary-color: #d4af37;
+  --secondary-color: #8fbc8f;
+  --accent-color: #cd5c5c;
+  --warning-color: #daa520;
+  --error-color: #cd5c5c;
+  
+  --text-primary: #f5e8c8;
+  --text-secondary: #d7ba7d;
+  --text-tertiary: #8d6e63;
+  --text-inverse: #1a1208;
+  
+  --border-color: #5d4037;
+  --divider-color: #3e2723;
+  
+  --basemap-land: #2d1f0f;
+  --basemap-water: #0d2b4d;
+  --basemap-road: #3e2723;
+  --basemap-road-stroke: #1a1208;
+  --basemap-highway: #5d4037;
+  --basemap-park: #1b3021;
+  --basemap-building: #2d1f0f;
+}
+
+/* ==========================================================================
+   Theme: Night (Deep Dark Navigation)
+   ========================================================================== */
+
+[data-theme="night"] {
+  --theme-name: 'night';
+  
+  --background-color: #0a0e14;
+  --surface-color: #131720;
+  --primary-color: #64b5f6;
+  --secondary-color: #81c784;
+  --accent-color: #f48fb1;
+  --warning-color: #ffd54f;
+  --error-color: #e57373;
+  
+  --text-primary: #e3f2fd;
+  --text-secondary: #90a4ae;
+  --text-tertiary: #546e7a;
+  --text-inverse: #0a0e14;
+  
+  --border-color: #1c2530;
+  --divider-color: #1c2530;
+  
+  --basemap-land: #131720;
+  --basemap-water: #0d1b2a;
+  --basemap-road: #1c2530;
+  --basemap-road-stroke: #0a0e14;
+  --basemap-highway: #2d3746;
+  --basemap-park: #1a3025;
+  --basemap-building: #131720;
+}
+
+/* ==========================================================================
+   Base Container & SVG Styles
+   ========================================================================== */
+
+#geospatial-map-container {
+  width: 100%;
+  height: 100vh;
+  background: var(--background-color);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+}
+
+#geospatial-svg-map {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: var(--background-color);
+  transition: background-color var(--transition-medium);
+}
+
+/* ==========================================================================
+   Basemap Elements (Google Maps Style)
+   ========================================================================== */
+
+.basemap-land {
+  fill: var(--basemap-land);
+  stroke: none;
+}
+
+.basemap-water {
+  fill: var(--basemap-water);
+  stroke: none;
+}
+
+.basemap-road {
+  fill: var(--basemap-road);
+  stroke: var(--basemap-road-stroke);
+  stroke-width: 1;
+}
+
+.basemap-road-major {
+  fill: var(--basemap-road);
+  stroke: var(--basemap-road-stroke);
+  stroke-width: 2;
+}
+
+.basemap-highway {
+  fill: var(--basemap-highway);
+  stroke: var(--basemap-road-stroke);
+  stroke-width: 2;
+}
+
+.basemap-park {
+  fill: var(--basemap-park);
+  stroke: var(--border-color);
+  stroke-width: 0.5;
+}
+
+.basemap-building {
+  fill: var(--basemap-building);
+  stroke: var(--border-color);
+  stroke-width: 0.5;
+}
+
+/* ==========================================================================
+   Vector Data Styles
+   ========================================================================== */
+
+.vector-point {
+  fill: var(--vector-point-color);
+  stroke: var(--surface-color);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  filter: var(--shadow-light);
+}
+
+.vector-point:hover {
+  fill: var(--accent-color);
+  stroke-width: 3;
+  filter: var(--shadow-medium);
+  transform: scale(1.1);
+}
+
+.vector-point-highlight {
+  fill: var(--warning-color);
+  stroke: var(--text-inverse);
+  stroke-width: 3;
+  animation: pulse 2s infinite;
+}
+
+.vector-line {
+  stroke: var(--vector-line-color);
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vector-line-major {
+  stroke: var(--vector-line-color);
+  stroke-width: 5;
+  opacity: 0.8;
+}
+
+.vector-polygon {
+  fill: var(--vector-polygon-color);
+  stroke: var(--surface-color);
+  stroke-width: 1.5;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.vector-polygon:hover {
+  opacity: 0.9;
+  stroke-width: 2;
+}
+
+/* ==========================================================================
+   Raster & Thematic Visualization Styles
+   ========================================================================== */
+
+.raster-cell {
+  stroke: var(--border-color);
+  stroke-width: 0.5;
+  transition: fill var(--transition-medium);
+}
+
+.raster-low { fill: var(--raster-low); }
+.raster-mid { fill: var(--raster-mid); }
+.raster-high { fill: var(--raster-high); }
+
+.choropleth-region {
+  stroke: var(--surface-color);
+  stroke-width: 1;
+  transition: all var(--transition-medium);
+}
+
+.choropleth-low { fill: var(--choropleth-low); }
+.choropleth-mid { fill: var(--choropleth-mid); }
+.choropleth-high { fill: var(--choropleth-high); }
+
+.choropleth-region:hover {
+  stroke-width: 2;
+  opacity: 0.9;
+}
+
+.heatmap-area {
+  fill: url(#heatmapGradient);
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+}
+
+.proportional-symbol {
+  fill: var(--proportional-symbol);
+  stroke: var(--surface-color);
+  stroke-width: 2;
+  opacity: 0.8;
+  transition: all var(--transition-fast);
+}
+
+.proportional-symbol:hover {
+  opacity: 1;
+  stroke-width: 3;
+}
+
+.dot-density {
+  fill: var(--dot-density);
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.dot-density:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Spatial Analysis Features
+   ========================================================================== */
+
+.buffer-zone {
+  fill: var(--buffer-zone-color);
+  opacity: 0.2;
+  stroke: var(--buffer-zone-color);
+  stroke-width: 2;
+  stroke-dasharray: 5, 5;
+}
+
+.network-path {
+  stroke: var(--network-path-color);
+  stroke-width: 4;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: none;
+  animation: flow 3s linear infinite;
+}
+
+.overlay-analysis {
+  fill: var(--overlay-color);
+  opacity: 0.3;
+  stroke: var(--overlay-color);
+  stroke-width: 1;
+  mix-blend-mode: multiply;
+}
+
+/* ==========================================================================
+   Interactive & Real-time Elements
+   ========================================================================== */
+
+.geofence {
+  stroke: var(--geofence-color);
+  stroke-width: 3;
+  fill: none;
+  stroke-dasharray: 8, 4;
+  animation: dash 10s linear infinite;
+}
+
+.realtime-marker {
+  fill: var(--realtime-marker-color);
+  stroke: var(--surface-color);
+  stroke-width: 3;
+  filter: var(--shadow-medium);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.realtime-trail {
+  stroke: var(--realtime-marker-color);
+  stroke-width: 2;
+  fill: none;
+  opacity: 0.5;
+  stroke-linecap: round;
+}
+
+/* ==========================================================================
+   UI Components (Google Maps Style)
+   ========================================================================== */
+
+.map-popup {
+  fill: var(--surface-color);
+  stroke: var(--border-color);
+  stroke-width: 1;
+  filter: var(--shadow-heavy);
+  rx: 8;
+  ry: 8;
+}
+
+.map-popup-pointer {
+  fill: var(--surface-color);
+  stroke: var(--border-color);
+  stroke-width: 1;
+}
+
+.control-panel {
+  fill: var(--surface-color);
+  stroke: var(--border-color);
+  stroke-width: 1;
+  filter: var(--shadow-medium);
+  rx: 4;
+  ry: 4;
+}
+
+.control-button {
+  fill: var(--surface-color);
+  stroke: var(--border-color);
+  stroke-width: 1;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.control-button:hover {
+  fill: var(--background-color);
+  stroke-width: 1.5;
+}
+
+.control-button-active {
+  fill: var(--primary-color);
+  stroke: var(--primary-color);
+}
+
+/* ==========================================================================
+   Typography & Labels (Google Maps Style)
+   ========================================================================== */
+
+.map-label {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  font-weight: 400;
+  fill: var(--text-primary);
+  font-size: 12px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.map-label-large {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.map-label-small {
+  font-size: 10px;
+  fill: var(--text-secondary);
+}
+
+.road-label {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  font-weight: 400;
+  fill: var(--text-secondary);
+  font-size: 10px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.region-label {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  fill: var(--text-primary);
+  font-size: 14px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Grid & Reference Systems
+   ========================================================================== */
+
+.coord-grid {
+  stroke: var(--coord-grid-color);
+  stroke-width: 0.5;
+  stroke-dasharray: 2, 2;
+  opacity: 0.5;
+}
+
+.projection-ref {
+  stroke: var(--projection-ref-color);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 4, 2;
+}
+
+.scale-bar {
+  stroke: var(--text-primary);
+  stroke-width: 2;
+  fill: var(--surface-color);
+}
+
+/* ==========================================================================
+   Animations & Transitions
+   ========================================================================== */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes flow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 20; }
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -20; }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .map-label { font-size: 10px; }
+  .map-label-large { font-size: 12px; }
+  .map-label-small { font-size: 8px; }
+  .road-label { font-size: 8px; }
+  .vector-point { stroke-width: 1.5; }
+  .vector-line { stroke-width: 2; }
+}
+
+@media (max-width: 480px) {
+  .map-label { font-size: 9px; }
+  .map-label-large { font-size: 11px; }
+  .region-label { font-size: 12px; }
+}
+
+/* ==========================================================================
+   High-DPI Display Support
+   ========================================================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .vector-line { stroke-width: 1.5; }
+  .border { stroke-width: 0.5; }
+  .coord-grid { stroke-width: 0.25; }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  #geospatial-map-container {
+    height: 800px;
+  }
+  
+  .realtime-marker,
+  .geofence,
+  .network-path {
+    animation: none;
+  }
+  
+  .map-popup,
+  .control-panel {
+    filter: none;
+  }
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.theme-transition {
+  transition: background-color var(--transition-slow), 
+              fill var(--transition-slow),
+              stroke var(--transition-slow),
+              color var(--transition-slow);
+}
+
+.interactive-element {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.interactive-element:hover {
+  filter: var(--shadow-medium);
+  transform: translateY(-1px);
+}
+
+.hidden-element {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-medium);
+}
+
+.faded-element {
+  opacity: 0.3;
+  transition: opacity var(--transition-fast);
+}
+
+.faded-element:hover {
+  opacity: 0.7;
+}

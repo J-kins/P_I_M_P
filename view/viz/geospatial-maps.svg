@@ -1,0 +1,139 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" aria-labelledby="geospatialMapsTitle geospatialMapsDesc">
+    <title id="geospatialMapsTitle">Interactive Geospatial Map Template</title>
+    <desc id="geospatialMapsDesc">A dynamic SVG template for geospatial data visualization with D3.js integration</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #f9f9f9); }
+            .basemap-land { fill: var(--basemap-land, #f1f3f4); }
+            .basemap-water { fill: var(--basemap-water, #d3e3f3); }
+            .basemap-road { fill: var(--basemap-road, #ffffff); stroke: var(--basemap-road-stroke, #ffffff); }
+            .vector-point { fill: var(--vector-point-color, #ea4335); stroke: var(--surface-color, #ffffff); stroke-width: 2; cursor: pointer; }
+            .vector-line { stroke: var(--vector-line-color, #1a73e8); stroke-width: 3; fill: none; }
+            .vector-polygon { fill: var(--vector-polygon-color, #34a853); stroke: var(--surface-color, #ffffff); stroke-width: 1.5; opacity: 0.7; }
+            .raster-cell { stroke: var(--border-color, #dadce0); stroke-width: 0.5; }
+            .raster-low { fill: var(--raster-low, #c6e7ff); }
+            .raster-mid { fill: var(--raster-mid, #66b3ff); }
+            .raster-high { fill: var(--raster-high, #0066cc); }
+            .choropleth-region { stroke: var(--surface-color, #ffffff); stroke-width: 1; }
+            .choropleth-low { fill: var(--choropleth-low, #e8f0fe); }
+            .choropleth-mid { fill: var(--choropleth-mid, #8ab4f8); }
+            .choropleth-high { fill: var(--choropleth-high, #1a73e8); }
+            .heatmap-area { fill: url(#heatmapGradient); opacity: 0.6; mix-blend-mode: multiply; }
+            .proportional-symbol { fill: var(--proportional-symbol, #1a73e8); stroke: var(--surface-color, #ffffff); stroke-width: 2; opacity: 0.8; }
+            .dot-density { fill: var(--dot-density, #34a853); opacity: 0.7; }
+            .buffer-zone { fill: var(--buffer-zone-color, #1a73e8); opacity: 0.2; stroke: var(--buffer-zone-color, #1a73e8); stroke-width: 2; stroke-dasharray: 5,5; }
+            .network-path { stroke: var(--network-path-color, #d93025); stroke-width: 4; fill: none; stroke-linecap: round; }
+            .overlay-analysis { fill: var(--overlay-color, #34a853); opacity: 0.3; stroke: var(--overlay-color, #34a853); stroke-width: 1; }
+            .map-popup { fill: var(--surface-color, #ffffff); stroke: var(--border-color, #dadce0); stroke-width: 1; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15)); rx: 8; ry: 8; }
+            .geofence { stroke: var(--geofence-color, #fbbc04); stroke-width: 3; fill: none; stroke-dasharray: 8,4; }
+            .realtime-marker { fill: var(--realtime-marker-color, #ea4335); stroke: var(--surface-color, #ffffff); stroke-width: 3; }
+            .coord-grid { stroke: var(--coord-grid-color, #e8eaed); stroke-width: 0.5; stroke-dasharray: 2,2; opacity: 0.5; }
+            .projection-ref { stroke: var(--projection-ref-color, #80868b); stroke-width: 2; fill: none; stroke-dasharray: 4,2; }
+            .map-label { font-family: Arial, sans-serif; font-size: 12px; fill: var(--text-primary, #202124); font-weight: 400; }
+            .map-title { font-family: Arial, sans-serif; font-size: 28px; fill: var(--text-primary, #202124); text-anchor: middle; font-weight: bold; }
+            .control-bg { fill: var(--surface-color, #ffffff); stroke: var(--border-color, #dadce0); stroke-width: 1; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); rx: 4; ry: 4; }
+            .control-btn { fill: var(--surface-color, #ffffff); stroke: var(--border-color, #dadce0); stroke-width: 1; cursor: pointer; }
+            
+            /* Interactive states */
+            .interactive:hover { opacity: 0.9; stroke-width: 2; }
+            .vector-point:hover { transform: scale(1.1); }
+            .control-btn:hover { fill: var(--background-color, #f9f9f9); }
+        </style>
+        
+        <linearGradient id="heatmapGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#4285f4"/>
+            <stop offset="50%" stop-color="#fbbc04"/>
+            <stop offset="100%" stop-color="#ea4335"/>
+        </linearGradient>
+        
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#d93025"/>
+        </marker>
+        
+        <pattern id="rasterPattern" patternUnits="userSpaceOnUse" width="40" height="40">
+            <rect width="40" height="40" fill="#c6e7ff" stroke="#dadce0" stroke-width="1"/>
+        </pattern>
+    </defs>
+
+    <!-- Main Map Container -->
+    <g id="map-container" transform="translate(0, 0)">
+        <!-- Background -->
+        <rect class="background" width="100%" height="100%"/>
+        
+        <!-- Basemap Layers -->
+        <g id="basemap-layer">
+            <rect class="basemap-water" x="80" y="120" width="1040" height="700"/>
+            <rect class="basemap-land" x="100" y="140" width="1000" height="660" rx="10"/>
+            
+            <!-- Sample Roads -->
+            <rect class="basemap-road" x="120" y="300" width="300" height="20"/>
+            <rect class="basemap-road" x="250" y="200" width="20" height="200"/>
+            <rect class="basemap-road" x="500" y="400" width="400" height="15"/>
+        </g>
+        
+        <!-- Coordinate System -->
+        <g id="coordinate-layer">
+            <g class="coord-grid">
+                <line x1="80" y1="220" x2="1120" y2="220"/>
+                <line x1="80" y1="320" x2="1120" y2="320"/>
+                <line x1="180" y1="120" x2="180" y2="820"/>
+                <line x1="380" y1="120" x2="380" y2="820"/>
+            </g>
+            <path class="projection-ref" d="M80,820 Q600,900 1120,820"/>
+        </g>
+        
+        <!-- Data Layers (Populated by D3.js) -->
+        <g id="vector-points-layer"></g>
+        <g id="vector-lines-layer"></g>
+        <g id="vector-polygons-layer"></g>
+        <g id="raster-layer"></g>
+        <g id="thematic-layer"></g>
+        <g id="analysis-layer"></g>
+        <g id="interactive-layer"></g>
+        
+        <!-- UI Controls -->
+        <g id="ui-controls">
+            <!-- Zoom Controls -->
+            <g class="zoom-control" transform="translate(1100, 150)">
+                <rect class="control-bg" width="40" height="80" rx="4"/>
+                <g class="control-btn zoom-in" transform="translate(5, 5)">
+                    <rect width="30" height="30" rx="2"/>
+                    <text class="map-label" x="15" y="19" text-anchor="middle" font-size="16">+</text>
+                </g>
+                <g class="control-btn zoom-out" transform="translate(5, 45)">
+                    <rect width="30" height="30" rx="2"/>
+                    <text class="map-label" x="15" y="19" text-anchor="middle" font-size="16">−</text>
+                </g>
+            </g>
+            
+            <!-- Map Type Toggle -->
+            <g class="maptype-control" transform="translate(1100, 250)">
+                <rect class="control-bg" width="40" height="120" rx="4"/>
+                <g class="control-btn maptype-default" transform="translate(5, 5)">
+                    <rect width="30" height="30" rx="2"/>
+                    <text class="map-label" x="15" y="19" text-anchor="middle" font-size="12">D</text>
+                </g>
+                <g class="control-btn maptype-satellite" transform="translate(5, 45)">
+                    <rect width="30" height="30" rx="2"/>
+                    <text class="map-label" x="15" y="19" text-anchor="middle" font-size="12">S</text>
+                </g>
+                <g class="control-btn maptype-terrain" transform="translate(5, 85)">
+                    <rect width="30" height="30" rx="2"/>
+                    <text class="map-label" x="15" y="19" text-anchor="middle" font-size="12">T</text>
+                </g>
+            </g>
+        </g>
+        
+        <!-- Popup Template -->
+        <g id="popup-template" style="display: none;">
+            <rect class="map-popup" width="200" height="120"/>
+            <text class="map-label" x="100" y="30" text-anchor="middle">Feature Info</text>
+            <text class="map-label" x="20" y="60">Name:</text>
+            <text class="map-label" x="20" y="80">Value:</text>
+            <text class="map-label" x="20" y="100">Coordinates:</text>
+        </g>
+    </g>
+    
+    <!-- Title -->
+    <text class="map-title" x="600" y="50">Interactive Geospatial Map</text>
+</svg>

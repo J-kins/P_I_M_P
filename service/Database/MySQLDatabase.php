@@ -268,40 +268,117 @@ class MySQLDatabase extends Database
      * @return string Path to backup file
      * @throws Exception
      */
-    public function backup(string $backupName = null): string
-    {
-        $backupDir = $this->basePath . '/MySQL/backups/';
+
+public function backup(string $backupName = null): string
+{
+    $backupDir = $this->basePath . '/MySQL/backups/';
+    
+    if (!is_dir($backupDir)) {
+        mkdir($backupDir, 0755, true);
+    }
+
+    $backupName = $backupName ?: 'backup_' . date('Y-m-d_H-i-s') . '.sql';
+    $backupPath = $backupDir . $backupName;
+
+    try {
+        $connection = $this->getConnection();
+        $database = $this->config['database'];
         
-        if (!is_dir($backupDir)) {
-            mkdir($backupDir, 0755, true);
+        $backup = "-- MySQL Database Backup\n";
+        $backup .= "-- Generated: " . date('Y-m-d H:i:s') . "\n";
+        $backup .= "-- Database: {$database}\n\n";
+        $backup .= "SET FOREIGN_KEY_CHECKS=0;\n\n";
+
+        // Get all tables
+        $tables = $this->getTables();
+
+        foreach ($tables as $tableData) {
+            $table = $tableData['table_name'];
+            
+            // Get CREATE TABLE statement
+            $createTable = $this->fetchOne("SHOW CREATE TABLE `{$table}`");
+            $backup .= "-- Table: {$table}\n";
+            $backup .= "DROP TABLE IF EXISTS `{$table}`;\n";
+            $backup .= $createTable['Create Table'] . ";\n\n";
+
+            // Get table data
+            $rows = $this->fetchAll("SELECT * FROM `{$table}`");
+            
+            if (!empty($rows)) {
+                foreach ($rows as $row) {
+                    $values = array_map(function($value) use ($connection) {
+                        if ($value === null) {
+                            return 'NULL';
+                        }
+                        return $connection->quote($value);
+                    }, array_values($row));
+                    
+                    $columns = array_map(function($col) {
+                        return "`{$col}`";
+                    }, array_keys($row));
+                    
+                    $backup .= "INSERT INTO `{$table}` (" . implode(', ', $columns) . ") VALUES (" . implode(', ', $values) . ");\n";
+                }
+                $backup .= "\n";
+            }
         }
 
-        $backupName = $backupName ?: 'backup_' . date('Y-m-d_H-i-s') . '.sql';
-        $backupPath = $backupDir . $backupName;
+        $backup .= "SET FOREIGN_KEY_CHECKS=1;\n";
 
-        // Use mysqldump for backup (you might need to adjust the path)
-        $command = sprintf(
-            'mysqldump --host=%s --port=%s --user=%s --password=%s %s > %s',
-            escapeshellarg($this->config['host']),
-            escapeshellarg($this->config['port'] ?? '3306'),
-            escapeshellarg($this->config['username']),
-            escapeshellarg($this->config['password']),
-            escapeshellarg($this->config['database']),
-            escapeshellarg($backupPath)
-        );
-
-        exec($command, $output, $returnCode);
-
-        if ($returnCode !== 0) {
-            throw new Exception("MySQL backup failed with code: {$returnCode}");
-        }
-
-        if (!file_exists($backupPath)) {
-            throw new Exception("Backup file was not created: {$backupPath}");
+        // Write to file
+        if (file_put_contents($backupPath, $backup) === false) {
+            throw new Exception("Failed to write backup file: {$backupPath}");
         }
 
         return $backupPath;
+        
+    } catch (Exception $e) {
+        throw new Exception("MySQL backup failed: " . $e->getMessage());
     }
+}
+
+/*
+public function backup(string $backupName = null): string
+{
+    $backupDir = $this->basePath . '/MySQL/backups/';
+    
+    if (!is_dir($backupDir)) {
+        mkdir($backupDir, 0755, true);
+    }
+
+    $backupName = $backupName ?: 'backup_' . date('Y-m-d_H-i-s') . '.sql';
+    $backupPath = $backupDir . $backupName;
+
+    // Find mysqldump path - adjust based on your system
+    $mysqldumpPath = '/usr/bin/mysqldump'; // Linux/Mac
+    // $mysqldumpPath = 'C:\\xampp\\mysql\\bin\\mysqldump.exe'; // Windows XAMPP
+    // $mysqldumpPath = 'C:\\wamp64\\bin\\mysql\\mysql8.0.x\\bin\\mysqldump.exe'; // Windows WAMP
+
+    $command = sprintf(
+        '%s --host=%s --port=%s --user=%s --password=%s %s > %s 2>&1',
+        escapeshellarg($mysqldumpPath),
+        escapeshellarg($this->config['host']),
+        escapeshellarg($this->config['port'] ?? '3306'),
+        escapeshellarg($this->config['username']),
+        escapeshellarg($this->config['password']),
+        escapeshellarg($this->config['database']),
+        escapeshellarg($backupPath)
+    );
+
+    exec($command, $output, $returnCode);
+
+    if ($returnCode !== 0) {
+        $errorMsg = implode("\n", $output);
+        throw new Exception("MySQL backup failed with code: {$returnCode}. Error: {$errorMsg}");
+    }
+
+    if (!file_exists($backupPath)) {
+        throw new Exception("Backup file was not created: {$backupPath}");
+    }
+
+    return $backupPath;
+}
+*/
 
     /**
      * Restore MySQL database from backup

@@ -1,0 +1,23 @@
+/* Heat Map Styles for D3.js integration */
+#heat-map-svg .heatmap-cells rect {
+  transition: fill 0.2s;
+}
+#heat-map-svg .heatmap-cells rect:hover {
+  stroke: #333;
+  stroke-width: 2;
+}
+#heat-map-svg .cell-label {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  fill: #fff;
+  text-anchor: middle;
+}
+#heat-map-svg .x-label, #heat-map-svg .y-label, #heat-map-svg .legend-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #333;
+}
+#heat-map-svg .title {
+  font-size: 20px;
+  font-weight: bold;
+}

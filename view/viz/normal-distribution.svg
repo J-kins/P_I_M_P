@@ -1,0 +1,45 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="normalDistTitle normalDistDesc">
+    <title id="normalDistTitle">Normal Distribution (Bell Curve)</title>
+    <desc id="normalDistDesc">A data-agnostic SVG template for visualizing the normal distribution PDF, with mean, standard deviation markers, and area shading.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #bbb); stroke-width: 1; stroke-dasharray: 4 2; }
+            .mean-line { stroke: var(--mean-color, #2196f3); stroke-width: 3; }
+            .std-marker { stroke: var(--std-color, #ff9800); stroke-width: 2; }
+            .curve { stroke: var(--curve-color, #4caf50); stroke-width: 3; fill: none; }
+            .area-shading { fill: var(--shade-color, #90caf9); opacity: 0.5; }
+            .label, .std-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; text-anchor: middle; }
+            .title { font-family: var(--font-family, Arial); font-size: 20px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+        <text class="label" x="80" y="300" transform="rotate(-90 80,300)">{yLabel}</text>
+        <text class="label" x="400" y="540">{xLabel}</text>
+    </g>
+    <!-- Standard Deviation Markers -->
+    <g class="std-markers">
+        <!-- for k in [-3, -2, -1, 1, 2, 3] -->
+        <line class="std-marker" x1="{mu + k*sigma}" y1="120" x2="{mu + k*sigma}" y2="500"/>
+        <text class="std-label" x="{mu + k*sigma}" y="110">μ{plusMinus}{k}σ</text>
+        <!-- end for -->
+    </g>
+    <!-- Mean Line -->
+    <line class="mean-line" x1="{mu}" y1="100" x2="{mu}" y2="500"/>
+    <text class="std-label" x="{mu}" y="90">μ</text>
+    <!-- Bell Curve Path -->
+    <path class="curve" d="{curvePath}"/>
+    <!-- Area Shading (dynamic, between two points) -->
+    <g class="area-shading">
+        <path d="{areaPath}"/>
+    </g>
+</svg>
