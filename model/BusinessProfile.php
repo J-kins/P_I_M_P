@@ -272,11 +272,19 @@ class BusinessProfile
             $params['accreditation_level'] = $filters['accreditation_level'];
         }
 
+        if (!empty($filters['min_rating'])) {
+            $whereConditions[] = "rating >= :min_rating";
+            $params['min_rating'] = (float)$filters['min_rating'];
+        }
+
         // Build query
         $whereClause = implode(' AND ', $whereConditions);
         $offset = ($page - 1) * $perPage;
 
-        $query = "SELECT * FROM {$this->table} WHERE {$whereClause} ORDER BY created_at DESC LIMIT :limit OFFSET :offset";
+        // Order by rating if min_rating is set, otherwise by created_at
+        $orderBy = !empty($filters['min_rating']) ? 'rating DESC, created_at DESC' : 'created_at DESC';
+
+        $query = "SELECT * FROM {$this->table} WHERE {$whereClause} ORDER BY {$orderBy} LIMIT :limit OFFSET :offset";
         $params['limit'] = $perPage;
         $params['offset'] = $offset;
 

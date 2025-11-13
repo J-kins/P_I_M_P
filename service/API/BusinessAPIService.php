@@ -133,11 +133,65 @@ class BusinessAPIService
     public function searchBusinesses(array $filters = [], int $page = 1, int $perPage = 20): array
     {
         try {
+            // Handle query parameter from GET request
+            if (isset($filters['q']) || isset($filters['query']) || isset($filters['search'])) {
+                $query = $filters['q'] ?? $filters['query'] ?? $filters['search'] ?? '';
+                if ($query) {
+                    $filters['business_name'] = $query;
+                }
+                unset($filters['q'], $filters['query'], $filters['search']);
+            }
+
+            // Handle min_rating filter
+            if (isset($filters['min_rating'])) {
+                // This will be handled in the model search method
+            }
+
             $result = $this->businessModel->search($filters, $page, $perPage);
 
             return [
                 'success' => true,
                 'message' => 'Businesses retrieved successfully',
+                'data' => $result
+            ];
+            
+        } catch (Exception $e) {
+            return [
+                'success' => false,
+                'message' => $e->getMessage(),
+                'data' => null
+            ];
+        }
+    }
+
+    /**
+     * Get featured businesses (high rating, accredited, active)
+     * 
+     * @param int $limit
+     * @return array
+     */
+    public function getFeaturedBusinesses(int $limit = 6): array
+    {
+        try {
+            $filters = [
+                'status' => 'active',
+                'accreditation_level' => 'verified'
+            ];
+            
+            $result = $this->businessModel->search($filters, 1, $limit);
+            
+            // Sort by rating descending
+            if (isset($result['businesses']) && is_array($result['businesses'])) {
+                usort($result['businesses'], function($a, $b) {
+                    $ratingA = floatval($a['rating'] ?? 0);
+                    $ratingB = floatval($b['rating'] ?? 0);
+                    return $ratingB <=> $ratingA;
+                });
+            }
+
+            return [
+                'success' => true,
+                'message' => 'Featured businesses retrieved successfully',
                 'data' => $result
             ];
             

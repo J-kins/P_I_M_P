@@ -1,0 +1,353 @@
+/* 
+ * P.I.M.P - Scam Alerts Page Styles
+ * Styles for the Scam Alerts page
+ */
+
+/* Warning Banner */
+.warning-banner {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 2rem 0;
+}
+
+.warning-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.warning-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+}
+
+.warning-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.warning-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+/* Prevention Section */
+.prevention-section {
+    padding: 4rem 0;
+    background: var(--bg-primary, #ffffff);
+}
+
+.prevention-section .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tip-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--primary-500, #8a5cf5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.tip-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-100, #f3e8ff);
+    color: var(--primary-500, #8a5cf5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.tip-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 1rem;
+}
+
+.tip-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary, #666666);
+}
+
+/* Alerts Section */
+.alerts-section {
+    padding: 4rem 0;
+    background: var(--bg-secondary, #f8f9fa);
+}
+
+.alerts-section .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.alerts-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.alert-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #dc3545;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alert-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.alert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #fff5f5;
+    border-bottom: 1px solid #fed7d7;
+}
+
+.alert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.alert-date {
+    font-size: 0.875rem;
+    color: var(--text-secondary, #666666);
+}
+
+.alert-content {
+    padding: 1.5rem;
+}
+
+.alert-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 1rem;
+}
+
+.alert-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary, #666666);
+    margin-bottom: 1rem;
+}
+
+.alert-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-tertiary, #999999);
+    margin-top: 0.5rem;
+}
+
+.alert-location i {
+    color: var(--primary-500, #8a5cf5);
+}
+
+.alert-actions {
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary, #f8f9fa);
+    border-top: 1px solid var(--border-color, #e5e5e5);
+}
+
+.alert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-500, #8a5cf5);
+    font-weight: 600;
+    text-decoration: none;
+    transition: gap 0.3s ease;
+}
+
+.alert-link:hover {
+    gap: 0.75rem;
+    color: var(--primary-600, #7c3aed);
+}
+
+/* No Alerts */
+.no-alerts {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-alerts i {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+}
+
+.no-alerts h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 1rem;
+}
+
+.no-alerts p {
+    font-size: 1.1rem;
+    color: var(--text-secondary, #666666);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Report Section */
+.report-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-500, #8a5cf5), var(--primary-600, #7c3aed));
+    color: white;
+}
+
+.report-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.report-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.report-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.report-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.report-buttons .button {
+    min-width: 200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .warning-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .warning-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .prevention-section,
+    .alerts-section,
+    .report-section {
+        padding: 2rem 0;
+    }
+
+    .prevention-section .section-title,
+    .alerts-section .section-title {
+        font-size: 1.75rem;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .alert-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .report-content h2 {
+        font-size: 2rem;
+    }
+
+    .report-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .report-buttons .button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tip-card,
+    .alert-card {
+        padding: 1.25rem;
+    }
+
+    .alert-content {
+        padding: 1rem;
+    }
+
+    .alert-actions {
+        padding: 0.75rem 1rem;
+    }
+}
+

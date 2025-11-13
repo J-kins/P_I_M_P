@@ -137,6 +137,112 @@ class Router
                 '/review/:id' => 'ReviewController@delete',
             ]
         ];
+
+        // Load API routes dynamically
+        self::loadAPIRoutes();
+    }
+
+    /**
+     * Load API routes dynamically
+     */
+    private static function loadAPIRoutes(): void
+    {
+        $apiVersion = 'v1';
+        $apiBase = "/api/{$apiVersion}";
+
+        // Business API routes
+        self::$routes['GET']["{$apiBase}/business/:id"] = 'BusinessAPIService@getBusinessProfile';
+        self::$routes['GET']["{$apiBase}/business/search"] = 'BusinessAPIService@searchBusinesses';
+        self::$routes['GET']["{$apiBase}/business/featured"] = 'BusinessAPIService@getFeaturedBusinesses';
+        self::$routes['POST']["{$apiBase}/business"] = 'BusinessAPIService@registerBusiness';
+        self::$routes['PUT']["{$apiBase}/business/:id"] = 'BusinessAPIService@updateBusinessProfile';
+        self::$routes['GET']["{$apiBase}/business/:id/reviews"] = 'BusinessAPIService@getBusinessReviews';
+        self::$routes['GET']["{$apiBase}/business/:id/complaints"] = 'BusinessAPIService@getBusinessComplaints';
+        self::$routes['POST']["{$apiBase}/business/:id/documents"] = 'BusinessAPIService@uploadDocument';
+        self::$routes['GET']["{$apiBase}/business/:id/locations"] = 'BusinessAPIService@getLocations';
+        self::$routes['PUT']["{$apiBase}/business/:id/hours"] = 'BusinessAPIService@updateHours';
+        self::$routes['GET']["{$apiBase}/business/:id/accreditations"] = 'BusinessAPIService@getAccreditations';
+        self::$routes['GET']["{$apiBase}/business/:id/statistics"] = 'BusinessAPIService@getBusinessStatistics';
+        self::$routes['PUT']["{$apiBase}/business/:id/status"] = 'BusinessAPIService@updateBusinessStatus';
+        self::$routes['PUT']["{$apiBase}/business/:id/accreditation"] = 'BusinessAPIService@updateAccreditation';
+
+        // User API routes
+        self::$routes['GET']["{$apiBase}/user/profile"] = 'UserAPIService@getUserProfile';
+        self::$routes['GET']["{$apiBase}/user/:id"] = 'UserAPIService@getUserProfile';
+        self::$routes['PUT']["{$apiBase}/user/profile"] = 'UserAPIService@updateUserProfile';
+        self::$routes['GET']["{$apiBase}/user/reviews"] = 'UserAPIService@getUserReviews';
+        self::$routes['GET']["{$apiBase}/user/:id/reviews"] = 'UserAPIService@getUserReviews';
+        self::$routes['GET']["{$apiBase}/user/complaints"] = 'UserAPIService@getUserComplaints';
+        self::$routes['GET']["{$apiBase}/user/:id/complaints"] = 'UserAPIService@getUserComplaints';
+        self::$routes['PUT']["{$apiBase}/user/password"] = 'UserAPIService@changePassword';
+        self::$routes['PUT']["{$apiBase}/user/preferences"] = 'UserAPIService@updatePreferences';
+        self::$routes['GET']["{$apiBase}/user/search-history"] = 'UserAPIService@getSearchHistory';
+        self::$routes['DELETE']["{$apiBase}/user/search-history"] = 'UserAPIService@deleteSearchHistory';
+        self::$routes['POST']["{$apiBase}/user/saved-businesses"] = 'UserAPIService@saveBusiness';
+        self::$routes['DELETE']["{$apiBase}/user/saved-businesses"] = 'UserAPIService@removeSavedBusiness';
+        self::$routes['GET']["{$apiBase}/user/saved-businesses"] = 'UserAPIService@getSavedBusinesses';
+        self::$routes['GET']["{$apiBase}/user/statistics"] = 'UserAPIService@getUserStatistics';
+        self::$routes['GET']["{$apiBase}/user/:id/statistics"] = 'UserAPIService@getUserStatistics';
+
+        // Review API routes
+        self::$routes['POST']["{$apiBase}/review"] = 'ReviewAPIService@createReview';
+        self::$routes['GET']["{$apiBase}/review/:id"] = 'ReviewAPIService@getReview';
+        self::$routes['PUT']["{$apiBase}/review/:id"] = 'ReviewAPIService@updateReview';
+        self::$routes['DELETE']["{$apiBase}/review/:id"] = 'ReviewAPIService@deleteReview';
+        self::$routes['POST']["{$apiBase}/review/:id/report"] = 'ReviewAPIService@reportReview';
+        self::$routes['POST']["{$apiBase}/review/:id/vote"] = 'ReviewAPIService@voteOnReview';
+        self::$routes['GET']["{$apiBase}/review/:id/responses"] = 'ReviewAPIService@getReviewResponses';
+        self::$routes['POST']["{$apiBase}/review/:id/response"] = 'ReviewAPIService@addReviewResponse';
+        self::$routes['GET']["{$apiBase}/review/statistics"] = 'ReviewAPIService@getReviewStatistics';
+
+        // Complaint API routes
+        self::$routes['POST']["{$apiBase}/complaint"] = 'ComplaintAPIService@createComplaint';
+        self::$routes['GET']["{$apiBase}/complaint/:id"] = 'ComplaintAPIService@getComplaint';
+        self::$routes['PUT']["{$apiBase}/complaint/:id"] = 'ComplaintAPIService@updateComplaint';
+        self::$routes['POST']["{$apiBase}/complaint/:id/message"] = 'ComplaintAPIService@addMessage';
+        self::$routes['POST']["{$apiBase}/complaint/:id/evidence"] = 'ComplaintAPIService@uploadEvidence';
+        self::$routes['GET']["{$apiBase}/complaint/:id/thread"] = 'ComplaintAPIService@getThread';
+        self::$routes['PUT']["{$apiBase}/complaint/:id/status"] = 'ComplaintAPIService@updateStatus';
+
+        // Chat API routes
+        self::$routes['GET']["{$apiBase}/chat/sessions"] = 'CommunicationAPIService@getChatSessions';
+        self::$routes['GET']["{$apiBase}/chat/:id/messages"] = 'CommunicationAPIService@getMessages';
+        self::$routes['POST']["{$apiBase}/chat/:id/message"] = 'CommunicationAPIService@sendMessage';
+        self::$routes['POST']["{$apiBase}/chat/start"] = 'CommunicationAPIService@startChat';
+        self::$routes['PUT']["{$apiBase}/chat/:id/read"] = 'CommunicationAPIService@markRead';
+        self::$routes['POST']["{$apiBase}/chat/:id/upload"] = 'CommunicationAPIService@uploadFile';
+
+        // Notification API routes
+        self::$routes['GET']["{$apiBase}/notifications"] = 'CommunicationAPIService@getNotifications';
+        self::$routes['PUT']["{$apiBase}/notifications/:id/read"] = 'CommunicationAPIService@markNotificationRead';
+        self::$routes['PUT']["{$apiBase}/notifications/read-all"] = 'CommunicationAPIService@markAllNotificationsRead';
+        self::$routes['GET']["{$apiBase}/notifications/unread-count"] = 'CommunicationAPIService@getUnreadCount';
+        self::$routes['PUT']["{$apiBase}/notifications/preferences"] = 'CommunicationAPIService@updateNotificationPreferences';
+
+        // Auth API routes
+        self::$routes['POST']["{$apiBase}/auth/login"] = 'UserAPIService@loginUser';
+        self::$routes['POST']["{$apiBase}/auth/register"] = 'UserAPIService@registerUser';
+        self::$routes['POST']["{$apiBase}/auth/logout"] = 'UserAPIService@logoutUser';
+        self::$routes['POST']["{$apiBase}/auth/forgot-password"] = 'UserAPIService@initiatePasswordReset';
+        self::$routes['POST']["{$apiBase}/auth/reset-password"] = 'UserAPIService@resetPassword';
+        self::$routes['POST']["{$apiBase}/auth/verify-email"] = 'UserAPIService@verifyEmail';
+
+        // Category API routes
+        self::$routes['GET']["{$apiBase}/categories"] = 'BusinessCategoryAPIService@getAllCategories';
+        self::$routes['GET']["{$apiBase}/category/:slug"] = 'BusinessCategoryAPIService@getCategoryBySlug';
+        self::$routes['GET']["{$apiBase}/category/:id/statistics"] = 'BusinessCategoryAPIService@getCategoryStatistics';
+        self::$routes['POST']["{$apiBase}/categories/search"] = 'BusinessCategoryAPIService@searchCategories';
+
+        // Admin API routes
+        self::$routes['GET']["{$apiBase}/admin/dashboard/stats"] = 'AdminApiService@getDashboardStats';
+        self::$routes['GET']["{$apiBase}/admin/businesses"] = 'AdminApiService@getBusinesses';
+        self::$routes['GET']["{$apiBase}/admin/users"] = 'AdminApiService@getUsers';
+        self::$routes['GET']["{$apiBase}/admin/moderation/queue"] = 'AdminApiService@getModerationQueue';
+        self::$routes['POST']["{$apiBase}/admin/moderation"] = 'AdminApiService@moderateContent';
+        self::$routes['GET']["{$apiBase}/admin/settings"] = 'AdminApiService@getSettings';
+        self::$routes['PUT']["{$apiBase}/admin/settings"] = 'AdminApiService@updateSetting';
+        self::$routes['GET']["{$apiBase}/admin/analytics"] = 'AdminApiService@getAnalytics';
+        self::$routes['GET']["{$apiBase}/admin/system/health"] = 'AdminApiService@getSystemHealth';
     }
 
     /**
@@ -318,15 +424,22 @@ class Router
     }
 
     /**
-     * Call controller method
+     * Call controller method or API service
      * 
-     * @param string $controllerMethod Controller@method string
+     * @param string $controllerMethod Controller@method or Service@method string
      * @param array $params Method parameters
      * @return mixed
      */
     private static function callController(string $controllerMethod, array $params = [])
     {
         list($controller, $method) = explode('@', $controllerMethod);
+        
+        // Check if it's an API service
+        if (strpos($controller, 'APIService') !== false || strpos($controller, 'ApiService') !== false) {
+            return self::callAPIService($controller, $method, $params);
+        }
+        
+        // Regular controller
         $controllerClass = self::$controllerNamespace . $controller;
         
         if (!class_exists($controllerClass)) {
@@ -347,6 +460,196 @@ class Router
             error_log("Controller Method Error: " . $e->getMessage());
             return self::handleError(500, "Error executing controller method");
         }
+    }
+
+    /**
+     * Call API service method
+     * 
+     * @param string $serviceName Service class name
+     * @param string $method Method name
+     * @param array $params Method parameters
+     * @return string JSON response
+     */
+    private static function callAPIService(string $serviceName, string $method, array $params = []): string
+    {
+        try {
+            // Get request data
+            $requestData = self::getRequestData();
+            
+            // Get route parameters
+            $routeParams = self::extractRouteParams($params);
+            
+            // Merge route params with request data
+            $data = array_merge($routeParams, $requestData);
+            
+            // Load database connection
+            $db = self::getDatabase();
+            
+            // Service namespace
+            $serviceNamespace = 'PIMP\\Services\\API\\';
+            $serviceClass = $serviceNamespace . $serviceName;
+            
+            if (!class_exists($serviceClass)) {
+                throw new \Exception("API Service not found: {$serviceClass}");
+            }
+            
+            // Instantiate service
+            $service = new $serviceClass($db);
+            
+            if (!method_exists($service, $method)) {
+                throw new \Exception("Method not found: {$serviceClass}@{$method}");
+            }
+            
+            // Prepare method arguments
+            $args = self::prepareMethodArgs($method, $data, $params);
+            
+            // Call service method
+            $result = call_user_func_array([$service, $method], $args);
+            
+            // Return JSON response
+            header('Content-Type: application/json');
+            return json_encode($result);
+            
+        } catch (\Exception $e) {
+            error_log("API Service Error: " . $e->getMessage());
+            header('Content-Type: application/json');
+            http_response_code(500);
+            return json_encode([
+                'success' => false,
+                'message' => $e->getMessage(),
+                'data' => null
+            ]);
+        }
+    }
+
+    /**
+     * Get request data (POST, PUT, DELETE body)
+     */
+    private static function getRequestData(): array
+    {
+        $data = [];
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+        
+        if (in_array($method, ['POST', 'PUT', 'DELETE', 'PATCH'])) {
+            $input = file_get_contents('php://input');
+            if ($input) {
+                $json = json_decode($input, true);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    $data = $json;
+                } else {
+                    parse_str($input, $data);
+                }
+            }
+            
+            // Also merge $_POST for form data
+            if (!empty($_POST)) {
+                $data = array_merge($data, $_POST);
+            }
+        }
+        
+        // Merge query parameters
+        if (!empty($_GET)) {
+            $data = array_merge($data, $_GET);
+        }
+        
+        return $data;
+    }
+
+    /**
+     * Extract route parameters
+     */
+    private static function extractRouteParams(array $params): array
+    {
+        $routeParams = [];
+        $path = self::getCurrentPath();
+        
+        // Extract :id, :slug, etc. from path
+        if (preg_match_all('/\/([^\/]+)/', $path, $matches)) {
+            $pathParts = $matches[1];
+            // This is a simplified extraction - you may need to enhance based on route patterns
+            foreach ($params as $index => $param) {
+                $routeParams['param' . ($index + 1)] = $param;
+            }
+        }
+        
+        return $routeParams;
+    }
+
+    /**
+     * Prepare method arguments based on method signature
+     */
+    private static function prepareMethodArgs(string $method, array $data, array $routeParams): array
+    {
+        // Extract ID/slug from route params if available
+        $id = $routeParams[0] ?? null;
+        $slug = $routeParams[0] ?? null;
+        
+        // Map common method patterns
+        $args = [];
+        
+        // Check method name patterns
+        if (stripos($method, 'get') === 0) {
+            // GET methods - check if it's getBySlug or getById
+            if (stripos($method, 'BySlug') !== false || stripos($method, 'BySlug') !== false) {
+                $args[] = $slug ?? $id ?? '';
+            } elseif (stripos($method, 'ById') !== false || stripos($method, 'ById') !== false) {
+                $args[] = is_numeric($id) ? (int)$id : $id;
+            } elseif ($id) {
+                // Generic get method with ID
+                $args[] = is_numeric($id) ? (int)$id : $id;
+            } elseif (stripos($method, 'All') !== false || stripos($method, 'All') !== false) {
+                // getAll methods take filters
+                $args[] = $data;
+            }
+        } elseif (stripos($method, 'create') === 0 || stripos($method, 'register') === 0) {
+            // CREATE methods take data
+            $args[] = $data;
+        } elseif (stripos($method, 'update') === 0) {
+            // UPDATE methods take ID and data
+            if ($id) {
+                $args[] = is_numeric($id) ? (int)$id : $id;
+            }
+            $args[] = $data;
+        } elseif (stripos($method, 'delete') === 0 || stripos($method, 'remove') === 0) {
+            // DELETE methods take ID
+            if ($id) {
+                $args[] = is_numeric($id) ? (int)$id : $id;
+            }
+        } elseif (stripos($method, 'search') !== false) {
+            // SEARCH methods take query and optional filters
+            $query = $data['query'] ?? $data['q'] ?? $data['search'] ?? '';
+            $args[] = $query;
+            if (isset($data['limit'])) {
+                $args[] = (int)$data['limit'];
+            }
+        } else {
+            // Default: pass ID if available, then data
+            if ($id) {
+                $args[] = is_numeric($id) ? (int)$id : $id;
+            }
+            if (!empty($data)) {
+                $args[] = $data;
+            }
+        }
+        
+        return $args;
+    }
+
+    /**
+     * Get database connection
+     */
+    private static function getDatabase()
+    {
+        static $db = null;
+        
+        if ($db === null) {
+            $dbConfig = Config::getDatabaseConfig();
+            $dbClass = 'PIMP\\Services\\Database\\MySQLDatabase';
+            $db = new $dbClass($dbConfig);
+            $db->connect();
+        }
+        
+        return $db;
     }
 
     /**

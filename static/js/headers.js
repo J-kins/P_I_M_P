@@ -21,6 +21,44 @@ class PIMPHeaders {
         this.handleScrollEffects();
         this.initializeAdminHeader();
         this.initializeBusinessHeader();
+        this.setupTouchGestures();
+        this.setupStickyHeader();
+        this.handleInitialViewport();
+    }
+
+    handleInitialViewport() {
+        // Set initial viewport classes
+        this.handleResize();
+    }
+
+    setupStickyHeader() {
+        const headers = document.querySelectorAll('header.sticky, .navbar.sticky, .business-main-header.sticky');
+        
+        headers.forEach(header => {
+            let lastScrollTop = 0;
+            const scrollThreshold = 100;
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > scrollThreshold) {
+                    header.classList.add('sticky-active');
+                    
+                    // Hide/show on scroll direction (mobile only)
+                    if (window.innerWidth < 768) {
+                        if (scrollTop > lastScrollTop && scrollTop > 200) {
+                            header.classList.add('header-hidden');
+                        } else {
+                            header.classList.remove('header-hidden');
+                        }
+                    }
+                } else {
+                    header.classList.remove('sticky-active', 'header-hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            }, { passive: true });
+        });
     }
 
     // Main event listeners
@@ -537,8 +575,100 @@ class PIMPHeaders {
 
     // Utility methods
     handleResize() {
-        if (window.innerWidth >= 768) {
+        const isMobile = window.innerWidth < 768;
+        const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+        const isDesktop = window.innerWidth >= 1024;
+
+        // Close mobile menu on resize to desktop
+        if (isDesktop && this.isMobileMenuOpen) {
             this.closeMobileMenu();
+        }
+
+        // Update header classes based on viewport
+        document.querySelectorAll('header, .navbar, .business-main-header').forEach(header => {
+            header.classList.toggle('mobile-view', isMobile);
+            header.classList.toggle('tablet-view', isTablet);
+            header.classList.toggle('desktop-view', isDesktop);
+        });
+
+        // Adjust search behavior based on viewport
+        this.adjustSearchForViewport(isMobile);
+    }
+
+    adjustSearchForViewport(isMobile) {
+        const searchBoxes = document.querySelectorAll('.business-search-box, .header-search, .navbar-search');
+        
+        searchBoxes.forEach(searchBox => {
+            if (isMobile) {
+                // On mobile, make search collapsible
+                const searchInput = searchBox.querySelector('input[type="search"]');
+                const searchWrapper = searchInput?.closest('.business-search-wrapper, .search-wrapper');
+                
+                if (searchWrapper && !searchWrapper.classList.contains('mobile-search')) {
+                    searchWrapper.classList.add('mobile-search');
+                    
+                    // Add toggle button for mobile search
+                    if (!searchWrapper.querySelector('.mobile-search-toggle')) {
+                        const toggle = document.createElement('button');
+                        toggle.className = 'mobile-search-toggle';
+                        toggle.innerHTML = '<i class="fas fa-search"></i>';
+                        toggle.setAttribute('aria-label', 'Toggle search');
+                        toggle.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            searchWrapper.classList.toggle('expanded');
+                            if (searchWrapper.classList.contains('expanded')) {
+                                searchInput.focus();
+                            }
+                        });
+                        searchWrapper.insertBefore(toggle, searchInput);
+                    }
+                }
+            } else {
+                // On desktop, ensure search is always visible
+                const searchWrapper = searchBox.querySelector('.mobile-search');
+                if (searchWrapper) {
+                    searchWrapper.classList.remove('mobile-search', 'expanded');
+                    const toggle = searchWrapper.querySelector('.mobile-search-toggle');
+                    if (toggle) toggle.remove();
+                }
+            }
+        });
+    }
+
+    // Touch/swipe gestures for mobile
+    setupTouchGestures() {
+        const headers = document.querySelectorAll('header, .navbar, .business-main-header');
+        
+        headers.forEach(header => {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const nav = header.querySelector('.business-main-nav, .header-nav, .navbar-nav');
+
+            header.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            header.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                this.handleSwipe(touchStartX, touchEndX, header, nav);
+            }, { passive: true });
+        });
+    }
+
+    handleSwipe(startX, endX, header, nav) {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+
+        // Swipe left to close menu
+        if (diff > swipeThreshold && this.isMobileMenuOpen && nav) {
+            this.closeMobileMenu();
+        }
+        // Swipe right to open menu (only if menu exists and is closed)
+        else if (diff < -swipeThreshold && !this.isMobileMenuOpen && nav && window.innerWidth < 768) {
+            const toggle = header.querySelector('.business-mobile-toggle, .header-mobile-toggle, .navbar-toggle');
+            if (toggle) {
+                this.toggleMobileMenu(toggle);
+            }
         }
     }
 
