@@ -9,6 +9,7 @@
             "PIMP\\Controllers\\": "controller/",
             "PIMP\\Models\\": "model/",
             "PIMP\\Services\\": "service/",
+            "PIMP\\Services\\API\\":"service/API",
             "PIMP\\Services\\Database\\": "service/Database/",
             "PIMP\\Utils\\": "util/",
             "PIMP\\Views\\": "view/",

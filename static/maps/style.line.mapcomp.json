@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Style Line",
+  "description": "Data-agnostic style.line.mapcomp.json component",
+  "properties": {
+    "componentType": {
+      "type": "string",
+      "const": "style.line"
+    },
+    "version": {
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "id": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "bindings": {
+      "type": "object",
+      "properties": {
+        "dataSource": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "componentType",
+    "id"
+  ]
+}
