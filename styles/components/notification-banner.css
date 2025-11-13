@@ -1,0 +1,489 @@
+/* Notification Banner Component Styles */
+/* Provides styling for system notifications and alerts */
+
+.notification-banner {
+  @apply relative;
+}
+
+/* Animation States */
+.notification-banner--entering {
+  animation: notification-slide-in 200ms ease-out;
+}
+
+.notification-banner--closing {
+  animation: notification-slide-out 200ms ease-in;
+}
+
+/* Slide Animations */
+@keyframes notification-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notification-slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Position-specific animations */
+.notification-banner--position-bottom.notification-banner--entering {
+  animation: notification-slide-in-bottom 200ms ease-out;
+}
+
+.notification-banner--position-bottom.notification-banner--closing {
+  animation: notification-slide-out-bottom 200ms ease-in;
+}
+
+@keyframes notification-slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notification-slide-out-bottom {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Size Variants */
+.notification-banner--sm {
+  @apply p-3;
+}
+
+.notification-banner--sm .notification-banner__content {
+  @apply space-x-2;
+}
+
+.notification-banner--sm .notification-banner__icon {
+  @apply w-4 h-4;
+}
+
+.notification-banner--sm .notification-banner__title {
+  @apply text-sm font-medium;
+}
+
+.notification-banner--sm .notification-banner__message {
+  @apply text-sm;
+}
+
+.notification-banner--md {
+  @apply p-4;
+}
+
+.notification-banner--md .notification-banner__content {
+  @apply space-x-3;
+}
+
+.notification-banner--md .notification-banner__icon {
+  @apply w-5 h-5;
+}
+
+.notification-banner--md .notification-banner__title {
+  @apply text-base font-medium;
+}
+
+.notification-banner--md .notification-banner__message {
+  @apply text-sm;
+}
+
+.notification-banner--lg {
+  @apply p-5;
+}
+
+.notification-banner--lg .notification-banner__content {
+  @apply space-x-4;
+}
+
+.notification-banner--lg .notification-banner__icon {
+  @apply w-6 h-6;
+}
+
+.notification-banner--lg .notification-banner__title {
+  @apply text-lg font-medium;
+}
+
+.notification-banner--lg .notification-banner__message {
+  @apply text-base;
+}
+
+/* Content Layout */
+.notification-banner__content {
+  @apply flex items-start;
+}
+
+.notification-banner__icon-container {
+  @apply flex-shrink-0;
+}
+
+.notification-banner__text-container {
+  @apply flex-1 min-w-0;
+}
+
+.notification-banner__title {
+  @apply mb-1;
+}
+
+.notification-banner__message {
+  @apply leading-5;
+}
+
+.notification-banner__actions {
+  @apply mt-3 flex space-x-2;
+}
+
+.notification-banner__close-container {
+  @apply flex-shrink-0;
+}
+
+.notification-banner__close-button {
+  @apply -mt-1 -mr-1;
+}
+
+/* Type Variants - Default */
+.notification-banner--info-default {
+  @apply bg-blue-50 border-blue-200 text-blue-800;
+  @apply dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-200;
+}
+
+.notification-banner--success-default {
+  @apply bg-green-50 border-green-200 text-green-800;
+  @apply dark:bg-green-900/20 dark:border-green-800 dark:text-green-200;
+}
+
+.notification-banner--warning-default {
+  @apply bg-yellow-50 border-yellow-200 text-yellow-800;
+  @apply dark:bg-yellow-900/20 dark:border-yellow-800 dark:text-yellow-200;
+}
+
+.notification-banner--error-default {
+  @apply bg-red-50 border-red-200 text-red-800;
+  @apply dark:bg-red-900/20 dark:border-red-800 dark:text-red-200;
+}
+
+/* Type Variants - Minimal */
+.notification-banner--info-minimal {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.notification-banner--success-minimal {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.notification-banner--warning-minimal {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.notification-banner--error-minimal {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Type Variants - Outlined */
+.notification-banner--info-outlined {
+  @apply border-2 border-blue-500 text-blue-600 dark:text-blue-400;
+  @apply bg-white dark:bg-gray-800;
+}
+
+.notification-banner--success-outlined {
+  @apply border-2 border-green-500 text-green-600 dark:text-green-400;
+  @apply bg-white dark:bg-gray-800;
+}
+
+.notification-banner--warning-outlined {
+  @apply border-2 border-yellow-500 text-yellow-600 dark:text-yellow-400;
+  @apply bg-white dark:bg-gray-800;
+}
+
+.notification-banner--error-outlined {
+  @apply border-2 border-red-500 text-red-600 dark:text-red-400;
+  @apply bg-white dark:bg-gray-800;
+}
+
+/* Type Variants - Filled */
+.notification-banner--info-filled {
+  @apply bg-blue-500 text-white border-transparent;
+}
+
+.notification-banner--success-filled {
+  @apply bg-green-500 text-white border-transparent;
+}
+
+.notification-banner--warning-filled {
+  @apply bg-yellow-500 text-white border-transparent;
+}
+
+.notification-banner--error-filled {
+  @apply bg-red-500 text-white border-transparent;
+}
+
+/* Filled variant adjustments */
+.notification-banner--filled .notification-banner__icon,
+.notification-banner--filled .notification-banner__title,
+.notification-banner--filled .notification-banner__message {
+  @apply text-white;
+}
+
+.notification-banner--filled .notification-banner__close-button {
+  @apply text-white border-white/30 hover:bg-white/20;
+}
+
+.notification-banner--filled .notification-banner__actions button {
+  @apply text-white border-white/30 hover:bg-white/20;
+}
+
+/* Position Classes */
+.notification-banner--position-top {
+  @apply top-4;
+}
+
+.notification-banner--position-bottom {
+  @apply bottom-4;
+}
+
+/* Interactive States */
+.notification-banner--clickable {
+  @apply cursor-pointer transition-shadow duration-200;
+}
+
+.notification-banner--clickable:hover {
+  @apply shadow-md;
+}
+
+.notification-banner--clickable:active {
+  @apply transform scale-[0.99];
+}
+
+/* Progress Bar for Auto Close */
+.notification-banner__progress-container {
+  @apply mt-3 h-1 bg-black/10 rounded-full overflow-hidden;
+}
+
+.notification-banner__progress {
+  @apply h-full bg-current opacity-50;
+}
+
+/* Progress Animation */
+@keyframes notification-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Fixed/Absolute Positioning for Global Notifications */
+.notification-banner--fixed {
+  @apply fixed left-4 right-4 z-50;
+}
+
+.notification-banner--fixed.notification-banner--position-top {
+  @apply top-4;
+}
+
+.notification-banner--fixed.notification-banner--position-bottom {
+  @apply bottom-4;
+}
+
+/* Stacked Notifications */
+.notification-banner--stacked {
+  @apply mb-3;
+}
+
+.notification-banner--stacked:last-child {
+  @apply mb-0;
+}
+
+/* Compact Layout for Mobile */
+@media (max-width: 640px) {
+  .notification-banner--fixed {
+    @apply left-2 right-2;
+  }
+
+  .notification-banner--lg {
+    @apply p-4;
+  }
+
+  .notification-banner--lg .notification-banner__content {
+    @apply space-x-3;
+  }
+
+  .notification-banner--lg .notification-banner__icon {
+    @apply w-5 h-5;
+  }
+
+  .notification-banner--lg .notification-banner__title {
+    @apply text-base;
+  }
+
+  .notification-banner--lg .notification-banner__message {
+    @apply text-sm;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .notification-banner {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .notification-banner--info-default,
+  .notification-banner--info-outlined {
+    @apply border-blue-800 dark:border-blue-300;
+  }
+
+  .notification-banner--success-default,
+  .notification-banner--success-outlined {
+    @apply border-green-800 dark:border-green-300;
+  }
+
+  .notification-banner--warning-default,
+  .notification-banner--warning-outlined {
+    @apply border-yellow-800 dark:border-yellow-300;
+  }
+
+  .notification-banner--error-default,
+  .notification-banner--error-outlined {
+    @apply border-red-800 dark:border-red-300;
+  }
+
+  .notification-banner__title,
+  .notification-banner__message {
+    @apply font-bold;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .notification-banner--entering,
+  .notification-banner--closing {
+    animation: none !important;
+  }
+
+  .notification-banner--clickable {
+    @apply transition-none;
+  }
+
+  .notification-banner--clickable:active {
+    transform: none;
+  }
+
+  .notification-banner__progress {
+    animation: none !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .notification-banner {
+    @apply border-2 border-gray-400 mb-4 break-inside-avoid;
+  }
+
+  .notification-banner__close-button,
+  .notification-banner__progress-container {
+    @apply hidden;
+  }
+
+  .notification-banner__title,
+  .notification-banner__message {
+    @apply text-black;
+  }
+
+  .notification-banner--filled {
+    @apply bg-transparent text-black border-gray-400;
+  }
+}
+
+/* Focus States for Accessibility */
+.notification-banner:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800;
+}
+
+.notification-banner__close-button:focus-visible {
+  @apply outline-none ring-2 ring-current ring-offset-2;
+}
+
+/* RTL Support */
+[dir="rtl"] .notification-banner__content {
+  @apply space-x-reverse;
+}
+
+[dir="rtl"] .notification-banner__actions {
+  @apply space-x-reverse;
+}
+
+[dir="rtl"] .notification-banner__close-button {
+  @apply -mt-1 -ml-1 -mr-0;
+}
+
+/* Custom Properties for Theme Integration */
+.notification-banner {
+  --notification-border-radius: theme(borderRadius.lg);
+  --notification-shadow: theme(boxShadow.sm);
+  --notification-shadow-hover: theme(boxShadow.md);
+  --notification-transition: theme(transitionDuration.200);
+}
+
+/* Accessibility Enhancements */
+.notification-banner[role="alert"] {
+  /* Ensures screen readers announce immediately */
+}
+
+.notification-banner[aria-live="assertive"] {
+  /* For critical notifications */
+}
+
+.notification-banner[aria-live="polite"] {
+  /* For non-critical notifications */
+}
+
+/* Container for Multiple Notifications */
+.notification-banner-container {
+  @apply fixed z-50 pointer-events-none;
+}
+
+.notification-banner-container--top {
+  @apply top-4 left-4 right-4;
+}
+
+.notification-banner-container--bottom {
+  @apply bottom-4 left-4 right-4;
+}
+
+.notification-banner-container .notification-banner {
+  @apply pointer-events-auto mb-3;
+}
+
+.notification-banner-container .notification-banner:last-child {
+  @apply mb-0;
+}
+
+/* Center positioning for wider screens */
+@media (min-width: 768px) {
+  .notification-banner-container--top,
+  .notification-banner-container--bottom {
+    @apply left-1/2 transform -translate-x-1/2 max-w-md;
+  }
+}

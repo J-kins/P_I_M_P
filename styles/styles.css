@@ -1,0 +1,281 @@
+/**
+ * P.I.M.P - Business Repository Platform
+ * Main Stylesheet - Imports all component styles
+ * Version: 1.0.0
+ */
+
+/* ==========================================================================
+   Base Styles & CSS Reset
+   ========================================================================== */
+
+/* Reset and normalize */
+@import url('base/reset.css');
+
+/* CSS Custom Properties (Variables) */
+@import url('base/variables.css');
+
+/* Global styles and typography */
+@import url('base/typography.css');
+@import url('base/global.css');
+
+/* ==========================================================================
+   Layout & Structural Components
+   ========================================================================== */
+
+/* Layout components */
+@import url('components/flex.css');
+@import url('components/position.css');
+@import url('components/spacing.css');
+@import url('components/visibility.css');
+@import url('components/grid-view.css');
+@import url('components/grid-view-panel.css');
+@import url('components/grid-item.css');
+@import url('components/table-view.css');
+@import url('components/table-view-panel.css');
+@import url('components/table-header.css');
+@import url('components/table-row.css');
+@import url('components/table-cell.css');
+
+/* ==========================================================================
+   Navigation & Header Components
+   ========================================================================== */
+
+/* Navigation components */
+@import url('components/header.css');
+@import url('components/footer.css');
+@import url('components/sidebar.css');
+@import url('components/sidebar-link.css');
+@import url('components/menu-dropdown.css');
+@import url('components/profile-dropdown.css');
+@import url('components/scrollspy-nav.css');
+@import url('components/sticky-tabs-nav.css');
+@import url('components/tab-switcher.css');
+@import url('components/tab-item.css');
+
+/* ==========================================================================
+   Form & Input Components
+   ========================================================================== */
+
+/* Form elements */
+@import url('components/form-group.css');
+@import url('components/input.css');
+@import url('components/label.css');
+@import url('components/button.css');
+@import url('components/file-input.css');
+@import url('components/switch.css');
+@import url('components/search-box.css');
+
+/* ==========================================================================
+   UI & Interactive Components
+   ========================================================================== */
+
+/* Interactive components */
+@import url('components/modal.css');
+@import url('components/modal-dialog.css');
+@import url('components/tooltip.css');
+@import url('components/toast.css');
+@import url('components/accordion-item.css');
+@import url('components/accordion-panel.css');
+@import url('components/slider.css');
+@import url('components/slider-nav.css');
+@import url('components/progress-bar.css');
+@import url('components/close-button.css');
+@import url('components/view-toggle.css');
+@import url('components/toggle-theme-switch.css');
+
+/* ==========================================================================
+   Content Display Components
+   ========================================================================== */
+
+/* Content components */
+@import url('components/card.css');
+@import url('components/post-card.css');
+@import url('components/post-detail.css');
+@import url('components/post-feed.css');
+@import url('components/post-image.css');
+@import url('components/post-text.css');
+@import url('components/post-video.css');
+@import url('components/profile-card.css');
+@import url('components/list-item.css');
+@import url('components/group-list.css');
+@import url('components/divider.css');
+@import url('components/badge.css');
+
+/* ==========================================================================
+   Media & File Components
+   ========================================================================== */
+
+/* Media components */
+@import url('components/image.css');
+@import url('components/icon.css');
+@import url('components/avatar.css');
+@import url('components/avatar-with-name.css');
+@import url('components/gallery-item.css');
+@import url('components/gallery-uploader.css');
+@import url('components/lightbox-gallery.css');
+@import url('components/media-player.css');
+@import url('components/file-preview.css');
+@import url('components/file-uploader.css');
+@import url('components/document-uploader.css');
+@import url('components/upload-button.css');
+
+/* ==========================================================================
+   Social & Communication Components
+   ========================================================================== */
+
+/* Social components */
+@import url('components/social-action-button.css');
+@import url('components/social-login-button.css');
+@import url('components/like-button.css');
+@import url('components/comment-button.css');
+@import url('components/comment-input.css');
+@import url('components/comment-list-item.css');
+@import url('components/share-button.css');
+@import url('components/user-mention.css');
+@import url('components/chat-preview.css');
+@import url('components/chat-sidebar.css');
+
+/* ==========================================================================
+   Notification & Feedback Components
+   ========================================================================== */
+
+/* Notification components */
+@import url('components/notification-system.css');
+@import url('components/notification-banner.css');
+@import url('components/notification-dot.css');
+@import url('components/notification-item.css');
+@import url('components/notifications-panel.css');
+
+/* ==========================================================================
+   Animation & Effect Components
+   ========================================================================== */
+
+/* Animation components */
+@import url('components/fade.css');
+@import url('components/slide.css');
+@import url('components/scale.css');
+@import url('components/kenburns.css');
+@import url('components/shake.css');
+@import url('components/ripple-effect.css');
+@import url('components/stroke.css');
+@import url('components/transform-origin.css');
+
+/* ==========================================================================
+   Utility & Miscellaneous Components
+   ========================================================================== */
+
+/* Utility components */
+@import url('components/link.css');
+@import url('components/text.css');
+@import url('components/simplebar.css');
+@import url('components/countdown-timer.css');
+@import url('components/create-post-option.css');
+@import url('components/create-post-slider.css');
+@import url('components/recent-search-item.css');
+@import url('components/main-content-panel.css');
+
+/* ==========================================================================
+   View-Specific Styles
+   ========================================================================== */
+
+/* Page and view styles */
+@import url('views/landing-page.css');
+@import url('views/auth-layout.css');
+@import url('views/auth-page.css');
+@import url('views/login-page.css');
+@import url('views/main-layout.css');
+@import url('views/feed-page.css');
+@import url('views/timeline-page.css');
+@import url('views/post-feed-page.css');
+@import url('views/post-creation-page.css');
+@import url('views/messages-page.css');
+@import url('views/friends-page.css');
+@import url('views/groups-page.css');
+@import url('views/pages-page.css');
+@import url('views/events-page.css');
+@import url('views/market-page.css');
+@import url('views/blog-page.css');
+@import url('views/fundraiser-page.css');
+@import url('views/games-page.css');
+@import url('views/media-upload-page.css');
+@import url('views/video-watch-page.css');
+@import url('views/product-view-page.css');
+@import url('views/document-management-page.css');
+@import url('views/general-settings-page.css');
+@import url('views/upgrade-page.css');
+@import url('views/components-page.css');
+@import url('views/homepage.css');
+@import url('views/business-directory.css');
+@import url('views/business-search.css');
+@import url('views/business-categories.css');
+@import url('views/business-profile.css');
+@import url('views/business-reviews.css');
+@import url('views/BusinessReviews.css');
+@import url('views/dashboard.css');
+@import url('views/user-profile.css');
+@import url('views/auth.css');
+@import url('views/for-business.css');
+@import url('views/business-dashboard.css');
+@import url('views/claim-business.css');
+@import url('views/BusinessAccreditation.css');
+@import url('views/BusinessSettings.css');
+@import url('views/BusinessAnalytics.css');
+@import url('views/BusinessRegister.css');
+@import url('views/BusinessEmailVerification.css');
+
+/* Admin views */
+@import url('views/admin-dashboard.css');
+
+/* ==========================================================================
+   Theme System
+   ========================================================================== */
+
+/* Theme files are loaded separately via themes/{theme-name}.css */
+/* Available themes: purple1, berry, coffee, grayscale, oceanic, slate */
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    @import url('base/print.css');
+}
+
+/* ==========================================================================
+   High-DPI Display Optimizations
+   ========================================================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @import url('base/hidpi.css');
+}
+
+/* ==========================================================================
+   Utility Classes (Last for specificity)
+   ========================================================================== */
+
+/* Import utility classes last to ensure they override component styles */
+@import url('base/utilities.css');
+
+/* ==========================================================================
+   CSS Custom Properties Fallbacks
+   ========================================================================== */
+
+/**
+ * Fallback values for CSS custom properties
+ * These ensure compatibility with older browsers
+ */
+:root {
+    /* Ensure fallbacks for critical variables */
+    --primary-color: #8a5cf5;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    
+    /* Font fallbacks */
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}

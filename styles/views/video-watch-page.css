@@ -1,0 +1,222 @@
+/* Video Watch Page Styles */
+
+.video-watch-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.video-player-container {
+  @apply relative overflow-hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.video-player-container video {
+  @apply w-full h-full object-cover;
+}
+
+.video-info {
+  @apply space-y-4;
+}
+
+.video-info h1 {
+  @apply text-2xl font-bold text-gray-900 dark:text-white leading-tight;
+}
+
+.channel-info {
+  @apply flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg;
+  transition: all var(--transition-normal);
+}
+
+.channel-info:hover {
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.description {
+  @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-4;
+}
+
+.description h4 {
+  @apply font-semibold mb-2 text-gray-900 dark:text-white;
+}
+
+.description p {
+  @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+.related-video-card {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.related-video-card:hover {
+  @apply transform scale-105;
+}
+
+.related-video-card img {
+  @apply transition-transform duration-200 ease-in-out;
+}
+
+.related-video-card:hover img {
+  @apply scale-110;
+}
+
+/* Video player controls overlay */
+.video-player-container .controls-overlay {
+  @apply absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4;
+}
+
+.video-controls {
+  @apply flex items-center justify-between text-white;
+}
+
+.video-progress {
+  @apply w-full h-1 bg-white/20 rounded-full mb-3;
+}
+
+.video-progress-bar {
+  @apply h-full bg-white rounded-full transition-all duration-300;
+}
+
+/* Video stats styling */
+.video-stats {
+  @apply flex items-center space-x-6 text-sm text-gray-600 dark:text-gray-400;
+}
+
+.video-stats > span {
+  @apply flex items-center space-x-1;
+}
+
+/* Action buttons styling */
+.action-buttons {
+  @apply flex items-center space-x-2;
+}
+
+.action-buttons button {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.action-buttons button:hover {
+  @apply transform scale-105;
+}
+
+/* Comments section styling */
+.comments-section {
+  @apply mt-8 space-y-6;
+}
+
+.comments-header {
+  @apply flex items-center justify-between mb-6;
+}
+
+.comments-header h3 {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.comment-sort {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+/* Related videos styling */
+.related-videos {
+  @apply space-y-4;
+}
+
+.related-videos h3 {
+  @apply font-semibold text-lg mb-4 text-gray-900 dark:text-white;
+}
+
+.related-video-item {
+  @apply flex space-x-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer;
+}
+
+.related-video-thumbnail {
+  @apply w-24 h-16 bg-gray-300 dark:bg-gray-600 rounded-lg flex-shrink-0 overflow-hidden;
+}
+
+.related-video-info {
+  @apply flex-1 min-w-0;
+}
+
+.related-video-title {
+  @apply text-sm font-medium text-gray-900 dark:text-white line-clamp-2 mb-1;
+}
+
+.related-video-meta {
+  @apply text-xs text-gray-600 dark:text-gray-400;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .video-watch-page {
+    @apply px-2;
+  }
+
+  .video-info h1 {
+    @apply text-xl;
+  }
+
+  .channel-info {
+    @apply flex-col space-y-3 items-start;
+  }
+
+  .action-buttons {
+    @apply flex-wrap gap-2;
+  }
+
+  .related-video-card {
+    @apply flex-col;
+  }
+
+  .related-video-thumbnail {
+    @apply w-full h-32;
+  }
+}
+
+/* Dark mode specific styles */
+@media (prefers-color-scheme: dark) {
+  .video-player-container {
+    @apply border border-gray-700;
+  }
+
+  .video-info {
+    @apply text-gray-100;
+  }
+
+  .video-stats {
+    @apply text-gray-300;
+  }
+}
+
+/* Accessibility improvements */
+.video-watch-page *:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

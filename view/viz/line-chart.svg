@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" class="line-chart-container">
+    <defs>
+        <style>
+            .line-chart-container {
+                --line-color: #e67e22;
+                --line-hover: #d35400;
+                --marker-color: #4a86e8;
+                --marker-hover: #3a76d8;
+                --axis-color: #333;
+                --grid-color: #eee;
+                --label-color: #333;
+                --value-label-color: #222;
+                --background: #fff;
+                --line-width: 3;
+                --marker-radius: 6;
+                --font-family: system-ui, sans-serif;
+            }
+            .background { fill: var(--background); }
+            .axis { stroke: var(--axis-color); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color); stroke-width: 1; }
+            .line {
+                fill: none;
+                stroke: var(--line-color);
+                stroke-width: var(--line-width);
+                transition: stroke 0.2s;
+            }
+            .line:hover {
+                stroke: var(--line-hover);
+            }
+            .marker {
+                fill: var(--marker-color);
+                stroke: white;
+                stroke-width: 2;
+                cursor: pointer;
+                transition: fill 0.2s, r 0.2s;
+            }
+            .marker:hover {
+                fill: var(--marker-hover);
+                r: 9;
+            }
+            .x-label, .y-label {
+                font-family: var(--font-family);
+                font-size: 14px;
+                fill: var(--label-color);
+                text-anchor: middle;
+            }
+            .y-label { text-anchor: end; }
+            .point-value-label {
+                font-family: var(--font-family);
+                font-size: 13px;
+                fill: var(--value-label-color);
+                font-weight: bold;
+                text-anchor: middle;
+            }
+            .title {
+                font-family: var(--font-family);
+                font-size: 20px;
+                fill: var(--label-color);
+                text-anchor: middle;
+                font-weight: bold;
+            }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+    </g>
+    <!-- Grid Lines & Y Labels -->
+    <g class="y-grid-labels">
+        <!-- for each tick in {yTicks} -->
+        <line class="grid-line" x1="100" y1="{tick.y}" x2="700" y2="{tick.y}"/>
+        <text class="y-label" x="90" y="{tick.y+5}">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- X Labels -->
+    <g class="x-labels">
+        <!-- for each label in {xLabels} -->
+        <text class="x-label" x="{label.x}" y="520">{label.text}</text>
+        <!-- end for -->
+    </g>
+    <!-- Line Path & Markers -->
+    <g class="line-markers">
+        <!-- Line Path -->
+        <path class="line" d="{linePath}"/>
+        <!-- for each point in {points} -->
+        <circle class="marker" cx="{point.x}" cy="{point.y}" r="6">
+            <title>{point.label}: {point.value}</title>
+        </circle>
+        <text class="point-value-label" x="{point.x}" y="{point.y - 12}">{point.value}</text>
+        <!-- end for -->
+    </g>
+    <!-- Optional: Legend -->
+    <g class="legend" transform="translate(650, 100)">
+        <rect x="0" y="0" width="120" height="50" fill="#fff" stroke="#ddd" stroke-width="1" rx="5" opacity="0.9"/>
+        <text class="title" x="60" y="20" font-size="14">Legend</text>
+        <line class="line" x1="20" y1="35" x2="60" y2="35"/>
+        <circle class="marker" cx="80" cy="35" r="6"/>
+        <text class="x-label" x="100" y="40">Data Point</text>
+    </g>
+</svg>
+<!--
+Data structure example:
+{
+  chartTitle: "Website Traffic Over Time",
+  yTicks: [ { y: 500, label: "0" }, { y: 400, label: "100" }, ... ],
+  xLabels: [ { x: 140, text: "Jan" }, { x: 210, text: "Feb" }, ... ],
+  linePath: "M140,300 L210,250 ...", // SVG path string
+  points: [
+    { x: 140, y: 300, label: "Jan", value: 100 },
+    { x: 210, y: 250, label: "Feb", value: 125 },
+    ...
+  ]
+}
+-->

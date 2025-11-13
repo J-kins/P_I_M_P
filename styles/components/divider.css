@@ -1,0 +1,371 @@
+/* Divider Component Styles */
+.divider {
+  @apply border-0 border-gray-200 dark:border-gray-700;
+}
+
+/* Horizontal Dividers */
+.divider-horizontal {
+  @apply w-full border-t;
+}
+
+/* Vertical Dividers */
+.divider-vertical {
+  @apply h-full border-l;
+}
+
+/* Divider Variants */
+.divider-solid {
+  @apply border-solid;
+}
+
+.divider-dashed {
+  @apply border-dashed;
+}
+
+.divider-dotted {
+  @apply border-dotted;
+}
+
+.divider-double {
+  @apply border-double border-t-4;
+}
+
+/* Divider Thickness */
+.divider-thin {
+  @apply border-t;
+}
+
+.divider-medium {
+  @apply border-t-2;
+}
+
+.divider-thick {
+  @apply border-t-4;
+}
+
+.divider-vertical.divider-thin {
+  @apply border-l border-t-0;
+}
+
+.divider-vertical.divider-medium {
+  @apply border-l-2 border-t-0;
+}
+
+.divider-vertical.divider-thick {
+  @apply border-l-4 border-t-0;
+}
+
+/* Divider Colors */
+.divider-gray {
+  @apply border-gray-200 dark:border-gray-700;
+}
+
+.divider-primary {
+  @apply border-blue-200 dark:border-blue-700;
+}
+
+.divider-secondary {
+  @apply border-gray-300 dark:border-gray-600;
+}
+
+.divider-success {
+  @apply border-green-200 dark:border-green-700;
+}
+
+.divider-warning {
+  @apply border-yellow-200 dark:border-yellow-700;
+}
+
+.divider-danger {
+  @apply border-red-200 dark:border-red-700;
+}
+
+.divider-info {
+  @apply border-blue-200 dark:border-blue-700;
+}
+
+.divider-light {
+  @apply border-gray-100 dark:border-gray-800;
+}
+
+.divider-dark {
+  @apply border-gray-800 dark:border-gray-200;
+}
+
+/* Divider with Text */
+.divider-text {
+  @apply relative flex items-center;
+}
+
+.divider-text::before,
+.divider-text::after {
+  @apply flex-1 border-t border-gray-200 dark:border-gray-700;
+  content: "";
+}
+
+.divider-text-content {
+  @apply px-4 text-sm text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900;
+}
+
+/* Divider Text Positions */
+.divider-text-left::before {
+  @apply flex-none w-8;
+}
+
+.divider-text-right::after {
+  @apply flex-none w-8;
+}
+
+/* Divider with Icon */
+.divider-icon {
+  @apply relative flex items-center;
+}
+
+.divider-icon::before,
+.divider-icon::after {
+  @apply flex-1 border-t border-gray-200 dark:border-gray-700;
+  content: "";
+}
+
+.divider-icon-content {
+  @apply px-4 text-gray-400 dark:text-gray-500 bg-white dark:bg-gray-900;
+}
+
+.divider-icon-content svg {
+  @apply w-4 h-4;
+}
+
+/* Divider Spacing */
+.divider-spacing-xs {
+  @apply my-2;
+}
+
+.divider-spacing-sm {
+  @apply my-4;
+}
+
+.divider-spacing-md {
+  @apply my-6;
+}
+
+.divider-spacing-lg {
+  @apply my-8;
+}
+
+.divider-spacing-xl {
+  @apply my-12;
+}
+
+.divider-vertical.divider-spacing-xs {
+  @apply mx-2 my-0;
+}
+
+.divider-vertical.divider-spacing-sm {
+  @apply mx-4 my-0;
+}
+
+.divider-vertical.divider-spacing-md {
+  @apply mx-6 my-0;
+}
+
+.divider-vertical.divider-spacing-lg {
+  @apply mx-8 my-0;
+}
+
+.divider-vertical.divider-spacing-xl {
+  @apply mx-12 my-0;
+}
+
+/* Divider Fade Effect */
+.divider-fade {
+  @apply relative overflow-hidden;
+}
+
+.divider-fade::before {
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-gray-200 to-transparent;
+  @apply dark:via-gray-700;
+  content: "";
+}
+
+.divider-vertical.divider-fade::before {
+  @apply bg-gradient-to-b from-transparent via-gray-200 to-transparent;
+  @apply dark:via-gray-700;
+}
+
+/* Divider with Background */
+.divider-bg {
+  @apply bg-gray-100 dark:bg-gray-800 h-px;
+}
+
+.divider-bg-primary {
+  @apply bg-blue-100 dark:bg-blue-900 h-px;
+}
+
+.divider-bg-secondary {
+  @apply bg-gray-200 dark:bg-gray-700 h-px;
+}
+
+/* Divider Animations */
+.divider-animate {
+  @apply opacity-0 animate-fade-in;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.divider-slide {
+  @apply transform -translate-x-full;
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+@keyframes slide-in {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.divider-grow {
+  @apply transform scale-x-0;
+  animation: grow 0.3s ease-out forwards;
+}
+
+@keyframes grow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Section Dividers */
+.divider-section {
+  @apply border-t-2 border-gray-100 dark:border-gray-800 my-8;
+}
+
+.divider-section-thick {
+  @apply border-t-4 border-gray-200 dark:border-gray-700 my-12;
+}
+
+/* Card Dividers */
+.divider-card {
+  @apply border-t border-gray-100 dark:border-gray-800 my-4;
+}
+
+/* List Dividers */
+.divider-list {
+  @apply border-t border-gray-100 dark:border-gray-800;
+}
+
+.divider-list:first-child {
+  @apply border-t-0;
+}
+
+/* Menu Dividers */
+.divider-menu {
+  @apply border-t border-gray-100 dark:border-gray-700 my-1;
+}
+
+/* Toolbar Dividers */
+.divider-toolbar {
+  @apply border-l border-gray-200 dark:border-gray-700 mx-2 h-6;
+}
+
+/* Gradient Dividers */
+.divider-gradient {
+  @apply h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent;
+  @apply dark:via-gray-600;
+}
+
+.divider-gradient-primary {
+  @apply h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent;
+  @apply dark:via-blue-600;
+}
+
+.divider-gradient-rainbow {
+  @apply h-px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #ff0000 16.66%,
+    #ff8c00 33.33%,
+    #ffd700 50%,
+    #00ff00 66.66%,
+    #0000ff 83.33%,
+    transparent 100%
+  );
+}
+
+/* Responsive Dividers */
+@media (max-width: 640px) {
+  .divider-responsive-hide {
+    @apply hidden;
+  }
+
+  .divider-responsive-show {
+    @apply block;
+  }
+
+  .divider-responsive-spacing {
+    @apply my-2;
+  }
+}
+
+@media (min-width: 641px) {
+  .divider-responsive-hide {
+    @apply block;
+  }
+
+  .divider-responsive-show {
+    @apply hidden;
+  }
+
+  .divider-responsive-spacing {
+    @apply my-6;
+  }
+}
+
+/* Custom Patterns */
+.divider-pattern-dots {
+  @apply relative h-1 bg-transparent;
+}
+
+.divider-pattern-dots::before {
+  @apply absolute inset-0;
+  content: "";
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 8px 8px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+.divider-pattern-waves {
+  @apply h-2 bg-transparent;
+  background-image: url("data:image/svg+xml,%3csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 10 Q25 0 50 10 T100 10' stroke='%23d1d5db' fill='none' stroke-width='2'/%3e%3c/svg%3e");
+  background-repeat: repeat-x;
+}
+
+/* Divider States */
+.divider-loading {
+  @apply animate-pulse;
+}
+
+.divider-disabled {
+  @apply opacity-50;
+}
+
+/* Divider Accessibility */
+.divider[role="separator"] {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Print Styles */
+@media print {
+  .divider-print-hide {
+    @apply hidden;
+  }
+
+  .divider-print-show {
+    @apply block border-gray-400;
+  }
+}

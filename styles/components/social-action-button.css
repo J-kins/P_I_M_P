@@ -1,0 +1,398 @@
+/* Social Action Button Component Styles */
+/* Provides styling for social interaction buttons (like, comment, share, save, react) */
+
+.social-action-button {
+  @apply inline-flex items-center font-medium rounded-lg transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.social-action-button:disabled:hover {
+  transform: none !important;
+}
+
+/* Size Variants */
+.social-action-button--sm {
+  @apply px-2 py-1.5 text-xs gap-1;
+}
+
+.social-action-button--md {
+  @apply px-3 py-2 text-sm gap-2;
+}
+
+.social-action-button--lg {
+  @apply px-4 py-2.5 text-base gap-2;
+}
+
+/* Icon Size Variants */
+.social-action-button--sm .social-action-button__icon {
+  @apply w-4 h-4;
+}
+
+.social-action-button--md .social-action-button__icon {
+  @apply w-5 h-5;
+}
+
+.social-action-button--lg .social-action-button__icon {
+  @apply w-6 h-6;
+}
+
+/* Base Button Variants */
+.social-action-button--default {
+  @apply text-gray-600 dark:text-gray-400;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply hover:text-gray-900 dark:hover:text-white;
+}
+
+.social-action-button--minimal {
+  @apply text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-300;
+}
+
+.social-action-button--filled {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+}
+
+/* Hover Scale Effect (not for minimal variant) */
+.social-action-button--default:not(:disabled):hover,
+.social-action-button--filled:not(:disabled):hover {
+  @apply hover:scale-105;
+}
+
+/* Like Button Styles */
+.social-action-button--like.social-action-button--active {
+  @apply text-red-500;
+}
+
+.social-action-button--like.social-action-button--active.social-action-button--default {
+  @apply bg-red-50 dark:bg-red-900/20 text-red-500;
+}
+
+.social-action-button--like.social-action-button--active.social-action-button--filled {
+  @apply bg-red-50 dark:bg-red-900/20 text-red-500 border border-red-200 dark:border-red-800;
+}
+
+.social-action-button--like.social-action-button--active .social-action-button__icon {
+  @apply animate-pulse;
+}
+
+/* Comment Button Styles */
+.social-action-button--comment.social-action-button--active {
+  @apply text-blue-500;
+}
+
+.social-action-button--comment.social-action-button--active.social-action-button--default {
+  @apply bg-blue-50 dark:bg-blue-900/20 text-blue-500;
+}
+
+.social-action-button--comment.social-action-button--active.social-action-button--filled {
+  @apply bg-blue-50 dark:bg-blue-900/20 text-blue-500 border border-blue-200 dark:border-blue-800;
+}
+
+/* Share Button Styles */
+.social-action-button--share.social-action-button--active {
+  @apply text-green-500;
+}
+
+.social-action-button--share.social-action-button--active.social-action-button--default {
+  @apply bg-green-50 dark:bg-green-900/20 text-green-500;
+}
+
+.social-action-button--share.social-action-button--active.social-action-button--filled {
+  @apply bg-green-50 dark:bg-green-900/20 text-green-500 border border-green-200 dark:border-green-800;
+}
+
+/* Save Button Styles */
+.social-action-button--save.social-action-button--active {
+  @apply text-yellow-500;
+}
+
+.social-action-button--save.social-action-button--active.social-action-button--default {
+  @apply bg-yellow-50 dark:bg-yellow-900/20 text-yellow-500;
+}
+
+.social-action-button--save.social-action-button--active.social-action-button--filled {
+  @apply bg-yellow-50 dark:bg-yellow-900/20 text-yellow-500 border border-yellow-200 dark:border-yellow-800;
+}
+
+/* React Button Styles */
+.social-action-button--react.social-action-button--active {
+  @apply text-purple-500;
+}
+
+.social-action-button--react.social-action-button--active.social-action-button--default {
+  @apply bg-purple-50 dark:bg-purple-900/20 text-purple-500;
+}
+
+.social-action-button--react.social-action-button--active.social-action-button--filled {
+  @apply bg-purple-50 dark:bg-purple-900/20 text-purple-500 border border-purple-200 dark:border-purple-800;
+}
+
+/* Icon Styles */
+.social-action-button__icon {
+  @apply transition-transform duration-200;
+}
+
+/* Label Styles (hidden on small size) */
+.social-action-button__label {
+  @apply font-medium;
+}
+
+.social-action-button--sm .social-action-button__label {
+  @apply hidden;
+}
+
+/* Count Styles */
+.social-action-button__count {
+  @apply font-medium;
+}
+
+.social-action-button--sm .social-action-button__count {
+  @apply text-xs;
+}
+
+/* Badge for High Counts (minimal variant only) */
+.social-action-button--minimal .social-action-button__badge {
+  @apply ml-1;
+}
+
+/* Hover Effects for Each Action Type */
+.social-action-button--like:not(.social-action-button--active):hover {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.social-action-button--comment:not(.social-action-button--active):hover {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.social-action-button--share:not(.social-action-button--active):hover {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.social-action-button--save:not(.social-action-button--active):hover {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.social-action-button--react:not(.social-action-button--active):hover {
+  @apply text-purple-600 dark:text-purple-400;
+}
+
+/* Hover Background for Default Variant */
+.social-action-button--like.social-action-button--default:not(.social-action-button--active):hover {
+  @apply bg-red-50 dark:bg-red-900/10;
+}
+
+.social-action-button--comment.social-action-button--default:not(
+    .social-action-button--active
+  ):hover {
+  @apply bg-blue-50 dark:bg-blue-900/10;
+}
+
+.social-action-button--share.social-action-button--default:not(
+    .social-action-button--active
+  ):hover {
+  @apply bg-green-50 dark:bg-green-900/10;
+}
+
+.social-action-button--save.social-action-button--default:not(.social-action-button--active):hover {
+  @apply bg-yellow-50 dark:bg-yellow-900/10;
+}
+
+.social-action-button--react.social-action-button--default:not(
+    .social-action-button--active
+  ):hover {
+  @apply bg-purple-50 dark:bg-purple-900/10;
+}
+
+/* Active State Icon Animations */
+.social-action-button--active .social-action-button__icon {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Like Animation */
+@keyframes heart-beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.social-action-button--like.social-action-button--active .social-action-button__icon {
+  animation: heart-beat 0.6s ease-in-out;
+}
+
+/* Save Animation */
+@keyframes bookmark-fill {
+  0% {
+    transform: scale(1) rotateY(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotateY(180deg);
+  }
+  100% {
+    transform: scale(1) rotateY(360deg);
+  }
+}
+
+.social-action-button--save.social-action-button--active .social-action-button__icon {
+  animation: bookmark-fill 0.4s ease-in-out;
+}
+
+/* Share Animation */
+@keyframes share-bounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+.social-action-button--share.social-action-button--active .social-action-button__icon {
+  animation: share-bounce 0.5s ease-in-out;
+}
+
+/* Loading State */
+.social-action-button--loading {
+  @apply opacity-60 cursor-wait;
+}
+
+.social-action-button--loading .social-action-button__icon {
+  @apply animate-spin;
+}
+
+/* Group Styling */
+.social-action-group {
+  @apply flex items-center space-x-1;
+}
+
+.social-action-group .social-action-button {
+  @apply flex-shrink-0;
+}
+
+/* Compact Group */
+.social-action-group--compact {
+  @apply space-x-0.5;
+}
+
+.social-action-group--compact .social-action-button {
+  @apply px-2 py-1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .social-action-button--md {
+    @apply px-2 py-1.5 text-sm;
+  }
+
+  .social-action-button--lg {
+    @apply px-3 py-2 text-base;
+  }
+
+  /* Hide labels on mobile for better space usage */
+  .social-action-button__label {
+    @apply hidden;
+  }
+
+  /* Always show remove buttons on mobile */
+  .social-action-group {
+    @apply space-x-0.5;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .social-action-button {
+    @apply border-2 border-current;
+  }
+
+  .social-action-button--active {
+    @apply bg-current text-white;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .social-action-button {
+    @apply transition-none;
+  }
+
+  .social-action-button:hover {
+    transform: none !important;
+  }
+
+  .social-action-button__icon {
+    @apply transition-none;
+  }
+
+  .social-action-button--like.social-action-button--active .social-action-button__icon,
+  .social-action-button--save.social-action-button--active .social-action-button__icon,
+  .social-action-button--share.social-action-button--active .social-action-button__icon {
+    animation: none !important;
+  }
+
+  .social-action-button--like.social-action-button--active .social-action-button__icon {
+    @apply animate-none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .social-action-button {
+    @apply border border-gray-400 bg-transparent;
+  }
+
+  .social-action-button__count {
+    @apply text-black;
+  }
+}
+
+/* Keyboard Navigation Enhancement */
+.social-action-button:focus-visible {
+  @apply ring-2 ring-offset-2;
+}
+
+.social-action-button--like:focus-visible {
+  @apply ring-red-500;
+}
+
+.social-action-button--comment:focus-visible {
+  @apply ring-blue-500;
+}
+
+.social-action-button--share:focus-visible {
+  @apply ring-green-500;
+}
+
+.social-action-button--save:focus-visible {
+  @apply ring-yellow-500;
+}
+
+.social-action-button--react:focus-visible {
+  @apply ring-purple-500;
+}
+
+/* Accessibility Enhancements */
+.social-action-button[aria-pressed="true"] {
+  @apply font-semibold;
+}
+
+/* Custom Properties for Theme Integration */
+.social-action-button {
+  --social-action-like-color: theme(colors.red.500);
+  --social-action-comment-color: theme(colors.blue.500);
+  --social-action-share-color: theme(colors.green.500);
+  --social-action-save-color: theme(colors.yellow.500);
+  --social-action-react-color: theme(colors.purple.500);
+}

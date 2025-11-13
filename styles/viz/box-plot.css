@@ -1,0 +1,30 @@
+/* Box Plot Styles for D3.js integration */
+#box-plot-svg .box {
+  fill: #90caf9;
+  stroke: #2196f3;
+  stroke-width: 2;
+}
+#box-plot-svg .whisker {
+  stroke: #333;
+  stroke-width: 2;
+}
+#box-plot-svg .median-line {
+  stroke: #f44336;
+  stroke-width: 3;
+}
+#box-plot-svg .outlier {
+  fill: #ff9800;
+  stroke: #333;
+  stroke-width: 1;
+}
+#box-plot-svg .group-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #333;
+  font-weight: bold;
+  text-anchor: middle;
+}
+#box-plot-svg .title {
+  font-size: 20px;
+  font-weight: bold;
+}

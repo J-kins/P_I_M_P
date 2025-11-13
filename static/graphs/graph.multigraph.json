@@ -1,0 +1,376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Multigraph",
+  "description": "Graph allowing multiple edges between same vertices",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "graph.multigraph",
+      "description": "Graph type identifier"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this graph instance"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "author": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        }
+      }
+    },
+    "vertices": {
+      "type": "array",
+      "description": "Graph vertices/nodes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique vertex identifier"
+          },
+          "label": {
+            "type": "string",
+            "description": "Human-readable label"
+          },
+          "data": {
+            "description": "Vertex data payload",
+            "additionalProperties": true
+          },
+          "properties": {
+            "type": "object",
+            "description": "Vertex properties",
+            "additionalProperties": true
+          },
+          "position": {
+            "type": "object",
+            "description": "Spatial coordinates",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "z": {
+                "type": "number"
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "description": "Vertex type/class"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    "edges": {
+      "type": "array",
+      "description": "Graph edges/connections",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique edge identifier"
+          },
+          "source": {
+            "type": "string",
+            "description": "Source vertex ID"
+          },
+          "target": {
+            "type": "string",
+            "description": "Target vertex ID"
+          },
+          "label": {
+            "type": "string",
+            "description": "Edge label/relationship type"
+          },
+          "weight": {
+            "type": "number",
+            "description": "Edge weight/cost"
+          },
+          "directed": {
+            "type": "boolean",
+            "description": "Whether edge is directed",
+            "default": false
+          },
+          "properties": {
+            "type": "object",
+            "description": "Edge properties",
+            "additionalProperties": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Edge type/class"
+          }
+        },
+        "required": [
+          "source",
+          "target"
+        ]
+      }
+    },
+    "structure": {
+      "type": "object",
+      "description": "Graph structure properties",
+      "properties": {
+        "directed": {
+          "type": "boolean",
+          "description": "Is graph directed",
+          "default": false
+        },
+        "weighted": {
+          "type": "boolean",
+          "description": "Are edges weighted",
+          "default": false
+        },
+        "multigraph": {
+          "type": "boolean",
+          "description": "Allow multiple edges between vertices",
+          "default": false
+        },
+        "selfLoops": {
+          "type": "boolean",
+          "description": "Allow edges from vertex to itself",
+          "default": false
+        },
+        "acyclic": {
+          "type": "boolean",
+          "description": "Is graph acyclic (DAG)",
+          "default": false
+        }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "description": "Graph-level computed properties",
+      "properties": {
+        "vertexCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "edgeCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "density": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "connected": {
+          "type": "boolean",
+          "description": "Is graph connected"
+        },
+        "diameter": {
+          "type": "number",
+          "description": "Maximum shortest path length"
+        },
+        "components": {
+          "type": "integer",
+          "description": "Number of connected components"
+        }
+      }
+    },
+    "algorithms": {
+      "type": "object",
+      "description": "Applicable algorithms configuration",
+      "properties": {
+        "shortestPath": {
+          "type": "string",
+          "enum": [
+            "dijkstra",
+            "bellman-ford",
+            "floyd-warshall",
+            "a-star"
+          ]
+        },
+        "spanningTree": {
+          "type": "string",
+          "enum": [
+            "kruskal",
+            "prim",
+            "boruvka"
+          ]
+        },
+        "traversal": {
+          "type": "string",
+          "enum": [
+            "bfs",
+            "dfs",
+            "topological"
+          ]
+        },
+        "centrality": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "degree",
+              "betweenness",
+              "closeness",
+              "eigenvector",
+              "pagerank"
+            ]
+          }
+        },
+        "community": {
+          "type": "string",
+          "enum": [
+            "louvain",
+            "label-propagation",
+            "modularity"
+          ]
+        }
+      }
+    },
+    "visualization": {
+      "type": "object",
+      "properties": {
+        "layout": {
+          "type": "string",
+          "enum": [
+            "force",
+            "circular",
+            "hierarchical",
+            "grid",
+            "spring",
+            "kamada-kawai"
+          ],
+          "default": "force"
+        },
+        "vertexStyle": {
+          "type": "object",
+          "properties": {
+            "size": {
+              "type": "number"
+            },
+            "color": {
+              "type": "string"
+            },
+            "shape": {
+              "type": "string",
+              "enum": [
+                "circle",
+                "square",
+                "triangle",
+                "diamond"
+              ]
+            }
+          }
+        },
+        "edgeStyle": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "color": {
+              "type": "string"
+            },
+            "style": {
+              "type": "string",
+              "enum": [
+                "solid",
+                "dashed",
+                "dotted"
+              ]
+            },
+            "arrows": {
+              "type": "boolean"
+            }
+          }
+        },
+        "labels": {
+          "type": "object",
+          "properties": {
+            "showVertexLabels": {
+              "type": "boolean",
+              "default": true
+            },
+            "showEdgeLabels": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "description": "Graph constraints and validation rules",
+      "properties": {
+        "maxVertices": {
+          "type": "integer"
+        },
+        "maxEdges": {
+          "type": "integer"
+        },
+        "maxDegree": {
+          "type": "integer"
+        },
+        "requiredProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "operations": {
+      "type": "object",
+      "description": "Supported operations",
+      "properties": {
+        "addVertex": {
+          "type": "boolean",
+          "default": true
+        },
+        "removeVertex": {
+          "type": "boolean",
+          "default": true
+        },
+        "addEdge": {
+          "type": "boolean",
+          "default": true
+        },
+        "removeEdge": {
+          "type": "boolean",
+          "default": true
+        },
+        "updateProperties": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "vertices",
+    "edges"
+  ],
+  "additionalProperties": false
+}

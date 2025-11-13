@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Binary Tree",
+  "description": "Tree where each node has at most two children (left and right)",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "tree.binary",
+      "description": "Tree type identifier"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this tree instance"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "author": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "root": {
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "Reference to root node ID"
+        },
+        {
+          "type": "object",
+          "description": "Inline root node definition"
+        }
+      ]
+    },
+    "nodes": {
+      "type": "array",
+      "description": "Array of tree nodes",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique node identifier"
+          },
+          "data": {
+            "description": "Node data payload (any type)",
+            "additionalProperties": true
+          },
+          "value": {
+            "description": "Node value for sorting/comparison"
+          },
+          "children": {
+            "type": "array",
+            "description": "Child node references",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "parent": {
+            "type": "string",
+            "description": "Parent node reference"
+          },
+          "depth": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Node depth in tree"
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Height of subtree"
+          },
+          "properties": {
+            "type": "object",
+            "description": "Additional node properties",
+            "additionalProperties": true
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    "structure": {
+      "type": "object",
+      "description": "Tree structure configuration",
+      "properties": {
+        "maxChildren": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum children per node (null for unlimited)"
+        },
+        "balanced": {
+          "type": "boolean",
+          "description": "Whether tree maintains balance"
+        },
+        "ordered": {
+          "type": "boolean",
+          "description": "Whether children order matters"
+        },
+        "allowDuplicates": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "description": "Tree-level properties",
+      "properties": {
+        "height": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total tree height"
+        },
+        "nodeCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of nodes"
+        },
+        "leafCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of leaf nodes"
+        }
+      }
+    },
+    "traversal": {
+      "type": "object",
+      "description": "Traversal configurations",
+      "properties": {
+        "defaultOrder": {
+          "type": "string",
+          "enum": [
+            "preorder",
+            "inorder",
+            "postorder",
+            "levelorder",
+            "dfs",
+            "bfs"
+          ],
+          "default": "preorder"
+        },
+        "customOrder": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "visualization": {
+      "type": "object",
+      "properties": {
+        "layout": {
+          "type": "string",
+          "enum": [
+            "vertical",
+            "horizontal",
+            "radial",
+            "force"
+          ],
+          "default": "vertical"
+        },
+        "nodeStyle": {
+          "type": "object"
+        },
+        "edgeStyle": {
+          "type": "object"
+        },
+        "spacing": {
+          "type": "object",
+          "properties": {
+            "horizontal": {
+              "type": "number"
+            },
+            "vertical": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "operations": {
+      "type": "object",
+      "description": "Supported operations",
+      "properties": {
+        "insert": {
+          "type": "boolean",
+          "default": true
+        },
+        "delete": {
+          "type": "boolean",
+          "default": true
+        },
+        "search": {
+          "type": "boolean",
+          "default": true
+        },
+        "update": {
+          "type": "boolean",
+          "default": true
+        },
+        "rebalance": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "root"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,170 @@
+P_I_M_P/
+├── 📁 admin/                          # Admin-specific functionality
+│   ├── 📁 controllers/
+│   ├── 📁 models/
+│   ├── 📁 services/
+│   ├── 📁 views/
+│   │   ├── AdminDashboard.php
+│   │   └── components/
+│   └── admin_routes.php
+├── 📁 assets/                         # Static assets
+│   ├── 📁 css/
+│   │   ├── error.css
+│   │   └── components/
+│   ├── 📁 js/
+│   │   ├── main.js
+│   │   ├── components/
+│   │   └── lib/                      # D3.js, etc.
+│   ├── 📁 img/
+│   │   ├── favicon.ico
+│   │   ├── apple-touch-icon.png
+│   │   ├── bbb-logo.png
+│   │   └── icons/
+│   └── 📁 uploads/                    # User uploads
+├── 📁 config/                         # Configuration directory
+│   ├── app.php
+│   ├── database.php
+│   ├── routes.php
+│   └── services.php
+├── 📁 controllers/                    # Application controllers
+│   ├── BaseController.php
+│   ├── HomeController.php
+│   ├── BusinessController.php
+│   ├── AuthController.php
+│   └── AdminController.php
+├── 📁 core/                           # Core framework classes
+│   ├── Application.php
+│   ├── Config.php
+│   ├── Router.php
+│   ├── Database.php
+│   ├── Session.php
+│   └── Autoloader.php
+├── 📁 docker/                         # Docker configurations
+│   ├── nginx.conf
+│   ├── php.ini
+│   └── 📁 scripts/
+│       └── check_ports.sh
+├── 📁 models/                         # Data models
+│   ├── BaseModel.php
+│   ├── User.php
+│   ├── Business.php
+│   ├── Complaint.php
+│   ├── Review.php
+│   └── Category.php
+├── 📁 public/                         # Web root (publicly accessible)
+│   ├── index.php
+│   ├── .htaccess
+│   └── 📁 assets/ -> ../assets/      # Symlink to assets
+├── 📁 services/                       # Business logic layer
+│   ├── ThemeService.php
+│   ├── RouterService.php
+│   ├── AuthService.php
+│   ├── BusinessService.php
+│   ├── FileService.php
+│   └── NotificationService.php
+├── 📁 storage/                        # Storage (logs, cache, sessions)
+│   ├── 📁 logs/
+│   ├── 📁 cache/
+│   ├── 📁 sessions/
+│   └── 📁 temp/
+├── 📁 utils/                          # Utility functions
+│   ├── Helpers.php
+│   ├── Validator.php
+│   ├── Security.php
+│   ├── FileUtils.php
+│   └── DateUtils.php
+├── 📁 vendor/                         # Composer dependencies
+│   ├── autoload.php
+│   └── composer/
+├── 📁 view/                           # Views directory
+│   ├── 📁 components/                 # Reusable UI components (snake_case)
+│   │   ├── Headers.php
+│   │   ├── Footers.php
+│   │   ├── Navigation.php
+│   │   ├── Avatar.php
+│   │   ├── Badge.php
+│   │   ├── Button.php
+│   │   ├── BusinessCard.php
+│   │   ├── Modal.php
+│   │   ├── Toast.php
+│   │   ├── Form.php
+│   │   ├── Charts.php
+│   │   └── 📁 templates/              # Theme-specific templates
+│   │       ├── 📁 purple1/
+│   │       ├── 📁 oceanic/
+│   │       └── ...
+│   ├── 📁 layouts/                    # Layout templates
+│   │   ├── default.php
+│   │   ├── admin.php
+│   │   ├── auth.php
+│   │   └── error.php
+│   ├── 📁 pages/                      # Page views (CamelCase)
+│   │   ├── Home.php
+│   │   ├── About.php
+│   │   ├── BusinessProfile.php
+│   │   ├── Complaint.php
+│   │   ├── Contact.php
+│   │   ├── Dashboard.php
+│   │   ├── Error.php
+│   │   ├── Review.php
+│   │   └── Search.php
+│   └── components.php                 # Components loader
+├── 📁 styles/                         # Styles and themes
+│   ├── 📁 base/
+│   │   ├── reset.css
+│   │   ├── variables.css
+│   │   ├── typography.css
+│   │   └── global.css
+│   ├── 📁 components/                 # Component-specific styles
+│   │   ├── accordion-item.css
+│   │   ├── avatar.css
+│   │   ├── badge.css
+│   │   ├── button.css
+│   │   ├── card.css
+│   │   ├── modal.css
+│   │   ├── navigation.css
+│   │   ├── form.css
+│   │   └── ... (all other component styles)
+│   ├── 📁 sass/                       # SASS source files
+│   │   ├── main.scss
+│   │   ├── _variables.scss
+│   │   ├── _mixins.scss
+│   │   └── 📁 components/
+│   ├── 📁 themes/                     # Theme variations
+│   │   ├── purple1.css
+│   │   ├── oceanic.css
+│   │   ├── slate.css
+│   │   ├── coffee.css
+│   │   ├── grayscale.css
+│   │   ├── berry.css
+│   │   ├── dark.css
+│   │   └── light.css
+│   ├── 📁 views/                      # View-specific styles
+│   │   ├── home.css
+│   │   ├── auth.css
+│   │   ├── dashboard.css
+│   │   ├── admin-dashboard.css
+│   │   ├── business-profile.css
+│   │   └── ... (all other view styles)
+│   ├── styles.css                     # Main compiled stylesheet
+│   ├── styles.scss                    # Main SASS file
+│   └── Styles.js                      # Styles JavaScript
+├── 📄 .env                            # Environment variables
+├── 📄 .env.example                    # Environment template
+├── 📄 .env.production                 # Production environment
+├── 📄 .env.development                # Development environment
+├── 📄 .gitignore
+├── 📄 composer.json                   # PHP dependencies
+├── 📄 composer.lock                   # PHP dependency lock
+├── 📄 package.json                    # Node.js dependencies
+├── 📄 package-lock.json               # Node.js dependency lock
+├── 📄 pnpm-lock.yaml                  # pnpm lock file
+├── 📄 phpunit.xml.dist                # PHPUnit configuration
+├── 📄 docker-compose.yml              # Docker Compose configuration
+├── 📄 Dockerfile                      # Main Dockerfile
+├── 📄 Dockerfile.dev                  # Development Dockerfile
+├── 📄 Dockerfile.node                 # Node.js Dockerfile
+├── 📄 Dockerfile.php                  # PHP-specific Dockerfile
+├── 📄 nginx.conf                      # Nginx configuration
+├── 📄 index.php                       # Application entry point (legacy)
+└── 📄 README.md

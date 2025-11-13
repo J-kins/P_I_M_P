@@ -1,0 +1,571 @@
+/* Visibility Utilities */
+
+/* Basic Visibility */
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.collapse {
+  visibility: collapse;
+}
+
+/* Display Utilities */
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.inline-grid {
+  display: inline-grid;
+}
+
+.table {
+  display: table;
+}
+
+.table-cell {
+  display: table-cell;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-column {
+  display: table-column;
+}
+
+.table-caption {
+  display: table-caption;
+}
+
+.table-row-group {
+  display: table-row-group;
+}
+
+.table-header-group {
+  display: table-header-group;
+}
+
+.table-footer-group {
+  display: table-footer-group;
+}
+
+.contents {
+  display: contents;
+}
+
+.list-item {
+  display: list-item;
+}
+
+/* Opacity Utilities */
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-5 {
+  opacity: 0.05;
+}
+
+.opacity-10 {
+  opacity: 0.1;
+}
+
+.opacity-20 {
+  opacity: 0.2;
+}
+
+.opacity-25 {
+  opacity: 0.25;
+}
+
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-40 {
+  opacity: 0.4;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.opacity-95 {
+  opacity: 0.95;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+/* Hover Opacity */
+.hover\:opacity-0:hover {
+  opacity: 0;
+}
+
+.hover\:opacity-25:hover {
+  opacity: 0.25;
+}
+
+.hover\:opacity-50:hover {
+  opacity: 0.5;
+}
+
+.hover\:opacity-75:hover {
+  opacity: 0.75;
+}
+
+.hover\:opacity-100:hover {
+  opacity: 1;
+}
+
+/* Focus Opacity */
+.focus\:opacity-0:focus {
+  opacity: 0;
+}
+
+.focus\:opacity-25:focus {
+  opacity: 0.25;
+}
+
+.focus\:opacity-50:focus {
+  opacity: 0.5;
+}
+
+.focus\:opacity-75:focus {
+  opacity: 0.75;
+}
+
+.focus\:opacity-100:focus {
+  opacity: 1;
+}
+
+/* Visibility States */
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.not-sr-only {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Focus Visible Only */
+.focus-visible-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-visible-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Print Utilities */
+@media print {
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:inline {
+    display: inline !important;
+  }
+
+  .print\:inline-block {
+    display: inline-block !important;
+  }
+}
+
+/* Responsive Visibility */
+@media (max-width: 639px) {
+  .sm\:hidden {
+    display: none;
+  }
+
+  .sm\:block {
+    display: block;
+  }
+
+  .sm\:inline {
+    display: inline;
+  }
+
+  .sm\:inline-block {
+    display: inline-block;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:grid {
+    display: grid;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:inline {
+    display: inline;
+  }
+
+  .md\:inline-block {
+    display: inline-block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:grid {
+    display: grid;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:inline {
+    display: inline;
+  }
+
+  .lg\:inline-block {
+    display: inline-block;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:grid {
+    display: grid;
+  }
+}
+
+@media (min-width: 1024px) {
+  .xl\:hidden {
+    display: none;
+  }
+
+  .xl\:block {
+    display: block;
+  }
+
+  .xl\:inline {
+    display: inline;
+  }
+
+  .xl\:inline-block {
+    display: inline-block;
+  }
+
+  .xl\:flex {
+    display: flex;
+  }
+
+  .xl\:grid {
+    display: grid;
+  }
+}
+
+/* Group Visibility */
+.group:hover .group-hover\:visible {
+  visibility: visible;
+}
+
+.group:hover .group-hover\:invisible {
+  visibility: hidden;
+}
+
+.group:hover .group-hover\:block {
+  display: block;
+}
+
+.group:hover .group-hover\:hidden {
+  display: none;
+}
+
+.group:focus .group-focus\:visible {
+  visibility: visible;
+}
+
+.group:focus .group-focus\:invisible {
+  visibility: hidden;
+}
+
+.group:focus .group-focus\:block {
+  display: block;
+}
+
+.group:focus .group-focus\:hidden {
+  display: none;
+}
+
+/* Toggle Visibility */
+.toggle-visible {
+  transition:
+    visibility 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.toggle-visible.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.toggle-visible.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Fade Visibility */
+.fade-visible {
+  transition: opacity 0.3s ease;
+}
+
+.fade-visible.fade-out {
+  opacity: 0;
+}
+
+.fade-visible.fade-in {
+  opacity: 1;
+}
+
+/* Slide Visibility */
+.slide-visible {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.slide-visible.slide-out-up {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slide-visible.slide-out-down {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.slide-visible.slide-out-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-visible.slide-out-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slide-visible.slide-in {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+/* Collapse Visibility */
+.collapse-visible {
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.collapse-visible.collapse-hide {
+  max-height: 0;
+  opacity: 0;
+}
+
+.collapse-visible.collapse-show {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Loading States */
+.loading-visible {
+  position: relative;
+}
+
+.loading-visible.loading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-visible.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .toggle-visible,
+  .fade-visible,
+  .slide-visible,
+  .collapse-visible {
+    transition: none;
+  }
+}
+
+/* Dark Mode Visibility */
+.dark .dark\:hidden {
+  display: none;
+}
+
+.dark .dark\:block {
+  display: block;
+}
+
+.dark .dark\:inline {
+  display: inline;
+}
+
+.dark .dark\:inline-block {
+  display: inline-block;
+}
+
+.dark .dark\:flex {
+  display: flex;
+}
+
+.dark .dark\:grid {
+  display: grid;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .opacity-25,
+  .opacity-50,
+  .opacity-75 {
+    opacity: 1;
+  }
+}

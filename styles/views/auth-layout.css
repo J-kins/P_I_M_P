@@ -1,0 +1,29 @@
+/* Auth Layout Styles */
+
+.auth-layout {
+  @apply min-h-screen flex;
+}
+
+.auth-sidebar {
+  @apply hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-600 to-primary-800 items-center justify-center p-12;
+}
+
+.auth-sidebar-content {
+  @apply text-center text-white;
+}
+
+.auth-sidebar-title {
+  @apply text-4xl font-bold mb-4;
+}
+
+.auth-sidebar-description {
+  @apply text-xl text-primary-100;
+}
+
+.auth-main {
+  @apply flex-1 flex items-center justify-center p-8;
+}
+
+.auth-form-container {
+  @apply w-full max-w-md;
+}

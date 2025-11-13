@@ -1,0 +1,555 @@
+/* Notification System Organism Styles */
+
+.notification-system {
+  --notification-bg: var(--color-background);
+  --notification-border: var(--color-border);
+  --notification-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --notification-border-radius: 0.75rem;
+  --notification-padding: 1rem;
+  --notification-gap: 0.75rem;
+  --notification-width: 320px;
+  --notification-max-width: 400px;
+  --notification-min-height: 60px;
+  --notification-z-index: 9999;
+
+  position: fixed;
+  z-index: var(--notification-z-index);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--notification-gap);
+  max-width: var(--notification-max-width);
+  width: var(--notification-width);
+}
+
+/* Position Variants */
+.notification-system--top-left {
+  top: 1rem;
+  left: 1rem;
+}
+
+.notification-system--top-right {
+  top: 1rem;
+  right: 1rem;
+}
+
+.notification-system--bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+  flex-direction: column-reverse;
+}
+
+.notification-system--bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+  flex-direction: column-reverse;
+}
+
+.notification-system--top-center {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.notification-system--bottom-center {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column-reverse;
+}
+
+/* Variant Styles */
+.notification-system--minimal {
+  --notification-padding: 0.75rem;
+  --notification-border-radius: 0.5rem;
+  --notification-gap: 0.5rem;
+}
+
+.notification-system--compact {
+  --notification-width: 280px;
+  --notification-max-width: 320px;
+  --notification-padding: 0.75rem;
+  --notification-gap: 0.5rem;
+}
+
+.notification-system--rich {
+  --notification-width: 380px;
+  --notification-max-width: 450px;
+  --notification-padding: 1.25rem;
+  --notification-gap: 1rem;
+}
+
+/* Animation Types */
+.notification-system--slide .notification-system__item {
+  transition: all var(--animation-duration, 300ms) ease;
+}
+
+.notification-system--fade .notification-system__item {
+  transition: opacity var(--animation-duration, 300ms) ease;
+}
+
+.notification-system--scale .notification-system__item {
+  transition: all var(--animation-duration, 300ms) ease;
+  transform-origin: center;
+}
+
+.notification-system--bounce .notification-system__item {
+  transition: all var(--animation-duration, 300ms) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Dark Theme */
+.notification-system--dark {
+  --notification-bg: var(--color-background-dark);
+  --notification-border: var(--color-border-dark);
+  color: var(--color-text-dark);
+}
+
+/* Individual Notification Item */
+.notification-system__item {
+  background-color: var(--notification-bg);
+  border: 1px solid var(--notification-border);
+  border-radius: var(--notification-border-radius);
+  box-shadow: var(--notification-shadow);
+  padding: var(--notification-padding);
+  min-height: var(--notification-min-height);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  position: relative;
+  cursor: pointer;
+  pointer-events: all;
+  overflow: hidden;
+  transition: all var(--animation-duration, 300ms) ease;
+}
+
+.notification-system__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Type Variants */
+.notification-system__item--success {
+  border-left: 4px solid var(--color-success);
+}
+
+.notification-system__item--error {
+  border-left: 4px solid var(--color-danger);
+}
+
+.notification-system__item--warning {
+  border-left: 4px solid var(--color-warning);
+}
+
+.notification-system__item--info {
+  border-left: 4px solid var(--color-info);
+}
+
+.notification-system__item--default {
+  border-left: 4px solid var(--color-primary);
+}
+
+/* Priority Variants */
+.notification-system__item--priority-low {
+  opacity: 0.8;
+}
+
+.notification-system__item--priority-normal {
+  opacity: 1;
+}
+
+.notification-system__item--priority-high {
+  border-width: 2px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.notification-system__item--priority-urgent {
+  border-width: 2px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  animation: urgent-pulse 2s infinite;
+}
+
+@keyframes urgent-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Icon */
+.notification-system__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-background-secondary);
+}
+
+.notification-system--compact .notification-system__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.notification-system--minimal .notification-system__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.notification-system__type-icon--success {
+  color: var(--color-success);
+}
+
+.notification-system__type-icon--error {
+  color: var(--color-danger);
+}
+
+.notification-system__type-icon--warning {
+  color: var(--color-warning);
+}
+
+.notification-system__type-icon--info {
+  color: var(--color-info);
+}
+
+.notification-system__type-icon--default {
+  color: var(--color-primary);
+}
+
+/* Content */
+.notification-system__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.notification-system__title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.notification-system--rich .notification-system__title {
+  font-size: 1rem;
+}
+
+.notification-system__message {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.notification-system--rich .notification-system__message {
+  font-size: 0.875rem;
+}
+
+.notification-system__timestamp {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  margin-top: 0.25rem;
+}
+
+/* Actions */
+.notification-system__actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.notification-system__action {
+  font-size: 0.8125rem;
+  padding: 0.25rem 0.5rem;
+  height: auto;
+  min-height: 28px;
+}
+
+.notification-system__dismiss {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.notification-system__dismiss:hover {
+  opacity: 1;
+  background-color: var(--color-background-hover);
+}
+
+/* Progress Bar */
+.notification-system__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.notification-system__progress-bar {
+  height: 100%;
+  background-color: var(--color-primary);
+  width: 100%;
+  transform-origin: left;
+  animation: progress-countdown linear forwards;
+}
+
+.notification-system__item--success .notification-system__progress-bar {
+  background-color: var(--color-success);
+}
+
+.notification-system__item--error .notification-system__progress-bar {
+  background-color: var(--color-danger);
+}
+
+.notification-system__item--warning .notification-system__progress-bar {
+  background-color: var(--color-warning);
+}
+
+.notification-system__item--info .notification-system__progress-bar {
+  background-color: var(--color-info);
+}
+
+@keyframes progress-countdown {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Paused State */
+.notification-system__item--paused .notification-system__progress-bar {
+  animation-play-state: paused;
+}
+
+/* Dismissing Animation */
+.notification-system__item--dismissing {
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+}
+
+.notification-system--slide.notification-system--top-left .notification-system__item--dismissing,
+.notification-system--slide.notification-system--bottom-left
+  .notification-system__item--dismissing {
+  transform: translateX(-100%);
+}
+
+.notification-system--fade .notification-system__item--dismissing {
+  transform: none;
+}
+
+.notification-system--scale .notification-system__item--dismissing {
+  transform: scale(0.8);
+}
+
+.notification-system--bounce .notification-system__item--dismissing {
+  transform: translateX(100%) scale(0.8);
+}
+
+/* Entering Animation */
+.notification-system--slide .notification-system__item {
+  transform: translateX(100%);
+  animation: slide-in var(--animation-duration, 300ms) ease forwards;
+}
+
+.notification-system--slide.notification-system--top-left .notification-system__item,
+.notification-system--slide.notification-system--bottom-left .notification-system__item {
+  transform: translateX(-100%);
+  animation: slide-in-left var(--animation-duration, 300ms) ease forwards;
+}
+
+.notification-system--fade .notification-system__item {
+  opacity: 0;
+  animation: fade-in var(--animation-duration, 300ms) ease forwards;
+}
+
+.notification-system--scale .notification-system__item {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scale-in var(--animation-duration, 300ms) ease forwards;
+}
+
+.notification-system--bounce .notification-system__item {
+  transform: translateX(100%) scale(0.8);
+  animation: bounce-in var(--animation-duration, 300ms) cubic-bezier(0.68, -0.55, 0.265, 1.55)
+    forwards;
+}
+
+@keyframes slide-in {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-in {
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Reduced Motion */
+.notification-system--reduced-motion .notification-system__item {
+  animation: none;
+  transition: none;
+}
+
+.notification-system--reduced-motion .notification-system__item--dismissing {
+  display: none;
+}
+
+.notification-system--reduced-motion .notification-system__item--priority-urgent {
+  animation: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .notification-system {
+    --notification-width: calc(100vw - 2rem);
+    --notification-max-width: calc(100vw - 2rem);
+    left: 1rem !important;
+    right: 1rem !important;
+    transform: none !important;
+  }
+
+  .notification-system--top-center,
+  .notification-system--bottom-center {
+    left: 1rem;
+    transform: none;
+  }
+
+  .notification-system__item {
+    --notification-padding: 0.875rem;
+  }
+
+  .notification-system__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .notification-system__action {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-system {
+    --notification-gap: 0.5rem;
+    left: 0.5rem !important;
+    right: 0.5rem !important;
+    --notification-width: calc(100vw - 1rem);
+    --notification-max-width: calc(100vw - 1rem);
+  }
+
+  .notification-system__item {
+    --notification-padding: 0.75rem;
+    --notification-border-radius: 0.5rem;
+  }
+
+  .notification-system__title {
+    font-size: 0.8125rem;
+  }
+
+  .notification-system__message {
+    font-size: 0.75rem;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .notification-system__item {
+    border-width: 2px;
+    border-color: var(--color-border-high-contrast);
+  }
+
+  .notification-system__item--success {
+    border-left-color: var(--color-success);
+  }
+
+  .notification-system__item--error {
+    border-left-color: var(--color-danger);
+  }
+
+  .notification-system__item--warning {
+    border-left-color: var(--color-warning);
+  }
+
+  .notification-system__item--info {
+    border-left-color: var(--color-info);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .notification-system {
+    display: none;
+  }
+}
+
+/* Focus Management */
+.notification-system__item:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.notification-system__action:focus,
+.notification-system__dismiss:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Loading Animation for Rich Notifications */
+.notification-system--rich .notification-system__item--loading {
+  background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

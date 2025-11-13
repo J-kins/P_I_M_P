@@ -1,0 +1,354 @@
+/* Product View Page Styles */
+
+.product-view-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.main-image {
+  @apply relative overflow-hidden rounded-lg bg-white dark:bg-gray-800;
+  aspect-ratio: 1 / 1;
+}
+
+.main-image img {
+  @apply w-full h-full object-cover transition-transform duration-300 ease-in-out;
+}
+
+.main-image:hover img {
+  @apply scale-105;
+}
+
+.thumbnail-grid {
+  @apply grid grid-cols-4 gap-2;
+}
+
+.thumbnail-grid img {
+  @apply w-full h-20 object-cover rounded cursor-pointer border-2 transition-all duration-200;
+}
+
+.thumbnail-grid img:hover {
+  @apply scale-105;
+}
+
+.thumbnail-grid img.active {
+  @apply border-primary-500 ring-2 ring-primary-500/20;
+}
+
+.price-section {
+  @apply space-y-2;
+}
+
+.price-section .original-price {
+  @apply text-xl text-gray-500 line-through;
+}
+
+.price-section .current-price {
+  @apply text-3xl font-bold text-gray-900 dark:text-white;
+}
+
+.price-section .discount-badge {
+  @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 px-2 py-1 rounded-full text-sm font-medium;
+}
+
+.seller-info {
+  @apply flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg;
+  transition: all var(--transition-normal);
+}
+
+.seller-info:hover {
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.seller-details {
+  @apply flex items-center space-x-4;
+}
+
+.seller-avatar {
+  @apply w-12 h-12 rounded-full object-cover;
+}
+
+.seller-name {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+
+.seller-rating {
+  @apply flex items-center space-x-2;
+}
+
+.star-rating {
+  @apply flex items-center;
+}
+
+.star-rating svg {
+  @apply w-4 h-4;
+}
+
+.star-rating .star-filled {
+  @apply text-yellow-400;
+}
+
+.star-rating .star-empty {
+  @apply text-gray-300 dark:text-gray-600;
+}
+
+.features-list {
+  @apply grid grid-cols-2 gap-2;
+}
+
+.feature-item {
+  @apply flex items-center space-x-2;
+}
+
+.feature-icon {
+  @apply w-4 h-4 text-green-500 flex-shrink-0;
+}
+
+.quantity-selector {
+  @apply flex items-center border border-gray-300 dark:border-gray-600 rounded overflow-hidden;
+}
+
+.quantity-button {
+  @apply px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
+}
+
+.quantity-display {
+  @apply px-4 py-1 border-x border-gray-300 dark:border-gray-600;
+}
+
+.actions-section {
+  @apply space-y-4;
+}
+
+.action-buttons {
+  @apply flex space-x-4;
+}
+
+.action-buttons button {
+  @apply flex-1 transition-all duration-200 ease-in-out;
+}
+
+.action-buttons button:hover {
+  @apply transform scale-105;
+}
+
+.product-tabs {
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.tab-navigation {
+  @apply flex space-x-8 overflow-x-auto;
+}
+
+.tab-button {
+  @apply py-2 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors;
+}
+
+.tab-button.active {
+  @apply border-primary-500 text-primary-600 dark:text-primary-400;
+}
+
+.tab-button.inactive {
+  @apply border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300;
+}
+
+.tab-content {
+  @apply py-6;
+}
+
+.specifications-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.specification-item {
+  @apply flex justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded;
+}
+
+.spec-label {
+  @apply font-medium text-gray-900 dark:text-white;
+}
+
+.spec-value {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.reviews-section {
+  @apply space-y-6;
+}
+
+.review-item {
+  @apply border-b border-gray-200 dark:border-gray-700 pb-6;
+}
+
+.review-header {
+  @apply flex items-start space-x-4;
+}
+
+.review-avatar {
+  @apply w-12 h-12 rounded-full object-cover;
+}
+
+.review-details {
+  @apply flex-1;
+}
+
+.review-author {
+  @apply font-medium text-gray-900 dark:text-white;
+}
+
+.review-date {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.review-content {
+  @apply text-gray-700 dark:text-gray-300 mt-2;
+}
+
+.related-products {
+  @apply mt-12;
+}
+
+.related-products h3 {
+  @apply text-xl font-bold mb-6 text-gray-900 dark:text-white;
+}
+
+.related-products-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-6;
+}
+
+.related-product-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow p-4 hover:shadow-lg transition-all duration-300 cursor-pointer;
+}
+
+.related-product-card:hover {
+  @apply transform scale-105;
+}
+
+.related-product-image {
+  @apply w-full h-32 object-cover rounded mb-3;
+}
+
+.related-product-title {
+  @apply font-medium text-sm text-gray-900 dark:text-white line-clamp-2 mb-2;
+}
+
+.related-product-seller {
+  @apply text-sm text-gray-600 dark:text-gray-400 mb-1;
+}
+
+.related-product-price {
+  @apply font-bold text-primary-600 dark:text-primary-400;
+}
+
+.condition-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.condition-badge.new {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+}
+
+.condition-badge.like-new {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+}
+
+.condition-badge.good {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+}
+
+.condition-badge.fair {
+  @apply bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200;
+}
+
+.condition-badge.poor {
+  @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-view-page {
+    @apply px-2;
+  }
+
+  .price-section .current-price {
+    @apply text-2xl;
+  }
+
+  .seller-info {
+    @apply flex-col space-y-3 items-start;
+  }
+
+  .action-buttons {
+    @apply flex-col space-x-0 space-y-3;
+  }
+
+  .related-products-grid {
+    @apply grid-cols-2;
+  }
+
+  .specifications-grid {
+    @apply grid-cols-1;
+  }
+}
+
+/* Animation classes */
+.zoom-in {
+  animation: zoomIn 0.3s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-in-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-600 rounded;
+}
+
+.skeleton-text {
+  @apply h-4 bg-gray-300 dark:bg-gray-600 rounded;
+}
+
+.skeleton-button {
+  @apply h-10 bg-gray-300 dark:bg-gray-600 rounded;
+}
+
+/* Accessibility improvements */
+.product-view-page *:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* Dark mode specific styles */
+@media (prefers-color-scheme: dark) {
+  .main-image {
+    @apply border border-gray-700;
+  }
+
+  .thumbnail-grid img {
+    @apply border-gray-600;
+  }
+
+  .price-section {
+    @apply text-gray-100;
+  }
+}

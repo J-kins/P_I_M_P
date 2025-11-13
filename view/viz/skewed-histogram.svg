@@ -1,0 +1,49 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="skewedHistTitle skewedHistDesc">
+    <title id="skewedHistTitle">Skewed Distribution Histogram</title>
+    <desc id="skewedHistDesc">A data-agnostic SVG template for visualizing skewed distributions with a histogram and optional normal curve overlay.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #bbb); stroke-width: 1; stroke-dasharray: 4 2; }
+            .bar { fill: var(--bar-color, #ff9800); stroke: var(--bar-border, #333); stroke-width: 1; }
+            .bar-label { font-family: var(--font-family, Arial); font-size: 12px; fill: var(--label-color, #333); text-anchor: middle; }
+            .title { font-family: var(--font-family, Arial); font-size: 20px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+            .x-label, .y-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; }
+            .normal-overlay { stroke: var(--normal-color, #2196f3); stroke-width: 3; fill: none; opacity: 0.4; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+        <text class="y-label" x="80" y="300" transform="rotate(-90 80,300)">{yLabel}</text>
+        <text class="x-label" x="400" y="540">{xLabel}</text>
+    </g>
+    <!-- Grid Lines & Y Labels -->
+    <g class="y-grid-labels">
+        <!-- for each tick in {yTicks} -->
+        <line class="grid-line" x1="100" y1="{tick.y}" x2="700" y2="{tick.y}"/>
+        <text class="bar-label" x="90" y="{tick.y+5}">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Histogram Bars -->
+    <g class="histogram-bars">
+        <!-- for each bin in {bins} -->
+        <rect class="bar" x="{bin.x}" y="{bin.y}" width="{bin.width}" height="{bin.height}" data-bin="{bin.index}" data-range="{bin.range}" data-count="{bin.count}"/>
+        <!-- end for -->
+    </g>
+    <!-- Bin Labels -->
+    <g class="x-bin-labels">
+        <!-- for each bin in {bins} -->
+        <text class="bar-label" x="{bin.x+bin.width/2}" y="520">{bin.range}</text>
+        <!-- end for -->
+    </g>
+    <!-- Optional Normal Distribution Overlay -->
+    <path class="normal-overlay" d="{normalCurvePath}"/>
+</svg>

@@ -1,0 +1,22 @@
+/* Candlestick Chart Styles for D3.js integration */
+#candlestick-chart-svg .candlestick-body.bullish {
+  fill: #4caf50;
+  stroke: #333;
+}
+#candlestick-chart-svg .candlestick-body.bearish {
+  fill: #f44336;
+  stroke: #333;
+}
+#candlestick-chart-svg .wick {
+  stroke: #333;
+  stroke-width: 2;
+}
+#candlestick-chart-svg .y-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #333;
+}
+#candlestick-chart-svg .title {
+  font-size: 20px;
+  font-weight: bold;
+}

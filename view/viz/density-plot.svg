@@ -1,0 +1,44 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="densityPlotTitle densityPlotDesc">
+    <title id="densityPlotTitle">Density Plot</title>
+    <desc id="densityPlotDesc">A data-agnostic SVG template for visualizing smoothed density estimates, with area fill and multiple overlays.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #bbb); stroke-width: 1; stroke-dasharray: 4 2; }
+            .density-curve { stroke-width: 3; fill: none; }
+            .density-area { opacity: 0.4; }
+            .group-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; text-anchor: middle; }
+            .x-label, .y-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; }
+            .title { font-family: var(--font-family, Arial); font-size: 20px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+        <text class="y-label" x="80" y="300" transform="rotate(-90 80,300)">{yLabel}</text>
+        <text class="x-label" x="400" y="540">{xLabel}</text>
+    </g>
+    <!-- Grid Lines & Y Labels -->
+    <g class="y-grid-labels">
+        <!-- for each tick in {yTicks} -->
+        <line class="grid-line" x1="100" y1="{tick.y}" x2="700" y2="{tick.y}"/>
+        <text class="group-label" x="90" y="{tick.y+5}">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Density Curves & Area Fills -->
+    <g class="density-curves">
+        <!-- for each group in {groups} -->
+        <path class="density-area" d="{group.areaPath}" fill="{group.areaColor}" data-group="{group.label}" data-bandwidth="{group.bandwidth}" data-kernel="{group.kernel}"/>
+        <path class="density-curve" d="{group.curvePath}" stroke="{group.curveColor}" data-group="{group.label}" data-bandwidth="{group.bandwidth}" data-kernel="{group.kernel}"/>
+        <!-- Group Label -->
+        <text class="group-label" x="{group.labelX}" y="80">{group.label}</text>
+        <!-- end for -->
+    </g>
+</svg>

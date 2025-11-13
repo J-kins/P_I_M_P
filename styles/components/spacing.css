@@ -1,0 +1,309 @@
+/* Custom Spacing Utilities for Socialite Design System */
+
+/* Custom Margin Utilities */
+.m-xs {
+  margin: 0.125rem;
+} /* 2px */
+.m-2xs {
+  margin: 0.25rem;
+} /* 4px */
+.m-3xs {
+  margin: 0.375rem;
+} /* 6px */
+.m-4xs {
+  margin: 0.5rem;
+} /* 8px */
+.m-5xs {
+  margin: 0.625rem;
+} /* 10px */
+.m-6xs {
+  margin: 0.75rem;
+} /* 12px */
+.m-7xs {
+  margin: 0.875rem;
+} /* 14px */
+.m-8xs {
+  margin: 1.125rem;
+} /* 18px */
+.m-9xs {
+  margin: 1.375rem;
+} /* 22px */
+.m-10xs {
+  margin: 1.75rem;
+} /* 28px */
+
+/* Custom Padding Utilities */
+.p-xs {
+  padding: 0.125rem;
+} /* 2px */
+.p-2xs {
+  padding: 0.25rem;
+} /* 4px */
+.p-3xs {
+  padding: 0.375rem;
+} /* 6px */
+.p-4xs {
+  padding: 0.5rem;
+} /* 8px */
+.p-5xs {
+  padding: 0.625rem;
+} /* 10px */
+.p-6xs {
+  padding: 0.75rem;
+} /* 12px */
+.p-7xs {
+  padding: 0.875rem;
+} /* 14px */
+.p-8xs {
+  padding: 1.125rem;
+} /* 18px */
+.p-9xs {
+  padding: 1.375rem;
+} /* 22px */
+.p-10xs {
+  padding: 1.75rem;
+} /* 28px */
+
+/* Social Media Specific Spacing */
+.space-post {
+  margin-bottom: 1.5rem;
+} /* 24px - spacing between posts */
+.space-comment {
+  margin-bottom: 0.75rem;
+} /* 12px - spacing between comments */
+.space-section {
+  margin-bottom: 2rem;
+} /* 32px - spacing between sections */
+.space-card {
+  margin-bottom: 1.25rem;
+} /* 20px - spacing between cards */
+
+/* Container Spacing */
+.container-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Content Spacing */
+.content-spacing > * + * {
+  margin-top: 1rem;
+}
+
+.content-spacing-sm > * + * {
+  margin-top: 0.5rem;
+}
+
+.content-spacing-lg > * + * {
+  margin-top: 1.5rem;
+}
+
+/* List Spacing */
+.list-spacing > li + li {
+  margin-top: 0.5rem;
+}
+
+.list-spacing-sm > li + li {
+  margin-top: 0.25rem;
+}
+
+.list-spacing-lg > li + li {
+  margin-top: 1rem;
+}
+
+/* Stack Spacing (Flexbox) */
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-sm > * + * {
+  margin-top: 0.5rem;
+}
+
+.stack-md > * + * {
+  margin-top: 1rem;
+}
+
+.stack-lg > * + * {
+  margin-top: 1.5rem;
+}
+
+.stack-xl > * + * {
+  margin-top: 2rem;
+}
+
+/* Inline Stack (Horizontal) */
+.inline-stack {
+  display: flex;
+  align-items: center;
+}
+
+.inline-stack-sm > * + * {
+  margin-left: 0.5rem;
+}
+
+.inline-stack-md > * + * {
+  margin-left: 1rem;
+}
+
+.inline-stack-lg > * + * {
+  margin-left: 1.5rem;
+}
+
+.inline-stack-xl > * + * {
+  margin-left: 2rem;
+}
+
+/* Grid Spacing */
+.grid-spacing {
+  gap: 1rem;
+}
+
+.grid-spacing-sm {
+  gap: 0.5rem;
+}
+
+.grid-spacing-lg {
+  gap: 1.5rem;
+}
+
+.grid-spacing-xl {
+  gap: 2rem;
+}
+
+/* Responsive Spacing */
+@media (max-width: 640px) {
+  .mobile-tight {
+    padding: 0.75rem;
+  }
+
+  .mobile-spacing > * + * {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Component Specific Spacing */
+.header-spacing {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.sidebar-spacing {
+  padding: 1.5rem 1rem;
+}
+
+.post-spacing {
+  padding: 1.5rem;
+}
+
+.comment-spacing {
+  padding: 0.75rem 1rem;
+}
+
+.message-spacing {
+  padding: 0.5rem 1rem;
+}
+
+/* Form Spacing */
+.form-spacing > * + * {
+  margin-top: 1rem;
+}
+
+.form-group-spacing {
+  margin-bottom: 1.25rem;
+}
+
+/* Button Spacing */
+.button-group > * + * {
+  margin-left: 0.5rem;
+}
+
+.button-group-vertical > * + * {
+  margin-top: 0.5rem;
+}
+
+/* Card Spacing */
+.card-padding {
+  padding: 1.5rem;
+}
+
+.card-padding-sm {
+  padding: 1rem;
+}
+
+.card-padding-lg {
+  padding: 2rem;
+}
+
+/* Avatar Spacing */
+.avatar-group {
+  display: flex;
+}
+
+.avatar-group > * + * {
+  margin-left: -0.5rem;
+}
+
+/* Navigation Spacing */
+.nav-spacing > * + * {
+  margin-left: 2rem;
+}
+
+.nav-spacing-sm > * + * {
+  margin-left: 1rem;
+}
+
+.nav-spacing-lg > * + * {
+  margin-left: 3rem;
+}
+
+/* Safe Area Spacing (for mobile) */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.safe-area-left {
+  padding-left: env(safe-area-inset-left, 0);
+}
+
+.safe-area-right {
+  padding-right: env(safe-area-inset-right, 0);
+}
+
+/* Negative Margins for Breaking Out of Containers */
+.break-out {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+@media (min-width: 640px) {
+  .break-out {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .break-out {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+}

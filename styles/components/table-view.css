@@ -1,0 +1,496 @@
+/* Table View Component Styles */
+/* Provides styling for table containers with headers, rows, and various states */
+
+.table-view-host {
+  @apply relative w-full;
+}
+
+.table-view {
+  @apply relative w-full;
+}
+
+/* Variant Styles */
+.table-view--default {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.table-view--compact {
+  @apply bg-white dark:bg-gray-800 rounded-md;
+}
+
+.table-view--bordered {
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border-2 border-gray-200 dark:border-gray-700;
+}
+
+.table-view--striped {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm;
+}
+
+/* Size Variants */
+.table-view--sm {
+  @apply text-sm;
+}
+
+.table-view--md {
+  @apply text-base;
+}
+
+.table-view--lg {
+  @apply text-lg;
+}
+
+/* Table Container */
+.table-view__container {
+  @apply w-full overflow-x-auto;
+}
+
+.table-view__table {
+  @apply w-full border-collapse;
+}
+
+.table-view__table--default {
+  @apply bg-white dark:bg-gray-800;
+}
+
+.table-view__table--compact {
+  @apply bg-white dark:bg-gray-800;
+}
+
+.table-view__table--bordered {
+  @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700;
+}
+
+.table-view__table--striped tbody tr:nth-child(even) {
+  @apply bg-gray-50 dark:bg-gray-750;
+}
+
+/* Loading State */
+.table-view--loading {
+  @apply opacity-60;
+}
+
+.table-view__loading {
+  @apply w-full;
+}
+
+.table-view__skeleton-table {
+  @apply w-full border-collapse;
+}
+
+.table-view__skeleton-header {
+  @apply px-4 py-3 bg-gray-50 dark:bg-gray-900;
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.table-view__skeleton-header-content {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.table-view__skeleton-row {
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.table-view__skeleton-cell {
+  @apply px-4 py-3;
+}
+
+.table-view__skeleton-cell-content {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+/* Empty State */
+.table-view__empty {
+  @apply flex items-center justify-center py-12;
+}
+
+.table-view__empty-content {
+  @apply text-center max-w-md;
+}
+
+.table-view__empty-icon {
+  @apply w-16 h-16 mx-auto mb-4 text-gray-300 dark:text-gray-600;
+}
+
+.table-view__empty-icon svg {
+  @apply w-full h-full;
+}
+
+.table-view__empty-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-2;
+}
+
+.table-view__empty-description {
+  @apply text-gray-500 dark:text-gray-400 mb-4;
+}
+
+/* Header */
+.table-view__header {
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+.table-view__header-row {
+  @apply border-b-2 border-gray-200 dark:border-gray-600;
+}
+
+.table-view__selection-header {
+  @apply w-12 px-3 py-3 text-center;
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+.table-view__expand-header {
+  @apply w-12 px-3 py-3;
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+.table-view__index-header {
+  @apply w-16 px-3 py-3 text-center font-semibold;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+.table-view__actions-header {
+  @apply w-24 px-3 py-3 text-right font-semibold;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+.table-view__select-all-checkbox {
+  @apply w-4 h-4 text-blue-600 bg-white border-gray-300 rounded;
+  @apply focus:ring-blue-500 dark:focus:ring-blue-600;
+  @apply dark:ring-offset-gray-800 focus:ring-2;
+  @apply dark:bg-gray-700 dark:border-gray-600;
+}
+
+/* Body */
+.table-view__body {
+  @apply bg-white dark:bg-gray-800;
+}
+
+/* Footer */
+.table-view__footer {
+  @apply bg-gray-50 dark:bg-gray-900;
+  @apply border-t-2 border-gray-200 dark:border-gray-600;
+}
+
+.table-view__footer-row {
+  /* Footer row styles */
+}
+
+.table-view__footer-cell {
+  @apply px-4 py-3 text-sm font-semibold;
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Pagination */
+.table-view__pagination {
+  @apply flex justify-center mt-4 p-4;
+  @apply border-t border-gray-200 dark:border-gray-700;
+}
+
+/* Selection State */
+.table-view--selectable {
+  @apply relative;
+}
+
+.table-view--has-selection::before {
+  content: attr(data-selection-count) " selected";
+  @apply block text-sm text-blue-600 dark:text-blue-400 mb-2 font-medium;
+}
+
+/* Hover Effects */
+.table-view__table tbody tr:hover {
+  @apply bg-gray-50 dark:bg-gray-750;
+}
+
+.table-view--striped .table-view__table tbody tr:nth-child(even):hover {
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+/* Focus States */
+.table-view:focus-within {
+  @apply ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .table-view__container {
+    @apply -mx-4;
+  }
+
+  .table-view__table {
+    @apply text-sm;
+  }
+
+  .table-view__selection-header,
+  .table-view__expand-header {
+    @apply w-10 px-2;
+  }
+
+  .table-view__index-header {
+    @apply w-12 px-2;
+  }
+
+  .table-view__actions-header {
+    @apply w-20 px-2;
+  }
+}
+
+/* Sticky Headers */
+.table-view--sticky-header .table-view__header {
+  @apply sticky top-0 z-10;
+}
+
+.table-view--sticky-header .table-view__header::after {
+  content: "";
+  @apply absolute bottom-0 left-0 right-0 h-0.5;
+  @apply bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-gray-600;
+}
+
+/* Horizontal Scroll Indicators */
+.table-view__container::before,
+.table-view__container::after {
+  content: "";
+  @apply absolute top-0 bottom-0 w-8 pointer-events-none z-10;
+}
+
+.table-view__container::before {
+  @apply left-0 bg-gradient-to-r from-white to-transparent dark:from-gray-800;
+}
+
+.table-view__container::after {
+  @apply right-0 bg-gradient-to-l from-white to-transparent dark:from-gray-800;
+}
+
+.table-view__container:not([data-scroll-left="0"])::before {
+  @apply opacity-100;
+}
+
+.table-view__container:not([data-scroll-right="0"])::after {
+  @apply opacity-100;
+}
+
+/* Loading Row States */
+.table-view__loading-row {
+  @apply opacity-60;
+}
+
+.table-view__loading-row td {
+  @apply relative;
+}
+
+.table-view__loading-row td::after {
+  content: "";
+  @apply absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse;
+}
+
+/* Error States */
+.table-view--error {
+  @apply border-red-200 dark:border-red-800;
+}
+
+.table-view__error-row {
+  @apply bg-red-50 dark:bg-red-900/20;
+}
+
+.table-view__error-row td {
+  @apply text-red-700 dark:text-red-300;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .table-view {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .table-view__table {
+    @apply border-collapse border-2 border-gray-900 dark:border-white;
+  }
+
+  .table-view__header {
+    @apply bg-gray-200 dark:bg-gray-700;
+  }
+
+  .table-view__table tbody tr:hover {
+    @apply bg-yellow-100 dark:bg-yellow-900;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .table-view__skeleton-header-content,
+  .table-view__skeleton-cell-content {
+    @apply animate-none;
+  }
+
+  .table-view__loading-row td::after {
+    @apply animate-none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .table-view {
+    @apply border border-gray-400 break-inside-avoid;
+  }
+
+  .table-view__container {
+    @apply overflow-visible;
+  }
+
+  .table-view__pagination {
+    @apply hidden;
+  }
+
+  .table-view__table {
+    @apply text-black border-collapse;
+  }
+
+  .table-view__header {
+    @apply bg-gray-100;
+  }
+
+  .table-view__table thead th {
+    @apply border border-gray-400 bg-gray-100 text-black font-bold;
+  }
+
+  .table-view__table tbody td {
+    @apply border border-gray-400 text-black;
+  }
+}
+
+/* Custom Properties for Theme Integration */
+.table-view {
+  --table-bg: theme(colors.white);
+  --table-border: theme(colors.gray.200);
+  --table-header-bg: theme(colors.gray.50);
+  --table-header-text: theme(colors.gray.700);
+  --table-row-hover: theme(colors.gray.50);
+  --table-cell-padding: theme(spacing.3) theme(spacing.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-view {
+    --table-bg: theme(colors.gray.800);
+    --table-border: theme(colors.gray.700);
+    --table-header-bg: theme(colors.gray.900);
+    --table-header-text: theme(colors.gray.300);
+    --table-row-hover: theme(colors.gray.750);
+  }
+}
+
+/* Accessibility Enhancements */
+.table-view[role="table"] {
+  @apply focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+}
+
+.table-view[aria-busy="true"] {
+  @apply pointer-events-none;
+}
+
+/* Dense Layout */
+.table-view--dense .table-view__table th,
+.table-view--dense .table-view__table td {
+  @apply py-1 px-2;
+}
+
+/* Virtual Scrolling Support */
+.table-view--virtual {
+  @apply overflow-hidden;
+}
+
+.table-view--virtual .table-view__body {
+  @apply relative;
+}
+
+/* Column Resizing */
+.table-view--resizable {
+  @apply relative;
+}
+
+.table-view__resize-handle {
+  @apply absolute top-0 bottom-0 w-1 cursor-col-resize;
+  @apply bg-transparent hover:bg-blue-500;
+}
+
+/* Row Groups */
+.table-view__row-group {
+  @apply border-t-2 border-gray-300 dark:border-gray-600;
+}
+
+.table-view__row-group:first-child {
+  @apply border-t-0;
+}
+
+.table-view__group-header {
+  @apply bg-gray-100 dark:bg-gray-750 font-semibold;
+}
+
+/* Batch Operations */
+.table-view__batch-actions {
+  @apply fixed bottom-4 left-1/2 transform -translate-x-1/2;
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg;
+  @apply flex items-center space-x-2;
+}
+
+.table-view__batch-actions--hidden {
+  @apply opacity-0 pointer-events-none;
+}
+
+/* Performance Optimizations */
+.table-view--optimized {
+  contain: layout style paint;
+}
+
+.table-view--optimized .table-view__table {
+  contain: layout style;
+}
+
+/* Data Types Indicators */
+.table-view__cell--number {
+  @apply font-mono text-right;
+}
+
+.table-view__cell--currency {
+  @apply font-mono text-right text-green-600 dark:text-green-400;
+}
+
+.table-view__cell--date {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.table-view__cell--boolean {
+  @apply text-center;
+}
+
+/* Toolbar Integration */
+.table-view__toolbar {
+  @apply flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+.table-view__toolbar-left {
+  @apply flex items-center space-x-2;
+}
+
+.table-view__toolbar-right {
+  @apply flex items-center space-x-2;
+}
+
+/* Search Highlighting */
+.table-view__highlight {
+  @apply bg-yellow-200 dark:bg-yellow-700 px-1 rounded;
+}
+
+/* Frozen Columns */
+.table-view__table--frozen-left th:first-child,
+.table-view__table--frozen-left td:first-child {
+  @apply sticky left-0 z-10 bg-white dark:bg-gray-800;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+.table-view__table--frozen-right th:last-child,
+.table-view__table--frozen-right td:last-child {
+  @apply sticky right-0 z-10 bg-white dark:bg-gray-800;
+  box-shadow: -2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}

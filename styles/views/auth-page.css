@@ -1,0 +1,65 @@
+/* Auth Page Styles */
+
+.auth-page {
+  @apply min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4;
+}
+
+.auth-container {
+  @apply w-full max-w-md;
+}
+
+.auth-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.auth-header {
+  @apply px-6 py-8 text-center;
+}
+
+.auth-logo {
+  @apply mx-auto mb-6;
+}
+
+.auth-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-2;
+}
+
+.auth-subtitle {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.auth-form {
+  @apply px-6 pb-8 space-y-6;
+}
+
+.auth-footer {
+  @apply px-6 py-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600 text-center;
+}
+
+.auth-link {
+  @apply text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300 font-medium;
+}
+
+.social-auth {
+  @apply space-y-3;
+}
+
+.social-button {
+  @apply w-full flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600;
+}
+
+.divider {
+  @apply relative my-6;
+}
+
+.divider-line {
+  @apply absolute inset-0 flex items-center;
+}
+
+.divider-border {
+  @apply w-full border-t border-gray-300 dark:border-gray-600;
+}
+
+.divider-text {
+  @apply relative flex justify-center text-sm text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-4;
+}

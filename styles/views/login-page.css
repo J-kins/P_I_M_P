@@ -1,0 +1,105 @@
+/* Login Page Styles */
+
+.login-page {
+  @apply min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4;
+}
+
+.login-container {
+  @apply w-full max-w-md;
+}
+
+.login-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.login-header {
+  @apply px-6 py-8 text-center;
+}
+
+.login-logo {
+  @apply mx-auto mb-6 w-16 h-16;
+}
+
+.login-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-2;
+}
+
+.login-subtitle {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.login-form {
+  @apply px-6 pb-8 space-y-6;
+}
+
+.form-group {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white;
+}
+
+.form-options {
+  @apply flex items-center justify-between;
+}
+
+.remember-me {
+  @apply flex items-center;
+}
+
+.remember-checkbox {
+  @apply h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded;
+}
+
+.remember-label {
+  @apply ml-2 text-sm text-gray-700 dark:text-gray-300;
+}
+
+.forgot-link {
+  @apply text-sm text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300;
+}
+
+.login-button {
+  @apply w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+}
+
+.social-divider {
+  @apply relative my-6;
+}
+
+.divider-line {
+  @apply absolute inset-0 flex items-center;
+}
+
+.divider-border {
+  @apply w-full border-t border-gray-300 dark:border-gray-600;
+}
+
+.divider-text {
+  @apply relative flex justify-center text-sm text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-4;
+}
+
+.social-login {
+  @apply space-y-3;
+}
+
+.social-button {
+  @apply w-full flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600;
+}
+
+.social-icon {
+  @apply w-5 h-5 mr-3;
+}
+
+.login-footer {
+  @apply px-6 py-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600 text-center;
+}
+
+.signup-link {
+  @apply text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300 font-medium;
+}

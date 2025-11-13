@@ -1,0 +1,345 @@
+/* SimpleBar Transitions and Customizations */
+
+/* SimpleBar Base Styles */
+.simplebar-wrapper {
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit;
+}
+
+.simplebar-mask {
+  direction: inherit;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: auto !important;
+  height: auto !important;
+  z-index: 0;
+}
+
+.simplebar-offset {
+  direction: inherit !important;
+  box-sizing: inherit !important;
+  resize: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* SimpleBar Content */
+.simplebar-content-wrapper {
+  direction: inherit;
+  box-sizing: border-box !important;
+  position: relative;
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.simplebar-content {
+  direction: inherit;
+  box-sizing: border-box !important;
+  position: relative;
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.simplebar-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Scrollbar Track */
+.simplebar-track {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.simplebar-track:hover {
+  opacity: 1;
+}
+
+.simplebar-track.simplebar-horizontal {
+  left: 0;
+  width: 100%;
+  height: 8px;
+  bottom: 0;
+}
+
+.simplebar-track.simplebar-vertical {
+  top: 0;
+  width: 8px;
+  height: 100%;
+  right: 0;
+}
+
+/* Scrollbar */
+.simplebar-scrollbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  min-height: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.simplebar-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.simplebar-scrollbar.simplebar-visible {
+  opacity: 1;
+}
+
+.simplebar-scrollbar:before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  background-color: currentColor;
+  border-radius: inherit;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.simplebar-scrollbar:hover:before {
+  opacity: 0.6;
+}
+
+/* Horizontal Scrollbar */
+.simplebar-horizontal .simplebar-scrollbar {
+  right: auto;
+  top: 0;
+  width: auto;
+  height: 100%;
+  min-height: 0;
+  min-width: 10px;
+}
+
+/* SimpleBar Hover States */
+.simplebar-wrapper:hover .simplebar-track {
+  opacity: 1;
+}
+
+.simplebar-dragging .simplebar-scrollbar {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Dark Mode Support */
+.dark .simplebar-scrollbar {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .simplebar-scrollbar:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.dark .simplebar-dragging .simplebar-scrollbar {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Custom Themes */
+.simplebar-theme-primary .simplebar-scrollbar {
+  background-color: var(--primary-color, #2563eb);
+  opacity: 0.7;
+}
+
+.simplebar-theme-primary .simplebar-scrollbar:hover {
+  opacity: 1;
+}
+
+.simplebar-theme-secondary .simplebar-scrollbar {
+  background-color: var(--secondary-color, #64748b);
+  opacity: 0.7;
+}
+
+.simplebar-theme-secondary .simplebar-scrollbar:hover {
+  opacity: 1;
+}
+
+/* Thin Scrollbar */
+.simplebar-thin .simplebar-track {
+  width: 4px;
+  height: 4px;
+}
+
+.simplebar-thin .simplebar-track.simplebar-horizontal {
+  height: 4px;
+}
+
+.simplebar-thin .simplebar-track.simplebar-vertical {
+  width: 4px;
+}
+
+.simplebar-thin .simplebar-scrollbar {
+  border-radius: 2px;
+}
+
+/* Hidden Scrollbar */
+.simplebar-hidden .simplebar-track {
+  display: none;
+}
+
+/* Auto Hide */
+.simplebar-auto-hide .simplebar-track {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.simplebar-auto-hide:hover .simplebar-track,
+.simplebar-auto-hide .simplebar-track.simplebar-visible {
+  opacity: 1;
+}
+
+/* Custom Scrollbar Animations */
+.simplebar-animated .simplebar-scrollbar {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.simplebar-bouncy .simplebar-scrollbar {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Scrollbar Size Variants */
+.simplebar-large .simplebar-track {
+  width: 12px;
+  height: 12px;
+}
+
+.simplebar-large .simplebar-track.simplebar-horizontal {
+  height: 12px;
+}
+
+.simplebar-large .simplebar-track.simplebar-vertical {
+  width: 12px;
+}
+
+.simplebar-small .simplebar-track {
+  width: 6px;
+  height: 6px;
+}
+
+.simplebar-small .simplebar-track.simplebar-horizontal {
+  height: 6px;
+}
+
+.simplebar-small .simplebar-track.simplebar-vertical {
+  width: 6px;
+}
+
+/* Rounded Scrollbar */
+.simplebar-rounded .simplebar-scrollbar {
+  border-radius: 10px;
+}
+
+/* Square Scrollbar */
+.simplebar-square .simplebar-scrollbar {
+  border-radius: 0;
+}
+
+/* Scrollbar with Shadow */
+.simplebar-shadow .simplebar-scrollbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.simplebar-shadow .simplebar-scrollbar:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Always Visible */
+.simplebar-always-visible .simplebar-track {
+  opacity: 1;
+}
+
+/* Scrollbar Transitions */
+.simplebar-smooth {
+  scroll-behavior: smooth;
+}
+
+.simplebar-smooth .simplebar-content {
+  scroll-behavior: smooth;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .simplebar-mobile-hide .simplebar-track {
+    display: none;
+  }
+
+  .simplebar-mobile-thin .simplebar-track {
+    width: 3px;
+    height: 3px;
+  }
+
+  .simplebar-mobile-thin .simplebar-track.simplebar-horizontal {
+    height: 3px;
+  }
+
+  .simplebar-mobile-thin .simplebar-track.simplebar-vertical {
+    width: 3px;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .simplebar-track {
+    opacity: 0;
+  }
+
+  .simplebar-wrapper:hover .simplebar-track {
+    opacity: 1;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .simplebar-track.simplebar-vertical {
+  right: auto;
+  left: 0;
+}
+
+/* Print Styles */
+@media print {
+  .simplebar-track {
+    display: none;
+  }
+}

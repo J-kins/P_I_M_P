@@ -1,0 +1,570 @@
+/* Games Page Styles */
+.games-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.games-page__header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4;
+}
+
+.games-page__title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-2;
+}
+
+.games-page__description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.games-page__actions {
+  @apply flex items-center gap-4 mt-4;
+}
+
+.games-page__search {
+  @apply flex-1 max-w-md;
+}
+
+.games-page__filters {
+  @apply flex items-center gap-2;
+}
+
+.games-page__filter-button {
+  @apply px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.games-page__filter-button--active {
+  @apply bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-600;
+}
+
+.games-page__add-game-button {
+  @apply px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors flex items-center gap-2;
+}
+
+.games-page__content {
+  @apply container mx-auto px-6 py-8;
+}
+
+.games-page__tabs {
+  @apply flex space-x-8 border-b border-gray-200 dark:border-gray-700 mb-8;
+}
+
+.games-page__tab {
+  @apply pb-4 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 font-medium text-sm transition-colors cursor-pointer;
+}
+
+.games-page__tab--active {
+  @apply text-purple-600 dark:text-purple-400 border-purple-600 dark:border-purple-400;
+}
+
+.games-page__grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.games-page__card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow;
+}
+
+.games-page__card-image {
+  @apply w-full h-48 object-cover relative;
+}
+
+.games-page__card-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/60 to-transparent;
+}
+
+.games-page__card-play-button {
+  @apply absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity;
+}
+
+.games-page__play-icon {
+  @apply w-16 h-16 text-white bg-purple-600 rounded-full flex items-center justify-center hover:bg-purple-700 transition-colors;
+}
+
+.games-page__card-genre {
+  @apply absolute top-3 left-3 px-2 py-1 text-xs font-medium text-white bg-black/50 rounded-full;
+}
+
+.games-page__card-rating {
+  @apply absolute top-3 right-3 px-2 py-1 text-xs font-medium text-white bg-black/50 rounded-full flex items-center gap-1;
+}
+
+.games-page__card-content {
+  @apply p-4;
+}
+
+.games-page__card-title {
+  @apply font-semibold text-gray-900 dark:text-white text-sm leading-tight mb-2;
+}
+
+.games-page__card-description {
+  @apply text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2;
+}
+
+.games-page__card-stats {
+  @apply flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-3;
+}
+
+.games-page__card-players {
+  @apply flex items-center gap-1;
+}
+
+.games-page__card-difficulty {
+  @apply flex items-center gap-1;
+}
+
+.games-page__card-duration {
+  @apply flex items-center gap-1;
+}
+
+.games-page__card-actions {
+  @apply flex items-center gap-2;
+}
+
+.games-page__play-button {
+  @apply flex-1 px-3 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.games-page__favorite-button {
+  @apply px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors;
+}
+
+.games-page__favorite-button--active {
+  @apply text-red-500 dark:text-red-400;
+}
+
+/* Categories Section */
+.games-page__categories {
+  @apply mb-8;
+}
+
+.games-page__categories-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.games-page__categories-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4;
+}
+
+.games-page__category-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4 text-center border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 transition-colors cursor-pointer;
+}
+
+.games-page__category-icon {
+  @apply w-8 h-8 mx-auto mb-2 text-purple-600 dark:text-purple-400;
+}
+
+.games-page__category-name {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.games-page__category-count {
+  @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+}
+
+/* Featured Games */
+.games-page__featured {
+  @apply mb-8;
+}
+
+.games-page__featured-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.games-page__featured-carousel {
+  @apply relative;
+}
+
+.games-page__featured-nav {
+  @apply absolute top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer;
+}
+
+.games-page__featured-nav--prev {
+  @apply left-4;
+}
+
+.games-page__featured-nav--next {
+  @apply right-4;
+}
+
+.games-page__featured-card {
+  @apply relative bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl overflow-hidden text-white;
+}
+
+.games-page__featured-content {
+  @apply p-6 relative z-10;
+}
+
+.games-page__featured-name {
+  @apply text-2xl font-bold mb-2;
+}
+
+.games-page__featured-description {
+  @apply text-purple-100 mb-4;
+}
+
+.games-page__featured-meta {
+  @apply flex items-center gap-4 text-sm text-purple-200 mb-4;
+}
+
+.games-page__featured-actions {
+  @apply flex gap-3;
+}
+
+.games-page__featured-play {
+  @apply px-6 py-3 bg-white text-purple-600 font-medium rounded-lg hover:bg-purple-50 transition-colors;
+}
+
+.games-page__featured-info {
+  @apply px-6 py-3 border border-white/30 text-white hover:bg-white/10 font-medium rounded-lg transition-colors;
+}
+
+/* Trending Games */
+.games-page__trending {
+  @apply mb-8;
+}
+
+.games-page__trending-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.games-page__trending-list {
+  @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.games-page__trending-item {
+  @apply p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.games-page__trending-content {
+  @apply flex items-center gap-4;
+}
+
+.games-page__trending-rank {
+  @apply w-8 h-8 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center text-sm font-bold;
+}
+
+.games-page__trending-image {
+  @apply w-12 h-12 rounded-lg object-cover;
+}
+
+.games-page__trending-info {
+  @apply flex-1;
+}
+
+.games-page__trending-name {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-1;
+}
+
+.games-page__trending-meta {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.games-page__trending-stats {
+  @apply text-right;
+}
+
+.games-page__trending-players {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.games-page__trending-change {
+  @apply text-xs font-medium;
+}
+
+.games-page__trending-change--up {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.games-page__trending-change--down {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Recently Played */
+.games-page__recent {
+  @apply mb-8;
+}
+
+.games-page__recent-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.games-page__recent-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+.games-page__recent-item {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-3 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow cursor-pointer;
+}
+
+.games-page__recent-header {
+  @apply flex items-center gap-3 mb-2;
+}
+
+.games-page__recent-image {
+  @apply w-10 h-10 rounded-lg object-cover;
+}
+
+.games-page__recent-info {
+  @apply flex-1;
+}
+
+.games-page__recent-name {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.games-page__recent-time {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.games-page__recent-progress {
+  @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2;
+}
+
+.games-page__recent-progress-bar {
+  @apply bg-purple-600 h-2 rounded-full transition-all duration-300;
+}
+
+/* My Games */
+.games-page__my-games {
+  @apply mb-8;
+}
+
+.games-page__my-games-header {
+  @apply flex items-center justify-between mb-4;
+}
+
+.games-page__my-games-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.games-page__my-games-view-all {
+  @apply text-sm text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium;
+}
+
+.games-page__my-games-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.games-page__my-game-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow;
+}
+
+.games-page__my-game-image {
+  @apply w-full h-32 object-cover;
+}
+
+.games-page__my-game-content {
+  @apply p-4;
+}
+
+.games-page__my-game-title {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-2;
+}
+
+.games-page__my-game-stats {
+  @apply grid grid-cols-2 gap-4 text-xs text-gray-500 dark:text-gray-400 mb-3;
+}
+
+.games-page__my-game-stat {
+  @apply text-center;
+}
+
+.games-page__my-game-stat-value {
+  @apply font-semibold text-gray-900 dark:text-white block;
+}
+
+.games-page__my-game-actions {
+  @apply flex gap-2;
+}
+
+.games-page__my-game-continue {
+  @apply flex-1 px-3 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.games-page__my-game-remove {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium rounded-lg transition-colors;
+}
+
+/* Empty States */
+.games-page__empty {
+  @apply text-center py-12;
+}
+
+.games-page__empty-icon {
+  @apply w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4;
+}
+
+.games-page__empty-title {
+  @apply text-lg font-medium text-gray-900 dark:text-white mb-2;
+}
+
+.games-page__empty-description {
+  @apply text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto;
+}
+
+.games-page__empty-action {
+  @apply px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors;
+}
+
+/* Loading States */
+.games-page__skeleton-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.games-page__skeleton-image {
+  @apply w-full h-48 bg-gray-200 dark:bg-gray-700 animate-pulse;
+}
+
+.games-page__skeleton-content {
+  @apply p-4 space-y-3;
+}
+
+.games-page__skeleton-title {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.games-page__skeleton-description {
+  @apply space-y-2;
+}
+
+.games-page__skeleton-line {
+  @apply h-3 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.games-page__skeleton-stats {
+  @apply flex justify-between;
+}
+
+.games-page__skeleton-stat {
+  @apply h-3 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.games-page__skeleton-actions {
+  @apply flex gap-2;
+}
+
+.games-page__skeleton-button {
+  @apply flex-1 h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .games-page__content {
+    @apply px-4 py-6;
+  }
+
+  .games-page__header {
+    @apply px-4;
+  }
+
+  .games-page__grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+
+  .games-page__categories-grid {
+    @apply grid-cols-3;
+  }
+
+  .games-page__actions {
+    @apply flex-col items-stretch gap-3;
+  }
+
+  .games-page__filters {
+    @apply flex-wrap;
+  }
+
+  .games-page__tabs {
+    @apply space-x-4 overflow-x-auto;
+  }
+
+  .games-page__tab {
+    @apply whitespace-nowrap;
+  }
+
+  .games-page__featured-nav {
+    @apply w-8 h-8;
+  }
+
+  .games-page__recent-grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+}
+
+/* Dark Mode Specific Adjustments */
+.dark .games-page__card:hover,
+.dark .games-page__recent-item:hover,
+.dark .games-page__my-game-card:hover {
+  @apply shadow-lg shadow-gray-900/25;
+}
+
+/* Focus States */
+.games-page__play-button:focus,
+.games-page__favorite-button:focus,
+.games-page__add-game-button:focus {
+  @apply outline-none ring-2 ring-purple-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.games-page__filter-button:focus {
+  @apply outline-none ring-2 ring-gray-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.games-page__category-card:focus {
+  @apply outline-none ring-2 ring-purple-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Animations */
+.games-page__card {
+  @apply transform transition-transform duration-200;
+}
+
+.games-page__card:hover {
+  @apply scale-105;
+}
+
+.games-page__recent-item,
+.games-page__my-game-card {
+  @apply transform transition-transform duration-200;
+}
+
+.games-page__recent-item:hover,
+.games-page__my-game-card:hover {
+  @apply scale-102;
+}
+
+.games-page__play-icon {
+  @apply transform transition-transform duration-200;
+}
+
+.games-page__play-icon:hover {
+  @apply scale-110;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .games-page__filter-button,
+  .games-page__card,
+  .games-page__recent-item,
+  .games-page__my-game-card {
+    @apply border-2;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .games-page__card,
+  .games-page__recent-item,
+  .games-page__my-game-card,
+  .games-page__play-icon,
+  .games-page__skeleton-image,
+  .games-page__skeleton-title,
+  .games-page__skeleton-line,
+  .games-page__skeleton-button {
+    @apply transition-none animate-none;
+  }
+
+  .games-page__card:hover,
+  .games-page__recent-item:hover,
+  .games-page__my-game-card:hover,
+  .games-page__play-icon:hover {
+    @apply scale-100;
+  }
+}

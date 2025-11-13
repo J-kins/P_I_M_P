@@ -1,0 +1,505 @@
+/* Sticky Tabs Navigation Organism Styles */
+
+.sticky-tabs-nav {
+  --tabs-nav-bg: var(--color-background);
+  --tabs-nav-border: var(--color-border);
+  --tabs-nav-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --tabs-nav-padding: 0 1rem;
+  --tabs-nav-gap: 0.25rem;
+  --tabs-nav-height: 48px;
+  --tabs-nav-z-index: 50;
+
+  position: relative;
+  width: 100%;
+  background-color: var(--tabs-nav-bg);
+  border-bottom: 1px solid var(--tabs-nav-border);
+  transition: all 0.3s ease;
+}
+
+/* Sticky Behavior */
+.sticky-tabs-nav--sticky {
+  position: sticky;
+  top: 0;
+  z-index: var(--tabs-nav-z-index);
+}
+
+.sticky-tabs-nav--stuck {
+  box-shadow: var(--tabs-nav-shadow);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Container */
+.sticky-tabs-nav__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--tabs-nav-padding);
+  height: var(--tabs-nav-height);
+  display: flex;
+  align-items: center;
+}
+
+/* Wrapper for desktop tabs */
+.sticky-tabs-nav__wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--tabs-nav-gap);
+  position: relative;
+}
+
+/* Tabs Container */
+.sticky-tabs-nav__tabs {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: var(--tabs-nav-gap);
+  position: relative;
+}
+
+.sticky-tabs-nav__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tab Variants */
+.sticky-tabs-nav--default .sticky-tabs-nav__tabs {
+  gap: 0.5rem;
+}
+
+.sticky-tabs-nav--minimal .sticky-tabs-nav__tabs {
+  gap: 0.25rem;
+}
+
+.sticky-tabs-nav--pills .sticky-tabs-nav__tabs {
+  gap: 0.5rem;
+  padding: 0.25rem;
+  background-color: var(--color-background-secondary);
+  border-radius: 0.75rem;
+}
+
+.sticky-tabs-nav--cards .sticky-tabs-nav__tabs {
+  gap: 0.25rem;
+}
+
+/* Size Variants */
+.sticky-tabs-nav--sm {
+  --tabs-nav-height: 40px;
+}
+
+.sticky-tabs-nav--md {
+  --tabs-nav-height: 48px;
+}
+
+.sticky-tabs-nav--lg {
+  --tabs-nav-height: 56px;
+}
+
+/* Alignment */
+.sticky-tabs-nav--center .sticky-tabs-nav__tabs {
+  justify-content: center;
+}
+
+.sticky-tabs-nav--right .sticky-tabs-nav__tabs {
+  justify-content: flex-end;
+}
+
+.sticky-tabs-nav--stretch .sticky-tabs-nav__tab {
+  flex: 1;
+}
+
+/* Individual Tab */
+.sticky-tabs-nav__tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sticky-tabs-nav__tab:hover {
+  background-color: var(--color-background-hover);
+}
+
+.sticky-tabs-nav__tab[aria-selected="true"] {
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.sticky-tabs-nav__tab[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Tab Variants */
+.sticky-tabs-nav--minimal .sticky-tabs-nav__tab {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.sticky-tabs-nav--pills .sticky-tabs-nav__tab {
+  border-radius: 0.5rem;
+  background-color: transparent;
+}
+
+.sticky-tabs-nav--pills .sticky-tabs-nav__tab[aria-selected="true"] {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-tabs-nav--underline .sticky-tabs-nav__tab {
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  padding-bottom: calc(0.5rem - 2px);
+}
+
+.sticky-tabs-nav--underline .sticky-tabs-nav__tab[aria-selected="true"] {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.sticky-tabs-nav--cards .sticky-tabs-nav__tab {
+  background-color: var(--color-background-secondary);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin-bottom: -1px;
+}
+
+.sticky-tabs-nav--cards .sticky-tabs-nav__tab[aria-selected="true"] {
+  background-color: var(--color-background);
+  border-color: var(--color-border);
+  z-index: 1;
+}
+
+/* Tab Elements */
+.sticky-tabs-nav__tab-icon {
+  flex-shrink: 0;
+}
+
+.sticky-tabs-nav__tab-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-tabs-nav__tab-badge {
+  flex-shrink: 0;
+}
+
+.sticky-tabs-nav__tab-close {
+  margin-left: 0.25rem;
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.sticky-tabs-nav__tab-close:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Active Tab Indicator */
+.sticky-tabs-nav__indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+
+/* Scroll Buttons */
+.sticky-tabs-nav__scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: var(--tabs-nav-bg);
+  border: 1px solid var(--tabs-nav-border);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-tabs-nav__scroll-button--left {
+  left: -16px;
+}
+
+.sticky-tabs-nav__scroll-button--right {
+  right: -16px;
+}
+
+.sticky-tabs-nav__scroll-button:hover {
+  background-color: var(--color-background-hover);
+}
+
+/* Add Button */
+.sticky-tabs-nav__add-button {
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-background-hover);
+  transition: all 0.2s ease;
+}
+
+.sticky-tabs-nav__add-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+/* Mobile Styles */
+.sticky-tabs-nav__mobile-toggle {
+  position: relative;
+  width: 100%;
+}
+
+.sticky-tabs-nav__mobile-button {
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--tabs-nav-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-background);
+}
+
+.sticky-tabs-nav__mobile-label {
+  flex: 1;
+  text-align: left;
+  margin-left: 0.5rem;
+}
+
+.sticky-tabs-nav__mobile-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background-color: var(--color-background);
+  border: 1px solid var(--tabs-nav-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.sticky-tabs-nav__mobile-option {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.sticky-tabs-nav__mobile-option:last-child {
+  margin-bottom: 0;
+}
+
+/* Content */
+.sticky-tabs-nav__content {
+  padding: 1rem;
+  background-color: var(--color-background);
+}
+
+/* Drag and Drop */
+.sticky-tabs-nav__tab[draggable="true"] {
+  cursor: grab;
+}
+
+.sticky-tabs-nav__tab[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+.sticky-tabs-nav__tab[draggable="true"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme */
+.sticky-tabs-nav--dark {
+  --tabs-nav-bg: var(--color-background-dark);
+  --tabs-nav-border: var(--color-border-dark);
+  color: var(--color-text-dark);
+}
+
+.sticky-tabs-nav--dark.sticky-tabs-nav--stuck {
+  background-color: rgba(23, 23, 23, 0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sticky-tabs-nav {
+    --tabs-nav-padding: 0 0.75rem;
+    --tabs-nav-height: 44px;
+  }
+
+  .sticky-tabs-nav--mobile .sticky-tabs-nav__wrapper {
+    display: none;
+  }
+
+  .sticky-tabs-nav__tab {
+    padding: 0.375rem 0.75rem;
+    min-width: auto;
+  }
+
+  .sticky-tabs-nav__scroll-button {
+    display: none;
+  }
+
+  .sticky-tabs-nav__add-button {
+    margin-left: 0.25rem;
+    padding: 0.375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sticky-tabs-nav {
+    --tabs-nav-padding: 0 0.5rem;
+    --tabs-nav-height: 40px;
+  }
+
+  .sticky-tabs-nav__tab {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .sticky-tabs-nav__tab-label {
+    max-width: 80px;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .sticky-tabs-nav {
+    --tabs-nav-border: var(--color-border-high-contrast);
+  }
+
+  .sticky-tabs-nav__tab {
+    border: 1px solid transparent;
+  }
+
+  .sticky-tabs-nav__tab:focus {
+    border-color: var(--color-focus);
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  .sticky-tabs-nav__tab[aria-selected="true"] {
+    border-color: var(--color-primary);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .sticky-tabs-nav,
+  .sticky-tabs-nav__tab,
+  .sticky-tabs-nav__indicator,
+  .sticky-tabs-nav__scroll-button,
+  .sticky-tabs-nav__add-button {
+    transition: none;
+  }
+
+  .sticky-tabs-nav__tabs {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sticky-tabs-nav {
+    position: static;
+    box-shadow: none;
+    border-bottom: 2px solid #000;
+  }
+
+  .sticky-tabs-nav__scroll-button,
+  .sticky-tabs-nav__add-button,
+  .sticky-tabs-nav__tab-close {
+    display: none;
+  }
+
+  .sticky-tabs-nav__tab {
+    color: #000 !important;
+    background: transparent !important;
+  }
+
+  .sticky-tabs-nav__tab[aria-selected="true"] {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+/* Focus Management */
+.sticky-tabs-nav__tab:focus,
+.sticky-tabs-nav__mobile-button:focus,
+.sticky-tabs-nav__scroll-button:focus,
+.sticky-tabs-nav__add-button:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Loading State */
+.sticky-tabs-nav--loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.sticky-tabs-nav--loading .sticky-tabs-nav__tabs {
+  background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Animation Classes */
+.sticky-tabs-nav-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.sticky-tabs-nav-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.sticky-tabs-nav-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sticky-tabs-nav-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}

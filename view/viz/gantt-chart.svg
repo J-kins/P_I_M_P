@@ -1,0 +1,70 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ganttChartTitle ganttChartDesc">
+    <title id="ganttChartTitle">Gantt Chart</title>
+    <desc id="ganttChartDesc">A data-agnostic Gantt chart template for project scheduling visualization.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #eee); stroke-width: 1; }
+            .task-bar { fill: var(--task-bar-color, #2196f3); stroke: var(--task-bar-border, #333); stroke-width: 1; }
+            .progress-bar { fill: var(--progress-bar-color, #4caf50); }
+            .dependency-arrow { stroke: var(--dependency-color, #f44336); stroke-width: 2; marker-end: url(#arrowhead); }
+            .task-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; text-anchor: end; }
+            .date-label { font-family: var(--font-family, Arial); font-size: 12px; fill: var(--label-color, #333); text-anchor: middle; }
+            .progress-label { font-family: var(--font-family, Arial); font-size: 11px; fill: var(--progress-label-color, #fff); text-anchor: middle; }
+            .title { font-family: var(--font-family, Arial); font-size: 20px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+        </style>
+        <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#f44336" />
+        </marker>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="450" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="120" y1="100" x2="120" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="120" y1="500" x2="850" y2="500"/>
+    </g>
+    <!-- Grid Lines & Date Labels -->
+    <g class="x-grid-labels">
+        <!-- for each tick in {xTicks} -->
+        <line class="grid-line" x1="{tick.x}" y1="100" x2="{tick.x}" y2="500"/>
+        <text class="date-label" x="{tick.x}" y="520">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Task Labels -->
+    <g class="y-task-labels">
+        <!-- for each task in {tasks} -->
+        <text class="task-label" x="110" y="{task.y+taskHeight/2}">{task.name}</text>
+        <!-- end for -->
+    </g>
+    <!-- Gantt Bars -->
+    <g class="gantt-bars">
+        <!-- for each task in {tasks} -->
+        <rect class="task-bar" x="{task.xStart}" y="{task.y}" width="{task.width}" height="{taskHeight}" data-task="{task.name}" data-start="{task.start}" data-end="{task.end}" data-duration="{task.duration}" data-progress="{task.progress}" data-dependencies="{task.dependencies}" data-assignee="{task.assignee}" data-notes="{task.notes}" data-collapsible="{task.collapsible}"/>
+        <!-- Progress Bar (optional) -->
+        <rect class="progress-bar" x="{task.xStart}" y="{task.y}" width="{task.width * task.progress / 100}" height="{taskHeight}"/>
+        <!-- Progress Label (optional) -->
+        <text class="progress-label" x="{task.xStart + (task.width * task.progress / 200)}" y="{task.y + taskHeight/2 + 4}">{task.progress}%</text>
+        <!-- end for -->
+    </g>
+    <!-- Milestone Markers -->
+    <g class="milestones">
+        <!-- for each milestone in {milestones} -->
+        <polygon points="{milestone.x},{milestone.y} {milestone.x-10},{milestone.y+20} {milestone.x+10},{milestone.y+20}" class="milestone-marker" data-label="{milestone.label}" data-date="{milestone.date}"/>
+        <text class="date-label" x="{milestone.x}" y="{milestone.y+35}">{milestone.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Today Line -->
+    <line class="today-line" x1="{todayX}" y1="100" x2="{todayX}" y2="500" stroke="#e91e63" stroke-width="3" stroke-dasharray="8 4"/>
+    <!-- Dependency Arrows -->
+    <g class="dependencies">
+        <!-- for each dep in {dependencies} -->
+        <line class="dependency-arrow" x1="{dep.x1}" y1="{dep.y1}" x2="{dep.x2}" y2="{dep.y2}"/>
+        <!-- end for -->
+    </g>
+    <!-- JS Interactivity: Drag-and-drop, tooltips, collapsible phases supported via metadata attributes above -->
+</svg>

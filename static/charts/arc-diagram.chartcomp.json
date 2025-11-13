@@ -1,0 +1,472 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Arc Diagram",
+  "description": "Data-agnostic Arc Diagram component - Linear nodes with curved arcs for network connections",
+  "properties": {
+    "componentType": {
+      "type": "string",
+      "const": "chart.arc.diagram",
+      "description": "Component type identifier"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "default": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this chart instance"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "author": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "category": {
+          "type": "string",
+          "const": "Comparison Charts"
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "description": "Data source configuration",
+      "properties": {
+        "source": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "Reference to data source ID"
+            },
+            {
+              "type": "object",
+              "description": "Inline data object"
+            },
+            {
+              "type": "array",
+              "description": "Inline data array"
+            }
+          ]
+        },
+        "bindings": {
+          "type": "object",
+          "description": "Field mappings to chart dimensions",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "transforms": {
+          "type": "array",
+          "description": "Data transformation pipeline",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "filter",
+                  "map",
+                  "reduce",
+                  "aggregate",
+                  "sort",
+                  "normalize",
+                  "pivot"
+                ]
+              },
+              "config": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "source"
+      ]
+    },
+    "axes": {
+      "type": "object",
+      "description": "Axis configurations",
+      "properties": {
+        "x": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "categorical",
+                "linear",
+                "logarithmic",
+                "time",
+                "band"
+              ]
+            },
+            "field": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "scale": {
+              "type": "object"
+            },
+            "grid": {
+              "type": "boolean",
+              "default": true
+            },
+            "ticks": {
+              "type": "object"
+            }
+          }
+        },
+        "y": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "categorical",
+                "linear",
+                "logarithmic",
+                "time",
+                "band"
+              ]
+            },
+            "field": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "scale": {
+              "type": "object"
+            },
+            "grid": {
+              "type": "boolean",
+              "default": true
+            },
+            "ticks": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "encoding": {
+      "type": "object",
+      "description": "Visual encoding channels",
+      "properties": {
+        "x": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "y": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "color": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "size": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "shape": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "opacity": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "text": {
+          "type": [
+            "string",
+            "object"
+          ]
+        }
+      }
+    },
+    "style": {
+      "type": "object",
+      "description": "Visual styling properties",
+      "properties": {
+        "colors": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "string",
+              "description": "Color palette reference"
+            }
+          ]
+        },
+        "fontSize": {
+          "type": "number"
+        },
+        "fontFamily": {
+          "type": "string"
+        },
+        "strokeWidth": {
+          "type": "number"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "padding": {
+          "type": "object"
+        },
+        "margins": {
+          "type": "object"
+        }
+      }
+    },
+    "legend": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "position": {
+          "type": "string",
+          "enum": [
+            "top",
+            "right",
+            "bottom",
+            "left",
+            "top-right",
+            "top-left",
+            "bottom-right",
+            "bottom-left"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "orientation": {
+          "type": "string",
+          "enum": [
+            "horizontal",
+            "vertical"
+          ]
+        }
+      }
+    },
+    "tooltip": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "type": "string"
+        },
+        "template": {
+          "type": "string"
+        }
+      }
+    },
+    "interactions": {
+      "type": "object",
+      "properties": {
+        "hover": {
+          "type": "boolean",
+          "default": true
+        },
+        "click": {
+          "type": "boolean",
+          "default": true
+        },
+        "zoom": {
+          "type": "boolean",
+          "default": false
+        },
+        "pan": {
+          "type": "boolean",
+          "default": false
+        },
+        "brush": {
+          "type": "boolean",
+          "default": false
+        },
+        "selection": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "single",
+                "multiple"
+              ]
+            },
+            "on": {
+              "type": "string",
+              "enum": [
+                "click",
+                "dblclick",
+                "mouseover"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "animation": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "duration": {
+          "type": "number",
+          "default": 500
+        },
+        "easing": {
+          "type": "string",
+          "enum": [
+            "linear",
+            "ease",
+            "ease-in",
+            "ease-out",
+            "ease-in-out",
+            "cubic-bezier"
+          ]
+        },
+        "delay": {
+          "type": "number",
+          "default": 0
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "height": {
+          "type": [
+            "number",
+            "string"
+          ]
+        },
+        "aspectRatio": {
+          "type": "number"
+        },
+        "responsive": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "export": {
+      "type": "object",
+      "properties": {
+        "formats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "png",
+              "svg",
+              "pdf",
+              "json",
+              "csv"
+            ]
+          }
+        },
+        "filename": {
+          "type": "string"
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "description": {
+          "type": "string"
+        },
+        "keyboardNavigation": {
+          "type": "boolean",
+          "default": true
+        },
+        "announcements": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  },
+  "required": [
+    "componentType",
+    "id",
+    "data"
+  ],
+  "additionalProperties": false
+}

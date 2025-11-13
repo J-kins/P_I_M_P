@@ -1,0 +1,57 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" aria-labelledby="resourceCalendarTitle resourceCalendarDesc">
+    <title id="resourceCalendarTitle">Resource Calendar / Heatmap</title>
+    <desc id="resourceCalendarDesc">A data-agnostic SVG template for visualizing resource allocation, utilization, and conflicts in a calendar heatmap.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #bbb); stroke-width: 1; }
+            .resource-label { font-family: var(--font-family, Arial); font-size: 15px; fill: var(--label-color, #333); font-weight: bold; text-anchor: end; }
+            .date-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); text-anchor: middle; }
+            .heatmap-cell { stroke: var(--cell-border, #333); stroke-width: 1; }
+            .util-free { fill: #4caf50; }
+            .util-partial { fill: #ffeb3b; }
+            .util-full { fill: #f44336; }
+            .util-overtime { fill: #e91e63; }
+            .allocation-block { fill: var(--alloc-color, #2196f3); opacity: 0.7; }
+            .conflict-indicator { stroke: #f44336; stroke-width: 3; stroke-dasharray: 6 3; }
+            .aggregate-label { font-family: var(--font-family, Arial); font-size: 15px; fill: #2196f3; font-weight: bold; text-anchor: middle; }
+            .title { font-family: var(--font-family, Arial); font-size: 24px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="600" y="50">{calendarTitle}</text>
+    <!-- Date Labels (columns) -->
+    <g class="date-labels">
+        <!-- for each date in {dates} -->
+        <text class="date-label" x="{date.x}" y="120">{date.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Resource Labels (rows) -->
+    <g class="resource-labels">
+        <!-- for each resource in {resources} -->
+        <text class="resource-label" x="80" y="{resource.y+cellHeight/2}">{resource.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Heatmap Grid -->
+    <g class="heatmap-grid">
+        <!-- for each cell in {cells} -->
+        <rect class="heatmap-cell util-{cell.utilization}" x="{cell.x}" y="{cell.y}" width="{cellWidth}" height="{cellHeight}" data-resource="{cell.resource}" data-date="{cell.date}" data-utilization="{cell.utilization}"/>
+        <!-- Allocation Block (if any) -->
+        <!-- for each alloc in cell.allocations -->
+        <rect class="allocation-block" x="{alloc.x}" y="{alloc.y}" width="{alloc.width}" height="{alloc.height}" data-task="{alloc.task}" data-start="{alloc.start}" data-end="{alloc.end}"/>
+        <!-- end for -->
+        <!-- Conflict Indicator (if conflict) -->
+        <line class="conflict-indicator" x1="{cell.x}" y1="{cell.y}" x2="{cell.x+cellWidth}" y2="{cell.y+cellHeight}"/>
+        <line class="conflict-indicator" x1="{cell.x+cellWidth}" y1="{cell.y}" x2="{cell.x}" y2="{cell.y+cellHeight}"/>
+        <!-- end for -->
+    </g>
+    <!-- Aggregate View (summary row/column) -->
+    <g class="aggregate-view">
+        <!-- for each agg in {aggregates} -->
+        <text class="aggregate-label" x="{agg.x}" y="{agg.y}">{agg.label}: {agg.value}</text>
+        <!-- end for -->
+    </g>
+    <!-- JS Interactivity: Allocation, conflict, and utilization logic supported via metadata and classes above -->
+</svg>

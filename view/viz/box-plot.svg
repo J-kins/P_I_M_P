@@ -1,0 +1,54 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="boxPlotTitle boxPlotDesc">
+    <title id="boxPlotTitle">Box Plot (Box and Whisker Plot)</title>
+    <desc id="boxPlotDesc">A data-agnostic SVG template for visualizing distributions with box plots, whiskers, and outliers.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #bbb); stroke-width: 1; stroke-dasharray: 4 2; }
+            .box { fill: var(--box-color, #90caf9); stroke: var(--box-border, #2196f3); stroke-width: 2; }
+            .median-line { stroke: var(--median-color, #f44336); stroke-width: 3; }
+            .whisker { stroke: var(--whisker-color, #333); stroke-width: 2; }
+            .outlier { fill: var(--outlier-color, #ff9800); stroke: var(--outlier-border, #333); stroke-width: 1; }
+            .group-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; text-anchor: middle; }
+            .y-label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; }
+            .title { font-family: var(--font-family, Arial); font-size: 20px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+        <text class="y-label" x="80" y="300" transform="rotate(-90 80,300)">{yLabel}</text>
+    </g>
+    <!-- Grid Lines & Y Labels -->
+    <g class="y-grid-labels">
+        <!-- for each tick in {yTicks} -->
+        <line class="grid-line" x1="100" y1="{tick.y}" x2="700" y2="{tick.y}"/>
+        <text class="group-label" x="90" y="{tick.y+5}">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Box Plots -->
+    <g class="boxplots">
+        <!-- for each group in {groups} -->
+        <!-- Whiskers -->
+        <line class="whisker" x1="{group.x}" y1="{group.yMin}" x2="{group.x}" y2="{group.yQ1}"/>
+        <line class="whisker" x1="{group.x}" y1="{group.yQ3}" x2="{group.x}" y2="{group.yMax}"/>
+        <!-- Box -->
+        <rect class="box" x="{group.x - boxWidth/2}" y="{group.yQ3}" width="{boxWidth}" height="{group.yQ1 - group.yQ3}" data-group="{group.label}" data-min="{group.min}" data-q1="{group.q1}" data-median="{group.median}" data-q3="{group.q3}" data-max="{group.max}"/>
+        <!-- Median Line -->
+        <line class="median-line" x1="{group.x - boxWidth/2}" y1="{group.yMedian}" x2="{group.x + boxWidth/2}" y2="{group.yMedian}"/>
+        <!-- Outliers -->
+        <!-- for each outlier in group.outliers -->
+        <circle class="outlier" cx="{group.x}" cy="{outlier.y}" r="5" data-group="{group.label}" data-outlier="{outlier.value}"/>
+        <!-- end for -->
+        <!-- Group Label -->
+        <text class="group-label" x="{group.x}" y="520">{group.label}</text>
+        <!-- end for -->
+    </g>
+</svg>

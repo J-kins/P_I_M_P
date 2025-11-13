@@ -1,0 +1,233 @@
+/* 
+ * P.I.M.P - Resources Page Styles
+ * Styles for the Resources page
+ */
+
+.resources-section {
+    padding: 4rem 0;
+}
+
+.resources-section:first-of-type {
+    padding-top: 2rem;
+}
+
+.resources-section:last-of-type {
+    padding-bottom: 4rem;
+}
+
+.consumer-resources {
+    background: var(--bg-primary, #ffffff);
+}
+
+.business-resources {
+    background: var(--bg-secondary, #f8f9fa);
+}
+
+.faq-section {
+    background: var(--bg-primary, #ffffff);
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-title i {
+    color: var(--primary-500, #8a5cf5);
+}
+
+.section-title.text-center {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.resource-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-500, #8a5cf5), var(--primary-600, #7c3aed));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.resource-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 1rem;
+}
+
+.resource-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary, #666666);
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-500, #8a5cf5);
+    font-weight: 600;
+    text-decoration: none;
+    transition: gap 0.3s ease;
+}
+
+.resource-link:hover {
+    gap: 0.75rem;
+    color: var(--primary-600, #7c3aed);
+}
+
+.resource-link i {
+    font-size: 0.875rem;
+}
+
+/* FAQ Section */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border: 1px solid var(--border-color, #e5e5e5);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--primary-500, #8a5cf5);
+}
+
+.faq-item.active .faq-question {
+    background: var(--bg-secondary, #f8f9fa);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-question {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.faq-question h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    margin: 0;
+}
+
+.faq-question i {
+    color: var(--primary-500, #8a5cf5);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 1.5rem;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.faq-answer p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary, #666666);
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resources-section {
+        padding: 2rem 0;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .section-title.text-center {
+        align-items: center;
+    }
+
+    .resources-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .resource-card {
+        padding: 1.5rem;
+    }
+
+    .faq-question {
+        padding: 1.25rem;
+    }
+
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .resource-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .resource-card h3 {
+        font-size: 1.25rem;
+    }
+}
+

@@ -1,0 +1,27 @@
+/* CDF Plot Styles for D3.js integration */
+#cdf-plot-svg .cdf-curve {
+  stroke: #2196f3;
+  stroke-width: 3;
+  fill: none;
+}
+#cdf-plot-svg .cdf-step {
+  stroke: #ff9800;
+  stroke-width: 2;
+  fill: none;
+}
+#cdf-plot-svg .guide-line {
+  stroke: #f44336;
+  stroke-width: 2;
+  stroke-dasharray: 6 3;
+}
+#cdf-plot-svg .label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #333;
+  font-weight: bold;
+  text-anchor: middle;
+}
+#cdf-plot-svg .title {
+  font-size: 20px;
+  font-weight: bold;
+}

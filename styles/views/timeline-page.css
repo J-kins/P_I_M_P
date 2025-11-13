@@ -1,0 +1,410 @@
+/* Timeline Page Styles */
+
+.timeline-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.cover-section {
+  @apply relative h-64 md:h-80 bg-gradient-to-r from-blue-500 to-purple-600 overflow-hidden;
+}
+
+.cover-section img {
+  @apply w-full h-full object-cover;
+}
+
+.cover-overlay {
+  @apply absolute inset-0 bg-black/20;
+}
+
+.cover-actions {
+  @apply absolute bottom-4 right-4;
+}
+
+.profile-header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700;
+}
+
+.profile-header-content {
+  @apply max-w-5xl mx-auto px-4;
+}
+
+.profile-main-info {
+  @apply flex flex-col md:flex-row md:items-end space-y-4 md:space-y-0 md:space-x-6 -mt-16 pb-6;
+}
+
+.profile-avatar-container {
+  @apply relative;
+}
+
+.profile-avatar {
+  @apply ring-4 ring-white dark:ring-gray-800 bg-white dark:bg-gray-800;
+}
+
+.avatar-edit-button {
+  @apply absolute bottom-2 right-2 w-8 h-8 p-0 rounded-full bg-white dark:bg-gray-800;
+}
+
+.profile-info {
+  @apply flex-1 space-y-2;
+}
+
+.profile-name {
+  @apply text-2xl md:text-3xl font-bold text-gray-900 dark:text-white;
+}
+
+.profile-username {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.profile-bio {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.profile-meta {
+  @apply flex flex-wrap items-center space-x-4 text-sm text-gray-600 dark:text-gray-400;
+}
+
+.profile-meta-item {
+  @apply flex items-center space-x-1;
+}
+
+.profile-meta-icon {
+  @apply w-4 h-4;
+}
+
+.profile-actions {
+  @apply flex items-center space-x-3;
+}
+
+.action-button {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.action-button:hover {
+  @apply transform scale-105;
+}
+
+.profile-stats {
+  @apply flex items-center space-x-8 py-4 border-t border-gray-200 dark:border-gray-700;
+}
+
+.stat-item {
+  @apply text-center;
+}
+
+.stat-number {
+  @apply text-xl font-bold text-gray-900 dark:text-white;
+}
+
+.stat-label {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+.tabs-navigation {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-16 z-10;
+}
+
+.tabs-nav {
+  @apply max-w-5xl mx-auto px-4;
+}
+
+.tab-buttons {
+  @apply flex space-x-8 overflow-x-auto;
+}
+
+.tab-button {
+  @apply py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors;
+}
+
+.tab-button.active {
+  @apply border-primary-500 text-primary-600 dark:text-primary-400;
+}
+
+.tab-button.inactive {
+  @apply border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300;
+}
+
+.tab-count {
+  @apply ml-2 text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full;
+}
+
+.timeline-content {
+  @apply max-w-5xl mx-auto px-4 py-6;
+}
+
+.content-layout {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+}
+
+.main-content {
+  @apply lg:col-span-2 space-y-6;
+}
+
+.sidebar-content {
+  @apply space-y-6;
+}
+
+.photos-grid {
+  @apply grid grid-cols-3 gap-2;
+}
+
+.photo-item {
+  @apply aspect-square bg-gray-300 dark:bg-gray-600 rounded-lg cursor-pointer hover:opacity-80 transition-opacity;
+}
+
+.photo-item img {
+  @apply w-full h-full object-cover rounded-lg;
+}
+
+.videos-grid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.video-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden;
+}
+
+.video-thumbnail {
+  @apply aspect-video bg-gray-300 dark:bg-gray-600 relative;
+}
+
+.video-play-icon {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+.video-info {
+  @apply p-3;
+}
+
+.video-title {
+  @apply font-medium text-sm text-gray-900 dark:text-white line-clamp-2;
+}
+
+.video-meta {
+  @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+}
+
+.about-section {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow p-6;
+}
+
+.about-section h3 {
+  @apply text-lg font-semibold mb-4 text-gray-900 dark:text-white;
+}
+
+.about-content {
+  @apply space-y-4;
+}
+
+.about-item h4 {
+  @apply font-medium mb-2 text-gray-900 dark:text-white;
+}
+
+.about-item p {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.about-item a {
+  @apply text-primary-600 dark:text-primary-400 hover:underline;
+}
+
+.sidebar-widget {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow p-6;
+}
+
+.widget-title {
+  @apply font-semibold mb-4 text-gray-900 dark:text-white;
+}
+
+.quick-stats {
+  @apply space-y-3;
+}
+
+.quick-stats-item {
+  @apply flex justify-between;
+}
+
+.quick-stats-label {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.quick-stats-value {
+  @apply font-medium text-gray-900 dark:text-white;
+}
+
+.recent-activity {
+  @apply space-y-3;
+}
+
+.activity-item {
+  @apply flex items-start space-x-3;
+}
+
+.activity-indicator {
+  @apply w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0;
+}
+
+.activity-content {
+  @apply text-sm;
+}
+
+.activity-action {
+  @apply text-gray-900 dark:text-white;
+}
+
+.activity-time {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.mutual-connections {
+  @apply grid grid-cols-3 gap-2;
+}
+
+.connection-item {
+  @apply text-center;
+}
+
+.connection-avatar {
+  @apply mx-auto mb-1;
+}
+
+.connection-name {
+  @apply text-xs text-gray-600 dark:text-gray-400 truncate;
+}
+
+.profile-badges {
+  @apply flex items-center space-x-2;
+}
+
+.verified-badge {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+}
+
+.type-badge {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cover-section {
+    @apply h-48;
+  }
+
+  .profile-name {
+    @apply text-xl;
+  }
+
+  .profile-actions {
+    @apply flex-col space-y-2 space-x-0 w-full;
+  }
+
+  .action-button {
+    @apply w-full;
+  }
+
+  .content-layout {
+    @apply grid-cols-1;
+  }
+
+  .photos-grid {
+    @apply grid-cols-4;
+  }
+
+  .videos-grid {
+    @apply grid-cols-1;
+  }
+
+  .mutual-connections {
+    @apply grid-cols-2;
+  }
+}
+
+/* Profile type specific styles */
+.profile-header.page {
+  @apply border-l-4 border-l-blue-500;
+}
+
+.profile-header.group {
+  @apply border-l-4 border-l-green-500;
+}
+
+.profile-header.event {
+  @apply border-l-4 border-l-purple-500;
+}
+
+/* Animation classes */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stagger-animation {
+  animation-delay: calc(var(--stagger-delay, 0) * 100ms);
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transition-transform duration-200 ease-in-out;
+}
+
+.hover-lift:hover {
+  @apply transform -translate-y-1;
+}
+
+/* Loading states */
+.skeleton-cover {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-600;
+}
+
+.skeleton-avatar {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.skeleton-text-line {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-600 rounded h-4;
+}
+
+/* Accessibility improvements */
+.timeline-page *:focus-visible {
+  @apply outline-2 outline-offset-2 outline-primary-500;
+}
+
+/* Dark mode specific adjustments */
+@media (prefers-color-scheme: dark) {
+  .cover-section {
+    @apply border-b border-gray-700;
+  }
+
+  .profile-avatar {
+    @apply ring-gray-700;
+  }
+
+  .tabs-navigation {
+    @apply border-gray-600;
+  }
+}

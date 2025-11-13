@@ -1,0 +1,52 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-labelledby="qqPlotTitle qqPlotDesc">
+    <title id="qqPlotTitle">Q-Q Plot (Quantile-Quantile Plot)</title>
+    <desc id="qqPlotDesc">A data-agnostic SVG template for visualizing Q-Q plots with reference line, points, and optional confidence band.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color, #bbb); stroke-width: 1; stroke-dasharray: 4 2; }
+            .qq-point { fill: var(--point-color, #2196f3); stroke: var(--point-border, #333); stroke-width: 1; opacity: 0.85; }
+            .reference-line { stroke: var(--ref-line-color, #f44336); stroke-width: 3; stroke-dasharray: none; }
+            .conf-band { fill: var(--conf-band-color, #90caf9); opacity: 0.3; }
+            .label { font-family: var(--font-family, Arial); font-size: 13px; fill: var(--label-color, #333); font-weight: bold; text-anchor: middle; }
+            .title { font-family: var(--font-family, Arial); font-size: 20px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+        <text class="label" x="80" y="300" transform="rotate(-90 80,300)">{yLabel}</text>
+        <text class="label" x="400" y="540">{xLabel}</text>
+    </g>
+    <!-- Grid Lines & Labels -->
+    <g class="y-grid-labels">
+        <!-- for each tick in {yTicks} -->
+        <line class="grid-line" x1="100" y1="{tick.y}" x2="700" y2="{tick.y}"/>
+        <text class="label" x="90" y="{tick.y+5}">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <g class="x-grid-labels">
+        <!-- for each tick in {xTicks} -->
+        <text class="label" x="{tick.x}" y="520">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- Optional Confidence Band -->
+    <g class="conf-band">
+        <path d="{confBandPath}"/>
+    </g>
+    <!-- Reference Line (y = x) -->
+    <line class="reference-line" x1="100" y1="500" x2="700" y2="100"/>
+    <!-- Q-Q Points -->
+    <g class="qq-points">
+        <!-- for each point in {qqPoints} -->
+        <circle class="qq-point" cx="{point.x}" cy="{point.y}" r="6" data-x="{point.xVal}" data-y="{point.yVal}" data-quantile="{point.quantile}"/>
+        <!-- end for -->
+    </g>
+</svg>

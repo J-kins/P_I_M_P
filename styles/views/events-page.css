@@ -1,0 +1,544 @@
+/* Events Page Styles */
+.events-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.events-page__header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4;
+}
+
+.events-page__title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-2;
+}
+
+.events-page__description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.events-page__actions {
+  @apply flex items-center gap-4 mt-4;
+}
+
+.events-page__search {
+  @apply flex-1 max-w-md;
+}
+
+.events-page__filters {
+  @apply flex items-center gap-2;
+}
+
+.events-page__filter-button {
+  @apply px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.events-page__filter-button--active {
+  @apply bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-600;
+}
+
+.events-page__create-button {
+  @apply px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors flex items-center gap-2;
+}
+
+.events-page__content {
+  @apply container mx-auto px-6 py-8;
+}
+
+.events-page__tabs {
+  @apply flex space-x-8 border-b border-gray-200 dark:border-gray-700 mb-8;
+}
+
+.events-page__tab {
+  @apply pb-4 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 font-medium text-sm transition-colors cursor-pointer;
+}
+
+.events-page__tab--active {
+  @apply text-blue-600 dark:text-blue-400 border-blue-600 dark:border-blue-400;
+}
+
+.events-page__grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.events-page__card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow;
+}
+
+.events-page__card-image {
+  @apply w-full h-48 object-cover relative;
+}
+
+.events-page__card-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/50 to-transparent;
+}
+
+.events-page__card-date {
+  @apply absolute top-4 left-4 bg-white dark:bg-gray-800 rounded-lg p-2 text-center shadow-sm;
+}
+
+.events-page__card-month {
+  @apply text-xs font-medium text-red-500 uppercase;
+}
+
+.events-page__card-day {
+  @apply text-lg font-bold text-gray-900 dark:text-white;
+}
+
+.events-page__card-status {
+  @apply absolute top-4 right-4 px-2 py-1 text-xs font-medium rounded-full;
+}
+
+.events-page__card-status--live {
+  @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200;
+}
+
+.events-page__card-status--upcoming {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200;
+}
+
+.events-page__card-status--past {
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400;
+}
+
+.events-page__card-content {
+  @apply p-4;
+}
+
+.events-page__card-title {
+  @apply font-semibold text-gray-900 dark:text-white text-sm leading-tight mb-2;
+}
+
+.events-page__card-time {
+  @apply text-xs text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1;
+}
+
+.events-page__card-location {
+  @apply text-xs text-gray-500 dark:text-gray-400 mb-3 flex items-center gap-1;
+}
+
+.events-page__card-organizer {
+  @apply flex items-center gap-2 mb-3;
+}
+
+.events-page__card-organizer-avatar {
+  @apply w-6 h-6 rounded-full object-cover;
+}
+
+.events-page__card-organizer-name {
+  @apply text-xs text-gray-600 dark:text-gray-400;
+}
+
+.events-page__card-stats {
+  @apply flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-3;
+}
+
+.events-page__card-attendees {
+  @apply flex items-center gap-1;
+}
+
+.events-page__card-price {
+  @apply font-medium text-green-600 dark:text-green-400;
+}
+
+.events-page__card-actions {
+  @apply flex items-center gap-2;
+}
+
+.events-page__interested-button {
+  @apply flex-1 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.events-page__interested-button--interested {
+  @apply bg-green-600 hover:bg-green-700;
+}
+
+.events-page__share-button {
+  @apply px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors;
+}
+
+/* Calendar View */
+.events-page__calendar {
+  @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.events-page__calendar-header {
+  @apply flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+.events-page__calendar-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.events-page__calendar-nav {
+  @apply flex items-center gap-2;
+}
+
+.events-page__calendar-nav-button {
+  @apply p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors;
+}
+
+.events-page__calendar-grid {
+  @apply grid grid-cols-7 border-b border-gray-200 dark:border-gray-700;
+}
+
+.events-page__calendar-day-header {
+  @apply p-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-750;
+}
+
+.events-page__calendar-weeks {
+  @apply grid grid-cols-7;
+}
+
+.events-page__calendar-day {
+  @apply min-h-24 p-2 border-r border-b border-gray-200 dark:border-gray-700 relative;
+}
+
+.events-page__calendar-day--other-month {
+  @apply bg-gray-50 dark:bg-gray-750 text-gray-400 dark:text-gray-600;
+}
+
+.events-page__calendar-day--today {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+.events-page__calendar-day-number {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.events-page__calendar-event {
+  @apply text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-1 py-0.5 rounded mt-1 truncate cursor-pointer;
+}
+
+.events-page__calendar-event--full {
+  @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200;
+}
+
+/* Featured Events */
+.events-page__featured {
+  @apply mb-8;
+}
+
+.events-page__featured-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.events-page__featured-event {
+  @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-md transition-shadow;
+}
+
+.events-page__featured-content {
+  @apply lg:flex;
+}
+
+.events-page__featured-image {
+  @apply w-full lg:w-1/3 h-64 lg:h-auto object-cover;
+}
+
+.events-page__featured-info {
+  @apply flex-1 p-6;
+}
+
+.events-page__featured-header {
+  @apply flex items-start justify-between mb-4;
+}
+
+.events-page__featured-date-badge {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.events-page__featured-name {
+  @apply text-xl font-bold text-gray-900 dark:text-white mb-2;
+}
+
+.events-page__featured-description {
+  @apply text-gray-600 dark:text-gray-400 mb-4 line-clamp-3;
+}
+
+.events-page__featured-details {
+  @apply space-y-2 mb-4;
+}
+
+.events-page__featured-detail {
+  @apply flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400;
+}
+
+.events-page__featured-actions {
+  @apply flex items-center gap-3;
+}
+
+.events-page__featured-join {
+  @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors;
+}
+
+.events-page__featured-save {
+  @apply px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium rounded-lg transition-colors;
+}
+
+/* Categories */
+.events-page__categories {
+  @apply mb-8;
+}
+
+.events-page__categories-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.events-page__categories-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4;
+}
+
+.events-page__category-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4 text-center border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-colors cursor-pointer;
+}
+
+.events-page__category-icon {
+  @apply w-8 h-8 mx-auto mb-2 text-blue-600 dark:text-blue-400;
+}
+
+.events-page__category-name {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.events-page__category-count {
+  @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+}
+
+/* My Events */
+.events-page__my-events {
+  @apply mb-8;
+}
+
+.events-page__my-events-header {
+  @apply flex items-center justify-between mb-4;
+}
+
+.events-page__my-events-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.events-page__my-events-view-all {
+  @apply text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium;
+}
+
+.events-page__my-events-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.events-page__my-event-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow;
+}
+
+.events-page__my-event-header {
+  @apply p-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+.events-page__my-event-title {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-1;
+}
+
+.events-page__my-event-date {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.events-page__my-event-stats {
+  @apply p-4 grid grid-cols-2 gap-4;
+}
+
+.events-page__my-event-stat {
+  @apply text-center;
+}
+
+.events-page__my-event-stat-value {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.events-page__my-event-stat-label {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.events-page__my-event-actions {
+  @apply p-4 pt-0 flex gap-2;
+}
+
+.events-page__my-event-manage {
+  @apply flex-1 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.events-page__my-event-view {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium rounded-lg transition-colors;
+}
+
+/* Empty States */
+.events-page__empty {
+  @apply text-center py-12;
+}
+
+.events-page__empty-icon {
+  @apply w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4;
+}
+
+.events-page__empty-title {
+  @apply text-lg font-medium text-gray-900 dark:text-white mb-2;
+}
+
+.events-page__empty-description {
+  @apply text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto;
+}
+
+.events-page__empty-action {
+  @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors;
+}
+
+/* Loading States */
+.events-page__skeleton-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.events-page__skeleton-image {
+  @apply w-full h-48 bg-gray-200 dark:bg-gray-700 animate-pulse;
+}
+
+.events-page__skeleton-content {
+  @apply p-4 space-y-3;
+}
+
+.events-page__skeleton-title {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.events-page__skeleton-details {
+  @apply space-y-2;
+}
+
+.events-page__skeleton-line {
+  @apply h-3 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.events-page__skeleton-stats {
+  @apply flex justify-between;
+}
+
+.events-page__skeleton-stat {
+  @apply h-3 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.events-page__skeleton-actions {
+  @apply flex gap-2;
+}
+
+.events-page__skeleton-button {
+  @apply flex-1 h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .events-page__content {
+    @apply px-4 py-6;
+  }
+
+  .events-page__header {
+    @apply px-4;
+  }
+
+  .events-page__grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+
+  .events-page__categories-grid {
+    @apply grid-cols-3;
+  }
+
+  .events-page__actions {
+    @apply flex-col items-stretch gap-3;
+  }
+
+  .events-page__filters {
+    @apply flex-wrap;
+  }
+
+  .events-page__tabs {
+    @apply space-x-4 overflow-x-auto;
+  }
+
+  .events-page__tab {
+    @apply whitespace-nowrap;
+  }
+
+  .events-page__calendar-day {
+    @apply min-h-16;
+  }
+
+  .events-page__featured-content {
+    @apply block;
+  }
+}
+
+/* Dark Mode Specific Adjustments */
+.dark .events-page__card:hover,
+.dark .events-page__featured-event:hover,
+.dark .events-page__my-event-card:hover {
+  @apply shadow-lg shadow-gray-900/25;
+}
+
+/* Focus States */
+.events-page__interested-button:focus,
+.events-page__share-button:focus,
+.events-page__create-button:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.events-page__filter-button:focus {
+  @apply outline-none ring-2 ring-gray-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.events-page__category-card:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Animations */
+.events-page__card {
+  @apply transform transition-transform duration-200;
+}
+
+.events-page__card:hover {
+  @apply scale-105;
+}
+
+.events-page__featured-event,
+.events-page__my-event-card {
+  @apply transform transition-transform duration-200;
+}
+
+.events-page__featured-event:hover,
+.events-page__my-event-card:hover {
+  @apply scale-102;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .events-page__filter-button,
+  .events-page__card,
+  .events-page__featured-event,
+  .events-page__my-event-card {
+    @apply border-2;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .events-page__card,
+  .events-page__featured-event,
+  .events-page__my-event-card,
+  .events-page__skeleton-image,
+  .events-page__skeleton-title,
+  .events-page__skeleton-line,
+  .events-page__skeleton-stat,
+  .events-page__skeleton-button {
+    @apply transition-none animate-none;
+  }
+
+  .events-page__card:hover,
+  .events-page__featured-event:hover,
+  .events-page__my-event-card:hover {
+    @apply scale-100;
+  }
+}

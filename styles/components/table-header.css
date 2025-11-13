@@ -1,0 +1,407 @@
+/* Table Header Component Styles */
+/* Provides styling for table headers with sorting, filtering, and resizing */
+
+.table-header-host {
+  @apply relative;
+}
+
+.table-header {
+  @apply px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300;
+  @apply bg-gray-50 dark:bg-gray-900 border-b-2 border-gray-200 dark:border-gray-600;
+  @apply transition-colors duration-150;
+}
+
+/* Variant Styles */
+.table-header--default {
+  @apply bg-gray-50 dark:bg-gray-900;
+}
+
+.table-header--compact {
+  @apply px-3 py-2 text-xs bg-gray-50 dark:bg-gray-900;
+}
+
+.table-header--bordered {
+  @apply border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900;
+}
+
+/* Alignment */
+.table-header--left {
+  @apply text-left;
+}
+
+.table-header--center {
+  @apply text-center;
+}
+
+.table-header--right {
+  @apply text-right;
+}
+
+/* Interactive States */
+.table-header--sortable {
+  @apply cursor-pointer select-none;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply hover:text-gray-900 dark:hover:text-white;
+}
+
+.table-header--filterable {
+  @apply relative;
+}
+
+.table-header--resizable {
+  @apply relative;
+}
+
+/* Content Container */
+.table-header__content {
+  @apply flex items-center;
+}
+
+.table-header--center .table-header__content {
+  @apply justify-center;
+}
+
+.table-header--right .table-header__content {
+  @apply justify-end;
+}
+
+/* Header Text */
+.table-header__text {
+  @apply flex-1 font-semibold;
+}
+
+.table-header--center .table-header__text {
+  @apply flex-none;
+}
+
+/* Sort Indicator */
+.table-header__sort-indicator {
+  @apply ml-1 flex-shrink-0;
+}
+
+.table-header__sort-icon {
+  @apply w-4 h-4;
+}
+
+.table-header__sort-icon--asc {
+  @apply text-blue-500 dark:text-blue-400;
+}
+
+.table-header__sort-icon--desc {
+  @apply text-blue-500 dark:text-blue-400;
+}
+
+.table-header__sort-icon--neutral {
+  @apply relative w-4 h-4 text-gray-400 dark:text-gray-500;
+}
+
+.table-header__sort-icon-up,
+.table-header__sort-icon-down {
+  @apply absolute w-3 h-3;
+}
+
+.table-header__sort-icon-up {
+  @apply top-0 left-0.5;
+}
+
+.table-header__sort-icon-down {
+  @apply bottom-0 left-0.5;
+}
+
+.table-header--sortable:hover .table-header__sort-icon--neutral {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+/* Sorted States */
+.table-header--sorted-asc,
+.table-header--sorted-desc {
+  @apply bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300;
+}
+
+/* Filter Indicator */
+.table-header__filter-indicator {
+  @apply ml-1 flex-shrink-0;
+}
+
+.table-header__filter-icon {
+  @apply w-4 h-4 text-blue-500 dark:text-blue-400;
+}
+
+.table-header--filtered {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* Required Indicator */
+.table-header__required {
+  @apply ml-1 text-red-500 text-base leading-none;
+}
+
+/* Resize Handle */
+.table-header__resize-handle {
+  @apply absolute top-0 right-0 bottom-0 w-1;
+  @apply cursor-col-resize bg-transparent hover:bg-blue-500;
+  @apply transition-colors duration-150;
+}
+
+.table-header__resize-handle::after {
+  content: "";
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply w-0.5 h-4 bg-gray-300 dark:bg-gray-600;
+  @apply transition-colors duration-150;
+}
+
+.table-header__resize-handle:hover::after {
+  @apply bg-blue-500;
+}
+
+/* Sticky Headers */
+.table-header--sticky {
+  @apply sticky top-0 z-20 bg-gray-50 dark:bg-gray-900;
+}
+
+.table-header--sticky::after {
+  content: "";
+  @apply absolute bottom-0 left-0 right-0 h-0.5;
+  @apply bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-gray-600;
+}
+
+/* Focus States */
+.table-header:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-inset;
+}
+
+/* Loading State */
+.table-header--loading {
+  @apply opacity-60;
+}
+
+.table-header--loading .table-header__text {
+  @apply bg-gray-200 dark:bg-gray-700 text-transparent rounded animate-pulse;
+}
+
+/* Error State */
+.table-header--error {
+  @apply bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300;
+}
+
+/* Selected/Highlighted State */
+.table-header--selected {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}
+
+/* Group Headers */
+.table-header--group {
+  @apply border-l-2 border-blue-200 dark:border-blue-700;
+  @apply font-bold;
+}
+
+.table-header--group-start {
+  @apply border-l-4;
+}
+
+.table-header--group-end {
+  @apply border-r-4 border-r-blue-200 dark:border-r-blue-700;
+}
+
+/* Multi-level Headers */
+.table-header--level-1 {
+  @apply text-lg font-bold;
+}
+
+.table-header--level-2 {
+  @apply text-base font-semibold;
+}
+
+.table-header--level-3 {
+  @apply text-sm font-medium;
+}
+
+/* Column Type Indicators */
+.table-header--type-number::before {
+  content: "#";
+  @apply mr-1 text-blue-500 font-mono;
+}
+
+.table-header--type-date::before {
+  content: "📅";
+  @apply mr-1;
+}
+
+.table-header--type-currency::before {
+  content: "$";
+  @apply mr-1 text-green-500 font-mono;
+}
+
+.table-header--type-boolean::before {
+  content: "✓";
+  @apply mr-1 text-orange-500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .table-header {
+    @apply px-2 py-2 text-xs;
+  }
+
+  .table-header--compact {
+    @apply px-1 py-1;
+  }
+
+  .table-header__sort-icon,
+  .table-header__filter-icon {
+    @apply w-3 h-3;
+  }
+
+  .table-header__resize-handle {
+    @apply w-2;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .table-header {
+    @apply border-2 border-gray-900 dark:border-white;
+    @apply bg-white dark:bg-black text-black dark:text-white font-bold;
+  }
+
+  .table-header--sortable:hover {
+    @apply bg-yellow-100 dark:bg-yellow-900;
+  }
+
+  .table-header--sorted-asc,
+  .table-header--sorted-desc {
+    @apply bg-blue-200 dark:bg-blue-800 text-black dark:text-white;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .table-header,
+  .table-header__resize-handle {
+    @apply transition-none;
+  }
+
+  .table-header--loading .table-header__text {
+    @apply animate-none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .table-header {
+    @apply border border-gray-400 bg-gray-100 text-black font-bold;
+  }
+
+  .table-header__sort-indicator,
+  .table-header__filter-indicator,
+  .table-header__resize-handle {
+    @apply hidden;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .table-header__content {
+  @apply space-x-reverse;
+}
+
+[dir="rtl"] .table-header__sort-indicator {
+  @apply mr-1 ml-0;
+}
+
+[dir="rtl"] .table-header__filter-indicator {
+  @apply mr-1 ml-0;
+}
+
+[dir="rtl"] .table-header__required {
+  @apply mr-1 ml-0;
+}
+
+[dir="rtl"] .table-header__resize-handle {
+  @apply left-0 right-auto;
+}
+
+/* Custom Properties for Theme Integration */
+.table-header {
+  --table-header-bg: theme(colors.gray.50);
+  --table-header-text: theme(colors.gray.700);
+  --table-header-border: theme(colors.gray.200);
+  --table-header-hover-bg: theme(colors.gray.100);
+  --table-header-active-bg: theme(colors.blue.50);
+  --table-header-active-text: theme(colors.blue.700);
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-header {
+    --table-header-bg: theme(colors.gray.900);
+    --table-header-text: theme(colors.gray.300);
+    --table-header-border: theme(colors.gray.600);
+    --table-header-hover-bg: theme(colors.gray.800);
+    --table-header-active-bg: rgba(59, 130, 246, 0.2);
+    --table-header-active-text: theme(colors.blue.300);
+  }
+}
+
+/* Accessibility Enhancements */
+.table-header[aria-sort="ascending"] .table-header__sort-icon--asc {
+  @apply opacity-100;
+}
+
+.table-header[aria-sort="descending"] .table-header__sort-icon--desc {
+  @apply opacity-100;
+}
+
+.table-header[aria-sort="none"] .table-header__sort-icon--neutral {
+  @apply opacity-60;
+}
+
+/* Filter Dropdown Integration */
+.table-header--with-dropdown {
+  @apply relative;
+}
+
+.table-header__dropdown-trigger {
+  @apply ml-1 p-0.5 rounded hover:bg-gray-200 dark:hover:bg-gray-700;
+}
+
+/* Keyboard Navigation */
+.table-header:focus {
+  @apply z-30;
+}
+
+.table-header[tabindex="0"]:focus-visible {
+  @apply ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Column Menu */
+.table-header__menu-button {
+  @apply ml-1 p-1 rounded opacity-0 transition-opacity duration-150;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+}
+
+.table-header:hover .table-header__menu-button {
+  @apply opacity-100;
+}
+
+/* Pinned/Frozen Columns */
+.table-header--pinned-left {
+  @apply sticky left-0 z-20;
+  box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+.table-header--pinned-right {
+  @apply sticky right-0 z-20;
+  box-shadow: -2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Column Selection */
+.table-header--selectable {
+  @apply cursor-pointer;
+}
+
+.table-header--selectable:hover {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+.table-header--selected {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300;
+}

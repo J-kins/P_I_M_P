@@ -1,27 +1,30 @@
-
 <?php
 /**
- * Entry point for PHP UI Template System
- * 
- * This file loads all required components and routes the request
+ * P.I.M.P - Business Repository Platform
+ * Main Entry Point
  */
 
-// Start session for user preferences like theme
-session_start();
+require_once __DIR__ . '/vendor/autoload.php';
 
-// Load configuration
-require_once './config.php';
+use PIMP\Core\Config;
+use PIMP\Core\Router;
 
-// Load component system
-require_once './include/components.php';
+// Initialize configuration
+Config::init();
 
-// Load router
-require_once 'include/router.php';
-
-// Get the view file based on the route
-$view_file = route();
-
-// Render the view
-render_view($view_file);
-?>
-
+// Route the request
+try {
+    $response = Router::route();
+    echo $response;
+} catch (Exception $e) {
+    // Handle errors gracefully
+    if (Config::isDevelopment()) {
+        throw $e;
+    }
+    
+    http_response_code(500);
+    echo "An error occurred. Please try again later.";
+    
+    // Log error
+    error_log("PIMP Router Error: " . $e->getMessage());
+}

@@ -1,0 +1,346 @@
+/* Slide Transitions */
+.slide-enter-left {
+  transform: translateX(-100%);
+}
+
+.slide-enter-left-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-out;
+}
+
+.slide-exit-left {
+  transform: translateX(0);
+}
+
+.slide-exit-left-active {
+  transform: translateX(-100%);
+  transition: transform 300ms ease-in;
+}
+
+.slide-enter-right {
+  transform: translateX(100%);
+}
+
+.slide-enter-right-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-out;
+}
+
+.slide-exit-right {
+  transform: translateX(0);
+}
+
+.slide-exit-right-active {
+  transform: translateX(100%);
+  transition: transform 300ms ease-in;
+}
+
+.slide-enter-up {
+  transform: translateY(100%);
+}
+
+.slide-enter-up-active {
+  transform: translateY(0);
+  transition: transform 300ms ease-out;
+}
+
+.slide-exit-up {
+  transform: translateY(0);
+}
+
+.slide-exit-up-active {
+  transform: translateY(-100%);
+  transition: transform 300ms ease-in;
+}
+
+.slide-enter-down {
+  transform: translateY(-100%);
+}
+
+.slide-enter-down-active {
+  transform: translateY(0);
+  transition: transform 300ms ease-out;
+}
+
+.slide-exit-down {
+  transform: translateY(0);
+}
+
+.slide-exit-down-active {
+  transform: translateY(100%);
+  transition: transform 300ms ease-in;
+}
+
+/* Slide with Fade */
+.slide-fade-left-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.slide-fade-left-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.slide-fade-left-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-fade-left-exit-active {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition:
+    opacity 300ms ease-in,
+    transform 300ms ease-in;
+}
+
+.slide-fade-right-enter {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.slide-fade-right-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.slide-fade-right-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-fade-right-exit-active {
+  opacity: 0;
+  transform: translateX(30px);
+  transition:
+    opacity 300ms ease-in,
+    transform 300ms ease-in;
+}
+
+.slide-fade-up-enter {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-fade-up-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.slide-fade-up-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-fade-up-exit-active {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 300ms ease-in,
+    transform 300ms ease-in;
+}
+
+.slide-fade-down-enter {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.slide-fade-down-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.slide-fade-down-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-fade-down-exit-active {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition:
+    opacity 300ms ease-in,
+    transform 300ms ease-in;
+}
+
+/* Drawer Slides */
+.drawer-slide-left-enter {
+  transform: translateX(-100%);
+  visibility: visible;
+}
+
+.drawer-slide-left-enter-active {
+  transform: translateX(0);
+  transition: transform 250ms ease-out;
+}
+
+.drawer-slide-left-exit {
+  transform: translateX(0);
+}
+
+.drawer-slide-left-exit-active {
+  transform: translateX(-100%);
+  transition: transform 250ms ease-in;
+}
+
+.drawer-slide-right-enter {
+  transform: translateX(100%);
+  visibility: visible;
+}
+
+.drawer-slide-right-enter-active {
+  transform: translateX(0);
+  transition: transform 250ms ease-out;
+}
+
+.drawer-slide-right-exit {
+  transform: translateX(0);
+}
+
+.drawer-slide-right-exit-active {
+  transform: translateX(100%);
+  transition: transform 250ms ease-in;
+}
+
+/* Utility Classes */
+.slide-fast {
+  transition-duration: 150ms;
+}
+
+.slide-slow {
+  transition-duration: 500ms;
+}
+
+.slide-slower {
+  transition-duration: 750ms;
+}
+
+.slide-ease-in {
+  transition-timing-function: ease-in;
+}
+
+.slide-ease-out {
+  transition-timing-function: ease-out;
+}
+
+.slide-ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+
+.slide-bounce {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Carousel Slides */
+.carousel-slide-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.carousel-slide-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition:
+    transform 400ms ease-out,
+    opacity 400ms ease-out;
+}
+
+.carousel-slide-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.carousel-slide-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition:
+    transform 400ms ease-in,
+    opacity 400ms ease-in;
+}
+
+.carousel-slide-prev-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.carousel-slide-prev-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition:
+    transform 400ms ease-out,
+    opacity 400ms ease-out;
+}
+
+.carousel-slide-prev-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.carousel-slide-prev-exit-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition:
+    transform 400ms ease-in,
+    opacity 400ms ease-in;
+}
+
+/* Panel Slides */
+.panel-slide-enter {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.panel-slide-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition:
+    transform 350ms ease-out,
+    opacity 350ms ease-out;
+}
+
+.panel-slide-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.panel-slide-exit-active {
+  transform: translateY(100%);
+  opacity: 0;
+  transition:
+    transform 350ms ease-in,
+    opacity 350ms ease-in;
+}
+
+/* Accordion Slides */
+.accordion-slide-enter {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.accordion-slide-enter-active {
+  max-height: 1000px;
+  transition: max-height 300ms ease-out;
+}
+
+.accordion-slide-exit {
+  max-height: 1000px;
+  overflow: hidden;
+}
+
+.accordion-slide-exit-active {
+  max-height: 0;
+  transition: max-height 300ms ease-in;
+}
