@@ -1,3 +1,3 @@
 <?php
-//this pages needs <code></code>
+//this pages needs code
 ?>
