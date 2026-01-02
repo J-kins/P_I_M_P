@@ -1,0 +1,33 @@
+<svg width="900" height="300" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" aria-labelledby="timelineChartTitle timelineChartDesc">
+    <title id="timelineChartTitle">Timeline Chart (Roadmap / Chronology)</title>
+    <desc id="timelineChartDesc">A data-agnostic SVG template for visualizing chronological milestones and events with grouping and callouts.</desc>
+    <defs>
+        <style type="text/css">
+            .background { fill: var(--background-color, #fff); }
+            .axis { stroke: var(--axis-color, #333); stroke-width: 4; }
+            .milestone-marker { stroke-width: 3; }
+            .callout-label { font-family: var(--font-family, Arial); font-size: 15px; fill: var(--label-color, #333); font-weight: bold; text-anchor: middle; }
+            .date-label { font-family: var(--font-family, Arial); font-size: 12px; fill: var(--date-label-color, #666); text-anchor: middle; }
+            .category-Development { fill: #2196f3; stroke: #1565c0; }
+            .category-Marketing { fill: #ff9800; stroke: #f57c00; }
+            .category-Legal { fill: #4caf50; stroke: #2e7d32; }
+            .category-Other { fill: #9e9e9e; stroke: #616161; }
+            .title { font-family: var(--font-family, Arial); font-size: 22px; fill: var(--label-color, #333); text-anchor: middle; font-weight: bold; }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="450" y="40">{chartTitle}</text>
+    <!-- Central Axis -->
+    <line class="axis" x1="100" y1="150" x2="800" y2="150"/>
+    <!-- Milestone Markers & Callouts -->
+    <g class="milestones">
+        <!-- for each event in {events} -->
+        <circle class="milestone-marker category-{event.category}" cx="{event.x}" cy="150" r="16" data-date="{event.date}" data-label="{event.label}" data-category="{event.category}"/>
+        <!-- Callout Label (alternating above/below axis) -->
+        <text class="callout-label" x="{event.x}" y="{event.calloutY}">{event.label}</text>
+        <text class="date-label" x="{event.x}" y="{event.dateY}">{event.date}</text>
+        <!-- end for -->
+    </g>
+    <!-- Responsive design: axis and callouts can be reflowed via CSS/JS for vertical layout -->
+</svg>

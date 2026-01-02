@@ -1,0 +1,112 @@
+/* Components Page Styles */
+
+.components-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.components-header {
+  @apply text-center mb-12;
+}
+
+.components-title {
+  @apply text-4xl font-bold text-gray-900 dark:text-white mb-4;
+}
+
+.components-subtitle {
+  @apply text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+}
+
+.components-nav {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 mb-8;
+}
+
+.nav-categories {
+  @apply flex flex-wrap gap-2;
+}
+
+.nav-category {
+  @apply px-4 py-2 rounded-md text-sm font-medium transition-colors;
+}
+
+.nav-category.active {
+  @apply bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-200;
+}
+
+.nav-category.inactive {
+  @apply text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700;
+}
+
+.components-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.component-section {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.section-header {
+  @apply p-6 border-b border-gray-200 dark:border-gray-700;
+}
+
+.section-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-white mb-2;
+}
+
+.section-description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.section-content {
+  @apply p-6 space-y-6;
+}
+
+.component-demo {
+  @apply space-y-4;
+}
+
+.demo-title {
+  @apply text-lg font-medium text-gray-900 dark:text-white;
+}
+
+.demo-preview {
+  @apply p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600;
+}
+
+.demo-code {
+  @apply p-4 bg-gray-900 rounded-lg overflow-x-auto;
+}
+
+.code-block {
+  @apply text-sm text-gray-300 font-mono;
+}
+
+.component-variants {
+  @apply grid grid-cols-1 gap-4;
+}
+
+.variant-item {
+  @apply p-4 border border-gray-200 dark:border-gray-600 rounded-lg;
+}
+
+.variant-title {
+  @apply font-medium text-gray-900 dark:text-white mb-2;
+}
+
+.variant-demo {
+  @apply space-y-2;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .components-grid {
+    @apply grid-cols-1;
+  }
+
+  .nav-categories {
+    @apply flex-col;
+  }
+
+  .nav-category {
+    @apply text-center;
+  }
+}

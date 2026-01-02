@@ -1,0 +1,454 @@
+/* 
+ * P.I.M.P - Homepage Styles
+ * Business Repository Platform Landing Page
+ */
+
+/* Main Content Styles */
+.main-content {
+    min-height: calc(100vh - 200px);
+    background-color: var(--background-light-100);
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 4rem 0;
+    background-color: var(--background-light-200);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.category-card {
+    background: var(--background-light-100);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-500), var(--primary-600));
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(138, 92, 245, 0.15);
+}
+
+.category-icon {
+    font-size: 3rem;
+    color: var(--primary-500);
+    margin-bottom: 1rem;
+}
+
+.category-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.category-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.category-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.business-count {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.business-count i {
+    color: var(--primary-500);
+}
+
+/* Featured Businesses Section */
+.featured-businesses-section {
+    padding: 4rem 0;
+    background-color: var(--background-light-100);
+}
+
+.businesses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.business-card {
+    background: var(--background-light-100);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.business-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(138, 92, 245, 0.15);
+}
+
+.business-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.business-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.business-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.business-info {
+    flex: 1;
+}
+
+.business-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.business-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.stars {
+    display: flex;
+    gap: 0.1rem;
+}
+
+.stars i {
+    color: #ffc107;
+    font-size: 0.9rem;
+}
+
+.rating-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.reviews-count {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.accredited-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary-100);
+    color: var(--primary-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.accredited-badge i {
+    color: var(--primary-500);
+}
+
+.business-details {
+    padding: 1.5rem;
+}
+
+.business-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.category-tag {
+    background-color: var(--background-light-200);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+}
+
+.business-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.contact-item i {
+    color: var(--primary-500);
+    width: 16px;
+}
+
+.contact-item a {
+    color: var(--primary-500);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.business-actions {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 1rem;
+}
+
+.business-actions .button {
+    flex: 1;
+    justify-content: center;
+}
+
+/* Statistics Section */
+.stats-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 1.5rem;
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 4rem 0;
+    background-color: var(--background-light-200);
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Section Actions */
+.section-actions {
+    margin-top: 3rem;
+}
+
+/* Text Alignment Utilities */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .categories-section,
+    .featured-businesses-section,
+    .stats-section,
+    .cta-section {
+        padding: 2rem 0;
+    }
+
+    .categories-grid,
+    .businesses-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .business-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .business-image {
+        align-self: center;
+    }
+
+    .business-actions {
+        flex-direction: column;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons .button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-card,
+    .business-card {
+        padding: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .business-rating {
+        justify-content: center;
+    }
+}
+
+/* Animation for stats counter */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-item {
+    animation: countUp 0.6s ease-out;
+}
+
+/* Loading states */
+.business-card.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.category-card.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .business-card,
+    .category-card,
+    .stat-item {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .business-card,
+    .category-card {
+        border: 2px solid;
+    }
+    
+    .accredited-badge {
+        border: 1px solid;
+    }
+}

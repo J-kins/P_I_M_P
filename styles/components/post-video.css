@@ -1,0 +1,418 @@
+/* Post Video Component Styles */
+.post-video-container {
+  @apply relative;
+}
+
+.post-video-wrapper {
+  @apply relative overflow-hidden bg-black rounded-lg;
+}
+
+.post-video-element {
+  @apply w-full h-full;
+}
+
+/* Post Video Variants */
+.post-video-inline .post-video-wrapper {
+  @apply rounded-lg;
+}
+
+.post-video-modal .post-video-wrapper {
+  @apply rounded-none;
+}
+
+.post-video-thumbnail .post-video-wrapper {
+  @apply rounded-md shadow-sm;
+}
+
+/* Post Video Aspect Ratios */
+.post-video-video .post-video-wrapper {
+  @apply aspect-video;
+}
+
+.post-video-square .post-video-wrapper {
+  @apply aspect-square;
+}
+
+.post-video-portrait .post-video-wrapper {
+  aspect-ratio: 3/4;
+}
+
+.post-video-auto .post-video-wrapper {
+  @apply h-auto;
+}
+
+/* Post Video States */
+.post-video-loading .post-video-element {
+  @apply opacity-0;
+}
+
+.post-video-error .post-video-element {
+  @apply hidden;
+}
+
+.post-video-playing .post-video-play-button {
+  @apply opacity-0;
+}
+
+/* Post Video Play Button */
+.post-video-play-button {
+  @apply absolute inset-0 flex items-center justify-center;
+  @apply bg-black bg-opacity-30 hover:bg-opacity-50;
+  @apply transition-all duration-300;
+  @apply focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  @apply focus:ring-offset-black;
+}
+
+.post-video-play-icon {
+  @apply w-12 h-12 text-white;
+  @apply transform transition-transform duration-200;
+}
+
+.post-video-play-button:hover .post-video-play-icon {
+  @apply scale-110;
+}
+
+/* Post Video Controls */
+.post-video-controls {
+  @apply absolute bottom-0 left-0 right-0;
+  @apply bg-gradient-to-t from-black to-transparent;
+  @apply p-4 flex items-center justify-between;
+  @apply opacity-0 hover:opacity-100 transition-opacity duration-300;
+}
+
+.post-video-container:hover .post-video-controls {
+  @apply opacity-100;
+}
+
+.post-video-control-button {
+  @apply p-2 text-white hover:bg-white hover:bg-opacity-20;
+  @apply rounded-full transition-colors duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-white;
+}
+
+.post-video-control-icon {
+  @apply w-5 h-5;
+}
+
+/* Post Video Time Display */
+.post-video-time {
+  @apply flex items-center gap-1 text-white text-sm font-mono;
+}
+
+.post-video-current-time {
+  @apply text-white;
+}
+
+.post-video-duration {
+  @apply text-gray-300;
+}
+
+.post-video-duration::before {
+  content: " / ";
+}
+
+/* Post Video Progress */
+.post-video-progress-container {
+  @apply absolute bottom-0 left-0 right-0 h-1;
+  @apply bg-white bg-opacity-30;
+}
+
+.post-video-progress-bar {
+  @apply h-full bg-white transition-all duration-300;
+}
+
+/* Post Video Thumbnail */
+.post-video-thumbnail {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+.post-video-thumbnail-image {
+  @apply w-full h-full object-cover;
+}
+
+.post-video-thumbnail-overlay {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+/* Post Video Duration Badge */
+.post-video-duration-badge {
+  @apply absolute bottom-2 right-2;
+  @apply bg-black bg-opacity-75 text-white text-xs;
+  @apply px-2 py-1 rounded font-mono;
+}
+
+/* Post Video Error State */
+.post-video-error-state {
+  @apply absolute inset-0 flex flex-col items-center justify-center;
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400;
+}
+
+/* Post Video Loading Animation */
+.post-video-loading .post-video-wrapper {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700;
+}
+
+/* Post Video Hover Effects */
+.post-video-container:hover .post-video-element {
+  @apply brightness-110;
+}
+
+/* Post Video Sizes */
+.post-video-sm .post-video-wrapper {
+  @apply w-32 h-18;
+}
+
+.post-video-md .post-video-wrapper {
+  @apply w-48 h-27;
+}
+
+.post-video-lg .post-video-wrapper {
+  @apply w-64 h-36;
+}
+
+.post-video-xl .post-video-wrapper {
+  @apply w-80 h-45;
+}
+
+.post-video-full .post-video-wrapper {
+  @apply w-full;
+}
+
+/* Post Video Custom Controls */
+.post-video-custom-controls {
+  @apply absolute bottom-0 left-0 right-0;
+  @apply bg-black bg-opacity-80 p-3;
+  @apply flex items-center gap-3;
+}
+
+.post-video-volume-control {
+  @apply flex items-center gap-2;
+}
+
+.post-video-volume-slider {
+  @apply w-16 h-1 bg-gray-600 rounded-full;
+  @apply appearance-none cursor-pointer;
+}
+
+.post-video-volume-slider::-webkit-slider-thumb {
+  @apply appearance-none w-3 h-3 bg-white rounded-full cursor-pointer;
+}
+
+/* Post Video Fullscreen */
+.post-video-fullscreen-button {
+  @apply absolute top-2 right-2;
+  @apply p-2 bg-black bg-opacity-50 text-white rounded-full;
+  @apply hover:bg-opacity-70 transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-white;
+}
+
+/* Post Video Muted Indicator */
+.post-video-muted-indicator {
+  @apply absolute top-2 left-2;
+  @apply bg-black bg-opacity-75 text-white text-xs;
+  @apply px-2 py-1 rounded flex items-center gap-1;
+}
+
+/* Post Video Quality Badge */
+.post-video-quality-badge {
+  @apply absolute top-2 right-2;
+  @apply bg-red-600 text-white text-xs font-bold;
+  @apply px-2 py-1 rounded;
+}
+
+/* Post Video Auto-play Indicator */
+.post-video-autoplay .post-video-wrapper::before {
+  @apply absolute top-2 left-2 z-10;
+  @apply bg-blue-600 text-white text-xs;
+  @apply px-2 py-1 rounded;
+  content: "Auto-play";
+}
+
+/* Post Video Responsive */
+@media (max-width: 640px) {
+  .post-video-responsive .post-video-controls {
+    @apply p-2;
+  }
+
+  .post-video-responsive .post-video-play-icon {
+    @apply w-8 h-8;
+  }
+
+  .post-video-responsive .post-video-control-icon {
+    @apply w-4 h-4;
+  }
+}
+
+/* Post Video Accessibility */
+.post-video-element:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* Post Video High Contrast */
+@media (prefers-contrast: high) {
+  .post-video-wrapper {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+
+  .post-video-controls {
+    @apply bg-black;
+  }
+}
+
+/* Post Video Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .post-video-play-icon,
+  .post-video-controls,
+  .post-video-progress-bar {
+    @apply transition-none;
+  }
+
+  .post-video-play-button:hover .post-video-play-icon {
+    @apply transform-none;
+  }
+}
+
+/* Post Video Print Styles */
+@media print {
+  .post-video-controls,
+  .post-video-play-button {
+    @apply hidden;
+  }
+
+  .post-video-wrapper {
+    @apply bg-gray-200;
+  }
+}
+
+/* Post Video Dark Mode Adjustments */
+.dark .post-video-error-state {
+  @apply bg-gray-800 text-gray-400;
+}
+
+/* Post Video Animation Effects */
+.post-video-animate-in {
+  animation: video-slide-in 0.5s ease-out;
+}
+
+@keyframes video-slide-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Post Video Pip Mode */
+.post-video-pip {
+  @apply fixed bottom-4 right-4 z-50;
+  @apply w-64 h-36 shadow-xl rounded-lg;
+}
+
+.post-video-pip .post-video-controls {
+  @apply opacity-100;
+}
+
+/* Post Video Live Badge */
+.post-video-live .post-video-wrapper::before {
+  @apply absolute top-2 left-2 z-10;
+  @apply bg-red-600 text-white text-xs font-bold;
+  @apply px-2 py-1 rounded flex items-center gap-1;
+  content: "🔴 LIVE";
+  animation: live-pulse 2s infinite;
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Post Video Buffer Loading */
+.post-video-buffering .post-video-wrapper::after {
+  @apply absolute inset-0 bg-black bg-opacity-50;
+  @apply flex items-center justify-center;
+  content: "";
+}
+
+.post-video-buffering .post-video-wrapper::before {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  @apply w-8 h-8 border-2 border-white border-t-transparent rounded-full;
+  @apply animate-spin z-10;
+  content: "";
+}
+
+/* Post Video Captions */
+.post-video-captions {
+  @apply absolute bottom-16 left-4 right-4;
+  @apply text-center text-white text-sm;
+  @apply bg-black bg-opacity-75 p-2 rounded;
+}
+
+/* Post Video Chapter Markers */
+.post-video-chapters {
+  @apply absolute bottom-5 left-0 right-0 h-2;
+  @apply flex gap-0.5 px-4;
+}
+
+.post-video-chapter {
+  @apply flex-1 h-full bg-white bg-opacity-30;
+  @apply hover:bg-opacity-50 cursor-pointer;
+}
+
+.post-video-chapter-active {
+  @apply bg-white bg-opacity-60;
+}
+
+/* Post Video Thumbnail Grid */
+.post-video-thumbnail-grid {
+  @apply grid gap-2;
+}
+
+.post-video-thumbnail-grid-2 {
+  @apply grid-cols-2;
+}
+
+.post-video-thumbnail-grid-3 {
+  @apply grid-cols-3;
+}
+
+.post-video-thumbnail-grid-4 {
+  @apply grid-cols-4;
+}
+
+/* Post Video Playlist */
+.post-video-playlist {
+  @apply space-y-2;
+}
+
+.post-video-playlist-item {
+  @apply flex items-center gap-3 p-2 rounded-lg;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply cursor-pointer transition-colors duration-200;
+}
+
+.post-video-playlist-thumbnail {
+  @apply w-16 h-9 rounded bg-gray-200 dark:bg-gray-700;
+  @apply flex-shrink-0 overflow-hidden;
+}
+
+.post-video-playlist-info {
+  @apply flex-1 min-w-0;
+}
+
+.post-video-playlist-title {
+  @apply font-medium text-sm truncate;
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+.post-video-playlist-duration {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}

@@ -1,0 +1,358 @@
+/* Tab Switcher Styles */
+.tab-switcher {
+  @apply relative inline-flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1;
+}
+
+/* Tab Switcher Variants */
+.tab-switcher--small {
+  @apply text-sm;
+}
+
+.tab-switcher--medium {
+  @apply text-base;
+}
+
+.tab-switcher--large {
+  @apply text-lg;
+}
+
+/* Tab Switcher Items */
+.tab-switcher__item {
+  @apply relative z-10 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors duration-200 rounded-md cursor-pointer select-none;
+}
+
+.tab-switcher__item:hover:not(.tab-switcher__item--active) {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+.tab-switcher__item--active {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Active Indicator */
+.tab-switcher__indicator {
+  @apply absolute top-1 bottom-1 bg-white dark:bg-gray-700 rounded-md shadow-sm transition-all duration-200 ease-out;
+}
+
+/* Full Width Tab Switcher */
+.tab-switcher--full-width {
+  @apply w-full;
+}
+
+.tab-switcher--full-width .tab-switcher__item {
+  @apply flex-1 text-center;
+}
+
+/* Vertical Tab Switcher */
+.tab-switcher--vertical {
+  @apply flex-col;
+}
+
+.tab-switcher--vertical .tab-switcher__indicator {
+  @apply left-1 right-1 top-auto bottom-auto;
+}
+
+/* Tab Switcher with Icons */
+.tab-switcher__item-icon {
+  @apply w-4 h-4 mr-2;
+}
+
+.tab-switcher__item-icon--only {
+  @apply w-4 h-4 mr-0;
+}
+
+/* Tab Switcher Sizes */
+.tab-switcher--xs .tab-switcher__item {
+  @apply px-2 py-1 text-xs;
+}
+
+.tab-switcher--sm .tab-switcher__item {
+  @apply px-2.5 py-1.5 text-xs;
+}
+
+.tab-switcher--md .tab-switcher__item {
+  @apply px-3 py-2 text-sm;
+}
+
+.tab-switcher--lg .tab-switcher__item {
+  @apply px-4 py-2.5 text-base;
+}
+
+.tab-switcher--xl .tab-switcher__item {
+  @apply px-5 py-3 text-lg;
+}
+
+/* Color Variants */
+.tab-switcher--primary {
+  @apply bg-blue-100 dark:bg-blue-900/30;
+}
+
+.tab-switcher--primary .tab-switcher__indicator {
+  @apply bg-blue-600 dark:bg-blue-500;
+}
+
+.tab-switcher--primary .tab-switcher__item--active {
+  @apply text-white;
+}
+
+.tab-switcher--secondary {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.tab-switcher--secondary .tab-switcher__indicator {
+  @apply bg-gray-600 dark:bg-gray-500;
+}
+
+.tab-switcher--secondary .tab-switcher__item--active {
+  @apply text-white;
+}
+
+.tab-switcher--success {
+  @apply bg-green-100 dark:bg-green-900/30;
+}
+
+.tab-switcher--success .tab-switcher__indicator {
+  @apply bg-green-600 dark:bg-green-500;
+}
+
+.tab-switcher--success .tab-switcher__item--active {
+  @apply text-white;
+}
+
+.tab-switcher--warning {
+  @apply bg-yellow-100 dark:bg-yellow-900/30;
+}
+
+.tab-switcher--warning .tab-switcher__indicator {
+  @apply bg-yellow-600 dark:bg-yellow-500;
+}
+
+.tab-switcher--warning .tab-switcher__item--active {
+  @apply text-white;
+}
+
+.tab-switcher--error {
+  @apply bg-red-100 dark:bg-red-900/30;
+}
+
+.tab-switcher--error .tab-switcher__indicator {
+  @apply bg-red-600 dark:bg-red-500;
+}
+
+.tab-switcher--error .tab-switcher__item--active {
+  @apply text-white;
+}
+
+/* Disabled State */
+.tab-switcher--disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.tab-switcher--disabled .tab-switcher__item {
+  @apply cursor-not-allowed pointer-events-none;
+}
+
+/* Loading State */
+.tab-switcher--loading .tab-switcher__item {
+  @apply cursor-wait;
+}
+
+.tab-switcher__spinner {
+  @apply w-4 h-4 mr-2 animate-spin;
+}
+
+/* Tab Switcher with Badge */
+.tab-switcher__item-badge {
+  @apply ml-2 px-1.5 py-0.5 text-xs bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-400 rounded-full;
+}
+
+.tab-switcher__item--active .tab-switcher__item-badge {
+  @apply bg-gray-700 dark:bg-gray-300 text-white dark:text-gray-900;
+}
+
+/* Animated Tab Switcher */
+.tab-switcher--animated .tab-switcher__item {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.tab-switcher--animated .tab-switcher__indicator {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Focus States */
+.tab-switcher__item:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Hover Effects */
+.tab-switcher__item:hover:not(.tab-switcher__item--active) {
+  @apply bg-white/50 dark:bg-gray-700/50;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .tab-switcher {
+    @apply text-sm;
+  }
+
+  .tab-switcher__item {
+    @apply px-2 py-1.5;
+  }
+
+  .tab-switcher--lg .tab-switcher__item,
+  .tab-switcher--xl .tab-switcher__item {
+    @apply px-3 py-2 text-sm;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .tab-switcher {
+    @apply border-2 border-gray-300 dark:border-gray-600;
+  }
+
+  .tab-switcher__indicator {
+    @apply border-2 border-current;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .tab-switcher__item,
+  .tab-switcher__indicator {
+    @apply transition-none;
+  }
+
+  .tab-switcher--animated .tab-switcher__item,
+  .tab-switcher--animated .tab-switcher__indicator {
+    @apply transition-none;
+  }
+
+  .tab-switcher__spinner {
+    @apply animate-none;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .tab-switcher__item-icon {
+  @apply mr-0 ml-2;
+}
+
+[dir="rtl"] .tab-switcher__item-badge {
+  @apply ml-0 mr-2;
+}
+
+[dir="rtl"] .tab-switcher__spinner {
+  @apply mr-0 ml-2;
+}
+
+/* Custom Properties */
+.tab-switcher {
+  --tab-switcher-bg: theme("colors.gray.100");
+  --tab-switcher-indicator-bg: theme("colors.white");
+  --tab-switcher-text: theme("colors.gray.700");
+  --tab-switcher-text-active: theme("colors.gray.900");
+  --tab-switcher-text-hover: theme("colors.gray.900");
+}
+
+.dark .tab-switcher {
+  --tab-switcher-bg: theme("colors.gray.800");
+  --tab-switcher-indicator-bg: theme("colors.gray.700");
+  --tab-switcher-text: theme("colors.gray.300");
+  --tab-switcher-text-active: theme("colors.gray.100");
+  --tab-switcher-text-hover: theme("colors.gray.100");
+}
+
+/* JavaScript Enhanced Features */
+.tab-switcher[data-orientation="horizontal"] {
+  @apply flex-row;
+}
+
+.tab-switcher[data-orientation="vertical"] {
+  @apply flex-col;
+}
+
+.tab-switcher[data-size="xs"] .tab-switcher__item {
+  @apply px-2 py-1 text-xs;
+}
+
+.tab-switcher[data-size="sm"] .tab-switcher__item {
+  @apply px-2.5 py-1.5 text-xs;
+}
+
+.tab-switcher[data-size="md"] .tab-switcher__item {
+  @apply px-3 py-2 text-sm;
+}
+
+.tab-switcher[data-size="lg"] .tab-switcher__item {
+  @apply px-4 py-2.5 text-base;
+}
+
+.tab-switcher[data-size="xl"] .tab-switcher__item {
+  @apply px-5 py-3 text-lg;
+}
+
+/* Accessibility */
+.tab-switcher[role="tablist"] .tab-switcher__item[role="tab"][aria-selected="true"] {
+  @apply font-semibold;
+}
+
+.tab-switcher[role="tablist"] .tab-switcher__item[role="tab"][aria-disabled="true"] {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* Keyboard Navigation */
+.tab-switcher__item[tabindex="0"]:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.tab-switcher__item[tabindex="-1"] {
+  @apply focus:outline-none;
+}
+
+/* Animation Keyframes */
+@keyframes tab-indicator-slide {
+  from {
+    transform: translateX(var(--from-x, 0));
+  }
+  to {
+    transform: translateX(var(--to-x, 0));
+  }
+}
+
+.tab-switcher__indicator--animating {
+  animation: tab-indicator-slide 0.3s ease-out;
+}
+
+/* Tab Switcher Content */
+.tab-switcher-content {
+  @apply mt-4;
+}
+
+.tab-switcher-content__panel {
+  @apply hidden;
+}
+
+.tab-switcher-content__panel--active {
+  @apply block;
+}
+
+.tab-switcher-content__panel--animated {
+  @apply transition-opacity duration-200;
+}
+
+.tab-switcher-content__panel--entering {
+  @apply opacity-0;
+}
+
+.tab-switcher-content__panel--entered {
+  @apply opacity-100;
+}
+
+.tab-switcher-content__panel--exiting {
+  @apply opacity-100;
+}
+
+.tab-switcher-content__panel--exited {
+  @apply opacity-0;
+}

@@ -1,0 +1,345 @@
+/* Form Group Component Styles */
+/* Provides styling for form field grouping with labels, validation, and hints */
+
+.form-group {
+  @apply relative;
+}
+
+/* Variant Styles */
+.form-group--default {
+  @apply space-y-2;
+}
+
+.form-group--inline {
+  @apply flex items-center space-x-4;
+}
+
+.form-group--floating {
+  @apply relative;
+}
+
+.form-group--compact {
+  @apply space-y-1;
+}
+
+/* Label Styles */
+.form-group__label {
+  @apply font-medium text-gray-700 dark:text-gray-300 transition-colors duration-200;
+}
+
+.form-group__label--default {
+  @apply block text-sm;
+}
+
+.form-group__label--inline {
+  @apply text-sm flex-shrink-0;
+}
+
+.form-group__label--floating {
+  @apply absolute left-3 top-0 text-sm transform -translate-y-1/2;
+  @apply bg-white dark:bg-gray-800 px-1 transition-all duration-200;
+  @apply text-gray-500 dark:text-gray-400 pointer-events-none;
+}
+
+.form-group__label--compact {
+  @apply block text-xs text-gray-600 dark:text-gray-400;
+}
+
+/* Required Indicator */
+.form-group__label--required::after {
+  content: " *";
+  @apply text-red-500;
+}
+
+/* Floating Label States */
+.form-group--floating:focus-within .form-group__label--floating,
+.form-group--floating.form-group--has-value .form-group__label--floating {
+  @apply text-xs -translate-y-6 text-blue-600 dark:text-blue-400;
+}
+
+.form-group--floating.form-group--error:focus-within .form-group__label--floating,
+.form-group--floating.form-group--error.form-group--has-value .form-group__label--floating {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Content Area */
+.form-group__content {
+  @apply relative;
+}
+
+.form-group--inline .form-group__content {
+  @apply flex-1;
+}
+
+/* Error State */
+.form-group--error .form-group__label {
+  @apply text-red-700 dark:text-red-400;
+}
+
+.form-group--error .form-group__content input,
+.form-group--error .form-group__content textarea,
+.form-group--error .form-group__content select {
+  @apply border-red-300 dark:border-red-600 ring-red-500 dark:ring-red-400;
+  @apply focus:border-red-500 focus:ring-red-500;
+}
+
+/* Error Icon */
+.form-group__error-icon {
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none;
+  @apply w-5 h-5 text-red-500;
+}
+
+/* Error Message */
+.form-group__error-message {
+  @apply flex items-start space-x-1 mt-1;
+}
+
+.form-group__error-text {
+  @apply text-sm text-red-600 dark:text-red-400;
+}
+
+.form-group__error-text--compact {
+  @apply text-xs;
+}
+
+.form-group__error-icon-inline {
+  @apply w-4 h-4 text-red-500 mt-0.5 flex-shrink-0;
+}
+
+/* Hint Text */
+.form-group__hint {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+.form-group__hint--compact {
+  @apply text-xs;
+}
+
+/* Disabled State */
+.form-group--disabled {
+  @apply opacity-60;
+}
+
+.form-group--disabled .form-group__label {
+  @apply cursor-not-allowed;
+}
+
+.form-group--disabled .form-group__content input,
+.form-group--disabled .form-group__content textarea,
+.form-group--disabled .form-group__content select {
+  @apply cursor-not-allowed bg-gray-50 dark:bg-gray-800;
+}
+
+/* Focus States */
+.form-group:focus-within .form-group__label:not(.form-group__label--floating) {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.form-group--error:focus-within .form-group__label {
+  @apply text-red-700 dark:text-red-400;
+}
+
+/* Size Variants */
+.form-group--sm {
+  @apply space-y-1;
+}
+
+.form-group--sm .form-group__label {
+  @apply text-xs;
+}
+
+.form-group--sm .form-group__hint,
+.form-group--sm .form-group__error-text {
+  @apply text-xs;
+}
+
+.form-group--md {
+  @apply space-y-2;
+}
+
+.form-group--md .form-group__label {
+  @apply text-sm;
+}
+
+.form-group--md .form-group__hint,
+.form-group--md .form-group__error-text {
+  @apply text-sm;
+}
+
+.form-group--lg {
+  @apply space-y-3;
+}
+
+.form-group--lg .form-group__label {
+  @apply text-base;
+}
+
+.form-group--lg .form-group__hint,
+.form-group--lg .form-group__error-text {
+  @apply text-base;
+}
+
+/* Checkbox and Radio Specific */
+.form-group--checkbox,
+.form-group--radio {
+  @apply flex items-center space-x-2;
+}
+
+.form-group--checkbox .form-group__label,
+.form-group--radio .form-group__label {
+  @apply cursor-pointer font-normal;
+}
+
+.form-group--checkbox .form-group__content,
+.form-group--radio .form-group__content {
+  @apply order-first;
+}
+
+/* Group Layout for Multiple Fields */
+.form-group-grid {
+  @apply grid gap-4;
+}
+
+.form-group-grid--cols-2 {
+  @apply grid-cols-1 sm:grid-cols-2;
+}
+
+.form-group-grid--cols-3 {
+  @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+}
+
+.form-group-grid--cols-4 {
+  @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
+}
+
+/* Fieldset Styling */
+.form-group-fieldset {
+  @apply border border-gray-200 dark:border-gray-700 rounded-lg p-4;
+}
+
+.form-group-fieldset__legend {
+  @apply text-lg font-semibold text-gray-900 dark:text-white px-2 -ml-2;
+}
+
+/* Animation for Error States */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.form-group--error-animate {
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Success State */
+.form-group--success .form-group__label {
+  @apply text-green-700 dark:text-green-400;
+}
+
+.form-group--success .form-group__content input,
+.form-group--success .form-group__content textarea,
+.form-group--success .form-group__content select {
+  @apply border-green-300 dark:border-green-600;
+  @apply focus:border-green-500 focus:ring-green-500;
+}
+
+.form-group__success-icon {
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none;
+  @apply w-5 h-5 text-green-500;
+}
+
+/* Loading State */
+.form-group--loading .form-group__content::after {
+  content: "";
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2;
+  @apply w-4 h-4 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .form-group--inline {
+    @apply flex-col items-start space-x-0 space-y-2;
+  }
+
+  .form-group--inline .form-group__label {
+    @apply flex-shrink-1;
+  }
+
+  .form-group--inline .form-group__content {
+    @apply w-full;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .form-group__label {
+    @apply text-black dark:text-white font-bold;
+  }
+
+  .form-group--error .form-group__label {
+    @apply text-red-800 dark:text-red-300;
+  }
+
+  .form-group__error-text {
+    @apply text-red-800 dark:text-red-300 font-medium;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .form-group__label--floating {
+    @apply transition-none;
+  }
+
+  .form-group--error-animate {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .form-group {
+    @apply border border-gray-400 mb-4 p-2 break-inside-avoid;
+  }
+
+  .form-group__label {
+    @apply text-black font-bold;
+  }
+
+  .form-group__hint,
+  .form-group__error-text {
+    @apply text-gray-700;
+  }
+}
+
+/* Focus-visible for Better Accessibility */
+.form-group__label:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 rounded;
+}
+
+/* Custom Properties for Theme Integration */
+.form-group {
+  --form-group-label-color: theme(colors.gray.700);
+  --form-group-hint-color: theme(colors.gray.500);
+  --form-group-error-color: theme(colors.red.600);
+  --form-group-success-color: theme(colors.green.600);
+  --form-group-transition: theme(transitionDuration.200);
+}
+
+/* Dark Mode Custom Properties */
+@media (prefers-color-scheme: dark) {
+  .form-group {
+    --form-group-label-color: theme(colors.gray.300);
+    --form-group-hint-color: theme(colors.gray.400);
+    --form-group-error-color: theme(colors.red.400);
+    --form-group-success-color: theme(colors.green.400);
+  }
+}

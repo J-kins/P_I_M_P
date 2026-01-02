@@ -1,0 +1,595 @@
+/* Fundraiser Page Styles */
+.fundraiser-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.fundraiser-page__header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4;
+}
+
+.fundraiser-page__title {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mb-2;
+}
+
+.fundraiser-page__description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.fundraiser-page__actions {
+  @apply flex items-center gap-4 mt-4;
+}
+
+.fundraiser-page__search {
+  @apply flex-1 max-w-md;
+}
+
+.fundraiser-page__filters {
+  @apply flex items-center gap-2;
+}
+
+.fundraiser-page__filter-button {
+  @apply px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.fundraiser-page__filter-button--active {
+  @apply bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-600;
+}
+
+.fundraiser-page__create-button {
+  @apply px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors flex items-center gap-2;
+}
+
+.fundraiser-page__content {
+  @apply container mx-auto px-6 py-8;
+}
+
+.fundraiser-page__tabs {
+  @apply flex space-x-8 border-b border-gray-200 dark:border-gray-700 mb-8;
+}
+
+.fundraiser-page__tab {
+  @apply pb-4 px-1 border-b-2 border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600 font-medium text-sm transition-colors cursor-pointer;
+}
+
+.fundraiser-page__tab--active {
+  @apply text-emerald-600 dark:text-emerald-400 border-emerald-600 dark:border-emerald-400;
+}
+
+.fundraiser-page__grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.fundraiser-page__card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow;
+}
+
+.fundraiser-page__card-image {
+  @apply w-full h-48 object-cover relative;
+}
+
+.fundraiser-page__card-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/50 to-transparent;
+}
+
+.fundraiser-page__card-status {
+  @apply absolute top-3 right-3 px-2 py-1 text-xs font-medium rounded-full;
+}
+
+.fundraiser-page__card-status--active {
+  @apply bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200;
+}
+
+.fundraiser-page__card-status--ended {
+  @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200;
+}
+
+.fundraiser-page__card-status--paused {
+  @apply bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200;
+}
+
+.fundraiser-page__card-urgent {
+  @apply absolute top-3 left-3 px-2 py-1 text-xs font-medium bg-red-500 text-white rounded-full;
+}
+
+.fundraiser-page__card-content {
+  @apply p-4;
+}
+
+.fundraiser-page__card-category {
+  @apply inline-block px-2 py-1 text-xs font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-full mb-3;
+}
+
+.fundraiser-page__card-title {
+  @apply font-semibold text-gray-900 dark:text-white text-sm leading-tight mb-3;
+}
+
+.fundraiser-page__card-organizer {
+  @apply flex items-center gap-2 mb-3;
+}
+
+.fundraiser-page__card-organizer-avatar {
+  @apply w-6 h-6 rounded-full object-cover;
+}
+
+.fundraiser-page__card-organizer-name {
+  @apply text-xs text-gray-600 dark:text-gray-400;
+}
+
+.fundraiser-page__card-organizer-verified {
+  @apply w-4 h-4 text-emerald-500;
+}
+
+.fundraiser-page__card-progress {
+  @apply mb-3;
+}
+
+.fundraiser-page__card-progress-bar {
+  @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-2;
+}
+
+.fundraiser-page__card-progress-fill {
+  @apply bg-emerald-500 h-2 rounded-full transition-all duration-300;
+}
+
+.fundraiser-page__card-progress-text {
+  @apply flex justify-between items-center text-xs;
+}
+
+.fundraiser-page__card-raised {
+  @apply font-semibold text-gray-900 dark:text-white;
+}
+
+.fundraiser-page__card-goal {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.fundraiser-page__card-percentage {
+  @apply font-medium text-emerald-600 dark:text-emerald-400;
+}
+
+.fundraiser-page__card-meta {
+  @apply flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-3;
+}
+
+.fundraiser-page__card-days-left {
+  @apply flex items-center gap-1;
+}
+
+.fundraiser-page__card-supporters {
+  @apply flex items-center gap-1;
+}
+
+.fundraiser-page__card-actions {
+  @apply flex items-center gap-2;
+}
+
+.fundraiser-page__donate-button {
+  @apply flex-1 px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.fundraiser-page__share-button {
+  @apply px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors;
+}
+
+.fundraiser-page__bookmark-button {
+  @apply px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors;
+}
+
+.fundraiser-page__bookmark-button--active {
+  @apply text-emerald-500 dark:text-emerald-400;
+}
+
+/* Featured Fundraiser */
+.fundraiser-page__featured {
+  @apply mb-8;
+}
+
+.fundraiser-page__featured-card {
+  @apply relative bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl overflow-hidden text-white;
+}
+
+.fundraiser-page__featured-content {
+  @apply p-8 relative z-10;
+}
+
+.fundraiser-page__featured-badge {
+  @apply inline-block px-3 py-1 text-xs font-medium bg-white/20 rounded-full mb-4;
+}
+
+.fundraiser-page__featured-title {
+  @apply text-3xl font-bold mb-4;
+}
+
+.fundraiser-page__featured-description {
+  @apply text-emerald-100 mb-6 max-w-2xl;
+}
+
+.fundraiser-page__featured-stats {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6 mb-6;
+}
+
+.fundraiser-page__featured-stat {
+  @apply text-center;
+}
+
+.fundraiser-page__featured-stat-value {
+  @apply text-2xl font-bold block;
+}
+
+.fundraiser-page__featured-stat-label {
+  @apply text-emerald-200 text-sm;
+}
+
+.fundraiser-page__featured-progress {
+  @apply mb-6;
+}
+
+.fundraiser-page__featured-progress-bar {
+  @apply w-full bg-white/20 rounded-full h-3 mb-2;
+}
+
+.fundraiser-page__featured-progress-fill {
+  @apply bg-white h-3 rounded-full;
+}
+
+.fundraiser-page__featured-actions {
+  @apply flex gap-4;
+}
+
+.fundraiser-page__featured-donate {
+  @apply px-8 py-3 bg-white text-emerald-600 font-medium rounded-lg hover:bg-emerald-50 transition-colors;
+}
+
+.fundraiser-page__featured-learn-more {
+  @apply px-8 py-3 border border-white/30 text-white hover:bg-white/10 font-medium rounded-lg transition-colors;
+}
+
+/* Categories */
+.fundraiser-page__categories {
+  @apply mb-8;
+}
+
+.fundraiser-page__categories-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.fundraiser-page__categories-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4;
+}
+
+.fundraiser-page__category-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4 text-center border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-600 transition-colors cursor-pointer;
+}
+
+.fundraiser-page__category-icon {
+  @apply w-8 h-8 mx-auto mb-2 text-emerald-600 dark:text-emerald-400;
+}
+
+.fundraiser-page__category-name {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.fundraiser-page__category-count {
+  @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+}
+
+/* Trending Fundraisers */
+.fundraiser-page__trending {
+  @apply mb-8;
+}
+
+.fundraiser-page__trending-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+}
+
+.fundraiser-page__trending-list {
+  @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.fundraiser-page__trending-item {
+  @apply p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+.fundraiser-page__trending-content {
+  @apply flex items-center gap-4;
+}
+
+.fundraiser-page__trending-rank {
+  @apply w-8 h-8 bg-emerald-100 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center text-sm font-bold;
+}
+
+.fundraiser-page__trending-image {
+  @apply w-12 h-12 rounded-lg object-cover;
+}
+
+.fundraiser-page__trending-info {
+  @apply flex-1;
+}
+
+.fundraiser-page__trending-name {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-1;
+}
+
+.fundraiser-page__trending-meta {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+.fundraiser-page__trending-stats {
+  @apply text-right;
+}
+
+.fundraiser-page__trending-raised {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.fundraiser-page__trending-supporters {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+}
+
+/* My Fundraisers */
+.fundraiser-page__my-fundraisers {
+  @apply mb-8;
+}
+
+.fundraiser-page__my-fundraisers-header {
+  @apply flex items-center justify-between mb-4;
+}
+
+.fundraiser-page__my-fundraisers-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.fundraiser-page__my-fundraisers-create {
+  @apply text-sm text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium;
+}
+
+.fundraiser-page__my-fundraisers-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.fundraiser-page__my-fundraiser-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow;
+}
+
+.fundraiser-page__my-fundraiser-header {
+  @apply p-4 border-b border-gray-200 dark:border-gray-700;
+}
+
+.fundraiser-page__my-fundraiser-title {
+  @apply font-medium text-gray-900 dark:text-white text-sm mb-2;
+}
+
+.fundraiser-page__my-fundraiser-status {
+  @apply text-xs font-medium px-2 py-1 rounded-full;
+}
+
+.fundraiser-page__my-fundraiser-status--active {
+  @apply bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400;
+}
+
+.fundraiser-page__my-fundraiser-status--ended {
+  @apply bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400;
+}
+
+.fundraiser-page__my-fundraiser-stats {
+  @apply p-4 grid grid-cols-2 gap-4 text-center;
+}
+
+.fundraiser-page__my-fundraiser-stat {
+  @apply text-xs;
+}
+
+.fundraiser-page__my-fundraiser-stat-value {
+  @apply font-semibold text-gray-900 dark:text-white block;
+}
+
+.fundraiser-page__my-fundraiser-stat-label {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.fundraiser-page__my-fundraiser-actions {
+  @apply p-4 pt-0 flex gap-2;
+}
+
+.fundraiser-page__my-fundraiser-manage {
+  @apply flex-1 px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-lg transition-colors;
+}
+
+.fundraiser-page__my-fundraiser-view {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium rounded-lg transition-colors;
+}
+
+/* Empty States */
+.fundraiser-page__empty {
+  @apply text-center py-12;
+}
+
+.fundraiser-page__empty-icon {
+  @apply w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4;
+}
+
+.fundraiser-page__empty-title {
+  @apply text-lg font-medium text-gray-900 dark:text-white mb-2;
+}
+
+.fundraiser-page__empty-description {
+  @apply text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto;
+}
+
+.fundraiser-page__empty-action {
+  @apply px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors;
+}
+
+/* Loading States */
+.fundraiser-page__skeleton-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden;
+}
+
+.fundraiser-page__skeleton-image {
+  @apply w-full h-48 bg-gray-200 dark:bg-gray-700 animate-pulse;
+}
+
+.fundraiser-page__skeleton-content {
+  @apply p-4 space-y-3;
+}
+
+.fundraiser-page__skeleton-category {
+  @apply h-4 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.fundraiser-page__skeleton-title {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.fundraiser-page__skeleton-organizer {
+  @apply flex items-center gap-2;
+}
+
+.fundraiser-page__skeleton-avatar {
+  @apply w-6 h-6 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse;
+}
+
+.fundraiser-page__skeleton-name {
+  @apply h-3 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.fundraiser-page__skeleton-progress {
+  @apply space-y-2;
+}
+
+.fundraiser-page__skeleton-progress-bar {
+  @apply h-2 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.fundraiser-page__skeleton-progress-text {
+  @apply flex justify-between;
+}
+
+.fundraiser-page__skeleton-amount {
+  @apply h-3 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+.fundraiser-page__skeleton-actions {
+  @apply flex gap-2;
+}
+
+.fundraiser-page__skeleton-button {
+  @apply flex-1 h-8 bg-gray-200 dark:bg-gray-700 rounded animate-pulse;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fundraiser-page__content {
+    @apply px-4 py-6;
+  }
+
+  .fundraiser-page__header {
+    @apply px-4;
+  }
+
+  .fundraiser-page__grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+
+  .fundraiser-page__categories-grid {
+    @apply grid-cols-3;
+  }
+
+  .fundraiser-page__actions {
+    @apply flex-col items-stretch gap-3;
+  }
+
+  .fundraiser-page__filters {
+    @apply flex-wrap;
+  }
+
+  .fundraiser-page__tabs {
+    @apply space-x-4 overflow-x-auto;
+  }
+
+  .fundraiser-page__tab {
+    @apply whitespace-nowrap;
+  }
+
+  .fundraiser-page__featured-content {
+    @apply p-6;
+  }
+
+  .fundraiser-page__featured-title {
+    @apply text-2xl;
+  }
+
+  .fundraiser-page__featured-stats {
+    @apply grid-cols-1;
+  }
+
+  .fundraiser-page__featured-actions {
+    @apply flex-col;
+  }
+}
+
+/* Dark Mode Specific Adjustments */
+.dark .fundraiser-page__card:hover,
+.dark .fundraiser-page__my-fundraiser-card:hover {
+  @apply shadow-lg shadow-gray-900/25;
+}
+
+/* Focus States */
+.fundraiser-page__donate-button:focus,
+.fundraiser-page__share-button:focus,
+.fundraiser-page__create-button:focus {
+  @apply outline-none ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.fundraiser-page__filter-button:focus {
+  @apply outline-none ring-2 ring-gray-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+.fundraiser-page__category-card:focus {
+  @apply outline-none ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Animations */
+.fundraiser-page__card {
+  @apply transform transition-transform duration-200;
+}
+
+.fundraiser-page__card:hover {
+  @apply scale-105;
+}
+
+.fundraiser-page__my-fundraiser-card {
+  @apply transform transition-transform duration-200;
+}
+
+.fundraiser-page__my-fundraiser-card:hover {
+  @apply scale-102;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .fundraiser-page__filter-button,
+  .fundraiser-page__card,
+  .fundraiser-page__my-fundraiser-card {
+    @apply border-2;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .fundraiser-page__card,
+  .fundraiser-page__my-fundraiser-card,
+  .fundraiser-page__card-progress-fill,
+  .fundraiser-page__featured-progress-fill,
+  .fundraiser-page__skeleton-image,
+  .fundraiser-page__skeleton-title,
+  .fundraiser-page__skeleton-avatar,
+  .fundraiser-page__skeleton-progress-bar {
+    @apply transition-none animate-none;
+  }
+
+  .fundraiser-page__card:hover,
+  .fundraiser-page__my-fundraiser-card:hover {
+    @apply scale-100;
+  }
+}

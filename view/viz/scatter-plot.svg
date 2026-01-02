@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" class="scatter-plot-container">
+    <defs>
+        <style>
+            .scatter-plot-container {
+                --point-color: #e74c3c;
+                --point-hover: #c0392b;
+                --axis-color: #333;
+                --grid-color: #eee;
+                --label-color: #333;
+                --background: #fff;
+                --point-radius: 7;
+                --font-family: system-ui, sans-serif;
+            }
+            .background { fill: var(--background); }
+            .axis { stroke: var(--axis-color); stroke-width: 2; }
+            .grid-line { stroke: var(--grid-color); stroke-width: 1; }
+            .point {
+                fill: var(--point-color);
+                stroke: white;
+                stroke-width: 2;
+                cursor: pointer;
+                transition: fill 0.2s, r 0.2s;
+            }
+            .point:hover {
+                fill: var(--point-hover);
+                r: 10;
+            }
+            .x-label, .y-label {
+                font-family: var(--font-family);
+                font-size: 14px;
+                fill: var(--label-color);
+                text-anchor: middle;
+            }
+            .y-label { text-anchor: end; }
+            .point-value-label {
+                font-family: var(--font-family);
+                font-size: 13px;
+                fill: var(--label-color);
+                text-anchor: middle;
+            }
+            .title {
+                font-family: var(--font-family);
+                font-size: 20px;
+                fill: var(--label-color);
+                text-anchor: middle;
+                font-weight: bold;
+            }
+        </style>
+    </defs>
+    <rect class="background" width="100%" height="100%"/>
+    <!-- Chart Title -->
+    <text class="title" x="400" y="40">{chartTitle}</text>
+    <!-- Axes -->
+    <g class="axes">
+        <!-- Y Axis -->
+        <line class="axis" x1="100" y1="100" x2="100" y2="500"/>
+        <!-- X Axis -->
+        <line class="axis" x1="100" y1="500" x2="700" y2="500"/>
+    </g>
+    <!-- Grid Lines & Y Labels -->
+    <g class="y-grid-labels">
+        <!-- for each tick in {yTicks} -->
+        <line class="grid-line" x1="100" y1="{tick.y}" x2="700" y2="{tick.y}"/>
+        <text class="y-label" x="90" y="{tick.y+5}">{tick.label}</text>
+        <!-- end for -->
+    </g>
+    <!-- X Labels -->
+    <g class="x-labels">
+        <!-- for each label in {xLabels} -->
+        <text class="x-label" x="{label.x}" y="520">{label.text}</text>
+        <!-- end for -->
+    </g>
+    <!-- Data Points -->
+    <g class="points">
+        <!-- for each point in {points} -->
+        <circle class="point" cx="{point.x}" cy="{point.y}" r="7">
+            <title>{point.label}: ({point.xValue}, {point.yValue})</title>
+        </circle>
+        <!-- Optionally show value label -->
+        <!-- <text class="point-value-label" x="{point.x}" y="{point.y - 12}">{point.label}</text> -->
+        <!-- end for -->
+    </g>
+    <!-- Optional: Legend -->
+    <g class="legend" transform="translate(650, 100)">
+        <rect x="0" y="0" width="120" height="50" fill="#fff" stroke="#ddd" stroke-width="1" rx="5" opacity="0.9"/>
+        <text class="title" x="60" y="20" font-size="14">Legend</text>
+        <circle class="point" cx="30" cy="35" r="7"/>
+        <text class="x-label" x="60" y="40">Data Point</text>
+    </g>
+</svg>
+<!--
+Data structure example:
+{
+  chartTitle: "Height vs Weight",
+  yTicks: [ { y: 500, label: "0" }, { y: 400, label: "50" }, ... ],
+  xLabels: [ { x: 140, text: "A" }, { x: 210, text: "B" }, ... ],
+  points: [
+    { x: 140, y: 300, label: "Person 1", xValue: 170, yValue: 65 },
+    { x: 210, y: 250, label: "Person 2", xValue: 180, yValue: 70 },
+    ...
+  ]
+}
+-->

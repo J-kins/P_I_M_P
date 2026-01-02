@@ -1,0 +1,16 @@
+/* Bar Chart Styles for D3.js integration */
+#bar-chart-svg .bar rect {
+  transition: fill 0.2s;
+}
+#bar-chart-svg .bar rect:hover {
+  fill: #1976d2;
+}
+#bar-chart-svg .x-label, #bar-chart-svg .y-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  fill: #333;
+}
+#bar-chart-svg .title {
+  font-size: 20px;
+  font-weight: bold;
+}

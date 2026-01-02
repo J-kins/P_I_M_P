@@ -1,0 +1,417 @@
+/* Share Button Component Styles */
+.share-button {
+  @apply inline-flex items-center justify-center;
+  @apply transition-all duration-200 ease-in-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-900;
+  @apply rounded-lg relative;
+}
+
+.share-button-container {
+  @apply relative inline-block;
+}
+
+.share-button-content {
+  @apply flex items-center gap-1.5;
+}
+
+.share-button-icon {
+  @apply transition-all duration-200;
+}
+
+.share-button-label {
+  @apply font-medium;
+}
+
+/* Share Button Sizes */
+.share-button-sm {
+  @apply px-2 py-1 text-xs;
+}
+
+.share-button-sm .share-button-icon {
+  @apply w-3.5 h-3.5;
+}
+
+.share-button-md {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.share-button-md .share-button-icon {
+  @apply w-4 h-4;
+}
+
+.share-button-lg {
+  @apply px-4 py-2 text-base;
+}
+
+.share-button-lg .share-button-icon {
+  @apply w-5 h-5;
+}
+
+/* Share Button Variants */
+.share-button-minimal {
+  @apply text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+
+.share-button-filled {
+  @apply bg-gray-100 dark:bg-gray-800;
+  @apply text-gray-600 dark:text-gray-300;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+}
+
+.share-button-outlined {
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply text-gray-600 dark:text-gray-300;
+  @apply hover:border-gray-400 dark:hover:border-gray-500;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+}
+
+.share-button-floating {
+  @apply fixed bottom-32 right-6 z-40;
+  @apply w-12 h-12 rounded-full shadow-lg;
+  @apply bg-green-500 text-white;
+  @apply hover:bg-green-600 hover:shadow-xl;
+  @apply transform hover:scale-110;
+}
+
+/* Share Button States */
+.share-button-disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.share-button-open {
+  @apply z-50;
+}
+
+/* Share Button Hover Effects */
+.share-button:hover .share-button-icon {
+  @apply transform scale-110;
+}
+
+.share-button:active .share-button-icon {
+  @apply transform scale-95;
+}
+
+/* Share Button Dropdown */
+.share-button-dropdown {
+  @apply absolute top-full left-1/2 transform -translate-x-1/2 mt-2;
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply py-2 min-w-[200px] z-50;
+  animation: share-dropdown-appear 0.2s ease-out;
+}
+
+@keyframes share-dropdown-appear {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+.share-button-dropdown-content {
+  @apply space-y-1;
+}
+
+/* Share Platform Buttons */
+.share-platform-button {
+  @apply flex items-center gap-3 w-full px-3 py-2;
+  @apply text-left text-sm text-gray-700 dark:text-gray-300;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply transition-colors duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset;
+}
+
+.share-platform-icon {
+  @apply w-4 h-4 flex-shrink-0;
+}
+
+.share-platform-label {
+  @apply font-medium;
+}
+
+/* Platform-specific Styles */
+.share-platform-facebook {
+  @apply hover:text-blue-600 dark:hover:text-blue-400;
+}
+
+.share-platform-facebook .share-platform-icon {
+  @apply text-blue-600;
+}
+
+.share-platform-twitter {
+  @apply hover:text-sky-500 dark:hover:text-sky-400;
+}
+
+.share-platform-twitter .share-platform-icon {
+  @apply text-sky-500;
+}
+
+.share-platform-linkedin {
+  @apply hover:text-blue-700 dark:hover:text-blue-400;
+}
+
+.share-platform-linkedin .share-platform-icon {
+  @apply text-blue-700;
+}
+
+.share-platform-whatsapp {
+  @apply hover:text-green-600 dark:hover:text-green-400;
+}
+
+.share-platform-whatsapp .share-platform-icon {
+  @apply text-green-600;
+}
+
+.share-platform-telegram {
+  @apply hover:text-blue-500 dark:hover:text-blue-400;
+}
+
+.share-platform-telegram .share-platform-icon {
+  @apply text-blue-500;
+}
+
+.share-platform-email {
+  @apply hover:text-gray-600 dark:hover:text-gray-300;
+}
+
+.share-platform-email .share-platform-icon {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.share-platform-copy {
+  @apply hover:text-purple-600 dark:hover:text-purple-400;
+}
+
+.share-platform-copy .share-platform-icon {
+  @apply text-purple-600 dark:text-purple-400;
+}
+
+/* Share Button Backdrop */
+.share-button-backdrop {
+  @apply fixed inset-0 z-40;
+}
+
+/* Share Button Success Animation */
+.share-button-success {
+  animation: share-success 0.4s ease-out;
+}
+
+@keyframes share-success {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: rgba(34, 197, 94, 0.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Share Button Accessibility */
+.share-button:focus-visible {
+  @apply outline-2 outline-offset-2 outline-blue-500;
+}
+
+/* Share Button High Contrast */
+@media (prefers-contrast: high) {
+  .share-button {
+    @apply border border-current;
+  }
+
+  .share-button-dropdown {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+}
+
+/* Share Button Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .share-button,
+  .share-button-icon,
+  .share-button-dropdown {
+    @apply transition-none animate-none;
+  }
+
+  .share-button:hover {
+    @apply transform-none;
+  }
+}
+
+/* Share Button Print Styles */
+@media print {
+  .share-button {
+    @apply hidden;
+  }
+}
+
+/* Share Button Mobile Optimizations */
+@media (max-width: 640px) {
+  .share-button-dropdown {
+    @apply left-0 right-0 transform-none;
+    @apply mx-4 min-w-0;
+  }
+
+  .share-platform-button {
+    @apply py-3 text-base;
+  }
+
+  .share-platform-icon {
+    @apply w-5 h-5;
+  }
+}
+
+/* Share Button Dark Mode Adjustments */
+.dark .share-button-dropdown {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .share-platform-button {
+  @apply text-gray-300 hover:bg-gray-700;
+}
+
+/* Share Button Custom Themes */
+.share-button-theme-gradient {
+  @apply bg-gradient-to-r from-green-500 to-blue-500;
+  @apply text-white hover:from-green-600 hover:to-blue-600;
+}
+
+.share-button-theme-modern {
+  @apply rounded-full bg-gray-900 text-white;
+  @apply hover:bg-gray-800 shadow-lg hover:shadow-xl;
+}
+
+/* Share Button Compact */
+.share-button-compact {
+  @apply px-1 py-0.5;
+}
+
+.share-button-compact .share-button-icon {
+  @apply w-3 h-3;
+}
+
+/* Share Button with Badge */
+.share-button-badge {
+  @apply relative;
+}
+
+.share-button-badge::after {
+  @apply absolute -top-1 -right-1;
+  @apply w-2 h-2 bg-green-500 rounded-full;
+  content: "";
+}
+
+/* Share Button Group */
+.share-button-group {
+  @apply flex items-center gap-1;
+}
+
+/* Share Button with Tooltip */
+.share-button-tooltip {
+  @apply relative;
+}
+
+.share-button-tooltip::after {
+  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2;
+  @apply px-2 py-1 text-xs text-white bg-gray-900 rounded whitespace-nowrap;
+  @apply opacity-0 invisible transition-all duration-200;
+  @apply dark:bg-gray-700;
+  content: attr(aria-label);
+}
+
+.share-button-tooltip:hover::after {
+  @apply opacity-100 visible;
+}
+
+/* Share Button Animation Effects */
+.share-button-bounce:hover {
+  animation: share-bounce 0.3s ease-in-out;
+}
+
+@keyframes share-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.share-button-pulse {
+  animation: share-pulse 2s infinite;
+}
+
+@keyframes share-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Share Button Loading State */
+.share-button-loading {
+  @apply cursor-wait;
+}
+
+.share-button-loading .share-button-icon {
+  @apply animate-spin;
+}
+
+/* Share Button Success State */
+.share-button-copied {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.share-button-copied .share-button-icon {
+  @apply text-green-600 dark:text-green-400;
+}
+
+/* Share Button Error State */
+.share-button-error {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.share-button-error .share-button-icon {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Share Button Grid Layout */
+.share-button-grid {
+  @apply grid grid-cols-2 gap-1;
+}
+
+.share-button-grid .share-platform-button {
+  @apply flex-col items-center text-center py-3;
+}
+
+.share-button-grid .share-platform-icon {
+  @apply mb-1;
+}
+
+.share-button-grid .share-platform-label {
+  @apply text-xs;
+}
+
+/* Share Button Full Width */
+.share-button-full {
+  @apply w-full justify-center;
+}
+
+/* Share Button Icon Only */
+.share-button-icon-only {
+  @apply p-2;
+}
+
+.share-button-icon-only .share-button-label {
+  @apply sr-only;
+}

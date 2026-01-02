@@ -1,0 +1,608 @@
+/* ScrollSpy Navigation Organism Styles */
+
+.scrollspy-nav {
+  --scrollspy-bg: var(--color-background);
+  --scrollspy-border: var(--color-border);
+  --scrollspy-active-bg: var(--color-primary);
+  --scrollspy-active-color: var(--color-primary-contrast);
+  --scrollspy-hover-bg: var(--color-background-hover);
+  --scrollspy-padding: 1rem;
+  --scrollspy-gap: 0.25rem;
+  --scrollspy-border-radius: 0.5rem;
+  --scrollspy-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --scrollspy-z-index: 40;
+
+  position: relative;
+  background-color: var(--scrollspy-bg);
+  border: 1px solid var(--scrollspy-border);
+  border-radius: var(--scrollspy-border-radius);
+  padding: var(--scrollspy-padding);
+}
+
+/* Variant Styles */
+.scrollspy-nav--default {
+  box-shadow: var(--scrollspy-shadow);
+}
+
+.scrollspy-nav--minimal {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0.5rem;
+}
+
+.scrollspy-nav--pills {
+  background-color: var(--color-background-secondary);
+  border-radius: 1rem;
+  padding: 0.75rem;
+}
+
+.scrollspy-nav--sidebar {
+  background-color: var(--color-background-secondary);
+  border-right: 1px solid var(--scrollspy-border);
+  border-radius: 0;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: var(--scrollspy-z-index);
+}
+
+.scrollspy-nav--floating {
+  position: fixed;
+  z-index: var(--scrollspy-z-index);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Size Variants */
+.scrollspy-nav--sm {
+  --scrollspy-padding: 0.75rem;
+  --scrollspy-gap: 0.125rem;
+  font-size: 0.875rem;
+}
+
+.scrollspy-nav--md {
+  --scrollspy-padding: 1rem;
+  --scrollspy-gap: 0.25rem;
+  font-size: 1rem;
+}
+
+.scrollspy-nav--lg {
+  --scrollspy-padding: 1.25rem;
+  --scrollspy-gap: 0.375rem;
+  font-size: 1.125rem;
+}
+
+/* Position Variants */
+.scrollspy-nav--left {
+  left: 1rem;
+}
+
+.scrollspy-nav--right {
+  right: 1rem;
+}
+
+.scrollspy-nav--top {
+  top: 1rem;
+}
+
+.scrollspy-nav--bottom {
+  bottom: 1rem;
+}
+
+/* Orientation */
+.scrollspy-nav--horizontal .scrollspy-nav__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--scrollspy-gap);
+}
+
+.scrollspy-nav--vertical .scrollspy-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--scrollspy-gap);
+}
+
+/* Sticky Behavior */
+.scrollspy-nav--sticky {
+  position: sticky;
+  top: 1rem;
+  z-index: var(--scrollspy-z-index);
+}
+
+.scrollspy-nav--stuck {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Collapsed State */
+.scrollspy-nav--collapsed .scrollspy-nav__list {
+  display: none;
+}
+
+.scrollspy-nav--collapsed .scrollspy-nav__progress {
+  display: none;
+}
+
+/* Mobile Toggle */
+.scrollspy-nav__toggle {
+  display: none;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Progress Bar */
+.scrollspy-nav__progress {
+  position: relative;
+  background-color: var(--color-background-secondary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.scrollspy-nav__progress--left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+
+.scrollspy-nav__progress--right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+
+.scrollspy-nav__progress--top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.scrollspy-nav__progress--bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.scrollspy-nav--horizontal .scrollspy-nav__progress--top,
+.scrollspy-nav--horizontal .scrollspy-nav__progress--bottom {
+  height: 3px;
+  width: 100%;
+}
+
+.scrollspy-nav--vertical .scrollspy-nav__progress--left,
+.scrollspy-nav--vertical .scrollspy-nav__progress--right {
+  width: 3px;
+  height: 100%;
+}
+
+.scrollspy-nav__progress-bar {
+  background-color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.scrollspy-nav--horizontal .scrollspy-nav__progress-bar {
+  height: 100%;
+  width: 0%;
+}
+
+.scrollspy-nav--vertical .scrollspy-nav__progress-bar {
+  width: 100%;
+  height: 0%;
+}
+
+/* Navigation List */
+.scrollspy-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Navigation Item */
+.scrollspy-nav__item {
+  position: relative;
+}
+
+.scrollspy-nav__item-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Depth Spacing */
+.scrollspy-nav__item--depth-0 {
+  margin-left: 0;
+}
+
+.scrollspy-nav__item--depth-1 {
+  margin-left: 1rem;
+}
+
+.scrollspy-nav__item--depth-2 {
+  margin-left: 2rem;
+}
+
+.scrollspy-nav__item--depth-3 {
+  margin-left: 3rem;
+}
+
+/* Item States */
+.scrollspy-nav__item--active .scrollspy-nav__link {
+  background-color: var(--scrollspy-active-bg);
+  color: var(--scrollspy-active-color);
+  font-weight: 600;
+}
+
+.scrollspy-nav__item--visible .scrollspy-nav__link {
+  opacity: 1;
+}
+
+.scrollspy-nav__item--disabled .scrollspy-nav__link {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.scrollspy-nav__item--has-children > .scrollspy-nav__item-wrapper {
+  align-items: flex-start;
+}
+
+/* Connector Lines */
+.scrollspy-nav__connector {
+  position: absolute;
+  left: -0.75rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--scrollspy-border);
+}
+
+.scrollspy-nav__connector::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 0;
+  width: 0.5rem;
+  height: 1px;
+  background-color: var(--scrollspy-border);
+}
+
+/* Expand Button */
+.scrollspy-nav__expand-button {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border-radius: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.scrollspy-nav__item--expanded .scrollspy-nav__expand-button {
+  transform: rotate(90deg);
+}
+
+/* Navigation Link */
+.scrollspy-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all 0.2s ease;
+  width: 100%;
+  justify-content: flex-start;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  position: relative;
+}
+
+.scrollspy-nav__link:hover {
+  background-color: var(--scrollspy-hover-bg);
+  color: var(--color-text);
+}
+
+.scrollspy-nav__link:focus {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Variant Link Styles */
+.scrollspy-nav--pills .scrollspy-nav__link {
+  border-radius: 1rem;
+  padding: 0.625rem 1rem;
+}
+
+.scrollspy-nav--minimal .scrollspy-nav__link {
+  padding: 0.375rem 0;
+  background: transparent;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+}
+
+.scrollspy-nav--minimal .scrollspy-nav__item--active .scrollspy-nav__link {
+  background: transparent;
+  border-bottom-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Icon */
+.scrollspy-nav__icon {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.scrollspy-nav__item--active .scrollspy-nav__icon {
+  color: var(--scrollspy-active-color);
+}
+
+/* Label */
+.scrollspy-nav__label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badge */
+.scrollspy-nav__badge {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Nested Sections */
+.scrollspy-nav__nested {
+  list-style: none;
+  margin: 0.25rem 0 0 0;
+  padding: 0;
+  border-left: 1px solid var(--scrollspy-border);
+  margin-left: 1rem;
+  padding-left: 0.75rem;
+}
+
+.scrollspy-nav--minimal .scrollspy-nav__nested {
+  border-left: none;
+  margin-left: 0.5rem;
+}
+
+/* Dark Theme */
+.scrollspy-nav--dark {
+  --scrollspy-bg: var(--color-background-dark);
+  --scrollspy-border: var(--color-border-dark);
+  --scrollspy-hover-bg: var(--color-background-hover-dark);
+  color: var(--color-text-dark);
+}
+
+.scrollspy-nav--dark.scrollspy-nav--floating {
+  background-color: rgba(23, 23, 23, 0.9);
+}
+
+.scrollspy-nav--dark.scrollspy-nav--stuck {
+  background-color: rgba(23, 23, 23, 0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .scrollspy-nav--sidebar {
+    position: relative;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--scrollspy-border);
+  }
+
+  .scrollspy-nav--floating {
+    position: relative;
+    border-radius: var(--scrollspy-border-radius);
+  }
+}
+
+@media (max-width: 768px) {
+  .scrollspy-nav {
+    --scrollspy-padding: 0.75rem;
+  }
+
+  .scrollspy-nav__toggle {
+    display: flex;
+  }
+
+  .scrollspy-nav--horizontal .scrollspy-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .scrollspy-nav__link {
+    padding: 0.625rem 0.75rem;
+  }
+
+  .scrollspy-nav__label {
+    white-space: normal;
+  }
+
+  /* Simplified depth spacing on mobile */
+  .scrollspy-nav__item--depth-1 {
+    margin-left: 0.5rem;
+  }
+
+  .scrollspy-nav__item--depth-2 {
+    margin-left: 1rem;
+  }
+
+  .scrollspy-nav__item--depth-3 {
+    margin-left: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrollspy-nav {
+    --scrollspy-padding: 0.5rem;
+    --scrollspy-gap: 0.125rem;
+  }
+
+  .scrollspy-nav__link {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .scrollspy-nav__progress--left,
+  .scrollspy-nav__progress--right {
+    width: 2px;
+  }
+
+  .scrollspy-nav__progress--top,
+  .scrollspy-nav__progress--bottom {
+    height: 2px;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .scrollspy-nav {
+    --scrollspy-border: var(--color-border-high-contrast);
+  }
+
+  .scrollspy-nav__link {
+    border: 1px solid transparent;
+  }
+
+  .scrollspy-nav__link:focus {
+    border-color: var(--color-focus);
+  }
+
+  .scrollspy-nav__item--active .scrollspy-nav__link {
+    border-color: var(--color-primary);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .scrollspy-nav__link,
+  .scrollspy-nav__expand-button,
+  .scrollspy-nav__progress-bar,
+  .scrollspy-nav__icon {
+    transition: none;
+  }
+
+  .scrollspy-nav__item--expanded .scrollspy-nav__expand-button {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .scrollspy-nav {
+    display: none;
+  }
+}
+
+/* Focus Management */
+.scrollspy-nav:focus-within {
+  outline: none;
+}
+
+.scrollspy-nav__link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.scrollspy-nav__expand-button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Loading Animation */
+.scrollspy-nav--loading .scrollspy-nav__list {
+  background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Custom Scrollbar */
+.scrollspy-nav__list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollspy-nav__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollspy-nav__list::-webkit-scrollbar-thumb {
+  background: var(--scrollspy-border);
+  border-radius: 2px;
+}
+
+.scrollspy-nav__list::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+/* Animation for section changes */
+.scrollspy-nav__item--active {
+  animation: highlight 0.3s ease;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: var(--color-primary-light);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* Accessibility improvements */
+.scrollspy-nav[aria-hidden="true"] {
+  display: none;
+}
+
+.scrollspy-nav__link[aria-current="location"] {
+  position: relative;
+}
+
+.scrollspy-nav__link[aria-current="location"]::before {
+  content: "";
+  position: absolute;
+  left: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 1rem;
+  background-color: var(--color-primary);
+  border-radius: 1.5px;
+}
+
+.scrollspy-nav--horizontal .scrollspy-nav__link[aria-current="location"]::before {
+  left: 50%;
+  top: -0.5rem;
+  transform: translateX(-50%);
+  width: 1rem;
+  height: 3px;
+}

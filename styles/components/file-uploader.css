@@ -1,0 +1,369 @@
+/* File Uploader Component Styles */
+.file-uploader {
+  @apply w-full space-y-4;
+}
+
+.file-uploader-content {
+  @apply space-y-4;
+}
+
+/* File Uploader Variants */
+.file-uploader-dropzone .file-uploader-input {
+  @apply border-2 border-dashed border-gray-300 dark:border-gray-600;
+  @apply hover:border-gray-400 dark:hover:border-gray-500;
+  @apply transition-colors duration-200;
+}
+
+.file-uploader-button .file-uploader-input {
+  @apply flex justify-center;
+}
+
+.file-uploader-minimal {
+  @apply text-center;
+}
+
+/* File Uploader Sizes */
+.file-uploader-sm .file-uploader-input {
+  @apply p-4;
+}
+
+.file-uploader-md .file-uploader-input {
+  @apply p-6;
+}
+
+.file-uploader-lg .file-uploader-input {
+  @apply p-8;
+}
+
+/* File Uploader States */
+.file-uploader-uploading {
+  @apply pointer-events-none opacity-75;
+}
+
+.file-uploader-error .file-uploader-input {
+  @apply border-red-500 dark:border-red-400;
+  @apply bg-red-50 dark:bg-red-900/20;
+}
+
+.file-uploader-success .file-uploader-input {
+  @apply border-green-500 dark:border-green-400;
+  @apply bg-green-50 dark:bg-green-900/20;
+}
+
+/* File Uploader Preview */
+.file-uploader-preview {
+  @apply bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.file-uploader-preview-header {
+  @apply flex items-center justify-between mb-3;
+  @apply pb-2 border-b border-gray-200 dark:border-gray-700;
+}
+
+.file-uploader-preview-title {
+  @apply font-medium text-gray-900 dark:text-gray-100;
+}
+
+.file-uploader-preview-actions {
+  @apply flex items-center gap-2;
+}
+
+.file-uploader-clear {
+  @apply text-sm text-red-600 dark:text-red-400;
+  @apply hover:text-red-800 dark:hover:text-red-300;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply transition-colors duration-200;
+}
+
+/* File Uploader Preview List */
+.file-uploader-preview-list {
+  @apply space-y-2 max-h-60 overflow-y-auto;
+}
+
+.file-uploader-preview-item {
+  @apply relative;
+}
+
+/* File Uploader Progress */
+.file-uploader-progress {
+  @apply absolute bottom-0 left-0 right-0 h-1;
+  @apply bg-gray-200 dark:bg-gray-700 overflow-hidden;
+}
+
+.file-uploader-progress-bar {
+  @apply h-full bg-blue-600 dark:bg-blue-500;
+  @apply transition-all duration-300;
+}
+
+/* File Uploader Actions */
+.file-uploader-actions {
+  @apply flex justify-end gap-2;
+}
+
+.file-uploader-upload-btn {
+  @apply px-4 py-2 bg-blue-600 text-white;
+  @apply rounded-lg hover:bg-blue-700;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply transition-colors duration-200;
+  @apply flex items-center gap-2;
+}
+
+.file-uploader-upload-btn:disabled {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+/* File Uploader Grid Preview */
+.file-uploader-preview-grid {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2;
+}
+
+.file-uploader-preview-grid .file-uploader-preview-item {
+  @apply aspect-square;
+}
+
+/* File Uploader Drag States */
+.file-uploader-drag-over .file-uploader-input {
+  @apply border-blue-500 bg-blue-50 dark:bg-blue-900/20;
+}
+
+.file-uploader-drag-active .file-uploader-input {
+  @apply scale-105 transform;
+}
+
+/* File Uploader Loading */
+.file-uploader-loading .file-uploader-input {
+  @apply animate-pulse;
+}
+
+.file-uploader-loading-overlay {
+  @apply absolute inset-0 bg-white dark:bg-gray-800 bg-opacity-75;
+  @apply flex items-center justify-center;
+  @apply rounded-lg;
+}
+
+.file-uploader-spinner {
+  @apply w-6 h-6 animate-spin border-2 border-blue-600 border-t-transparent rounded-full;
+}
+
+/* File Uploader Error Messages */
+.file-uploader-error-message {
+  @apply text-sm text-red-600 dark:text-red-400;
+  @apply bg-red-50 dark:bg-red-900/20;
+  @apply border border-red-200 dark:border-red-800;
+  @apply rounded-lg p-3 mt-2;
+}
+
+.file-uploader-error-icon {
+  @apply w-4 h-4 mr-2 flex-shrink-0;
+}
+
+/* File Uploader Success Messages */
+.file-uploader-success-message {
+  @apply text-sm text-green-600 dark:text-green-400;
+  @apply bg-green-50 dark:bg-green-900/20;
+  @apply border border-green-200 dark:border-green-800;
+  @apply rounded-lg p-3 mt-2;
+  @apply flex items-center;
+}
+
+.file-uploader-success-icon {
+  @apply w-4 h-4 mr-2 flex-shrink-0;
+}
+
+/* File Uploader Info */
+.file-uploader-info {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+  @apply mt-2 text-center;
+}
+
+.file-uploader-limits {
+  @apply text-xs text-gray-400 dark:text-gray-500;
+  @apply mt-1;
+}
+
+/* File Uploader Validation */
+.file-uploader-invalid {
+  @apply border-red-500 dark:border-red-400;
+  @apply ring-2 ring-red-500 ring-opacity-20;
+}
+
+.file-uploader-valid {
+  @apply border-green-500 dark:border-green-400;
+  @apply ring-2 ring-green-500 ring-opacity-20;
+}
+
+/* File Uploader Animation */
+.file-uploader-fade-in {
+  animation: uploader-fade-in 0.3s ease-out;
+}
+
+@keyframes uploader-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.file-uploader-slide-up {
+  animation: uploader-slide-up 0.3s ease-out;
+}
+
+@keyframes uploader-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* File Uploader Responsive */
+@media (max-width: 640px) {
+  .file-uploader-responsive .file-uploader-preview-grid {
+    @apply grid-cols-2;
+  }
+
+  .file-uploader-responsive .file-uploader-actions {
+    @apply flex-col;
+  }
+
+  .file-uploader-responsive .file-uploader-upload-btn {
+    @apply w-full justify-center;
+  }
+}
+
+/* File Uploader Dark Mode */
+.dark .file-uploader-preview {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .file-uploader-progress {
+  @apply bg-gray-700;
+}
+
+/* File Uploader Accessibility */
+.file-uploader-input:focus-within {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+  @apply dark:ring-offset-gray-900;
+}
+
+/* File Uploader High Contrast */
+@media (prefers-contrast: high) {
+  .file-uploader-input {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+
+  .file-uploader-preview {
+    @apply border-2 border-gray-900 dark:border-gray-100;
+  }
+}
+
+/* File Uploader Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .file-uploader-input {
+    @apply transition-none;
+  }
+
+  .file-uploader-drag-active .file-uploader-input {
+    @apply transform-none;
+  }
+
+  .file-uploader-progress-bar {
+    @apply transition-none;
+  }
+}
+
+/* File Uploader Print */
+@media print {
+  .file-uploader {
+    @apply hidden;
+  }
+}
+
+/* File Uploader Custom Themes */
+.file-uploader-theme-modern .file-uploader-input {
+  @apply rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50;
+  @apply dark:from-blue-900/20 dark:to-purple-900/20;
+  @apply border-dashed border-2 border-blue-300 dark:border-blue-700;
+}
+
+.file-uploader-theme-minimal .file-uploader-input {
+  @apply border-0 bg-transparent;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+}
+
+/* File Uploader Compact */
+.file-uploader-compact {
+  @apply space-y-2;
+}
+
+.file-uploader-compact .file-uploader-preview {
+  @apply p-2;
+}
+
+.file-uploader-compact .file-uploader-preview-header {
+  @apply text-sm;
+}
+
+/* File Uploader Multiple File Types */
+.file-uploader-mixed .file-uploader-preview-list {
+  @apply grid grid-cols-1 gap-2;
+}
+
+.file-uploader-images-only .file-uploader-preview-list {
+  @apply grid grid-cols-3 gap-2;
+}
+
+/* File Uploader Batch Actions */
+.file-uploader-batch-actions {
+  @apply flex items-center gap-2 mt-2;
+  @apply text-sm;
+}
+
+.file-uploader-select-all {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-800 dark:hover:text-blue-300;
+  @apply cursor-pointer;
+}
+
+.file-uploader-delete-selected {
+  @apply text-red-600 dark:text-red-400;
+  @apply hover:text-red-800 dark:hover:text-red-300;
+  @apply cursor-pointer;
+}
+
+/* File Uploader Upload Statistics */
+.file-uploader-stats {
+  @apply text-xs text-gray-500 dark:text-gray-400;
+  @apply flex items-center justify-between;
+  @apply mt-2 pt-2 border-t border-gray-200 dark:border-gray-700;
+}
+
+.file-uploader-total-size {
+  @apply font-mono;
+}
+
+.file-uploader-file-count {
+  @apply font-medium;
+}
+
+/* File Uploader Auto Upload */
+.file-uploader-auto .file-uploader-actions {
+  @apply hidden;
+}
+
+.file-uploader-auto-indicator {
+  @apply text-xs text-blue-600 dark:text-blue-400;
+  @apply flex items-center gap-1;
+}
+
+.file-uploader-auto-spinner {
+  @apply w-3 h-3 animate-spin;
+}

@@ -1,0 +1,375 @@
+/* Social Login Button Component Styles */
+/* Provides styling for social authentication buttons with provider-specific branding */
+
+.social-login-button {
+  @apply inline-flex items-center justify-center font-medium rounded-lg;
+  @apply transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.social-login-button:not(:disabled):hover {
+  @apply scale-105;
+}
+
+.social-login-button:not(:disabled):active {
+  @apply scale-95;
+}
+
+.social-login-button:disabled:hover,
+.social-login-button:disabled:active {
+  transform: none !important;
+}
+
+/* Size Variants */
+.social-login-button--sm {
+  @apply px-3 py-2 text-sm gap-2;
+}
+
+.social-login-button--md {
+  @apply px-4 py-2.5 text-sm gap-2;
+}
+
+.social-login-button--lg {
+  @apply px-6 py-3 text-base gap-3;
+}
+
+/* Icon Size Variants */
+.social-login-button--sm .social-login-button__icon {
+  @apply w-4 h-4;
+}
+
+.social-login-button--md .social-login-button__icon {
+  @apply w-5 h-5;
+}
+
+.social-login-button--lg .social-login-button__icon {
+  @apply w-6 h-6;
+}
+
+/* Full Width */
+.social-login-button--full-width {
+  @apply w-full;
+}
+
+/* Google Styles */
+.social-login-button--google-default {
+  @apply bg-red-500 hover:bg-red-600 text-white shadow-md hover:shadow-lg;
+  @apply focus:ring-red-500;
+}
+
+.social-login-button--google-outline {
+  @apply border-2 border-red-500 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20;
+  @apply focus:ring-red-500;
+}
+
+.social-login-button--google-minimal {
+  @apply text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20;
+  @apply focus:ring-red-500;
+}
+
+/* Facebook Styles */
+.social-login-button--facebook-default {
+  @apply bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg;
+  @apply focus:ring-blue-500;
+}
+
+.social-login-button--facebook-outline {
+  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply focus:ring-blue-500;
+}
+
+.social-login-button--facebook-minimal {
+  @apply text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply focus:ring-blue-500;
+}
+
+/* Twitter Styles */
+.social-login-button--twitter-default {
+  @apply bg-sky-500 hover:bg-sky-600 text-white shadow-md hover:shadow-lg;
+  @apply focus:ring-sky-500;
+}
+
+.social-login-button--twitter-outline {
+  @apply border-2 border-sky-500 text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20;
+  @apply focus:ring-sky-500;
+}
+
+.social-login-button--twitter-minimal {
+  @apply text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20;
+  @apply focus:ring-sky-500;
+}
+
+/* GitHub Styles */
+.social-login-button--github-default {
+  @apply bg-gray-900 hover:bg-gray-800 text-white shadow-md hover:shadow-lg;
+  @apply dark:bg-gray-800 dark:hover:bg-gray-700 focus:ring-gray-500;
+}
+
+.social-login-button--github-outline {
+  @apply border-2 border-gray-900 text-gray-900 hover:bg-gray-50;
+  @apply dark:border-gray-300 dark:text-gray-300 dark:hover:bg-gray-800;
+  @apply focus:ring-gray-500;
+}
+
+.social-login-button--github-minimal {
+  @apply text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800;
+  @apply focus:ring-gray-500;
+}
+
+/* Apple Styles */
+.social-login-button--apple-default {
+  @apply bg-black hover:bg-gray-800 text-white shadow-md hover:shadow-lg;
+  @apply focus:ring-gray-500;
+}
+
+.social-login-button--apple-outline {
+  @apply border-2 border-black text-black hover:bg-gray-50;
+  @apply dark:border-white dark:text-white dark:hover:bg-gray-800;
+  @apply focus:ring-gray-500;
+}
+
+.social-login-button--apple-minimal {
+  @apply text-black hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800;
+  @apply focus:ring-gray-500;
+}
+
+/* Microsoft Styles */
+.social-login-button--microsoft-default {
+  @apply bg-blue-500 hover:bg-blue-600 text-white shadow-md hover:shadow-lg;
+  @apply focus:ring-blue-500;
+}
+
+.social-login-button--microsoft-outline {
+  @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply focus:ring-blue-500;
+}
+
+.social-login-button--microsoft-minimal {
+  @apply text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply focus:ring-blue-500;
+}
+
+/* LinkedIn Styles */
+.social-login-button--linkedin-default {
+  @apply bg-blue-700 hover:bg-blue-800 text-white shadow-md hover:shadow-lg;
+  @apply focus:ring-blue-600;
+}
+
+.social-login-button--linkedin-outline {
+  @apply border-2 border-blue-700 text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply focus:ring-blue-600;
+}
+
+.social-login-button--linkedin-minimal {
+  @apply text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20;
+  @apply focus:ring-blue-600;
+}
+
+/* Loading State */
+.social-login-button--loading {
+  @apply cursor-wait;
+}
+
+.social-login-button--loading .social-login-button__icon {
+  @apply animate-spin;
+}
+
+/* Button Content */
+.social-login-button__content {
+  @apply flex-1 text-center;
+}
+
+/* Group Layout */
+.social-login-group {
+  @apply space-y-3;
+}
+
+.social-login-group--horizontal {
+  @apply flex space-x-3 space-y-0;
+}
+
+.social-login-group--horizontal .social-login-button {
+  @apply flex-1;
+}
+
+.social-login-group--grid {
+  @apply grid grid-cols-2 gap-3;
+}
+
+.social-login-group--grid-3 {
+  @apply grid grid-cols-3 gap-3;
+}
+
+/* Divider for Social Login Groups */
+.social-login-divider {
+  @apply relative my-6;
+}
+
+.social-login-divider::before {
+  content: "";
+  @apply absolute inset-0 flex items-center;
+}
+
+.social-login-divider::before {
+  @apply border-t border-gray-300 dark:border-gray-600;
+}
+
+.social-login-divider__text {
+  @apply relative flex justify-center text-sm;
+}
+
+.social-login-divider__text span {
+  @apply bg-white dark:bg-gray-800 px-2 text-gray-500 dark:text-gray-400;
+}
+
+/* Compact Group for Mobile */
+@media (max-width: 640px) {
+  .social-login-group--horizontal {
+    @apply flex-col space-x-0 space-y-3;
+  }
+
+  .social-login-group--grid {
+    @apply grid-cols-1;
+  }
+
+  .social-login-group--grid-3 {
+    @apply grid-cols-1;
+  }
+
+  .social-login-button {
+    @apply w-full;
+  }
+}
+
+/* Icon-only variant for space-constrained layouts */
+.social-login-button--icon-only {
+  @apply aspect-square;
+}
+
+.social-login-button--icon-only .social-login-button__content {
+  @apply hidden;
+}
+
+/* Hover Effects */
+.social-login-button:not(:disabled):hover {
+  @apply transform transition-transform duration-200;
+}
+
+/* Success State (after successful login) */
+.social-login-button--success {
+  @apply bg-green-500 hover:bg-green-600 text-white;
+}
+
+.social-login-button--success .social-login-button__icon {
+  @apply text-white;
+}
+
+/* Error State */
+.social-login-button--error {
+  @apply bg-red-500 hover:bg-red-600 text-white border-red-500;
+}
+
+.social-login-button--error .social-login-button__icon {
+  @apply text-white;
+}
+
+/* Animation for state changes */
+@keyframes social-login-success {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.social-login-button--success {
+  animation: social-login-success 0.6s ease-in-out;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .social-login-button {
+    @apply border-2 border-current;
+  }
+
+  .social-login-button--outline {
+    @apply border-4;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .social-login-button {
+    @apply transition-none;
+  }
+
+  .social-login-button:hover {
+    transform: none !important;
+  }
+
+  .social-login-button--loading .social-login-button__icon {
+    @apply animate-none;
+  }
+
+  .social-login-button--success {
+    animation: none;
+  }
+}
+
+/* Focus-visible for better accessibility */
+.social-login-button:focus-visible {
+  @apply ring-2 ring-offset-2;
+}
+
+/* Print Styles */
+@media print {
+  .social-login-button {
+    @apply border border-gray-400 bg-transparent text-black;
+  }
+
+  .social-login-button__content::after {
+    content: " (" attr(aria-label) ")";
+    @apply text-xs;
+  }
+}
+
+/* Custom Properties for Theme Integration */
+.social-login-button {
+  --social-login-border-radius: theme(borderRadius.lg);
+  --social-login-shadow: theme(boxShadow.md);
+  --social-login-shadow-hover: theme(boxShadow.lg);
+  --social-login-transition: theme(transitionDuration.200);
+}
+
+/* Provider-specific custom properties for easy theming */
+.social-login-button--google {
+  --provider-color: #ea4335;
+}
+
+.social-login-button--facebook {
+  --provider-color: #1877f2;
+}
+
+.social-login-button--twitter {
+  --provider-color: #1da1f2;
+}
+
+.social-login-button--github {
+  --provider-color: #333;
+}
+
+.social-login-button--apple {
+  --provider-color: #000;
+}
+
+.social-login-button--microsoft {
+  --provider-color: #0078d4;
+}
+
+.social-login-button--linkedin {
+  --provider-color: #0077b5;
+}

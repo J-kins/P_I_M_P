@@ -1,5 +1,5 @@
 {
-  "name": "P_I_M_P",
+  "name": "pimp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +9,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.18.2",
+  "type": "commonjs",
   "dependencies": {
-    "eslint": "file:../../../home/shyline/projects/SOURCES/LIBS/eslint-9.28.0.tgz",
-    "pnpm": "file:/home/shyline/projects/SOURCES/LIBS/pnpm-10.18.2.tgz",
-    "typescript": "file:/home/shyline/projects/SOURCES/LIBS/typescript-5.8.3.tgz"
+    "@socket.io/redis-adapter": "^8.3.0",
+    "bufferutil": "^4.0.9",
+    "d3": "^7.9.0",
+    "leaflet": "^1.9.4",
+    "lottie": "^0.0.1",
+    "mermaid": "^11.12.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "utf-8-validate": "^6.0.5",
+    "ws": "^8.18.3"
   }
 }

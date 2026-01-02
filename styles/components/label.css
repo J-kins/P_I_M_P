@@ -1,0 +1,268 @@
+/* Label Component Styles */
+.label {
+  @apply block text-sm font-medium text-gray-700;
+  @apply dark:text-gray-300;
+}
+
+/* Label Sizes */
+.label-xs {
+  @apply text-xs;
+}
+
+.label-sm {
+  @apply text-sm;
+}
+
+.label-md {
+  @apply text-base;
+}
+
+.label-lg {
+  @apply text-lg;
+}
+
+/* Label Variants */
+.label-required::after {
+  @apply text-red-500 ml-1;
+  content: "*";
+}
+
+.label-optional::after {
+  @apply text-gray-400 ml-1 font-normal;
+  content: "(optional)";
+}
+
+.label-helper {
+  @apply text-gray-500 dark:text-gray-400 font-normal;
+}
+
+/* Label States */
+.label-error {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.label-success {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.label-warning {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.label-disabled {
+  @apply text-gray-400 dark:text-gray-500 cursor-not-allowed;
+}
+
+/* Label with Icon */
+.label-with-icon {
+  @apply flex items-center gap-2;
+}
+
+.label-icon {
+  @apply w-4 h-4 text-current;
+}
+
+/* Inline Label */
+.label-inline {
+  @apply inline-flex items-center gap-2 text-sm;
+}
+
+/* Floating Label */
+.label-floating {
+  @apply absolute left-3 top-3 text-gray-500 pointer-events-none;
+  @apply transition-all duration-200 ease-in-out;
+  @apply bg-white dark:bg-gray-900 px-1;
+}
+
+.label-floating-active {
+  @apply transform -translate-y-6 scale-75 text-blue-600;
+  @apply dark:text-blue-400;
+}
+
+/* Label Group */
+.label-group {
+  @apply space-y-1;
+}
+
+.label-group .label {
+  @apply mb-1;
+}
+
+.label-group .label-helper {
+  @apply text-xs mt-1;
+}
+
+/* Form Label */
+.form-label {
+  @apply label mb-2;
+}
+
+.form-label-required {
+  @apply label-required;
+}
+
+/* Checkbox Label */
+.checkbox-label {
+  @apply flex items-center gap-2 cursor-pointer text-sm;
+  @apply hover:text-gray-900 dark:hover:text-gray-100;
+}
+
+.checkbox-label input[type="checkbox"] {
+  @apply w-4 h-4 text-blue-600 rounded border-gray-300;
+  @apply focus:ring-blue-500 focus:ring-2 focus:ring-offset-2;
+  @apply dark:border-gray-600 dark:bg-gray-700;
+}
+
+/* Radio Label */
+.radio-label {
+  @apply flex items-center gap-2 cursor-pointer text-sm;
+  @apply hover:text-gray-900 dark:hover:text-gray-100;
+}
+
+.radio-label input[type="radio"] {
+  @apply w-4 h-4 text-blue-600 border-gray-300;
+  @apply focus:ring-blue-500 focus:ring-2 focus:ring-offset-2;
+  @apply dark:border-gray-600 dark:bg-gray-700;
+}
+
+/* Switch Label */
+.switch-label {
+  @apply flex items-center justify-between cursor-pointer;
+  @apply p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800;
+}
+
+.switch-label-text {
+  @apply flex-1;
+}
+
+.switch-label-description {
+  @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+}
+
+/* Label Animations */
+.label-fade-in {
+  @apply opacity-0 animate-fade-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.label-slide-down {
+  @apply transform -translate-y-2 opacity-0;
+  animation: slide-down 0.2s ease-out forwards;
+}
+
+@keyframes slide-down {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Label Colors */
+.label-primary {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.label-secondary {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.label-accent {
+  @apply text-purple-600 dark:text-purple-400;
+}
+
+/* Label Weight */
+.label-light {
+  @apply font-light;
+}
+
+.label-normal {
+  @apply font-normal;
+}
+
+.label-medium {
+  @apply font-medium;
+}
+
+.label-semibold {
+  @apply font-semibold;
+}
+
+.label-bold {
+  @apply font-bold;
+}
+
+/* Label Truncation */
+.label-truncate {
+  @apply truncate;
+}
+
+.label-wrap {
+  @apply break-words;
+}
+
+/* Label Spacing */
+.label-tight {
+  @apply leading-tight;
+}
+
+.label-snug {
+  @apply leading-snug;
+}
+
+.label-normal-leading {
+  @apply leading-normal;
+}
+
+.label-relaxed {
+  @apply leading-relaxed;
+}
+
+.label-loose {
+  @apply leading-loose;
+}
+
+/* Label with Tooltip */
+.label-tooltip {
+  @apply relative cursor-help;
+}
+
+.label-tooltip:hover::after {
+  @apply absolute bottom-full left-0 mb-2 px-2 py-1;
+  @apply bg-gray-900 text-white text-xs rounded whitespace-nowrap;
+  @apply opacity-100 z-10;
+  content: attr(data-tooltip);
+}
+
+.label-tooltip::after {
+  @apply opacity-0 transition-opacity duration-200;
+  content: attr(data-tooltip);
+}
+
+/* Responsive Labels */
+@media (max-width: 640px) {
+  .label-responsive {
+    @apply text-xs;
+  }
+}
+
+@media (min-width: 641px) {
+  .label-responsive {
+    @apply text-sm;
+  }
+}
+
+@media (min-width: 769px) {
+  .label-responsive {
+    @apply text-base;
+  }
+}

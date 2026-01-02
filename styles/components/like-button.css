@@ -1,0 +1,434 @@
+/* Like Button Component Styles */
+.like-button {
+  @apply inline-flex items-center justify-center;
+  @apply transition-all duration-200 ease-in-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-900;
+  @apply relative overflow-hidden;
+  @apply rounded-lg;
+}
+
+.like-button-container {
+  @apply relative inline-block;
+}
+
+.like-button-content {
+  @apply flex items-center gap-1.5 relative z-10;
+}
+
+.like-button-icon {
+  @apply transition-all duration-200;
+}
+
+.like-button-spinner {
+  @apply w-4 h-4;
+}
+
+.like-button-count {
+  @apply font-medium tabular-nums;
+  @apply transition-all duration-200;
+}
+
+/* Like Button Sizes */
+.like-button-sm {
+  @apply px-2 py-1 text-xs;
+}
+
+.like-button-sm .like-button-icon {
+  @apply w-3.5 h-3.5;
+}
+
+.like-button-md {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.like-button-md .like-button-icon {
+  @apply w-4 h-4;
+}
+
+.like-button-lg {
+  @apply px-4 py-2 text-base;
+}
+
+.like-button-lg .like-button-icon {
+  @apply w-5 h-5;
+}
+
+/* Like Button Variants */
+.like-button-minimal {
+  @apply text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+
+.like-button-filled {
+  @apply bg-gray-100 dark:bg-gray-800;
+  @apply text-gray-600 dark:text-gray-300;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-700;
+}
+
+.like-button-outlined {
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply text-gray-600 dark:text-gray-300;
+  @apply hover:border-gray-400 dark:hover:border-gray-500;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+}
+
+.like-button-animated {
+  @apply text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+
+/* Icon Types - Heart */
+.like-button-heart.like-button-liked {
+  @apply text-red-500;
+}
+
+.like-button-heart.like-button-liked .like-button-icon {
+  @apply fill-current;
+}
+
+.like-button-heart.like-button-minimal.like-button-liked {
+  @apply text-red-500 hover:text-red-600;
+  @apply hover:bg-red-50 dark:hover:bg-red-900/20;
+}
+
+.like-button-heart.like-button-filled.like-button-liked {
+  @apply bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400;
+  @apply hover:bg-red-200 dark:hover:bg-red-900/30;
+}
+
+.like-button-heart.like-button-outlined.like-button-liked {
+  @apply border-red-300 dark:border-red-600 text-red-600 dark:text-red-400;
+  @apply hover:border-red-400 dark:hover:border-red-500;
+  @apply hover:bg-red-50 dark:hover:bg-red-900/20;
+}
+
+/* Icon Types - Thumbs Up */
+.like-button-thumbs-up.like-button-liked {
+  @apply text-blue-500;
+}
+
+.like-button-thumbs-up.like-button-liked .like-button-icon {
+  @apply fill-current;
+}
+
+.like-button-thumbs-up.like-button-minimal.like-button-liked {
+  @apply text-blue-500 hover:text-blue-600;
+  @apply hover:bg-blue-50 dark:hover:bg-blue-900/20;
+}
+
+.like-button-thumbs-up.like-button-filled.like-button-liked {
+  @apply bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400;
+  @apply hover:bg-blue-200 dark:hover:bg-blue-900/30;
+}
+
+.like-button-thumbs-up.like-button-outlined.like-button-liked {
+  @apply border-blue-300 dark:border-blue-600 text-blue-600 dark:text-blue-400;
+  @apply hover:border-blue-400 dark:hover:border-blue-500;
+  @apply hover:bg-blue-50 dark:hover:bg-blue-900/20;
+}
+
+/* Icon Types - Star */
+.like-button-star.like-button-liked {
+  @apply text-yellow-500;
+}
+
+.like-button-star.like-button-liked .like-button-icon {
+  @apply fill-current;
+}
+
+.like-button-star.like-button-minimal.like-button-liked {
+  @apply text-yellow-500 hover:text-yellow-600;
+  @apply hover:bg-yellow-50 dark:hover:bg-yellow-900/20;
+}
+
+.like-button-star.like-button-filled.like-button-liked {
+  @apply bg-yellow-100 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400;
+  @apply hover:bg-yellow-200 dark:hover:bg-yellow-900/30;
+}
+
+.like-button-star.like-button-outlined.like-button-liked {
+  @apply border-yellow-300 dark:border-yellow-600 text-yellow-600 dark:text-yellow-400;
+  @apply hover:border-yellow-400 dark:hover:border-yellow-500;
+  @apply hover:bg-yellow-50 dark:hover:bg-yellow-900/20;
+}
+
+/* Like Button States */
+.like-button-disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.like-button-loading {
+  @apply cursor-wait;
+}
+
+/* Like Button Animations */
+.like-button-animating .like-button-icon {
+  animation: like-pulse 0.3s ease-out;
+}
+
+@keyframes like-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.like-button-animating.like-button-liked .like-button-icon {
+  animation: like-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes like-bounce {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Like Button Count Animation */
+.like-button-animating .like-button-count {
+  animation: count-bounce 0.3s ease-out;
+}
+
+@keyframes count-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Like Button Ripple Effect */
+.like-button-ripple {
+  @apply absolute inset-0 rounded-lg;
+  @apply bg-current opacity-0 transform scale-0;
+  @apply transition-all duration-300;
+}
+
+.like-button-animating .like-button-ripple {
+  @apply opacity-20 transform scale-150;
+  transition:
+    opacity 0s,
+    transform 0.3s;
+}
+
+/* Like Button Particles Effect */
+.like-button-particles {
+  @apply absolute inset-0 pointer-events-none;
+}
+
+.like-button-animating.like-button-liked .like-button-particles::before,
+.like-button-animating.like-button-liked .like-button-particles::after {
+  content: "";
+  @apply absolute top-1/2 left-1/2 w-1 h-1;
+  @apply bg-current rounded-full opacity-0;
+  animation: particles 0.6s ease-out;
+}
+
+.like-button-animating.like-button-liked .like-button-particles::after {
+  animation-delay: 0.1s;
+}
+
+@keyframes particles {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3) translateY(-20px);
+  }
+}
+
+/* Like Button Hover Effects */
+.like-button:hover .like-button-icon {
+  @apply transform scale-110;
+}
+
+.like-button:active .like-button-icon {
+  @apply transform scale-95;
+}
+
+/* Like Button Count Clickable */
+.like-button-count[onclick] {
+  @apply cursor-pointer hover:underline;
+}
+
+/* Like Button Group */
+.like-button-group {
+  @apply flex items-center gap-1;
+}
+
+/* Like Button with Tooltip */
+.like-button-tooltip {
+  @apply relative;
+}
+
+.like-button-tooltip::after {
+  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2;
+  @apply px-2 py-1 text-xs text-white bg-gray-900 rounded whitespace-nowrap;
+  @apply opacity-0 invisible transition-all duration-200;
+  @apply dark:bg-gray-700;
+  content: attr(aria-label);
+}
+
+.like-button-tooltip:hover::after {
+  @apply opacity-100 visible;
+}
+
+/* Like Button Accessibility */
+.like-button:focus-visible {
+  @apply outline-2 outline-offset-2 outline-blue-500;
+}
+
+/* Like Button High Contrast */
+@media (prefers-contrast: high) {
+  .like-button {
+    @apply border border-current;
+  }
+}
+
+/* Like Button Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .like-button,
+  .like-button-icon,
+  .like-button-count,
+  .like-button-ripple {
+    @apply transition-none animate-none;
+  }
+
+  .like-button-animating .like-button-icon {
+    @apply animate-none;
+  }
+}
+
+/* Like Button Print Styles */
+@media print {
+  .like-button {
+    @apply bg-transparent border border-gray-400;
+  }
+}
+
+/* Like Button Mobile Optimizations */
+@media (max-width: 640px) {
+  .like-button-mobile {
+    @apply min-w-[44px] min-h-[44px];
+  }
+}
+
+/* Like Button Custom Themes */
+.like-button-theme-gradient {
+  @apply bg-gradient-to-r from-pink-500 to-red-500;
+  @apply text-white;
+}
+
+.like-button-theme-neon {
+  @apply text-pink-500;
+  text-shadow: 0 0 5px currentColor;
+}
+
+.like-button-theme-minimal-clean {
+  @apply text-gray-400 hover:text-gray-600;
+  @apply transition-colors duration-200;
+}
+
+/* Like Button with Badge */
+.like-button-badge {
+  @apply relative;
+}
+
+.like-button-badge::before {
+  @apply absolute -top-1 -right-1;
+  @apply w-2 h-2 bg-red-500 rounded-full;
+  content: "";
+}
+
+/* Like Button Floating */
+.like-button-floating {
+  @apply fixed bottom-6 right-6 z-50;
+  @apply w-14 h-14 rounded-full shadow-lg;
+  @apply bg-red-500 text-white;
+  @apply hover:bg-red-600 hover:shadow-xl;
+  @apply transform hover:scale-110;
+}
+
+/* Like Button Compact */
+.like-button-compact {
+  @apply px-1 py-0.5;
+}
+
+.like-button-compact .like-button-icon {
+  @apply w-3 h-3;
+}
+
+.like-button-compact .like-button-count {
+  @apply text-xs;
+}
+
+/* Like Button with Progress */
+.like-button-progress {
+  @apply relative;
+}
+
+.like-button-progress::before {
+  @apply absolute bottom-0 left-0 h-0.5 bg-current;
+  @apply transition-all duration-300;
+  content: "";
+  width: var(--progress, 0%);
+}
+
+/* Like Button Social Variants */
+.like-button-facebook {
+  @apply text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20;
+}
+
+.like-button-twitter {
+  @apply text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20;
+}
+
+.like-button-instagram {
+  @apply text-pink-500 hover:bg-pink-50 dark:hover:bg-pink-900/20;
+}
+
+/* Like Button Success Animation */
+.like-button-success {
+  animation: success-flash 0.4s ease-out;
+}
+
+@keyframes success-flash {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(34, 197, 94, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}

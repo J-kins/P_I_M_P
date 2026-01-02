@@ -1,0 +1,289 @@
+/* Scale Transitions */
+.scale-enter {
+  transform: scale(0);
+}
+
+.scale-enter-active {
+  transform: scale(1);
+  transition: transform 300ms ease-out;
+}
+
+.scale-exit {
+  transform: scale(1);
+}
+
+.scale-exit-active {
+  transform: scale(0);
+  transition: transform 300ms ease-in;
+}
+
+/* Scale with Origin */
+.scale-center-enter {
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.scale-center-enter-active {
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 300ms ease-out;
+}
+
+.scale-top-enter {
+  transform: scale(0);
+  transform-origin: top;
+}
+
+.scale-top-enter-active {
+  transform: scale(1);
+  transform-origin: top;
+  transition: transform 300ms ease-out;
+}
+
+.scale-bottom-enter {
+  transform: scale(0);
+  transform-origin: bottom;
+}
+
+.scale-bottom-enter-active {
+  transform: scale(1);
+  transform-origin: bottom;
+  transition: transform 300ms ease-out;
+}
+
+.scale-left-enter {
+  transform: scale(0);
+  transform-origin: left;
+}
+
+.scale-left-enter-active {
+  transform: scale(1);
+  transform-origin: left;
+  transition: transform 300ms ease-out;
+}
+
+.scale-right-enter {
+  transform: scale(0);
+  transform-origin: right;
+}
+
+.scale-right-enter-active {
+  transform: scale(1);
+  transform-origin: right;
+  transition: transform 300ms ease-out;
+}
+
+/* Scale with Bounce */
+.scale-bounce-enter {
+  transform: scale(0);
+}
+
+.scale-bounce-enter-active {
+  transform: scale(1);
+  transition: transform 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.scale-bounce-exit {
+  transform: scale(1);
+}
+
+.scale-bounce-exit-active {
+  transform: scale(0);
+  transition: transform 300ms ease-in;
+}
+
+/* Scale with Elastic */
+.scale-elastic-enter {
+  transform: scale(0);
+}
+
+.scale-elastic-enter-active {
+  transform: scale(1);
+  transition: transform 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Scale X and Y */
+.scale-x-enter {
+  transform: scaleX(0);
+}
+
+.scale-x-enter-active {
+  transform: scaleX(1);
+  transition: transform 300ms ease-out;
+}
+
+.scale-x-exit {
+  transform: scaleX(1);
+}
+
+.scale-x-exit-active {
+  transform: scaleX(0);
+  transition: transform 300ms ease-in;
+}
+
+.scale-y-enter {
+  transform: scaleY(0);
+}
+
+.scale-y-enter-active {
+  transform: scaleY(1);
+  transition: transform 300ms ease-out;
+}
+
+.scale-y-exit {
+  transform: scaleY(1);
+}
+
+.scale-y-exit-active {
+  transform: scaleY(0);
+  transition: transform 300ms ease-in;
+}
+
+/* Scale with Opacity */
+.scale-fade-enter {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.scale-fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.scale-fade-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scale-fade-exit-active {
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 300ms ease-in,
+    transform 300ms ease-in;
+}
+
+/* Hover Scale Effects */
+.scale-hover {
+  transition: transform 200ms ease;
+}
+
+.scale-hover:hover {
+  transform: scale(1.05);
+}
+
+.scale-hover-small:hover {
+  transform: scale(1.02);
+}
+
+.scale-hover-large:hover {
+  transform: scale(1.1);
+}
+
+/* Active Scale Effects */
+.scale-active {
+  transition: transform 150ms ease;
+}
+
+.scale-active:active {
+  transform: scale(0.95);
+}
+
+.scale-active-small:active {
+  transform: scale(0.98);
+}
+
+.scale-active-large:active {
+  transform: scale(0.9);
+}
+
+/* Focus Scale Effects */
+.scale-focus {
+  transition: transform 200ms ease;
+}
+
+.scale-focus:focus {
+  transform: scale(1.03);
+}
+
+/* Loading Scale */
+.scale-loading {
+  animation: scaleLoading 1.5s ease-in-out infinite;
+}
+
+@keyframes scaleLoading {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Utility Classes */
+.scale-fast {
+  transition-duration: 150ms;
+}
+
+.scale-slow {
+  transition-duration: 500ms;
+}
+
+.scale-slower {
+  transition-duration: 750ms;
+}
+
+.scale-origin-center {
+  transform-origin: center;
+}
+
+.scale-origin-top {
+  transform-origin: top;
+}
+
+.scale-origin-bottom {
+  transform-origin: bottom;
+}
+
+.scale-origin-left {
+  transform-origin: left;
+}
+
+.scale-origin-right {
+  transform-origin: right;
+}
+
+.scale-origin-top-left {
+  transform-origin: top left;
+}
+
+.scale-origin-top-right {
+  transform-origin: top right;
+}
+
+.scale-origin-bottom-left {
+  transform-origin: bottom left;
+}
+
+.scale-origin-bottom-right {
+  transform-origin: bottom right;
+}
+
+/* Group Scale */
+.scale-group-enter {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.scale-group-enter-active {
+  transform: scale(1);
+  opacity: 1;
+  transition:
+    transform 300ms ease-out,
+    opacity 300ms ease-out;
+  transition-delay: calc(var(--scale-delay, 0) * 100ms);
+}

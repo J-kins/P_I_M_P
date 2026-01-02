@@ -1,0 +1,65 @@
+-- MySQL/migrations/006_create_business_contact_tables.sql
+CREATE TABLE IF NOT EXISTS `business_contact_info` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `primary_phone` VARCHAR(50),
+    `primary_email` VARCHAR(255),
+    `primary_website` VARCHAR(255),
+    `contact_person` VARCHAR(255),
+    `contact_title` VARCHAR(255),
+    `emergency_contact` VARCHAR(50),
+    `support_phone` VARCHAR(50),
+    `support_email` VARCHAR(255),
+    `fax_number` VARCHAR(50),
+    `toll_free` VARCHAR(50),
+    `social_media` JSON,
+    `preferred_contact_method` ENUM('phone', 'email', 'website', 'in_person') DEFAULT 'email',
+    `response_time_hours` INT DEFAULT 24,
+    `contact_notes` TEXT,
+    `metadata` JSON,
+    `created_at` DATETIME NOT NULL,
+    `updated_at` DATETIME NOT NULL,
+    UNIQUE KEY `unique_business` (`business_id`),
+    INDEX `idx_business` (`business_id`),
+    INDEX `idx_primary_phone` (`primary_phone`),
+    INDEX `idx_primary_email` (`primary_email`),
+    FOREIGN KEY (`business_id`) REFERENCES `business_profiles`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `business_contact_methods` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `method_type` ENUM('phone', 'email', 'website', 'social_media', 'live_chat', 'other') NOT NULL,
+    `value` VARCHAR(500) NOT NULL,
+    `is_primary` BOOLEAN DEFAULT FALSE,
+    `display_order` INT DEFAULT 0,
+    `description` VARCHAR(255),
+    `metadata` JSON,
+    `created_at` DATETIME NOT NULL,
+    `updated_at` DATETIME NOT NULL,
+    INDEX `idx_business` (`business_id`),
+    INDEX `idx_method_type` (`method_type`),
+    INDEX `idx_primary` (`is_primary`),
+    INDEX `idx_display_order` (`display_order`),
+    FOREIGN KEY (`business_id`) REFERENCES `business_profiles`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `business_special_hours` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `business_id` INT NOT NULL,
+    `date` DATE NOT NULL,
+    `description` VARCHAR(255) NOT NULL,
+    `open_time` TIME,
+    `close_time` TIME,
+    `is_closed` BOOLEAN DEFAULT FALSE,
+    `is_recurring` BOOLEAN DEFAULT FALSE,
+    `recurring_pattern` VARCHAR(100),
+    `notes` TEXT,
+    `created_at` DATETIME NOT NULL,
+    `updated_at` DATETIME NOT NULL,
+    INDEX `idx_business` (`business_id`),
+    INDEX `idx_date` (`date`),
+    INDEX `idx_recurring` (`is_recurring`),
+    UNIQUE KEY `unique_business_date` (`business_id`, `date`),
+    FOREIGN KEY (`business_id`) REFERENCES `business_profiles`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -1,0 +1,617 @@
+/* 
+ * P.I.M.P - Business Email Verification Styles
+ * Email verification and account activation system
+ */
+
+/* Page Layout */
+.business-email-verification-page {
+    background: linear-gradient(135deg, var(--background-light-200), var(--background-light-100));
+    min-height: 100vh;
+}
+
+.business-email-verification-main {
+    padding: 2rem 0;
+}
+
+/* Verification Section */
+.verification-section {
+    padding: 2rem 0;
+}
+
+.verification-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(138, 92, 245, 0.1);
+    text-align: center;
+}
+
+/* Verification Header */
+.verification-header {
+    margin-bottom: 2.5rem;
+}
+
+.verification-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.verification-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.verification-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Verification Content */
+.verification-content {
+    margin-bottom: 2.5rem;
+}
+
+.verification-state {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.verification-state.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* State Content */
+.state-content {
+    margin-bottom: 2rem;
+}
+
+.state-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.state-content p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.instruction-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Email Display */
+.email-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--background-light-200);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.email-display i {
+    color: var(--primary-500);
+}
+
+/* Animations */
+.success-animation,
+.error-animation {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: bounce 1s ease-in-out;
+}
+
+.success-animation {
+    color: #10b981;
+}
+
+.error-animation {
+    color: #ef4444;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Success Details */
+.success-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+    text-align: left;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--background-light-200);
+    border-radius: 6px;
+}
+
+.detail-item i {
+    color: #10b981;
+    font-size: 1.1rem;
+}
+
+.detail-item span {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Verification Actions */
+.verification-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.verification-actions .button-primary,
+.verification-actions .button-secondary {
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+/* Email Change Form */
+.email-change-form {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.email-change-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.email-change-form .form-label {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.email-change-form .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.email-change-form .form-input:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px rgba(138, 92, 245, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+/* Verification Help */
+.verification-help {
+    background: var(--background-light-200);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.verification-help h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.verification-help ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.verification-help li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.verification-help li::before {
+    content: '•';
+    color: var(--primary-500);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.verification-help strong {
+    color: var(--primary-500);
+}
+
+/* Countdown Section */
+.countdown-section {
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: none;
+}
+
+.countdown-section.active {
+    display: block;
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.countdown-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.countdown-timer {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+}
+
+.countdown-minutes,
+.countdown-seconds {
+    display: inline-block;
+    min-width: 2ch;
+}
+
+/* Support Section */
+.support-section {
+    background: var(--background-light-200);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.support-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.support-header i {
+    color: var(--primary-500);
+    font-size: 1.5rem;
+}
+
+.support-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.support-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+}
+
+.support-option i {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-500);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.support-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.support-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0 0 0.5rem 0;
+}
+
+.support-link {
+    color: var(--primary-500);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.support-link:hover {
+    text-decoration: underline;
+}
+
+/* Progress Section */
+.progress-section {
+    padding: 2rem 0;
+}
+
+.progress-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.progress-step.completed {
+    border-color: var(--primary-500);
+    background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
+}
+
+.progress-step.active {
+    border-color: var(--primary-500);
+    box-shadow: 0 4px 12px rgba(138, 92, 245, 0.15);
+    transform: translateY(-2px);
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.progress-step.completed .step-icon,
+.progress-step.active .step-icon {
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    color: white;
+}
+
+.progress-step:not(.completed):not(.active) .step-icon {
+    background: var(--background-light-200);
+    color: var(--text-muted);
+}
+
+.step-icon i {
+    font-size: 1.5rem;
+}
+
+.step-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.step-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Error States */
+.form-input.error {
+    border-color: #ef4444;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Loading States */
+.button-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success States */
+.success-message {
+    color: #10b981;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.success-message.show {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .business-email-verification-main {
+        padding: 1rem 0;
+    }
+
+    .verification-card {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .verification-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .verification-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .verification-actions .button-primary,
+    .verification-actions .button-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .support-options {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-step {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .countdown-timer {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .verification-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .verification-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .success-animation,
+    .error-animation {
+        font-size: 3rem;
+    }
+
+    .email-display {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .countdown-section {
+        padding: 1rem;
+    }
+
+    .countdown-timer {
+        font-size: 1.25rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .verification-actions,
+    .support-section,
+    .progress-section {
+        display: none;
+    }
+
+    .verification-card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}

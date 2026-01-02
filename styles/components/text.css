@@ -1,0 +1,441 @@
+/* Text Component Styles */
+.text {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Text Sizes */
+.text-xs {
+  @apply text-xs;
+}
+
+.text-sm {
+  @apply text-sm;
+}
+
+.text-base {
+  @apply text-base;
+}
+
+.text-lg {
+  @apply text-lg;
+}
+
+.text-xl {
+  @apply text-xl;
+}
+
+.text-2xl {
+  @apply text-2xl;
+}
+
+.text-3xl {
+  @apply text-3xl;
+}
+
+.text-4xl {
+  @apply text-4xl;
+}
+
+.text-5xl {
+  @apply text-5xl;
+}
+
+.text-6xl {
+  @apply text-6xl;
+}
+
+/* Text Colors */
+.text-primary {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.text-secondary {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.text-success {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.text-warning {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.text-danger {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.text-info {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.text-muted {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.text-white {
+  @apply text-white;
+}
+
+.text-black {
+  @apply text-black;
+}
+
+/* Text Weights */
+.text-thin {
+  @apply font-thin;
+}
+
+.text-extralight {
+  @apply font-extralight;
+}
+
+.text-light {
+  @apply font-light;
+}
+
+.text-normal {
+  @apply font-normal;
+}
+
+.text-medium {
+  @apply font-medium;
+}
+
+.text-semibold {
+  @apply font-semibold;
+}
+
+.text-bold {
+  @apply font-bold;
+}
+
+.text-extrabold {
+  @apply font-extrabold;
+}
+
+.text-black-weight {
+  @apply font-black;
+}
+
+/* Text Alignment */
+.text-left {
+  @apply text-left;
+}
+
+.text-center {
+  @apply text-center;
+}
+
+.text-right {
+  @apply text-right;
+}
+
+.text-justify {
+  @apply text-justify;
+}
+
+/* Text Transform */
+.text-uppercase {
+  @apply uppercase;
+}
+
+.text-lowercase {
+  @apply lowercase;
+}
+
+.text-capitalize {
+  @apply capitalize;
+}
+
+.text-normal-case {
+  @apply normal-case;
+}
+
+/* Text Decoration */
+.text-underline {
+  @apply underline;
+}
+
+.text-line-through {
+  @apply line-through;
+}
+
+.text-no-underline {
+  @apply no-underline;
+}
+
+/* Text Leading */
+.text-leading-none {
+  @apply leading-none;
+}
+
+.text-leading-tight {
+  @apply leading-tight;
+}
+
+.text-leading-snug {
+  @apply leading-snug;
+}
+
+.text-leading-normal {
+  @apply leading-normal;
+}
+
+.text-leading-relaxed {
+  @apply leading-relaxed;
+}
+
+.text-leading-loose {
+  @apply leading-loose;
+}
+
+/* Text Spacing */
+.text-tracking-tighter {
+  @apply tracking-tighter;
+}
+
+.text-tracking-tight {
+  @apply tracking-tight;
+}
+
+.text-tracking-normal {
+  @apply tracking-normal;
+}
+
+.text-tracking-wide {
+  @apply tracking-wide;
+}
+
+.text-tracking-wider {
+  @apply tracking-wider;
+}
+
+.text-tracking-widest {
+  @apply tracking-widest;
+}
+
+/* Text Truncation */
+.text-truncate {
+  @apply truncate;
+}
+
+.text-ellipsis {
+  @apply text-ellipsis overflow-hidden;
+}
+
+.text-clip {
+  @apply text-clip overflow-hidden;
+}
+
+/* Text Wrap */
+.text-wrap {
+  @apply break-words;
+}
+
+.text-nowrap {
+  @apply whitespace-nowrap;
+}
+
+.text-pre {
+  @apply whitespace-pre;
+}
+
+.text-pre-line {
+  @apply whitespace-pre-line;
+}
+
+.text-pre-wrap {
+  @apply whitespace-pre-wrap;
+}
+
+/* Text Selection */
+.text-select-none {
+  @apply select-none;
+}
+
+.text-select-text {
+  @apply select-text;
+}
+
+.text-select-all {
+  @apply select-all;
+}
+
+.text-select-auto {
+  @apply select-auto;
+}
+
+/* Text Highlight */
+.text-highlight {
+  @apply bg-yellow-200 dark:bg-yellow-800 px-1 rounded;
+}
+
+.text-highlight-primary {
+  @apply bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-1 rounded;
+}
+
+.text-highlight-success {
+  @apply bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-1 rounded;
+}
+
+.text-highlight-warning {
+  @apply bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-1 rounded;
+}
+
+.text-highlight-danger {
+  @apply bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-1 rounded;
+}
+
+/* Text Links */
+.text-link {
+  @apply text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300;
+  @apply underline decoration-transparent hover:decoration-current;
+  @apply transition-colors duration-200;
+}
+
+.text-link-subtle {
+  @apply text-current hover:text-blue-600 dark:hover:text-blue-400;
+  @apply no-underline hover:underline transition-colors duration-200;
+}
+
+/* Text States */
+.text-disabled {
+  @apply text-gray-400 dark:text-gray-500 cursor-not-allowed;
+}
+
+.text-loading {
+  @apply animate-pulse;
+}
+
+/* Text Animations */
+.text-fade-in {
+  @apply opacity-0 animate-fade-in;
+}
+
+@keyframes text-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.text-slide-up {
+  @apply transform translate-y-4 opacity-0;
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+@keyframes slide-up {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.text-typewriter {
+  @apply border-r-2 border-current;
+  animation:
+    typewriter 2s steps(20) 1s forwards,
+    blink 1s infinite;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-rainbow {
+  background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Text Shadow */
+.text-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-xl {
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Code Text */
+.text-code {
+  @apply font-mono text-sm bg-gray-100 dark:bg-gray-800;
+  @apply px-1.5 py-0.5 rounded text-gray-800 dark:text-gray-200;
+}
+
+/* Quote Text */
+.text-quote {
+  @apply italic border-l-4 border-gray-300 dark:border-gray-600;
+  @apply pl-4 text-gray-600 dark:text-gray-400;
+}
+
+/* Responsive Text */
+@media (max-width: 640px) {
+  .text-responsive-sm {
+    @apply text-sm;
+  }
+  .text-responsive-base {
+    @apply text-base;
+  }
+  .text-responsive-lg {
+    @apply text-lg;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .text-responsive-sm {
+    @apply text-base;
+  }
+  .text-responsive-base {
+    @apply text-lg;
+  }
+  .text-responsive-lg {
+    @apply text-xl;
+  }
+}
+
+@media (min-width: 769px) {
+  .text-responsive-sm {
+    @apply text-lg;
+  }
+  .text-responsive-base {
+    @apply text-xl;
+  }
+  .text-responsive-lg {
+    @apply text-2xl;
+  }
+}

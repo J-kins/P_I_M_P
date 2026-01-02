@@ -1,0 +1,432 @@
+/* Media Player Component Styles */
+/* Provides styling for video and audio media players with custom controls */
+
+.media-player {
+  @apply relative;
+}
+
+/* Variant Styles */
+.media-player--default {
+  @apply bg-black rounded-lg overflow-hidden shadow-lg;
+}
+
+.media-player--minimal {
+  @apply bg-transparent rounded-md overflow-hidden;
+}
+
+.media-player--compact {
+  @apply bg-gray-900 rounded-md overflow-hidden shadow-md;
+}
+
+/* Aspect Ratio Classes */
+.media-player--16-9 {
+  @apply aspect-video;
+}
+
+.media-player--4-3 {
+  aspect-ratio: 4/3;
+}
+
+.media-player--1-1 {
+  @apply aspect-square;
+}
+
+.media-player--auto {
+  /* No aspect ratio constraint */
+}
+
+/* Media Element */
+.media-player__video,
+.media-player__audio {
+  @apply w-full h-full object-cover;
+}
+
+.media-player__audio {
+  @apply h-auto;
+}
+
+/* Loading Overlay */
+.media-player__loading {
+  @apply absolute inset-0 flex items-center justify-center;
+  @apply bg-black bg-opacity-50 backdrop-blur-sm;
+}
+
+.media-player__loading-spinner {
+  @apply w-8 h-8 text-white animate-spin;
+}
+
+/* Error Overlay */
+.media-player__error {
+  @apply absolute inset-0 flex items-center justify-center;
+  @apply bg-black bg-opacity-75 text-center text-white;
+}
+
+.media-player__error-icon {
+  @apply w-8 h-8 mx-auto mb-2;
+}
+
+.media-player__error-text {
+  @apply text-sm;
+}
+
+/* Custom Controls */
+.media-player__controls {
+  @apply absolute bottom-0 left-0 right-0;
+  @apply bg-gradient-to-t from-black/80 to-transparent;
+  @apply transition-opacity duration-300;
+}
+
+.media-player__controls--hidden {
+  @apply opacity-0;
+}
+
+.media-player__controls--visible {
+  @apply opacity-100;
+}
+
+.media-player__controls-content {
+  @apply p-4 space-y-3;
+}
+
+/* Progress Bar */
+.media-player__progress-container {
+  @apply relative;
+}
+
+.media-player__progress-input {
+  @apply w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer;
+}
+
+.media-player__progress-bar {
+  @apply absolute top-0 left-0 h-1 bg-blue-500 rounded-lg pointer-events-none;
+  @apply transition-all duration-150;
+}
+
+/* Control Buttons Container */
+.media-player__controls-bar {
+  @apply flex items-center justify-between;
+}
+
+.media-player__controls-left {
+  @apply flex items-center space-x-3;
+}
+
+.media-player__controls-right {
+  @apply flex items-center space-x-2;
+}
+
+/* Play/Pause Button */
+.media-player__play-button {
+  @apply text-white hover:bg-white/20 transition-colors duration-150;
+}
+
+/* Volume Controls */
+.media-player__volume-container {
+  @apply flex items-center space-x-2;
+}
+
+.media-player__volume-button {
+  @apply text-white hover:bg-white/20 transition-colors duration-150;
+}
+
+.media-player__volume-slider {
+  @apply w-16 h-1 bg-white/30 rounded-lg appearance-none cursor-pointer;
+}
+
+/* Time Display */
+.media-player__time {
+  @apply text-white text-sm font-mono;
+}
+
+/* Title Display */
+.media-player__title {
+  @apply text-white text-sm font-medium max-w-48 truncate;
+}
+
+/* Fullscreen Button */
+.media-player__fullscreen-button {
+  @apply text-white hover:bg-white/20 transition-colors duration-150;
+}
+
+/* Play Button Overlay */
+.media-player__play-overlay {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+.media-player__play-overlay-button {
+  @apply bg-white/20 hover:bg-white/30 text-white border-white/50;
+  @apply transition-all duration-200 backdrop-blur-sm;
+}
+
+.media-player__play-overlay-button:hover {
+  @apply scale-105;
+}
+
+/* Audio Player Layout */
+.media-player__audio-container {
+  @apply p-4 bg-gray-800 text-white rounded-lg;
+}
+
+.media-player__audio-controls {
+  @apply flex items-center space-x-4;
+}
+
+.media-player__audio-play-button {
+  @apply text-white hover:bg-white/20 transition-colors duration-150;
+}
+
+.media-player__audio-content {
+  @apply flex-1;
+}
+
+.media-player__audio-title {
+  @apply text-sm font-medium mb-1;
+}
+
+.media-player__audio-progress {
+  @apply relative mb-2;
+}
+
+.media-player__audio-time {
+  @apply text-xs text-gray-300 font-mono;
+}
+
+.media-player__audio-volume {
+  @apply flex items-center space-x-2;
+}
+
+/* Custom Slider Styles */
+.media-player input[type="range"] {
+  @apply appearance-none bg-transparent cursor-pointer;
+}
+
+.media-player input[type="range"]::-webkit-slider-track {
+  @apply h-1 bg-white/30 rounded-lg;
+}
+
+.media-player input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-3 h-3 bg-white rounded-full cursor-pointer;
+  @apply hover:bg-blue-400 transition-colors duration-150;
+}
+
+.media-player input[type="range"]::-moz-range-track {
+  @apply h-1 bg-white/30 rounded-lg border-none;
+}
+
+.media-player input[type="range"]::-moz-range-thumb {
+  @apply w-3 h-3 bg-white rounded-full cursor-pointer border-none;
+  @apply hover:bg-blue-400 transition-colors duration-150;
+}
+
+/* Fullscreen Styles */
+.media-player:fullscreen {
+  @apply w-screen h-screen;
+}
+
+.media-player:fullscreen .media-player__video {
+  @apply w-full h-full object-contain;
+}
+
+/* Hover Effects */
+.media-player:hover .media-player__controls {
+  @apply opacity-100;
+}
+
+/* Loading Animation */
+@keyframes media-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.media-player__loading-placeholder {
+  @apply bg-gray-300 dark:bg-gray-700;
+  animation: media-pulse 2s infinite;
+}
+
+/* Error Animation */
+@keyframes media-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.media-player__error--shake {
+  animation: media-shake 0.5s ease-in-out;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .media-player__controls-content {
+    @apply p-3 space-y-2;
+  }
+
+  .media-player__controls-bar {
+    @apply flex-col space-y-2;
+  }
+
+  .media-player__controls-left,
+  .media-player__controls-right {
+    @apply w-full justify-between;
+  }
+
+  .media-player__title {
+    @apply max-w-32;
+  }
+
+  .media-player__volume-slider {
+    @apply w-12;
+  }
+
+  .media-player__audio-controls {
+    @apply space-x-2;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (pointer: coarse) {
+  .media-player input[type="range"]::-webkit-slider-thumb {
+    @apply w-4 h-4;
+  }
+
+  .media-player input[type="range"]::-moz-range-thumb {
+    @apply w-4 h-4;
+  }
+
+  .media-player__controls {
+    @apply opacity-100;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .media-player__controls {
+    @apply bg-black border-t-2 border-white;
+  }
+
+  .media-player__progress-input,
+  .media-player__volume-slider {
+    @apply bg-white border border-black;
+  }
+
+  .media-player__progress-bar {
+    @apply bg-yellow-400;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .media-player__controls,
+  .media-player__play-overlay-button,
+  .media-player input[type="range"]::-webkit-slider-thumb,
+  .media-player input[type="range"]::-moz-range-thumb {
+    @apply transition-none;
+  }
+
+  .media-player__loading-spinner {
+    @apply animate-none;
+  }
+
+  .media-player__play-overlay-button:hover {
+    transform: none;
+  }
+
+  .media-player__loading-placeholder {
+    animation: none;
+  }
+
+  .media-player__error--shake {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .media-player {
+    @apply border-2 border-gray-400 bg-gray-100;
+  }
+
+  .media-player__controls,
+  .media-player__play-overlay {
+    @apply hidden;
+  }
+
+  .media-player::after {
+    content: "Media: " attr(data-title) " (" attr(data-src) ")";
+    @apply block p-4 text-center text-gray-700;
+  }
+}
+
+/* Focus States for Accessibility */
+.media-player__play-button:focus-visible,
+.media-player__volume-button:focus-visible,
+.media-player__fullscreen-button:focus-visible {
+  @apply outline-none ring-2 ring-white ring-offset-2 ring-offset-black rounded;
+}
+
+.media-player input[type="range"]:focus-visible {
+  @apply outline-none ring-2 ring-white ring-offset-2 ring-offset-black rounded;
+}
+
+/* Custom Properties for Theme Integration */
+.media-player {
+  --media-player-bg: theme(colors.black);
+  --media-player-controls-bg: rgba(0, 0, 0, 0.8);
+  --media-player-progress-bg: rgba(255, 255, 255, 0.3);
+  --media-player-progress-fill: theme(colors.blue.500);
+  --media-player-text: theme(colors.white);
+  --media-player-border-radius: theme(borderRadius.lg);
+}
+
+/* Dark Mode Specific Adjustments */
+@media (prefers-color-scheme: dark) {
+  .media-player__audio-container {
+    @apply bg-gray-900;
+  }
+
+  .media-player__audio-time {
+    @apply text-gray-400;
+  }
+}
+
+/* Keyboard Navigation Support */
+.media-player[tabindex]:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* State Classes */
+.media-player--playing .media-player__play-overlay {
+  @apply hidden;
+}
+
+.media-player--loading .media-player__progress-input {
+  @apply pointer-events-none opacity-50;
+}
+
+.media-player--error .media-player__controls {
+  @apply hidden;
+}
+
+/* Responsive Aspect Ratios */
+@media (max-width: 640px) {
+  .media-player--16-9 {
+    aspect-ratio: 16/10; /* Slightly taller on mobile */
+  }
+}
+
+@media (min-width: 1024px) {
+  .media-player--auto {
+    max-height: 70vh; /* Prevent videos from being too tall on large screens */
+  }
+}

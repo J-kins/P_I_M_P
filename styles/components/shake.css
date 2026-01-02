@@ -1,0 +1,226 @@
+/* Shake Animations */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes shake-vertical {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateY(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes shake-rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: rotate(-1deg);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: rotate(1deg);
+  }
+}
+
+@keyframes vibrate {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+}
+
+@keyframes wobble {
+  0% {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(-25%) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(20%) rotate(3deg);
+  }
+  45% {
+    transform: translateX(-15%) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(10%) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5%) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes jiggle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(0.95) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+  }
+  75% {
+    transform: scale(0.98) rotate(-0.5deg);
+  }
+}
+
+@keyframes tremor {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-0.5px, -0.5px);
+  }
+  20% {
+    transform: translate(0.5px, 0.5px);
+  }
+  30% {
+    transform: translate(-0.5px, 0.5px);
+  }
+  40% {
+    transform: translate(0.5px, -0.5px);
+  }
+  50% {
+    transform: translate(-0.3px, -0.3px);
+  }
+  60% {
+    transform: translate(0.3px, 0.3px);
+  }
+  70% {
+    transform: translate(-0.3px, 0.3px);
+  }
+  80% {
+    transform: translate(0.3px, -0.3px);
+  }
+  90% {
+    transform: translate(-0.1px, -0.1px);
+  }
+}
+
+/* Animation Classes */
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-shake-vertical {
+  animation: shake-vertical 0.5s ease-in-out;
+}
+
+.animate-shake-rotate {
+  animation: shake-rotate 0.5s ease-in-out;
+}
+
+.animate-vibrate {
+  animation: vibrate 0.3s ease-in-out;
+}
+
+.animate-wobble {
+  animation: wobble 1s ease-in-out;
+}
+
+.animate-jiggle {
+  animation: jiggle 0.6s ease-in-out;
+}
+
+.animate-tremor {
+  animation: tremor 2s ease-in-out infinite;
+}
+
+/* Interaction Classes */
+.shake-on-error {
+  animation: shake 0.5s ease-in-out;
+}
+
+.shake-on-invalid {
+  animation: shake 0.3s ease-in-out;
+}
+
+.wobble-on-hover:hover {
+  animation: wobble 1s ease-in-out;
+}
+
+.jiggle-on-click:active {
+  animation: jiggle 0.6s ease-in-out;
+}
+
+/* Utility Classes */
+.shake-intense {
+  animation-name: shake;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  --shake-intensity: 4px;
+}
+
+.shake-subtle {
+  animation-name: shake;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  --shake-intensity: 1px;
+}
+
+.shake-continuous {
+  animation: tremor 2s ease-in-out infinite;
+}
+
+.shake-once {
+  animation-iteration-count: 1;
+}
+
+.shake-twice {
+  animation-iteration-count: 2;
+}

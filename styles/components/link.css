@@ -1,0 +1,323 @@
+/* Link Component Styles */
+.link {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-800 dark:hover:text-blue-300;
+  @apply transition-colors duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply dark:focus:ring-offset-gray-900;
+}
+
+/* Link Variants */
+.link-primary {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply hover:text-blue-800 dark:hover:text-blue-300;
+}
+
+.link-secondary {
+  @apply text-gray-600 dark:text-gray-400;
+  @apply hover:text-gray-800 dark:hover:text-gray-200;
+}
+
+.link-success {
+  @apply text-green-600 dark:text-green-400;
+  @apply hover:text-green-800 dark:hover:text-green-300;
+}
+
+.link-warning {
+  @apply text-yellow-600 dark:text-yellow-400;
+  @apply hover:text-yellow-800 dark:hover:text-yellow-300;
+}
+
+.link-danger {
+  @apply text-red-600 dark:text-red-400;
+  @apply hover:text-red-800 dark:hover:text-red-300;
+}
+
+.link-muted {
+  @apply text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+}
+
+/* Link Sizes */
+.link-xs {
+  @apply text-xs;
+}
+
+.link-sm {
+  @apply text-sm;
+}
+
+.link-md {
+  @apply text-base;
+}
+
+.link-lg {
+  @apply text-lg;
+}
+
+.link-xl {
+  @apply text-xl;
+}
+
+/* Link Decorations */
+.link-underline {
+  @apply underline decoration-2 underline-offset-2;
+}
+
+.link-no-underline {
+  @apply no-underline;
+}
+
+.link-hover-underline {
+  @apply no-underline hover:underline decoration-2 underline-offset-2;
+}
+
+.link-dashed {
+  @apply underline decoration-dashed decoration-2 underline-offset-2;
+}
+
+.link-dotted {
+  @apply underline decoration-dotted decoration-2 underline-offset-2;
+}
+
+/* Link States */
+.link-disabled {
+  @apply text-gray-400 dark:text-gray-500;
+  @apply cursor-not-allowed pointer-events-none;
+}
+
+.link-visited {
+  @apply text-purple-600 dark:text-purple-400;
+}
+
+.link-active {
+  @apply text-blue-800 dark:text-blue-200;
+}
+
+/* Link with Icon */
+.link-with-icon {
+  @apply inline-flex items-center gap-1;
+}
+
+.link-icon {
+  @apply w-4 h-4;
+}
+
+.link-icon-left {
+  @apply mr-1;
+}
+
+.link-icon-right {
+  @apply ml-1;
+}
+
+/* External Link */
+.link-external {
+  @apply inline-flex items-center gap-1;
+}
+
+.link-external::after {
+  content: "";
+  @apply w-3 h-3 ml-1;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Link Button Style */
+.link-button {
+  @apply inline-flex items-center justify-center;
+  @apply px-4 py-2 text-sm font-medium rounded-lg;
+  @apply border border-transparent;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply transition-colors duration-200;
+}
+
+.link-button-primary {
+  @apply bg-blue-600 text-white;
+  @apply hover:bg-blue-700 focus:ring-blue-500;
+}
+
+.link-button-secondary {
+  @apply bg-gray-600 text-white;
+  @apply hover:bg-gray-700 focus:ring-gray-500;
+}
+
+.link-button-outline {
+  @apply border-gray-300 text-gray-700 bg-white;
+  @apply hover:bg-gray-50 focus:ring-gray-500;
+  @apply dark:border-gray-600 dark:text-gray-300 dark:bg-gray-900;
+  @apply dark:hover:bg-gray-800;
+}
+
+/* Link Card Style */
+.link-card {
+  @apply block p-4 rounded-lg border border-gray-200;
+  @apply hover:border-gray-300 hover:shadow-md;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  @apply transition-all duration-200;
+  @apply dark:border-gray-700 dark:hover:border-gray-600;
+  @apply no-underline;
+}
+
+.link-card:hover {
+  @apply transform translateY(-1px);
+}
+
+/* Breadcrumb Links */
+.link-breadcrumb {
+  @apply text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+  @apply no-underline transition-colors duration-200;
+}
+
+.link-breadcrumb-current {
+  @apply text-gray-900 dark:text-gray-100 font-medium;
+  @apply cursor-default pointer-events-none;
+}
+
+/* Navigation Links */
+.link-nav {
+  @apply text-gray-600 dark:text-gray-300;
+  @apply hover:text-gray-900 dark:hover:text-white;
+  @apply no-underline font-medium transition-colors duration-200;
+}
+
+.link-nav-active {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply border-b-2 border-blue-600 dark:border-blue-400;
+}
+
+/* Tab Links */
+.link-tab {
+  @apply inline-block px-4 py-2 text-sm font-medium;
+  @apply text-gray-500 dark:text-gray-400;
+  @apply hover:text-gray-700 dark:hover:text-gray-200;
+  @apply border-b-2 border-transparent;
+  @apply no-underline transition-all duration-200;
+}
+
+.link-tab-active {
+  @apply text-blue-600 dark:text-blue-400;
+  @apply border-blue-600 dark:border-blue-400;
+}
+
+/* Social Links */
+.link-social {
+  @apply inline-flex items-center justify-center;
+  @apply w-10 h-10 rounded-full;
+  @apply text-gray-600 dark:text-gray-400;
+  @apply hover:text-white transition-colors duration-200;
+  @apply no-underline;
+}
+
+.link-social-facebook:hover {
+  @apply bg-blue-600;
+}
+
+.link-social-twitter:hover {
+  @apply bg-sky-500;
+}
+
+.link-social-instagram:hover {
+  @apply bg-pink-500;
+}
+
+.link-social-linkedin:hover {
+  @apply bg-blue-700;
+}
+
+.link-social-youtube:hover {
+  @apply bg-red-600;
+}
+
+.link-social-github:hover {
+  @apply bg-gray-900;
+}
+
+/* Link Animations */
+.link-fade {
+  @apply opacity-80 hover:opacity-100 transition-opacity duration-200;
+}
+
+.link-slide {
+  @apply transform hover:translate-x-1 transition-transform duration-200;
+}
+
+.link-scale {
+  @apply transform hover:scale-105 transition-transform duration-200;
+}
+
+/* Link Focus Styles */
+.link-focus-visible:focus-visible {
+  @apply outline-2 outline-offset-2 outline-blue-500;
+}
+
+/* Link Group */
+.link-group {
+  @apply space-y-1;
+}
+
+.link-group-horizontal {
+  @apply flex space-x-4 space-y-0;
+}
+
+/* Responsive Links */
+@media (max-width: 640px) {
+  .link-responsive {
+    @apply text-sm;
+  }
+
+  .link-button-responsive {
+    @apply px-3 py-1.5 text-sm;
+  }
+}
+
+@media (min-width: 641px) {
+  .link-responsive {
+    @apply text-base;
+  }
+
+  .link-button-responsive {
+    @apply px-4 py-2 text-base;
+  }
+}
+
+/* Link Loading State */
+.link-loading {
+  @apply opacity-75 cursor-wait pointer-events-none;
+}
+
+.link-loading::after {
+  @apply inline-block w-4 h-4 ml-2 animate-spin;
+  content: "";
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+/* Link with Badge */
+.link-badge {
+  @apply relative;
+}
+
+.link-badge::after {
+  @apply absolute -top-1 -right-1;
+  @apply w-2 h-2 bg-red-500 rounded-full;
+  content: "";
+}
+
+/* Link Truncation */
+.link-truncate {
+  @apply truncate max-w-xs;
+}
+
+/* Link Word Break */
+.link-break {
+  @apply break-all;
+}
+
+/* Link Highlight */
+.link-highlight {
+  @apply bg-yellow-100 dark:bg-yellow-900 px-1 rounded;
+}

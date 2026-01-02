@@ -1,0 +1,365 @@
+/* Gallery Item Component Styles */
+/* Provides styling for gallery media items with various layouts and interactions */
+
+.gallery-item {
+  @apply relative transition-all duration-200 cursor-pointer;
+}
+
+.gallery-item:hover {
+  @apply shadow-lg;
+  transform: translateY(-2px);
+}
+
+.gallery-item--selected {
+  @apply ring-2 ring-blue-500 bg-blue-50 dark:bg-blue-900/20;
+}
+
+.gallery-item--loading {
+  @apply opacity-60 cursor-wait;
+}
+
+/* Variant Styles */
+.gallery-item--default {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.gallery-item--compact {
+  @apply bg-white dark:bg-gray-800 rounded-md;
+}
+
+.gallery-item--grid {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-md;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+.gallery-item--list {
+  @apply bg-white dark:bg-gray-800 rounded-lg;
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+/* Content Containers */
+.gallery-item__content--default {
+  @apply p-4;
+}
+
+.gallery-item__content--compact {
+  @apply p-2;
+}
+
+.gallery-item__content--grid {
+  @apply p-3;
+}
+
+.gallery-item__content--list {
+  @apply p-3 flex items-center space-x-3;
+}
+
+/* Image Containers */
+.gallery-item__image-container {
+  @apply relative overflow-hidden rounded-lg;
+}
+
+.gallery-item__image-container--default {
+  @apply aspect-video mb-3;
+}
+
+.gallery-item__image-container--compact {
+  @apply aspect-square mb-2;
+}
+
+.gallery-item__image-container--grid {
+  @apply aspect-square mb-3;
+}
+
+.gallery-item__image-container--list {
+  @apply w-16 h-16 flex-shrink-0;
+}
+
+/* Image Styles */
+.gallery-item__image {
+  @apply w-full h-full object-cover transition-transform duration-200;
+}
+
+.gallery-item:hover .gallery-item__image {
+  @apply scale-105;
+}
+
+.gallery-item__placeholder {
+  @apply w-full h-full bg-gray-100 dark:bg-gray-700 rounded-lg;
+  @apply flex items-center justify-center transition-colors duration-200;
+}
+
+.gallery-item:hover .gallery-item__placeholder {
+  @apply bg-gray-200 dark:bg-gray-600;
+}
+
+/* Type-specific placeholder colors */
+.gallery-item__placeholder--image {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+}
+
+.gallery-item__placeholder--video {
+  @apply bg-purple-50 dark:bg-purple-900/20;
+}
+
+.gallery-item__placeholder--document {
+  @apply bg-red-50 dark:bg-red-900/20;
+}
+
+.gallery-item__placeholder--audio {
+  @apply bg-green-50 dark:bg-green-900/20;
+}
+
+/* Loading Overlay */
+.gallery-item__loading-overlay {
+  @apply absolute inset-0 bg-white/80 dark:bg-gray-900/80 rounded-lg;
+  @apply flex items-center justify-center backdrop-blur-sm;
+}
+
+/* Duration Badge */
+.gallery-item__duration {
+  @apply absolute bottom-2 right-2 bg-black/70 text-white text-xs;
+  @apply px-2 py-1 rounded-md font-medium;
+}
+
+/* Type Badge */
+.gallery-item__type-badge {
+  @apply absolute top-2 left-2 bg-white/90 dark:bg-gray-800/90;
+  @apply text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md;
+  @apply flex items-center space-x-1 font-medium;
+}
+
+/* Hover Actions Overlay */
+.gallery-item__actions-overlay {
+  @apply absolute inset-0 bg-black/50 rounded-lg;
+  @apply flex items-center justify-center;
+  @apply opacity-0 transition-opacity duration-200;
+}
+
+.gallery-item:hover .gallery-item__actions-overlay {
+  @apply opacity-100;
+}
+
+.gallery-item__actions {
+  @apply flex items-center space-x-2;
+}
+
+/* Selection Indicator */
+.gallery-item__selection-indicator {
+  @apply absolute top-2 right-2 w-6 h-6 bg-blue-500 rounded-full;
+  @apply flex items-center justify-center shadow-lg;
+  @apply transform scale-0 transition-transform duration-200;
+}
+
+.gallery-item--selected .gallery-item__selection-indicator {
+  @apply scale-100;
+}
+
+/* Metadata Styles */
+.gallery-item__metadata {
+  @apply space-y-2;
+}
+
+.gallery-item__title {
+  @apply text-sm font-medium text-gray-900 dark:text-white truncate;
+  @apply transition-colors duration-200;
+}
+
+.gallery-item:hover .gallery-item__title {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.gallery-item__description {
+  @apply text-xs text-gray-500 dark:text-gray-400 line-clamp-2;
+}
+
+.gallery-item__info {
+  @apply flex items-center justify-between text-xs text-gray-500 dark:text-gray-400;
+}
+
+.gallery-item__details {
+  @apply flex items-center space-x-2;
+}
+
+.gallery-item__author {
+  @apply flex items-center space-x-1;
+}
+
+.gallery-item__author-avatar {
+  @apply w-4 h-4 rounded-full object-cover;
+}
+
+.gallery-item__author-name {
+  @apply truncate max-w-20;
+}
+
+/* List Variant Specific Styles */
+.gallery-item--list .gallery-item__content {
+  @apply flex items-center space-x-3;
+}
+
+.gallery-item--list .gallery-item__metadata {
+  @apply flex-1 min-w-0 space-y-1;
+}
+
+.gallery-item--list .gallery-item__title {
+  @apply text-sm font-medium;
+}
+
+.gallery-item--list .gallery-item__description {
+  @apply text-xs truncate;
+}
+
+.gallery-item--list .gallery-item__info {
+  @apply flex items-center space-x-2 text-xs;
+}
+
+/* Hover Effects */
+.gallery-item__action-button {
+  @apply p-2 bg-white/90 dark:bg-gray-800/90 rounded-full;
+  @apply text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800;
+  @apply transform scale-90 transition-all duration-200;
+}
+
+.gallery-item__action-button:hover {
+  @apply scale-100 shadow-lg;
+}
+
+.gallery-item__action-button--destructive {
+  @apply bg-red-500/90 text-white hover:bg-red-500;
+}
+
+/* Grid Layout Enhancements */
+.gallery-grid {
+  @apply grid gap-4;
+}
+
+.gallery-grid--sm {
+  @apply grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5;
+}
+
+.gallery-grid--md {
+  @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+.gallery-grid--lg {
+  @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+}
+
+/* Loading States */
+.gallery-item__skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded-lg;
+}
+
+.gallery-item__skeleton--image {
+  @apply aspect-video mb-3;
+}
+
+.gallery-item__skeleton--title {
+  @apply h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2;
+}
+
+.gallery-item__skeleton--description {
+  @apply h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/2;
+}
+
+/* Drag and Drop States */
+.gallery-item--dragging {
+  @apply opacity-50 transform rotate-3 scale-95;
+}
+
+.gallery-item--drop-target {
+  @apply ring-2 ring-blue-400 ring-dashed bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* Error States */
+.gallery-item--error {
+  @apply border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20;
+}
+
+.gallery-item--error .gallery-item__placeholder {
+  @apply bg-red-100 dark:bg-red-900/30;
+}
+
+/* Compact Grid for Mobile */
+@media (max-width: 640px) {
+  .gallery-item--grid {
+    @apply rounded-lg shadow-sm;
+  }
+
+  .gallery-item__content--grid {
+    @apply p-2;
+  }
+
+  .gallery-item__image-container--grid {
+    @apply mb-2;
+  }
+
+  .gallery-item__title {
+    @apply text-xs;
+  }
+
+  .gallery-item__description {
+    @apply hidden;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .gallery-item {
+    @apply border-2 border-gray-900 dark:border-white;
+  }
+
+  .gallery-item--selected {
+    @apply bg-yellow-100 dark:bg-yellow-900 ring-yellow-500;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item,
+  .gallery-item__image,
+  .gallery-item__actions-overlay,
+  .gallery-item__selection-indicator,
+  .gallery-item__action-button {
+    @apply transition-none;
+  }
+
+  .gallery-item:hover {
+    transform: none;
+  }
+
+  .gallery-item:hover .gallery-item__image {
+    @apply scale-100;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .gallery-item {
+    @apply border border-gray-400 break-inside-avoid mb-4;
+  }
+
+  .gallery-item__actions-overlay,
+  .gallery-item__selection-indicator {
+    @apply hidden;
+  }
+
+  .gallery-item__image {
+    @apply scale-100;
+  }
+}
+
+/* Focus States for Accessibility */
+.gallery-item:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800;
+}
+
+/* Custom Properties for Theme Integration */
+.gallery-item {
+  --gallery-item-border-radius: theme(borderRadius.lg);
+  --gallery-item-shadow: theme(boxShadow.sm);
+  --gallery-item-hover-shadow: theme(boxShadow.lg);
+  --gallery-item-transition: theme(transitionDuration.200);
+}

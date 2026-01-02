@@ -1,0 +1,226 @@
+/* Stroke Animations for SVG and Text */
+@keyframes stroke-draw {
+  0% {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes stroke-erase {
+  0% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes stroke-pulse {
+  0%,
+  100% {
+    stroke-width: 1;
+    opacity: 1;
+  }
+  50% {
+    stroke-width: 3;
+    opacity: 0.7;
+  }
+}
+
+@keyframes stroke-dash {
+  0% {
+    stroke-dasharray: 5 5;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 5 5;
+    stroke-dashoffset: 10;
+  }
+}
+
+@keyframes text-stroke-fill {
+  0% {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--primary-color);
+  }
+  100% {
+    color: var(--primary-color);
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: transparent;
+  }
+}
+
+@keyframes text-stroke-outline {
+  0% {
+    color: var(--primary-color);
+    -webkit-text-stroke-width: 0px;
+  }
+  100% {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--primary-color);
+  }
+}
+
+@keyframes border-draw {
+  0% {
+    border-image-slice: 0 0 0 0;
+  }
+  25% {
+    border-image-slice: 100 0 0 0;
+  }
+  50% {
+    border-image-slice: 100 100 0 0;
+  }
+  75% {
+    border-image-slice: 100 100 100 0;
+  }
+  100% {
+    border-image-slice: 100 100 100 100;
+  }
+}
+
+@keyframes underline-expand {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* Animation Classes */
+.animate-stroke-draw {
+  animation: stroke-draw 2s ease-in-out;
+}
+
+.animate-stroke-erase {
+  animation: stroke-erase 2s ease-in-out;
+}
+
+.animate-stroke-pulse {
+  animation: stroke-pulse 1.5s ease-in-out infinite;
+}
+
+.animate-stroke-dash {
+  animation: stroke-dash 1s linear infinite;
+}
+
+.animate-text-stroke-fill {
+  animation: text-stroke-fill 1s ease-in-out;
+}
+
+.animate-text-stroke-outline {
+  animation: text-stroke-outline 1s ease-in-out;
+}
+
+.animate-border-draw {
+  animation: border-draw 2s ease-in-out;
+}
+
+.animate-underline-expand {
+  animation: underline-expand 0.5s ease-out;
+}
+
+/* SVG Stroke Utilities */
+.svg-draw-on-scroll {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 2s ease-in-out;
+}
+
+.svg-draw-on-scroll.visible {
+  stroke-dashoffset: 0;
+}
+
+.svg-stroke-animated {
+  stroke-dasharray: 100;
+  animation: stroke-dash 2s linear infinite;
+}
+
+/* Text Stroke Utilities */
+.text-stroke {
+  -webkit-text-stroke: 1px var(--stroke-color, #000);
+  text-stroke: 1px var(--stroke-color, #000);
+  color: transparent;
+}
+
+.text-stroke-hover {
+  transition: all 0.3s ease;
+}
+
+.text-stroke-hover:hover {
+  color: var(--text-color);
+  -webkit-text-stroke-width: 0;
+}
+
+/* Border Stroke Effects */
+.border-stroke {
+  position: relative;
+  overflow: hidden;
+}
+
+.border-stroke::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--border-color, #000);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.border-stroke:hover::before {
+  opacity: 1;
+  animation: border-draw 1s ease-in-out;
+}
+
+/* Underline Effects */
+.underline-animated {
+  position: relative;
+  text-decoration: none;
+}
+
+.underline-animated::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--underline-color, currentColor);
+  transition:
+    width 0.3s ease,
+    left 0.3s ease;
+}
+
+.underline-animated:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Loading Stroke */
+.stroke-loading {
+  stroke-dasharray: 50 50;
+  animation: stroke-dash 2s linear infinite;
+}
+
+.stroke-loading-slow {
+  animation-duration: 3s;
+}
+
+.stroke-loading-fast {
+  animation-duration: 1s;
+}

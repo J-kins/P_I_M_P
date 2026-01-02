@@ -1,0 +1,430 @@
+/* Table Row Component Styles */
+/* Provides styling for table rows with selection, expansion, and various states */
+
+.table-row-host {
+  @apply relative;
+}
+
+.table-row {
+  @apply transition-colors duration-150;
+}
+
+/* Variant Styles */
+.table-row--default {
+  @apply bg-white dark:bg-gray-800;
+}
+
+.table-row--compact {
+  @apply bg-white dark:bg-gray-800;
+}
+
+.table-row--bordered {
+  @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700;
+}
+
+.table-row--striped:nth-child(even) {
+  @apply bg-gray-50 dark:bg-gray-750;
+}
+
+/* Size Variants */
+.table-row--sm {
+  @apply text-sm;
+}
+
+.table-row--md {
+  @apply text-base;
+}
+
+.table-row--lg {
+  @apply text-lg;
+}
+
+/* Interactive States */
+.table-row--clickable {
+  @apply cursor-pointer;
+}
+
+.table-row--clickable:hover {
+  @apply bg-gray-50 dark:bg-gray-750 transform scale-[1.005];
+}
+
+.table-row--clickable:active {
+  @apply transform scale-[0.995];
+}
+
+.table-row--selectable {
+  @apply relative;
+}
+
+.table-row--selected {
+  @apply bg-blue-50 dark:bg-blue-900/20 border-l-4 border-l-blue-500;
+}
+
+.table-row--expandable {
+  @apply relative;
+}
+
+.table-row--expanded {
+  @apply bg-gray-50 dark:bg-gray-750;
+}
+
+.table-row--disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.table-row--disabled:hover {
+  transform: none !important;
+}
+
+.table-row--loading {
+  @apply opacity-60;
+}
+
+/* Status Variants */
+.table-row--success {
+  @apply border-l-4 border-l-green-500 bg-green-50 dark:bg-green-900/20;
+}
+
+.table-row--warning {
+  @apply border-l-4 border-l-yellow-500 bg-yellow-50 dark:bg-yellow-900/20;
+}
+
+.table-row--error {
+  @apply border-l-4 border-l-red-500 bg-red-50 dark:bg-red-900/20;
+}
+
+/* Special Cells */
+.table-row__selection-cell {
+  @apply w-12 px-3 py-3 text-center;
+}
+
+.table-row__checkbox {
+  @apply w-4 h-4 text-blue-600 bg-white border-gray-300 rounded;
+  @apply focus:ring-blue-500 dark:focus:ring-blue-600;
+  @apply dark:ring-offset-gray-800 focus:ring-2;
+  @apply dark:bg-gray-700 dark:border-gray-600;
+}
+
+.table-row__expand-cell {
+  @apply w-12 px-3 py-3 text-center;
+}
+
+.table-row__expand-button {
+  @apply p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600;
+  @apply transition-colors duration-150;
+}
+
+.table-row__expand-icon {
+  @apply w-4 h-4 text-gray-500 dark:text-gray-400;
+  @apply transform transition-transform duration-200;
+}
+
+.table-row__expand-icon--expanded {
+  @apply rotate-90;
+}
+
+.table-row__index-cell {
+  @apply w-16 px-3 py-3 text-center text-gray-500 dark:text-gray-400;
+  @apply font-mono text-sm;
+}
+
+.table-row__actions-cell {
+  @apply w-24 px-3 py-3 text-right;
+}
+
+.table-row__actions {
+  @apply flex items-center justify-end space-x-1;
+  @apply opacity-0 transition-opacity duration-200;
+}
+
+.table-row:hover .table-row__actions {
+  @apply opacity-100;
+}
+
+/* Loading Cell */
+.table-row__loading-cell {
+  @apply text-center;
+}
+
+.table-row__loading {
+  @apply flex items-center justify-center space-x-2 py-4;
+}
+
+.table-row__spinner {
+  @apply w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin;
+}
+
+.table-row__loading-text {
+  @apply text-sm text-gray-500 dark:text-gray-400;
+}
+
+/* Expanded Content */
+.table-row__expanded-content {
+  @apply bg-gray-50 dark:bg-gray-750;
+}
+
+.table-row__expanded-cell {
+  @apply p-0 border-b border-gray-200 dark:border-gray-700;
+}
+
+.table-row__expanded-wrapper {
+  @apply p-4 border-l-4 border-l-blue-200 dark:border-l-blue-700;
+  animation: expand-in 300ms ease-out;
+}
+
+/* Animations */
+@keyframes expand-in {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+/* Hover Effects */
+.table-row:hover {
+  @apply bg-gray-50 dark:bg-gray-750;
+}
+
+.table-row--selected:hover {
+  @apply bg-blue-100 dark:bg-blue-800/30;
+}
+
+/* Focus States */
+.table-row:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-inset;
+}
+
+.table-row__checkbox:focus-visible {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+}
+
+.table-row__expand-button:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-800;
+}
+
+/* Drag and Drop States */
+.table-row--dragging {
+  @apply opacity-50 transform scale-95;
+}
+
+.table-row--drop-target {
+  @apply border-t-2 border-t-blue-500 bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* Error State */
+.table-row--row-error {
+  @apply bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800;
+}
+
+/* Skeleton Loading */
+.table-row--skeleton {
+  @apply animate-pulse;
+}
+
+.table-row--skeleton td {
+  @apply bg-gray-200 dark:bg-gray-700 text-transparent;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .table-row__selection-cell,
+  .table-row__expand-cell {
+    @apply w-10 px-2;
+  }
+
+  .table-row__index-cell {
+    @apply w-12 px-2;
+  }
+
+  .table-row__actions-cell {
+    @apply w-20 px-2;
+  }
+
+  .table-row__actions {
+    @apply opacity-100;
+  }
+
+  .table-row__expanded-wrapper {
+    @apply p-2;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .table-row {
+    @apply border border-gray-900 dark:border-white;
+  }
+
+  .table-row--selected {
+    @apply bg-yellow-100 dark:bg-yellow-900 border-yellow-500;
+  }
+
+  .table-row:hover {
+    @apply bg-yellow-50 dark:bg-yellow-950;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .table-row,
+  .table-row__expand-icon,
+  .table-row__actions,
+  .table-row__spinner {
+    @apply transition-none;
+  }
+
+  .table-row--clickable:hover,
+  .table-row--clickable:active {
+    transform: none !important;
+  }
+
+  .table-row__expanded-wrapper {
+    animation: none;
+  }
+
+  .table-row__spinner {
+    @apply animate-none;
+  }
+
+  .table-row--skeleton {
+    @apply animate-none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .table-row {
+    @apply border border-gray-400 bg-transparent;
+  }
+
+  .table-row__selection-cell,
+  .table-row__expand-cell,
+  .table-row__actions-cell {
+    @apply hidden;
+  }
+
+  .table-row__expanded-content {
+    @apply break-inside-avoid;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .table-row--selected {
+  @apply border-l-0 border-r-4 border-r-blue-500;
+}
+
+[dir="rtl"] .table-row--success {
+  @apply border-l-0 border-r-4 border-r-green-500;
+}
+
+[dir="rtl"] .table-row--warning {
+  @apply border-l-0 border-r-4 border-r-yellow-500;
+}
+
+[dir="rtl"] .table-row--error {
+  @apply border-l-0 border-r-4 border-r-red-500;
+}
+
+[dir="rtl"] .table-row__actions {
+  @apply justify-start;
+}
+
+[dir="rtl"] .table-row__expanded-wrapper {
+  @apply border-l-0 border-r-4 border-r-blue-200 dark:border-r-blue-700;
+}
+
+/* Custom Properties for Theme Integration */
+.table-row {
+  --table-row-bg: theme(colors.white);
+  --table-row-hover-bg: theme(colors.gray.50);
+  --table-row-selected-bg: theme(colors.blue.50);
+  --table-row-border: theme(colors.gray.200);
+  --table-row-transition: theme(transitionDuration.150);
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-row {
+    --table-row-bg: theme(colors.gray.800);
+    --table-row-hover-bg: theme(colors.gray.750);
+    --table-row-selected-bg: rgba(59, 130, 246, 0.2);
+    --table-row-border: theme(colors.gray.700);
+  }
+}
+
+/* Accessibility Enhancements */
+.table-row[aria-selected="true"] {
+  @apply bg-blue-100 dark:bg-blue-900/30;
+}
+
+.table-row[aria-expanded="true"] .table-row__expand-icon {
+  @apply rotate-90;
+}
+
+/* Nested Tables */
+.table-row .table-row {
+  @apply bg-gray-25 dark:bg-gray-825;
+}
+
+.table-row .table-row:hover {
+  @apply bg-gray-75 dark:bg-gray-775;
+}
+
+/* Row Groups */
+.table-row-group {
+  @apply border-t-2 border-gray-300 dark:border-gray-600;
+}
+
+.table-row-group:first-child {
+  @apply border-t-0;
+}
+
+/* Sticky Rows */
+.table-row--sticky {
+  @apply sticky z-10;
+}
+
+.table-row--sticky-top {
+  @apply top-0;
+}
+
+.table-row--sticky-bottom {
+  @apply bottom-0;
+}
+
+/* Virtual Scrolling Support */
+.table-row--virtual {
+  @apply absolute top-0 left-0 right-0;
+}
+
+/* Batch Selection */
+.table-row--in-selection {
+  @apply bg-blue-25 dark:bg-blue-975;
+}
+
+/* Progressive Enhancement */
+.table-row--enhanced {
+  @apply relative;
+}
+
+.table-row--enhanced::before {
+  content: "";
+  @apply absolute left-0 top-0 bottom-0 w-1 bg-transparent;
+  @apply transition-colors duration-150;
+}
+
+.table-row--enhanced:hover::before {
+  @apply bg-blue-500;
+}
+
+/* Performance Optimizations */
+.table-row--optimized {
+  contain: layout style paint;
+}
+
+.table-row--optimized .table-row__actions {
+  will-change: opacity;
+}
